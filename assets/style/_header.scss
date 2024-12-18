@@ -1,0 +1,261 @@
+.header {
+  width: 100vw;
+  position: fixed;
+  height: 64px;
+  background-color: var(--color-bg);
+  z-index: 40;
+
+  &-container {
+    margin: 0;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    background-color: var(--color-bg);
+
+    &.white {
+      background-color: var(--color-bg1);
+    }
+  }
+
+  &-leftside,
+  &-rightside {
+    display: flex;
+    text-wrap: nowrap;
+    align-items: center;
+  }
+
+  &-rightside {
+    gap: 16px;
+  }
+
+  .logo-link {
+    display: inline-block;
+    width: 100%;
+    height: 24px;
+    padding-right: 12px;
+
+    img {
+      height: 24px;
+    }
+  }
+
+  &-nav {
+    height: 100%;
+  }
+
+  &-list {
+    display: flex;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    font-weight: 500;
+    height: 64px;
+    position: relative;
+
+    &:hover {
+      color: var(--color-textBrand);
+    }
+
+    &:hover .header-drop {
+      display: flex;
+    }
+
+    &:hover .header-item__svg {
+      transform: rotate(180deg);
+    }
+
+    &.day a {
+      color: var(--color-textPrimaryDay) !important;
+
+      &:hover {
+        color: #c99400 !important;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: flex-end;
+
+      &:hover {
+        color: var(--color-textBrand) !important;
+      }
+    }
+
+    &__svg {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+
+  &-drop {
+    display: none;
+    gap: 24px;
+    position: absolute;
+    width: fit-content;
+    background-color: var(--color-popupBg);
+    padding: 24px;
+    border-radius: 0 0 8px 8px;
+
+    top: 65px;
+    left: 50%;
+    transform: translate(-45%, 0);
+
+    dt {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      color: var(--color-textDisabled);
+      margin-bottom: 24px;
+    }
+
+    dd, li {
+      max-width: 268px;
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.day {
+      background-color: var(--color-bg1);
+      -webkit-box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
+      -moz-box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
+      box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
+
+      dt {
+        color: var(--color-DisabledText) !important;
+      }
+
+      dd, li {
+        color: var(--color-textThird) !important;
+      }
+
+      h3 {
+        color: var(--color-textPrimaryDay) !important;
+      }
+    }
+  }
+
+  &-feature {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 268px;
+    position: relative;
+
+    &:hover .header-feature__arrow {
+      display: block;
+      width: 25px;
+      transition: width 0.4s;
+    }
+
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .icon-drop {
+      fill: #eaecef;
+
+      path {
+        stroke: #eaecef;
+      }
+
+      &.day {
+        fill: var(--color-Line);
+
+        path {
+          stroke: var(--color-Line);
+        }
+      }
+    }
+
+    h3 {
+      color: var(--color-textPrimary);
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    &__img {
+      margin-top: 4px;
+    }
+
+    &__desc {
+      width: 240px;
+    }
+
+    &__header {
+      width: fit-content;
+      display: flex;
+      align-items: flex-end;
+
+      &.start {
+        align-items: flex-start;
+
+        .header-feature__arrow {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    &__arrow {
+      fill: var(--color-textBrand);
+      margin-left: 5px;
+      width: 0;
+      height: 18px;
+    }
+
+    p {
+      width: 100%;
+      text-wrap: wrap;
+      font-size: 0.75rem;
+      line-height: 1.125rem;
+      color: var(--color-TertiaryText);
+    }
+  }
+
+  &-authentication {
+    display: flex;
+    margin: 0;
+    gap: 8px;
+  }
+
+  &-icon {
+    fill: #eaecef;
+
+    path {
+      stroke: #eaecef;
+    }
+
+    &.day {
+      fill: var(--color-Line);
+
+      path {
+        stroke: var(--color-Line);
+      }
+    }
+
+    &:hover {
+      fill: var(--color-textBrand);
+    }
+
+    &.static:hover {
+      fill: #eaecef;
+    }
+  }
+}

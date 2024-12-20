@@ -11,6 +11,7 @@
       data-shuvi-head="true"
     />
     <link rel="stylesheet" href="../../assets/style/style.css" />
+    <link rel="stylesheet" href="../../assets/style/media/loginMedia.css" />
   </head>
   <body>
     <div class="auth-wrapper">
@@ -53,7 +54,9 @@
           </form>
         </div>
         <div class="auth-links">
-          <a class="auth-link" href="#" onclick="return false;">Забыли пароль?</a>
+          <a class="auth-link" href="#" onclick="return false;"
+            >Забыли пароль?</a
+          >
           <a class="auth-link" href="#" onclick="return false;"
             >Используйте Passkey для входа в систему</a
           >
@@ -111,13 +114,16 @@
             data.append("password", password);
 
             try {
-              const response = await fetch(`${SERVER_URL_ACCOUNT}/auth/sign-in/login`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: data,
-              });
+              const response = await fetch(
+                `${SERVER_URL_ACCOUNT}/auth/sign-in/login`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                  },
+                  body: data,
+                }
+              );
 
               if (response.ok) {
                 const responseData = await response.json();

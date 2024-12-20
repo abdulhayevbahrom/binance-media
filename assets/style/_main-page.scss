@@ -1,5 +1,6 @@
 .container {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -18,6 +19,7 @@
 /* first */
 
 .b-first__container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -28,7 +30,7 @@
 }
 
 .b-first__sidebar {
-  width: 40%;
+  width: 46%;
 }
 
 .b-first__title {
@@ -649,6 +651,7 @@
 
 .b-today {
   background-color: #1e2329;
+  width: 100%;
 }
 
 .b-today__container {

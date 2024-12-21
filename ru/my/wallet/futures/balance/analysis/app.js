@@ -1,5 +1,6 @@
 // MAIN API
-const API = "https://www.binance.com";
+// const API = "https://www.binance.com";
+const API = "http://91.210.149.127:8010";
 
 // TODAY'S DATE
 let today_start = moment().startOf("day");
@@ -11,7 +12,7 @@ let today_end = moment().endOf("day");
 function noData(margin_top) {
   return `
     <div style="margin-top: ${margin_top || 0}px;" class="no_data_box">
-      <img width="50%" src="/analysis/assets/download.png" alt="No Data" />
+      <img width="50%" src="./analysis/assets/download.png" alt="No Data" />
       <p style="color: #848e9c; font-size: 16px; text-align: center; margin-top: 10px;">Нет данных</p>
     </div>`;
 }

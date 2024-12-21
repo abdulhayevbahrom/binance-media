@@ -206,6 +206,7 @@ button {
     margin-top: 24px;
   }
 }
+
 .balance__head {
   display: flex;
   align-items: center;
@@ -963,7 +964,7 @@ button {
 }
 @media (max-width: 1023px) {
   .transaction-history__table {
-    display: none;
+    /* display: none; */
   }
 }
 .transaction-history--mobile {
@@ -1764,6 +1765,7 @@ button {
 .futures-balance__right {
   width: 40%;
   position: relative;
+  padding: 20px;
 }
 .futures-balance__value {
   font-size: 32px;

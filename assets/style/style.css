@@ -1113,7 +1113,7 @@ button {
 
 @media (max-width: 1023px) {
   .transaction-history__table {
-    display: none;
+    /* display: none; */
   }
 }
 
@@ -1995,6 +1995,7 @@ button {
 .futures-balance__right {
   width: 40%;
   position: relative;
+  padding: 20px;
 }
 
 .futures-balance__value {

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="/styles/modal.css" />
-  <link rel="stylesheet" href="/styles/tooltip.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/modal.css" />
+  <link rel="stylesheet" href="./styles/tooltip.css" />
 
   <link rel="stylesheet" href="../../../../../../assets/style/style.css" />
 
@@ -2897,17 +2897,10 @@
                   <input class="half-input" type="text" name="lang" placeholder="Поиск">
                   <ul class="half-list">
                     <li class="half-item">
-                      <a
-                        href="#"
-                        onclick="changeLang(`ru`)"
-                        class="half-link active"
-                        >Русский</a
-                      >
+                      <a href="#" onclick="changeLang(`ru`)" class="half-link active">Русский</a>
                     </li>
                     <li class="half-item">
-                      <a href="#" onclick="changeLang(`en`)" class="half-link"
-                        >English</a
-                      >
+                      <a href="#" onclick="changeLang(`en`)" class="half-link">English</a>
                     </li>
                     <li class="half-item">
                       <a href="#" onclick="return false;" class="half-link">العربية</a>
@@ -3226,7 +3219,7 @@
       <!-- SIDEBAR END -->
       <div class="main" id="main_4454">
 
-        <div class="back-btn" >
+        <div class="back-btn">
           <a href="#">
             <span onclick="goBack()" class="back-btn-icon">
               <svg class="back-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -3474,8 +3467,8 @@
                     <div class="container-dg-box">
                       <div class="chart-container">
                         <div class="title">Обзор активов</div>
-                           <div id="assetOverviewChart"></div>
-                           <div id="pieChart_labels_show_active"></div>
+                        <div id="assetOverviewChart"></div>
+                        <div id="pieChart_labels_show_active"></div>
 
                       </div>
 
@@ -3490,9 +3483,9 @@
 
                 <div id="Details" class="tab-content">
                   <div class="container-table-istory">
-                      <h3>История прибыли и убытка</h3>
-                      <table>
-                          <thead>
+                    <h3>История прибыли и убытка</h3>
+                    <table>
+                      <thead>
                         <tr>
                           <th>
                             <p style="border: none">Дата</p>
@@ -3529,13 +3522,13 @@
                           </th>
                         </tr>
                       </thead>
-                          <tbody id="details_table_body"></tbody>
-                      </table>
-                      <div id="pagination-container">
-                          <button id="prev-btn" class="pagination-btn">❮</button>
-                          <!-- <span id="page-info">Page: 1</span> -->
-                          <button id="next-btn" class="pagination-btn">❯</button>
-                      </div>
+                      <tbody id="details_table_body"></tbody>
+                    </table>
+                    <div id="pagination-container">
+                      <button id="prev-btn" class="pagination-btn">❮</button>
+                      <!-- <span id="page-info">Page: 1</span> -->
+                      <button id="next-btn" class="pagination-btn">❯</button>
+                    </div>
                   </div>
                 </div>
 
@@ -3761,7 +3754,7 @@
   <!-- CDN -->
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
-  <script src="../../../../../assets/js/lang.js" ></script>
+  <script src="../../../../../assets/js/lang.js"></script>
   <script>
     document.querySelectorAll('.sidebar__menu-item--accordion').forEach(item => {
       item.addEventListener('click', () => {

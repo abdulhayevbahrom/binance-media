@@ -15,11 +15,14 @@
       rel="stylesheet"
       href="../../../../../assets/style/swiper-bundle.min.css"
     />
+
+    <link rel="stylesheet" href="../../../../../assets/style/media/overviewMedia.css">
+
   </head>
   <body>
     <div class="wrapper">
               <!--Шапка-->
-              <header class="header">
+              <header style="display: none !important;" class="header">
                 <div class="header-container">
                   <div class="header-leftside">
                     <a class="logo-link" href="/ru">
@@ -3703,6 +3706,18 @@
     <script src="../../../../../assets/js/lang.js"></script>
     <script>
     
+    function handleResize() {
+      const balanceDiv = document.querySelector('.balance');
+      if (window.innerWidth < 768) {
+        balanceDiv.classList.add('expand');
+      } else {
+        balanceDiv.classList.remove('expand');
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleResize);
+
       const currencySelect = document.querySelector("#currency-select");
       const currencySelectLabel = currencySelect.querySelector(".select__label");
       const currencySelectLabelSpan = currencySelectLabel.querySelector("span");

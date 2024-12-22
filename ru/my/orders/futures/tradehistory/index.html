@@ -15,6 +15,9 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
   />
+
+  <link rel="stylesheet" href="./tradeHistoryMedia.css">
+
   </head>
   <body>
     <div class="backdrop"></div>
@@ -3467,7 +3470,7 @@
                   <button class="option-button" id="export-button"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H5v18h14V7l-4-4zm-4.5 5.752h3v3.997H16l-4 4-4-4h2.5V8.752z" fill="white"></path></svg></button>
                 </div>
               </div>
-              <div class="order-filters">
+             <div class="order-filters">
                 <div class="order-tab" id="order-tab-1">
                     <button class="order-tab-active">USDⓈ-M</button>
                     <button>COIN-M</button>
@@ -3538,7 +3541,7 @@
                   </div>
                 <button class="order-search-button">Поиск</button>
                 <button class="reset-selects">Сброс</button>
-              </div>
+              </div> 
           <table class="order-table tradehistory-table">
             <colgroup>
               <col style="width: 16.8%;">
@@ -3560,7 +3563,9 @@
                 <th>Реализованная прибыль</th>
               </tr>
             </thead>
-            <tbody id="tradehistory-tbody"></tbody>
+            <tbody id="tradehistory-tbody">
+              
+            </tbody>
           </table>
           <span class="order-table-caption">
             * Поддерживается до 10 000 записей о сделках за последние 3 месяца. Для просмотра данных за больший период времени воспользуйтесь функцией «Экспорт» и выберите «Загрузка большого объема данных».
@@ -3798,15 +3803,25 @@ updateExportDateRange(7)
         transactions.forEach(transaction => {
             const row = document.createElement('tr');
 
+            // row.innerHTML = `
+            //     <td>${formatTimestamp(transaction.time)}</td>
+            //     <td>${transaction.ticker}</td>
+            //     <td class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
+            //     <td>${formatter.format(transaction.price)}</td>
+            //     <td>${(+transaction.quantity).toFixed(1)} USDT</td>
+            //     <td>${transaction.commission} USDT</td>
+            //     <td>${transaction.realized_profit} USDT</td>
+            // `;
+
             row.innerHTML = `
-                <td>${formatTimestamp(transaction.time)}</td>
-                <td>${transaction.ticker}</td>
-                <td class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
-                <td>${formatter.format(transaction.price)}</td>
-                <td>${(+transaction.quantity).toFixed(1)} USDT</td>
-                <td>${transaction.commission} USDT</td>
-                <td>${transaction.realized_profit} USDT</td>
-            `;
+  <td data-label="Время">${formatTimestamp(transaction.time)}</td>
+  <td data-label="Тикер">${transaction.ticker}</td>
+  <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
+  <td data-label="Цена">${formatter.format(transaction.price)}</td>
+  <td data-label="Количество">${(+transaction.quantity).toFixed(1)} USDT</td>
+  <td data-label="Комиссия">${transaction.commission} USDT</td>
+  <td data-label="Реализованная прибыль">${transaction.realized_profit} USDT</td>
+`;
             
             tbody.appendChild(row);
         });

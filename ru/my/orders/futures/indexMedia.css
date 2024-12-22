@@ -1,0 +1,15 @@
+.order-table {
+  padding: 40px !important;
+  background-color: blue !important;
+  width: 100%;
+}
+
+.order-not-found {
+  justify-content: center;
+  align-items: center;
+}
+
+.order-page--futures + .footer {
+  position: absolute;
+  bottom: 0;
+}

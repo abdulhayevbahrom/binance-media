@@ -13,7 +13,25 @@
     <link rel="stylesheet" href="../../../../../assets/style/style.css" />
     <link
       rel="stylesheet"
+      href="../../../../../ru/my/orders/futures/tradehistory/tradeHistoryMedia.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="../../../../../assets/style/media/headerMedia.css"
+    />
+    <link rel="stylesheet" href="../../../wallet/account/futures/media.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>
@@ -324,24 +342,81 @@
     <div class="wrapper">
       <!--Шапка-->
       <header class="header">
+        <a class="logo-link" href="/ru">
+          <img
+            src="../../../../../assets/img/logo/948px-Binance_logo.svg.png"
+            alt="header-logo"
+          />
+        </a>
+
         <div class="header-container">
+          <a href="#" class="logo-link_none" onclick="toggleMenu(event)">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a>
+
           <div class="header-leftside">
-            <a class="logo-link" href="/en">
+            <a class="logo-link" href="/ru">
               <img
-                src="../../../../../assets/img/logo/948px-Binance_logo.svg.png"
+                src="../../../../../../assets/img/logo/948px-Binance_logo.svg.png"
                 alt="header-logo"
               />
             </a>
             <nav class="header-nav">
               <ul class="header-list">
                 <li class="header-item">
-                  <a href="#" onclick="return false;">Buy Cryptocurrency</a>
-                </li>
-                <li class="header-item">
-                  <a href="#" onclick="return false;">Markets</a>
+                  <a href="#" onclick="return false;">
+                    <svg
+                      id="icon_mobile-bar"
+                      width="23"
+                      height="23"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.3851 15.275C12.4961 15.271 14.9251 15.262 14.8971 13.717C14.8701 12.137 12.5371 12.232 11.4001 12.279C11.2721 12.285 11.1614 12.2887 11.0681 12.29L11.1201 15.277C11.1961 15.275 11.2844 15.2743 11.3851 15.275ZM11.2671 10.922C12.1941 10.921 14.2171 10.919 14.1931 9.514C14.1671 8.077 12.2241 8.162 11.2751 8.204C11.1684 8.20933 11.0757 8.21267 10.9971 8.214L11.0441 10.923L11.2671 10.922Z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M9.09604 23.641C15.526 25.244 22.038 21.331 23.641 14.903C25.244 8.47399 21.33 1.96199 14.9 0.359994C8.47404 -1.24401 1.96204 2.66999 0.360043 9.09999C-1.24296 15.528 2.67004 22.04 9.09704 23.642M13.379 6.62199C15.133 6.74599 16.529 7.25999 16.712 8.86399C16.848 10.038 16.368 10.753 15.589 11.167C16.889 11.455 17.714 12.21 17.584 13.938C17.423 16.083 15.836 16.686 13.558 16.857L13.596 19.107L12.24 19.131L12.201 16.911C11.8504 16.9177 11.489 16.9203 11.117 16.919L11.157 19.149L9.80104 19.173L9.76104 16.919L9.37804 16.922C9.18338 16.922 8.98804 16.924 8.79204 16.928L7.02604 16.958L7.26704 15.334C7.26704 15.334 8.27104 15.332 8.25304 15.317C8.63704 15.309 8.73404 15.032 8.75504 14.858L8.69304 11.3L8.79004 11.298H8.83604C8.78827 11.2922 8.74015 11.2899 8.69204 11.291L8.64804 8.75099C8.59104 8.47699 8.40704 8.16099 7.85804 8.17099C7.87304 8.15099 6.87204 8.18799 6.87204 8.18799L6.84604 6.73999L8.71804 6.70799V6.71499C9.00004 6.70966 9.28771 6.70099 9.58104 6.68899L9.54304 4.45999L10.899 4.43699L10.937 6.62099C11.299 6.60799 11.663 6.59399 12.02 6.58799L11.982 4.41799L13.339 4.39399L13.379 6.62199Z"
+                      />
+                    </svg>
+                    Buy Cryptocurrency</a
+                  >
                 </li>
                 <li class="header-item">
                   <a href="#" onclick="return false;">
+                    <svg
+                      id="icon_mobile-bar"
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 -960 960 960"
+                      width="24px"
+                    >
+                      <path
+                        d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z"
+                      />
+                    </svg>
+                    Markets</a
+                  >
+                </li>
+                <li class="header-item" data-modal="modal1">
+                  <a href="#" onclick="return false;">
+                    <svg
+                      id="icon_mobile-bar"
+                      width="26"
+                      height="26"
+                      viewBox="0 0 24 25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_3_73)">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M15 4C13.7969 3.99967 12.6269 4.39383 11.6692 5.12209C10.7116 5.85036 10.0191 6.87254 9.698 8.032C11.4386 8.19458 13.0677 8.96007 14.3038 10.1962C15.5399 11.4323 16.3054 13.0614 16.468 14.802C17.7485 14.4451 18.8565 13.6367 19.5872 12.5262C20.3178 11.4157 20.6218 10.0783 20.4428 8.76108C20.2637 7.44388 19.6139 6.23603 18.6134 5.36081C17.6129 4.4856 16.3293 4.00221 15 4ZM14.5 15.5C14.5 14.0413 13.9205 12.6424 12.8891 11.6109C11.8576 10.5795 10.4587 10 9 10C7.54131 10 6.14236 10.5795 5.11091 11.6109C4.07946 12.6424 3.5 14.0413 3.5 15.5C3.5 16.9587 4.07946 18.3576 5.11091 19.3891C6.14236 20.4205 7.54131 21 9 21C10.4587 21 11.8576 20.4205 12.8891 19.3891C13.9205 18.3576 14.5 16.9587 14.5 15.5ZM6.5 15.5L9 18L11.5 15.5L9 13L6.5 15.5Z"
+                        />
+                      </g>
+                    </svg>
                     Trading
                     <svg
                       class="header-item__svg"
@@ -356,9 +431,9 @@
                       ></path>
                     </svg>
                   </a>
-                  <div class="header-drop" id="trade-drop">
+                  <div class="header-drop" id="modal1">
                     <dl>
-                      <dt>Basic</dt>
+                      <dt>Essentials</dt>
                       <dd>
                         <form class="header-feature" action="#">
                           <input type="submit" />
@@ -370,7 +445,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#spot"
+                                href="../../../../../../assets/img/icons/sprite.svg#spot"
                               ></use>
                             </svg>
                           </div>
@@ -382,13 +457,12 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Buy and sell in the spot market using advanced
-                              tools
+                              Buy and sell on the spot market using modern tools
                             </p>
                           </div>
                         </form>
@@ -404,7 +478,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#margin"
+                                href="../../../../../../assets/img/icons/sprite.svg#margin"
                               ></use>
                             </svg>
                           </div>
@@ -416,7 +490,7 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
@@ -435,7 +509,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#p2p"
+                                href="../../../../../../assets/img/icons/sprite.svg#p2p"
                               ></use>
                             </svg>
                           </div>
@@ -447,13 +521,13 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Buy and sell cryptocurrency via bank transfer and
-                              over 800 other methods
+                              Buy and sell cryptocurrency using bank transfers
+                              and over 800 other methods
                             </p>
                           </div>
                         </form>
@@ -469,27 +543,28 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#conversion"
+                                href="../../../../../../assets/img/icons/sprite.svg#conversion"
                               ></use>
                             </svg>
                           </div>
                           <div class="header-feature__desc">
                             <div class="header-feature__header">
-                              <h3>Conversion and Block Trades</h3>
+                              <h3>Conversion and Large Deals</h3>
                               <svg
                                 class="header-feature__arrow"
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
-                            <p>The simplest way to trade any volume</p>
+                            <p>The easiest way to trade any volume</p>
                           </div>
                         </form>
                       </dd>
                     </dl>
+
                     <dl>
                       <dt>Advanced</dt>
                       <dd>
@@ -503,7 +578,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#bots"
+                                href="../../../../../../assets/img/icons/sprite.svg#bots"
                               ></use>
                             </svg>
                           </div>
@@ -515,13 +590,13 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Trade more effectively using our automated
-                              strategies — simple, fast, and reliable
+                              Trade more efficiently using our automated
+                              strategies — easily, quickly, and reliably
                             </p>
                           </div>
                         </form>
@@ -537,7 +612,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#trading"
+                                href="../../../../../../assets/img/icons/sprite.svg#trading"
                               ></use>
                             </svg>
                           </div>
@@ -549,11 +624,11 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
-                            <p>Follow top traders</p>
+                            <p>Follow the best traders</p>
                           </div>
                         </form>
                       </dd>
@@ -568,7 +643,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#api"
+                                href="../../../../../../assets/img/icons/sprite.svg#api"
                               ></use>
                             </svg>
                           </div>
@@ -580,7 +655,7 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
@@ -591,8 +666,23 @@
                     </dl>
                   </div>
                 </li>
-                <li class="header-item">
+                <li class="header-item" data-modal="modal2">
                   <a href="#" onclick="return false;">
+                    <svg
+                      id="icon_mobile-bar"
+                      width="26"
+                      height="26"
+                      viewBox="0 0 24 25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_3_76)">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8.5 3.5H20V16.5C20 17.5609 19.5786 18.5783 18.8284 19.3284C18.0783 20.0786 17.0609 20.5 16 20.5H7.5C6.57174 20.5 5.6815 20.1313 5.02513 19.4749C4.36875 18.8185 4 17.9283 4 17V9.5H8.5V3.5ZM11 15.006V17.506H17.5V15.006H11ZM8.5 12H6.5V17C6.5 17.2652 6.60536 17.5196 6.79289 17.7071C6.98043 17.8946 7.23478 18 7.5 18C7.76522 18 8.01957 17.8946 8.20711 17.7071C8.39464 17.5196 8.5 17.2652 8.5 17V12ZM12.5 6.506H17.5V11.506L15.885 9.89L13.269 12.506L11.501 10.738L14.117 8.122L12.5 6.506Z"
+                        />
+                      </g>
+                    </svg>
                     Futures
                     <svg
                       class="header-item__svg"
@@ -607,7 +697,7 @@
                       ></path>
                     </svg>
                   </a>
-                  <div class="header-drop">
+                  <div class="header-drop" id="modal2">
                     <ul>
                       <li>
                         <form class="header-feature" action="#">
@@ -620,7 +710,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#USD-M"
+                                href="../../../../../../assets/img/icons/sprite.svg#USD-M"
                               ></use>
                             </svg>
                           </div>
@@ -632,7 +722,7 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
@@ -651,7 +741,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#coin-m"
+                                href="../../../../../../assets/img/icons/sprite.svg#coin-m"
                               ></use>
                             </svg>
                           </div>
@@ -663,7 +753,7 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
@@ -682,7 +772,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#options"
+                                href="../../../../../../assets/img/icons/sprite.svg#options"
                               ></use>
                             </svg>
                           </div>
@@ -694,7 +784,7 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
@@ -708,12 +798,41 @@
                     </ul>
                   </div>
                 </li>
-                <li class="header-item">
+
+                <li class="header-item header-item-flex">
+                  <svg
+                    id="icon_mobile-bar"
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 25"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_3_79)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.014 1.5C11.1455 1.49981 10.2924 1.72991 9.54182 2.16684C8.7912 2.60377 8.16986 3.23191 7.74112 3.98723C7.31238 4.74256 7.09158 5.59806 7.10122 6.46652C7.11086 7.33499 7.3506 8.18538 7.796 8.931C6.66734 9.42372 5.69632 10.218 4.9896 11.2265C4.28289 12.2351 3.86782 13.4189 3.79 14.648H2V16.434H3.915C4.26543 18.1223 5.25326 19.6105 6.673 20.589L5.025 22.237L6.287 23.5L8.357 21.43C9.04005 21.657 9.75521 21.7725 10.475 21.772H15.779L17.371 23.364L18.633 22.101L17.293 20.761L21.643 16.411V13.724H19.709C19.5137 12.6443 19.0307 11.6372 18.311 10.809L20.746 8.374H16.518C16.8437 7.62645 16.9782 6.80958 16.9093 5.99708C16.8404 5.18458 16.5704 4.402 16.1235 3.71995C15.6766 3.0379 15.0669 2.47783 14.3495 2.09028C13.632 1.70272 12.8294 1.49986 12.014 1.5ZM8.888 6.412C8.88057 5.99685 8.95593 5.58438 9.10967 5.19867C9.2634 4.81296 9.49244 4.46175 9.78341 4.16553C10.0744 3.86932 10.4214 3.63403 10.8043 3.47342C11.1872 3.31281 11.5983 3.23009 12.0135 3.23009C12.4287 3.23009 12.8398 3.31281 13.2227 3.47342C13.6056 3.63403 13.9526 3.86932 14.2436 4.16553C14.5346 4.46175 14.7636 4.81296 14.9173 5.19867C15.0711 5.58438 15.1464 5.99685 15.139 6.412C15.1243 7.23125 14.7886 8.012 14.2041 8.58619C13.6195 9.16037 12.8329 9.48209 12.0135 9.48209C11.1941 9.48209 10.4075 9.16037 9.82294 8.58619C9.23839 8.012 8.90265 7.23125 8.888 6.412ZM10.674 6.412L12.014 5.072L13.354 6.412L12.014 7.752L10.674 6.412ZM9.748 13.734H14.278V11.948H9.748V13.734Z"
+                      />
+                    </g>
+                  </svg>
                   <a href="#" onclick="return false;">Earn</a>
                 </li>
 
-                <li class="header-item">
+                <li class="header-item" data-modal="modal3">
                   <a href="#" onclick="return false;">
+                    <svg
+                      id="icon_mobile-bar"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.9391 4.65544C12.9785 4.76286 13 4.87892 13 5V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V5C11 4.87892 11.0215 4.76286 11.0609 4.65544C9.82185 4.18328 8.49816 3.96114 7.16672 4.00556C5.52518 4.06033 3.9224 4.51858 2.5 5.33984C2.34798 5.4276 2.22175 5.55384 2.13398 5.70585C2.04621 5.85786 2 6.0303 2 6.20584V19.2058L2.002 19.2738L2.006 19.3228L2.016 19.3838L2.042 19.4938L2.058 19.5428L2.102 19.6458L2.134 19.7058L2.156 19.7418L2.22 19.8308L2.293 19.9128L2.353 19.9688L2.442 20.0358L2.537 20.0918L2.663 20.1478L2.771 20.1798L2.848 20.1938L2.958 20.2058H3L3.117 20.1998L3.178 20.1898L3.288 20.1638L3.337 20.1478L3.44 20.1038L3.767 19.9238C4.96337 19.2928 6.30021 18.9753 7.65257 19.0012C9.00494 19.0271 10.3287 19.3954 11.5 20.0718C11.652 20.1596 11.8245 20.2058 12 20.2058C12.1755 20.2058 12.348 20.1596 12.5 20.0718C13.7162 19.3697 15.0957 19 16.5 19C17.9043 19 19.2838 19.3697 20.5 20.0718C20.652 20.1596 20.8245 20.2058 21 20.2058C21.1755 20.2058 21.348 20.1596 21.5 20.0718C21.652 19.9841 21.7782 19.8578 21.866 19.7058C21.9538 19.5538 22 19.3814 22 19.2058V6.20584L21.993 6.08784C21.9746 5.93341 21.9205 5.78539 21.8349 5.65554C21.7494 5.52569 21.6347 5.4176 21.5 5.33984C20.0776 4.51858 18.4748 4.06033 16.8333 4.00556C15.5018 3.96114 14.1781 4.18328 12.9391 4.65544Z"
+                      />
+                    </svg>
                     Square
                     <svg
                       class="header-item__svg"
@@ -728,7 +847,7 @@
                       ></path>
                     </svg>
                   </a>
-                  <div class="header-drop">
+                  <div class="header-drop" id="modal3">
                     <ul>
                       <li>
                         <form class="header-feature" action="#">
@@ -741,7 +860,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#square"
+                                href="../../../../../../assets/img/icons/sprite.svg#square"
                               ></use>
                             </svg>
                           </div>
@@ -753,11 +872,11 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
-                            <p>Stay updated with cryptocurrency news</p>
+                            <p>Stay updated on cryptocurrency news</p>
                           </div>
                         </form>
                       </li>
@@ -772,23 +891,28 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#academy"
+                                href="../../../../../../assets/img/icons/sprite.svg#academy"
                               ></use>
                             </svg>
                           </div>
                           <div class="header-feature__desc">
                             <div class="header-feature__header start">
-                              <h3>Academy (Learn and Earn)</h3>
+                              <h3>
+                                Academy (Learn <br />
+                                and Earn)
+                              </h3>
                               <svg
                                 class="header-feature__arrow"
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
-                            <p>Learn blockchain and earn cryptocurrency</p>
+                            <p>
+                              Earn cryptocurrency by learning about blockchain
+                            </p>
                           </div>
                         </form>
                       </li>
@@ -803,7 +927,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#blog"
+                                href="../../../../../../assets/img/icons/sprite.svg#blog"
                               ></use>
                             </svg>
                           </div>
@@ -815,13 +939,11 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
-                            <p>
-                              Explore useful information and the latest news
-                            </p>
+                            <p>Get useful information and the latest news</p>
                           </div>
                         </form>
                       </li>
@@ -836,7 +958,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#research"
+                                href="../../../../../../assets/img/icons/sprite.svg#research"
                               ></use>
                             </svg>
                           </div>
@@ -848,13 +970,13 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Institutional analysis, advanced research, and
-                              more
+                              Institutional analysis, advanced analytics, and
+                              much more
                             </p>
                           </div>
                         </form>
@@ -862,9 +984,24 @@
                     </ul>
                   </div>
                 </li>
-                <li class="header-item">
+                <li class="header-item" data-modal="modal4">
                   <a href="#" onclick="return false;">
-                    Details
+                    <svg
+                      id="icon_mobile-bar"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 24 25"
+                      xmlns=" http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_3_85)">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M4 4.5V11.5H11V4.5H4ZM13 11.5V4.5H20V11.5H13ZM16.5 21.243L12.257 17L16.5 12.757L20.743 17L16.5 21.243ZM4 13.5H11V20.5H4V13.5Z"
+                        />
+                      </g>
+                    </svg>
+                    More details
                     <svg
                       class="header-item__svg"
                       viewBox="0 0 24 24"
@@ -878,7 +1015,7 @@
                       ></path>
                     </svg>
                   </a>
-                  <div class="header-drop">
+                  <div class="header-drop" id="modal4">
                     <ul>
                       <li>
                         <form class="header-feature" action="#">
@@ -891,7 +1028,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#vip"
+                                href="../../../../../../assets/img/icons/sprite.svg#vip"
                               ></use>
                             </svg>
                           </div>
@@ -903,13 +1040,13 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Reliable digital asset platform for VIP users and
-                              organizations
+                              A reliable digital asset platform for VIP users
+                              and organizations
                             </p>
                           </div>
                         </form>
@@ -925,7 +1062,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#launchpool"
+                                href="../../../../../../assets/img/icons/sprite.svg#launchpool"
                               ></use>
                             </svg>
                           </div>
@@ -937,12 +1074,12 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Learn and get the opportunity to launch new tokens
+                              Study data and gain access to new token launches
                             </p>
                           </div>
                         </form>
@@ -958,7 +1095,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#megadrop"
+                                href="../../../../../../assets/img/icons/sprite.svg#megadrop"
                               ></use>
                             </svg>
                           </div>
@@ -970,13 +1107,277 @@
                                 viewBox="0 0 24 24"
                               >
                                 <use
-                                  href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                                 ></use>
                               </svg>
                             </div>
                             <p>
-                              Stake BNB and complete Web3 tasks for bigger
-                              rewards
+                              Stake BNB and complete Web3 tasks to receive
+                              increased airdrop rewards
+                            </p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#mining"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Mining Pool</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>Earn even more rewards by joining the pool</p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#pay"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Pay</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>
+                              Send, receive cryptocurrency, and make purchases
+                            </p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#loans"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Loans</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>Get an instant loan secured by crypto assets</p>
+                          </div>
+                        </form>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#nft"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>NFT</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>
+                              Explore NFTs created by authors from all over the
+                              world
+                            </p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#token"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Fan Token</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>
+                              Discover a whole new fan experience and unlimited
+                              possibilities for fans
+                            </p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#wallet"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Web3 Wallet</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>Next-generation Web3 wallets</p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#bnb"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>BNB Chain</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>
+                              The most popular blockchain for creating your own
+                              dApp
+                            </p>
+                          </div>
+                        </form>
+                      </li>
+                      <li>
+                        <form class="header-feature" action="#">
+                          <input type="submit" />
+                          <div class="header-feature__img">
+                            <svg
+                              class="icon-drop"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                            >
+                              <use
+                                href="../../../../../../assets/img/icons/sprite.svg#charity"
+                              ></use>
+                            </svg>
+                          </div>
+                          <div class="header-feature__desc">
+                            <div class="header-feature__header">
+                              <h3>Charity</h3>
+                              <svg
+                                class="header-feature__arrow"
+                                viewBox="0 0 24 24"
+                              >
+                                <use
+                                  href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                ></use>
+                              </svg>
+                            </div>
+                            <p>
+                              Blockchain helps charity become more transparent,
+                              effective, and traceable
                             </p>
                           </div>
                         </form>
@@ -998,7 +1399,7 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#search"
+                    href="../../../../../../assets/img/icons/sprite.svg#search"
                   ></use>
                 </svg>
               </button>
@@ -1013,7 +1414,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#search"
+                          href="../../../../../../assets/img/icons/sprite.svg#search"
                         ></use>
                       </svg>
                     </button>
@@ -1021,7 +1422,7 @@
                       <input
                         class="search-input"
                         type="text"
-                        placeholder="Coin, function, announcement"
+                        placeholder="Coin, Function, Announcement"
                         name="search"
                         autocomplete="off"
                         autofocus
@@ -1035,7 +1436,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#closed"
+                          href="../../../../../../assets/img/icons/sprite.svg#closed"
                         ></use>
                       </svg>
                     </button>
@@ -1053,7 +1454,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#delete"
+                          href="../../../../../../assets/img/icons/sprite.svg#delete"
                         ></use>
                       </svg>
                     </button>
@@ -1091,7 +1492,8 @@
                     </li>
                   </ul>
                 </div>
-                <!-- Initial block on search load -->
+
+                <!--Первый блок при загрузке поиска-->
                 <div class="initdata">
                   <h3>Popular Features</h3>
                   <nav class="initdata-nav">
@@ -1110,7 +1512,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-earn"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-earn"
                             ></use>
                           </svg>
                           <span>Earn</span>
@@ -1130,7 +1532,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-refferal"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-refferal"
                             ></use>
                           </svg>
                           <span>Referral Program</span>
@@ -1150,7 +1552,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-lpd"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-lpd"
                             ></use>
                           </svg>
                           <span>Launchpool</span>
@@ -1170,7 +1572,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-p2p"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-p2p"
                             ></use>
                           </svg>
                           <span>P2P</span>
@@ -1190,7 +1592,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-deposite"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-deposite"
                             ></use>
                           </svg>
                           <span>Deposit</span>
@@ -1210,7 +1612,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-pool"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-pool"
                             ></use>
                           </svg>
                           <span>Mining Pool</span>
@@ -1230,7 +1632,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-orders"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-orders"
                             ></use>
                           </svg>
                           <span>Orders</span>
@@ -1250,7 +1652,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-convert"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-convert"
                             ></use>
                           </svg>
                           <span>Conversion</span>
@@ -1270,7 +1672,7 @@
                             viewBox="0 0 24 24"
                           >
                             <use
-                              href="../../../../../assets/img/icons/sprite.svg#s-live"
+                              href="../../../../../../assets/img/icons/sprite.svg#s-live"
                             ></use>
                           </svg>
                           <span>Live</span>
@@ -1279,7 +1681,6 @@
                     </ul>
                   </nav>
                 </div>
-
                 <!--END Первый блок при загрузке поиска-->
                 <!--Результаты поиска-->
                 <div class="result hidden">
@@ -1380,7 +1781,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                         ></use>
                       </svg>
                     </button>
@@ -1395,7 +1796,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/f-lpl.png"
+                            src="../../../../../../assets/img/icons/f-lpl.png"
                             alt="img for result"
                           />
                         </div>
@@ -1411,7 +1812,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/reset-google-auth.png"
+                            src="../../../../../../assets/img/icons/reset-google-auth.png"
                             alt="img for result"
                           />
                         </div>
@@ -1427,7 +1828,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/faq.png"
+                            src="../../../../../../assets/img/icons/faq.png"
                             alt="img for result"
                           />
                         </div>
@@ -1445,7 +1846,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                         ></use>
                       </svg>
                     </button>
@@ -1460,13 +1861,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Join the copy trading contest to share a prize pool of
-                          30,000 USDT
+                          Participate in the test copy-trading futures
+                          competition to share a prize pool of 30,000 USDT
                         </p>
                       </a>
                     </li>
@@ -1479,13 +1880,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Special promotion for Ethereum: Deposit tokens, copy,
-                          and trade to share a reward of 40,000 USDC
+                          Special promotion for Ethereum: Deposit tokens, copy
+                          trades, and trade with the specified tokens to share a
+                          reward of 40,000 USDC
                         </p>
                       </a>
                     </li>
@@ -1498,13 +1900,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          "Word of the Day" game: Test your cryptocurrency
-                          knowledge and earn Binance points and rewards
+                          Game "Word of the Day": Test your knowledge of
+                          cryptocurrency usage, earn Binance points, and other
+                          rewards
                         </p>
                       </a>
                     </li>
@@ -1519,7 +1922,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                         ></use>
                       </svg>
                     </button>
@@ -1534,25 +1937,27 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/dotcoin.png"
+                            src="../../../../../../assets/img/icons/dotcoin.png"
                             alt="img for result"
                           />
                         </div>
                         <div class="results-desc">
-                          <p>🌟 Dotcoin. The Guide. 🌟</p>
                           <p>
-                            What is Dotcoin? It's a fun Telegram game where you
-                            earn Dotcoins by clicking on a DOT. Join groups,
-                            complete tasks, invite friends, and level up!
+                            🌟 Dotcoin. The Guide. 🌟 What is Dotcoin? Dotcoin
+                            is a fun Telegram game where you earn Dotcoins by
+                            clicking on a DOT. Join groups, complete tasks,
+                            invite friends, and level up! How to Play? 👉 Tap th
+                          </p>
+                          <p class="results-caption">
+                            <span class="results-caption__source"
+                              >CrypticNews Hub</span
+                            >
+                            ·
+                            <span class="results-caption__time"
+                              >time-hours</span
+                            >
                           </p>
                         </div>
-                        <p class="results-caption">
-                          <span class="results-caption__source"
-                            >CrypticNews Hub</span
-                          >
-                          ·
-                          <span class="results-caption__time">time-hours</span>
-                        </p>
                       </a>
                     </li>
                     <li class="results-item">
@@ -1564,7 +1969,8 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/a.png"
+                            class="results-img"
+                            src="../../../../../../assets/img/icons/a.png"
                             alt="img for result"
                           />
                         </div>
@@ -1580,7 +1986,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/r-squere.png"
+                            src="../../../../../../assets/img/icons/r-squere.png"
                             alt="img for result"
                           />
                         </div>
@@ -1598,7 +2004,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                         ></use>
                       </svg>
                     </button>
@@ -1614,7 +2020,8 @@
                         <div class="results-left">
                           <div class="results-img medium">
                             <img
-                              src="../../../../../assets/img/icons/avax.png"
+                              class="results-img"
+                              src="../../../../../../assets/img/icons/avax.png"
                               alt="img for result"
                             />
                           </div>
@@ -1643,7 +2050,8 @@
                         <div class="results-left">
                           <div class="results-img medium">
                             <img
-                              src="../../../../../assets/img/icons/avax.png"
+                              class="results-img"
+                              src="../../../../../../assets/img/icons/avax.png"
                               alt="img for result"
                             />
                           </div>
@@ -1672,7 +2080,8 @@
                         <div class="results-left">
                           <div class="results-img medium">
                             <img
-                              src="../../../../../assets/img/icons/audio.png"
+                              class="results-img"
+                              src="../../../../../../assets/img/icons/audio.png"
                               alt="img for result"
                             />
                           </div>
@@ -1702,7 +2111,7 @@
                         viewBox="0 0 24 24"
                       >
                         <use
-                          href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                         ></use>
                       </svg>
                     </button>
@@ -1718,7 +2127,7 @@
                         <div class="results-left">
                           <p>
                             <span class="results-left__title">ADAUSDT</span>
-                            <span class="results-left__gray">Perpetual</span>
+                            <span class="results-left__gray">Indefinite</span>
                           </p>
                         </div>
                         <div class="results-right">
@@ -1738,15 +2147,17 @@
                       >
                         <div class="results-left">
                           <p>
-                            <span class="results-left__title">ADAUSDT</span>
-                            <span class="results-left__gray">Perpetual</span>
+                            <span class="results-left__title">ADAUSD</span>
+                            <span class="results-left__gray"
+                              >Quarterly 0927</span
+                            >
                           </p>
                         </div>
                         <div class="results-right">
                           <p class="results-course">
-                            $<span class="results-course__main">0,4355</span>
+                            $<span class="results-course__main">0,4434</span>
                           </p>
-                          <p class="results-per"><span>+0,39</span>%</p>
+                          <p class="results-per gray"><span>0</span>%</p>
                         </div>
                       </a>
                     </li>
@@ -1759,21 +2170,161 @@
                       >
                         <div class="results-left">
                           <p>
-                            <span class="results-left__title">BTCUSDT</span>
-                            <span class="results-left__gray">Perpetual</span>
+                            <span class="results-left__title">ADAUSD</span>
+                            <span class="results-left__gray"
+                              >Quarterly 1227</span
+                            >
                           </p>
                         </div>
                         <div class="results-right">
                           <p class="results-course">
-                            $<span class="results-course__main">30,7157</span>
+                            $<span class="results-course__main">0,4575</span>
                           </p>
                           <p class="results-per"><span>+0,39</span>%</p>
                         </div>
                       </a>
                     </li>
                   </ul>
-                </div>
+                  <div class="results-title">
+                    <h3>Earn</h3>
+                    <button class="results-btn" id="earn-btn">
+                      <svg
+                        class="results-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                        ></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="results-box">
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left column">
+                          <p class="results-left__title">ACE</p>
+                          <p class="results-left__gray little">
+                            Simple Earn Flexible Product
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course green">
+                            <span class="results-course__main"
+                              >3.65%~101.28%</span
+                            >
+                          </p>
+                          <p class="results-per gray">
+                            <span>Estimated Yield</span>
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left column">
+                          <p class="results-left__title">ALGO</p>
+                          <p class="results-left__gray little">
+                            Dual-Currency Investments
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course green">
+                            <span class="results-course__main">0.02</span>%
+                          </p>
+                          <p class="results-per gray">
+                            <span>Estimated Yield</span>
+                          </p>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
 
+                  <div class="results-title">
+                    <h3>FAQ</h3>
+                    <button class="results-btn" id="faq-btn">
+                      <svg
+                        class="results-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                        ></use>
+                      </svg>
+                    </button>
+                  </div>
+                  <ul class="results-box">
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="Image for result"
+                          />
+                        </div>
+                        <p>
+                          Binance OTO (One-Triggers-the-Other) and OTOCO
+                          (One-Triggers-a-One-Cancels-the-Other) Order
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="Image for result"
+                          />
+                        </div>
+                        <p>
+                          Websocket API Data Stream Update for USDT-Margined
+                          Futures
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="Image for result"
+                          />
+                        </div>
+                        <p>
+                          How to Access the Binance Futures Service Agreement
+                        </p>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
                 <!--END ALL-->
                 <!--FUCTION-->
                 <div class="results" data-target="result-func">
@@ -1787,7 +2338,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/f-lpl.png"
+                            src="../../../../../../assets/img/icons/f-lpl.png"
                             alt="img for result"
                           />
                         </div>
@@ -1803,7 +2354,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/reset-google-auth.png"
+                            src="../../../../../../assets/img/icons/reset-google-auth.png"
                             alt="img for result"
                           />
                         </div>
@@ -1819,7 +2370,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/faq.png"
+                            src="../../../../../../assets/img/icons/faq.png"
                             alt="img for result"
                           />
                         </div>
@@ -1835,7 +2386,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/earn.png"
+                            src="../../../../../../assets/img/icons/earn.png"
                             alt="img for result"
                           />
                         </div>
@@ -1851,7 +2402,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/academy.png"
+                            src="../../../../../../assets/img/icons/academy.png"
                             alt="img for result"
                           />
                         </div>
@@ -1867,7 +2418,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/bnb.png"
+                            src="../../../../../../assets/img/icons/bnb.png"
                             alt="img for result"
                           />
                         </div>
@@ -1883,7 +2434,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/eth.png"
+                            src="../../../../../../assets/img/icons/eth.png"
                             alt="img for result"
                           />
                         </div>
@@ -1899,7 +2450,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/nft.png"
+                            src="../../../../../../assets/img/icons/nft.png"
                             alt="img for result"
                           />
                         </div>
@@ -1915,7 +2466,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/nft.png"
+                            src="../../../../../../assets/img/icons/nft.png"
                             alt="img for result"
                           />
                         </div>
@@ -1924,7 +2475,6 @@
                     </li>
                   </ul>
                 </div>
-
                 <!--END FUCTION-->
                 <!--ANONS-->
                 <div class="results" data-target="result-ad">
@@ -1938,13 +2488,31 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        Participate in the Test Copy-Trading Futures Contest to
+                        Share a Prize Pool of 30,000 USDT.
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Participate in the test copy-trading futures
-                          competition to share a prize pool of 30,000 USDT
+                          Special Promotion for Ethereum: Deposit Tokens, Copy,
+                          and Trade the Specified Tokens to Share a Reward of
+                          40,000 USDC.
                         </p>
                       </a>
                     </li>
@@ -1957,14 +2525,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Special promotion for Ethereum: deposit tokens, copy,
-                          and trade with specified tokens to share a reward of
-                          40,000 USDC
+                          Word of the Day Game: Test Your Knowledge of
+                          Cryptocurrency Usage, Earn Binance Points and Other
+                          Rewards.
                         </p>
                       </a>
                     </li>
@@ -1977,14 +2545,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about
-                          cryptocurrency usage, earn Binance points and other
-                          rewards
+                          #BinanceTurns7: Invite Friends to Celebrate Binance's
+                          7th Anniversary and Share a Prize Pool of 700 BNB.
                         </p>
                       </a>
                     </li>
@@ -1997,13 +2564,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          #BinanceTurns7: invite friends to celebrate Binance's
-                          7th anniversary and share a reward of 700 BNB
+                          Word of the Day" Game: Test Your Knowledge of
+                          Binance's 7th Anniversary, Earn Binance Points, and
+                          Other Rewards
                         </p>
                       </a>
                     </li>
@@ -2016,14 +2584,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about
-                          Binance's 7th anniversary, earn Binance points and
-                          other rewards
+                          Interest-free period on Binance Margin loans for USDC
+                          and selected cryptocurrencies for one hour
+                          (04.07.2024).
                         </p>
                       </a>
                     </li>
@@ -2036,14 +2604,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          One-hour exemption from interest on loans on Binance
-                          Margin for USDC and certain cryptocurrencies
-                          (07/04/2024)
+                          Join the Binance Futures Trading Carnival and share a
+                          prize pool of 20,000 LISTA.
                         </p>
                       </a>
                     </li>
@@ -2056,33 +2623,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Join the Binance Futures Trading Carnival and share
-                          20,000 LISTA
-                        </p>
-                      </a>
-                    </li>
-                    <li class="results-item">
-                      <a
-                        class="results-link"
-                        href="#"
-                        onclick="return false;"
-                        target="_blank"
-                      >
-                        <div class="results-img">
-                          <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
-                            alt="img for result"
-                          />
-                        </div>
-                        <p>
-                          Word of the Day game: test your knowledge about
+                          The "Word of the Day" game: Test your knowledge of
                           Binance Build and earn Binance points and other
-                          rewards
+                          rewards.
                         </p>
                       </a>
                     </li>
@@ -2095,14 +2643,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about the
-                          futures channel chat, earn Binance points and other
-                          rewards
+                          The "Word of the Day" game: Test your knowledge of the
+                          futures channel chat and earn Binance points and other
+                          rewards.
                         </p>
                       </a>
                     </li>
@@ -2115,12 +2663,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Use ETH staking to share airdrop rewards of 99,120 SEI
+                          Use ETH staking to share the airdrop rewards of 99,120
+                          SEI.
                         </p>
                       </a>
                     </li>
@@ -2133,14 +2682,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
                           Make your first futures trade and/or participate in
-                          the ROI competition for USDⓈ-M futures to share 13,000
-                          IO
+                          the ROI contest for USDⓈ-M futures to share <br />
+                          13,000 IO.
                         </p>
                       </a>
                     </li>
@@ -2153,13 +2702,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Binance Futures will launch perpetual contracts for
-                          MEW with leverage up to 50x
+                          Binance Futures will launch USDⓈ-M perpetual contracts
+                          for MEW with leverage up to 50x
                         </p>
                       </a>
                     </li>
@@ -2172,13 +2721,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about
-                          Binance users, earn Binance points and other rewards
+                          Word of the Day Game: Test your knowledge of Binance
+                          users, earn Binance points and other rewards
                         </p>
                       </a>
                     </li>
@@ -2191,11 +2740,11 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
-                        <p>Binance Spot API service update (06/18/2024)</p>
+                        <p>Binance Spot API service update (18.06.2024)</p>
                       </a>
                     </li>
                     <li class="results-item">
@@ -2207,12 +2756,12 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Big Futures Tournament: lead the medal rankings to
+                          Big Futures Tournament: Lead the medal rankings to
                           share a reward of up to 3 million USDT
                         </p>
                       </a>
@@ -2226,14 +2775,14 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about the
-                          Binance World Championship, earn Binance points and
-                          other rewards
+                          Word of the Day Game: Test your knowledge of the
+                          Binance World Cup, earn Binance points and other
+                          rewards
                         </p>
                       </a>
                     </li>
@@ -2246,13 +2795,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Binance World Championship: participate in the spot
-                          trading tournament to share 1,200,000 USDC in vouchers
+                          Binance World Cup: Participate in the spot trading
+                          tournament to share 1,200,000 USDC in vouchers
                         </p>
                       </a>
                     </li>
@@ -2265,12 +2814,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
                           Join the Binance Futures Trading Carnival and share
+                          <br />
                           5,000,000 NOT
                         </p>
                       </a>
@@ -2284,13 +2834,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Word of the Day game: test your knowledge about life
-                          on Binance, earn Binance points and other rewards
+                          Word of the Day Game: Test your knowledge of life on
+                          Binance, earn Binance points and other rewards
                         </p>
                       </a>
                     </li>
@@ -2303,21 +2853,20 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Special promotion for the Binance World Championship:
-                          achieve a trading volume of $100 simultaneously on
-                          Binance Convert, Binance Spot, and Binance Futures to
-                          win 1 BNB
+                          Special promotion for the Binance World Cup: Achieve a
+                          trading volume of $100 simultaneously on Binance
+                          Convert, Binance Spot, and Binance Futures to win 1
+                          BNB
                         </p>
                       </a>
                     </li>
                   </ul>
                 </div>
-
                 <!--END ANONS-->
                 <!--Square-->
                 <div class="results" data-target="result-square">
@@ -2332,7 +2881,7 @@
                         <div class="results-img big">
                           <img
                             class="results-img"
-                            src="../../../../../assets/img/icons/a.png"
+                            src="../../../../../../assets/img/icons/a.png"
                             alt="img for result"
                           />
                         </div>
@@ -2348,7 +2897,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/a_.png"
+                            src="../../../../../../assets/img/icons/a_.png"
                             alt="img for result"
                           />
                         </div>
@@ -2364,7 +2913,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/dotcoin.png"
+                            src="../../../../../../assets/img/icons/dotcoin.png"
                             alt="img for result"
                           />
                         </div>
@@ -2396,7 +2945,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/ai-news.png"
+                            src="../../../../../../assets/img/icons/ai-news.png"
                             alt="img for result"
                           />
                         </div>
@@ -2426,15 +2975,15 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/altcoin.jpg"
+                            src="../../../../../../assets/img/icons/altcoin.jpg"
                             alt="img for result"
                           />
                         </div>
                         <div class="results-desc">
                           <p>
-                            Experts from the GC "Solar" warn Russians that
-                            hackers are sending emails posing as employees of a
-                            non-existent agency #Cryptocurrency #Mining
+                            Experts from the Solar Group warn Russians that
+                            hackers are sending emails impersonating employees
+                            of a non-existent agency #Cryptocurrency #Mining
                             #Altcoinlog #cryptocurrency #Bitcoin https:/
                           </p>
 
@@ -2459,7 +3008,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/dotcoin.png"
+                            src="../../../../../../assets/img/icons/dotcoin.png"
                             alt="img for result"
                           />
                         </div>
@@ -2492,18 +3041,19 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/73.png"
+                            src="../../../../../../assets/img/icons/73.png"
                             alt="img for result"
                           />
                         </div>
                         <div class="results-desc">
                           <p>
-                            The daily BTC candle closed at $66,600, with the
-                            high at $67,386. It almost reached the second target
-                            on our indicator with multipliers. The shadow above,
-                            given the circumstances, is quite bearish. We
-                            believe that
+                            The daily candle for BTC closed at $66,600, with the
+                            high of the candle at $67,386. We almost reached the
+                            second target on our indicator with multipliers. The
+                            upper wick, considering the circumstances, is quite
+                            bearish. We believe that
                           </p>
+
                           <p class="results-caption">
                             <span class="results-caption__source"
                               >Proekt_73</span
@@ -2525,7 +3075,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/r-squere.png"
+                            src="../../../../../../assets/img/icons/r-squere.png"
                             alt="img for result"
                           />
                         </div>
@@ -2541,7 +3091,7 @@
                       >
                         <div class="results-img big">
                           <img
-                            src="../../../../../assets/img/icons/r-squere.png"
+                            src="../../../../../../assets/img/icons/r-squere.png"
                             alt="img for result"
                           />
                         </div>
@@ -2557,7 +3107,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/announcement_light.png"
+                            src="../../../../../../assets/img/icons/announcement_light.png"
                             alt="img for result"
                           />
                         </div>
@@ -2581,7 +3131,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/avax.png"
+                              src="../../../../../../assets/img/icons/avax.png"
                               alt="img for result"
                             />
                           </div>
@@ -2611,7 +3161,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/avax.png"
+                              src="../../../../../../assets/img/icons/avax.png"
                               alt="img for result"
                             />
                           </div>
@@ -2641,7 +3191,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/audio.png"
+                              src="../../../../../../assets/img/icons/audio.png"
                               alt="img for result"
                             />
                           </div>
@@ -2671,7 +3221,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/audio.png"
+                              src="../../../../../../assets/img/icons/audio.png"
                               alt="img for result"
                             />
                           </div>
@@ -2701,7 +3251,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/asr.png"
+                              src="../../../../../../assets/img/icons/asr.png"
                               alt="img for result"
                             />
                           </div>
@@ -2731,7 +3281,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/aevo.png"
+                              src="../../../../../../assets/img/icons/aevo.png"
                               alt="img for result"
                             />
                           </div>
@@ -2761,7 +3311,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/arb.png"
+                              src="../../../../../../assets/img/icons/arb.png"
                               alt="img for result"
                             />
                           </div>
@@ -2791,7 +3341,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/amp.png"
+                              src="../../../../../../assets/img/icons/amp.png"
                               alt="img for result"
                             />
                           </div>
@@ -2821,7 +3371,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ada.png"
+                              src="../../../../../../assets/img/icons/ada.png"
                               alt="img for result"
                             />
                           </div>
@@ -2851,7 +3401,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ar.png"
+                              src="../../../../../../assets/img/icons/ar.png"
                               alt="img for result"
                             />
                           </div>
@@ -2881,7 +3431,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/arb.png"
+                              src="../../../../../../assets/img/icons/arb.png"
                               alt="img for result"
                             />
                           </div>
@@ -2911,7 +3461,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/axl.png"
+                              src="../../../../../../assets/img/icons/axl.png"
                               alt="img for result"
                             />
                           </div>
@@ -2941,7 +3491,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ankr.png"
+                              src="../../../../../../assets/img/icons/ankr.png"
                               alt="img for result"
                             />
                           </div>
@@ -2971,7 +3521,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ada.png"
+                              src="../../../../../../assets/img/icons/ada.png"
                               alt="img for result"
                             />
                           </div>
@@ -3003,7 +3553,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/alt.png"
+                              src="../../../../../../assets/img/icons/alt.png"
                               alt="img for result"
                             />
                           </div>
@@ -3033,7 +3583,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ape.png"
+                              src="../../../../../../assets/img/icons/ape.png"
                               alt="img for result"
                             />
                           </div>
@@ -3063,7 +3613,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/alice.png"
+                              src="../../../../../../assets/img/icons/alice.png"
                               alt="img for result"
                             />
                           </div>
@@ -3093,7 +3643,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/axl.png"
+                              src="../../../../../../assets/img/icons/axl.png"
                               alt="img for result"
                             />
                           </div>
@@ -3123,7 +3673,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/aevo.png"
+                              src="../../../../../../assets/img/icons/aevo.png"
                               alt="img for result"
                             />
                           </div>
@@ -3153,7 +3703,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ark.png"
+                              src="../../../../../../assets/img/icons/ark.png"
                               alt="img for result"
                             />
                           </div>
@@ -3185,7 +3735,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ar.png"
+                              src="../../../../../../assets/img/icons/ar.png"
                               alt="img for result"
                             />
                           </div>
@@ -3215,7 +3765,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ach.png"
+                              src="../../../../../../assets/img/icons/ach.png"
                               alt="img for result"
                             />
                           </div>
@@ -3245,7 +3795,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/apt.png"
+                              src="../../../../../../assets/img/icons/apt.png"
                               alt="img for result"
                             />
                           </div>
@@ -3275,7 +3825,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/apra.png"
+                              src="../../../../../../assets/img/icons/apra.png"
                               alt="img for result"
                             />
                           </div>
@@ -3305,7 +3855,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/arkm.png"
+                              src="../../../../../../assets/img/icons/arkm.png"
                               alt="img for result"
                             />
                           </div>
@@ -3335,7 +3885,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/alpine.png"
+                              src="../../../../../../assets/img/icons/alpine.png"
                               alt="img for result"
                             />
                           </div>
@@ -3363,7 +3913,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/aave.png"
+                              src="../../../../../../assets/img/icons/aave.png"
                               alt="img for result"
                             />
                           </div>
@@ -3393,7 +3943,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/alt.png"
+                              src="../../../../../../assets/img/icons/alt.png"
                               alt="img for result"
                             />
                           </div>
@@ -3423,7 +3973,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/aca.png"
+                              src="../../../../../../assets/img/icons/aca.png"
                               alt="img for result"
                             />
                           </div>
@@ -3453,7 +4003,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ada.png"
+                              src="../../../../../../assets/img/icons/ada.png"
                               alt="img for result"
                             />
                           </div>
@@ -3483,7 +4033,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/apt.png"
+                              src="../../../../../../assets/img/icons/apt.png"
                               alt="img for result"
                             />
                           </div>
@@ -3513,7 +4063,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/atom.png"
+                              src="../../../../../../assets/img/icons/atom.png"
                               alt="img for result"
                             />
                           </div>
@@ -3543,7 +4093,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/atm.png"
+                              src="../../../../../../assets/img/icons/atm.png"
                               alt="img for result"
                             />
                           </div>
@@ -3573,7 +4123,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ape.png"
+                              src="../../../../../../assets/img/icons/ape.png"
                               alt="img for result"
                             />
                           </div>
@@ -3603,7 +4153,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ada.png"
+                              src="../../../../../../assets/img/icons/ada.png"
                               alt="img for result"
                             />
                           </div>
@@ -3633,7 +4183,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ach.png"
+                              src="../../../../../../assets/img/icons/ach.png"
                               alt="img for result"
                             />
                           </div>
@@ -3663,7 +4213,7 @@
                           <div class="results-img medium">
                             <img
                               class="results-img"
-                              src="../../../../../assets/img/icons/ai.png"
+                              src="../../../../../../assets/img/icons/ai.png"
                               alt="img for result"
                             />
                           </div>
@@ -3755,7 +4305,258 @@
                         </div>
                       </a>
                     </li>
-                    <!-- Remaining items follow the same pattern -->
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">ADAUSD</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,4338</span>
+                          </p>
+                          <p class="results-per"><span>+0,39</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AVAXUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">31,35</span>
+                          </p>
+                          <p class="results-per"><span>+11,06</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">ARKMUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">1,6</span>
+                          </p>
+                          <p class="results-per"><span>+0,48</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AGLDUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">1</span>
+                          </p>
+                          <p class="results-per red"><span>-1,48</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">ARKUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,4022</span>
+                          </p>
+                          <p class="results-per red"><span>-0,81</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AUCTIONUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">16,32</span>
+                          </p>
+                          <p class="results-per red"><span>-1,38</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">ACEUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">3,09</span>
+                          </p>
+                          <p class="results-per red"><span>-0,05</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AIUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,611322</span>
+                          </p>
+                          <p class="results-per red"><span>-3,12</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">ALTUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,15595</span>
+                          </p>
+                          <p class="results-per red"><span>-3,56</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AXLUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,7518</span>
+                          </p>
+                          <p class="results-per"><span>+5,07</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AEVOUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,5424</span>
+                          </p>
+                          <p class="results-per red"><span>-0,94</span>%</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link space"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-left">
+                          <p>
+                            <span class="results-left__title">AEVOUSDT</span>
+                            <span class="results-left__gray">Perpetual</span>
+                          </p>
+                        </div>
+                        <div class="results-right">
+                          <p class="results-course">
+                            $<span class="results-course__main">0,5424</span>
+                          </p>
+                          <p class="results-per red"><span>-0,94</span>%</p>
+                        </div>
+                      </a>
+                    </li>
                   </ul>
                 </div>
                 <!--END Futures-->
@@ -3780,7 +4581,7 @@
                             <span class="results-course__main">0.02</span>%
                           </p>
                           <p class="results-per gray">
-                            <span>Estimated Yield</span>
+                            <span>Calculated Yield</span>
                           </p>
                         </div>
                       </a>
@@ -3803,7 +4604,7 @@
                             <span class="results-course__main">0.02</span>%
                           </p>
                           <p class="results-per gray">
-                            <span>Estimated Yield</span>
+                            <span>Calculated Yield</span>
                           </p>
                         </div>
                       </a>
@@ -3826,7 +4627,7 @@
                             <span class="results-course__main">0.02</span>%
                           </p>
                           <p class="results-per gray">
-                            <span>Estimated Yield</span>
+                            <span>Calculated Yield</span>
                           </p>
                         </div>
                       </a>
@@ -3849,7 +4650,7 @@
                             <span class="results-course__main">19.90</span>%
                           </p>
                           <p class="results-per gray">
-                            <span>Estimated Yield</span>
+                            <span>Calculated Yield</span>
                           </p>
                         </div>
                       </a>
@@ -3872,15 +4673,15 @@
                             <span class="results-course__main">18.90</span>%
                           </p>
                           <p class="results-per gray">
-                            <span>Estimated Yield</span>
+                            <span>Calculated Yield</span>
                           </p>
                         </div>
                       </a>
                     </li>
                   </ul>
                 </div>
-
-                <!--FAQ Section Translations-->
+                <!--End Earn-->
+                <!--FAQ-->
                 <div class="results" data-target="result-faq">
                   <ul class="results-list">
                     <li class="results-item">
@@ -3892,13 +4693,13 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/faq_light.png"
+                            src="../../../../../../assets/img/icons/faq_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Binance OTO (One-Triggers-the-Other) and OTOCO
-                          (One-Triggers-a-One-Cancels-the-Other) Order
+                          Order Binance OTO (One-Triggers-the-Other) и OTOCO
+                          (One-Triggers-a-One-Cancels-the-Other)
                         </p>
                       </a>
                     </li>
@@ -3911,12 +4712,12 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/faq_light.png"
+                            src="../../../../../../assets/img/icons/faq_light.png"
                             alt="img for result"
                           />
                         </div>
                         <p>
-                          Update of WebSocket API data stream for USDT-Margined
+                          Data stream update in Websocket API for USDT-Margined
                           Futures
                         </p>
                       </a>
@@ -3930,7 +4731,7 @@
                       >
                         <div class="results-img">
                           <img
-                            src="../../../../../assets/img/icons/faq_light.png"
+                            src="../../../../../../assets/img/icons/faq_light.png"
                             alt="img for result"
                           />
                         </div>
@@ -3939,10 +4740,310 @@
                         </p>
                       </a>
                     </li>
-                    <!-- Continue translating all items similarly -->
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          Terms of Use for Rebate Coupons on Trading Fee and
+                          Platform Fee
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          How to use position closing and redemption features in
+                          margin trading?
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>How to mine RavenCoin (RVN) on Binance Pool</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          How to redeem a trading fee rebate voucher and
+                          platform fee rebate voucher
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          What are community rewards on the Binance Fan Token
+                          platform
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>How to mine ETC on Binance Pool</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          New dynamic interest rate system for Binance margin
+                          trading
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>How to use copy trading on Binance Futures</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          Frequently asked questions about the Binance fiat
+                          referral campaign
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          Calculating the maintenance margin ratio for the
+                          Binance Pro margin portfolio
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>How to mine EthereumPoW (ETHW) on Binance Pool</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          What is a rebalancing bot: Frequently asked questions
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>How to calculate PnL for tokens on Binance Spot</p>
+                      </a>
+                    </li>
+
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>DeFi Staking Conditions</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>Binance Margin Level and Risk Control</p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          How PnL is Calculated on Binance Futures and Binance
+                          Options
+                        </p>
+                      </a>
+                    </li>
+                    <li class="results-item">
+                      <a
+                        class="results-link"
+                        href="#"
+                        onclick="return false;"
+                        target="_blank"
+                      >
+                        <div class="results-img">
+                          <img
+                            src="../../../../../../assets/img/icons/faq_light.png"
+                            alt="img for result"
+                          />
+                        </div>
+                        <p>
+                          How to Place Stop-Loss and Take-Profit Orders on
+                          Binance Futures?
+                        </p>
+                      </a>
+                    </li>
                   </ul>
                 </div>
-
                 <!--END FAQ-->
                 <!--Результаты поиска-->
               </div>
@@ -3957,14 +5058,13 @@
                 viewBox="0 0 24 24"
               >
                 <use
-                  href="../../../../../assets/img/icons/sprite.svg#refill"
+                  href="../../../../../../assets/img/icons/sprite.svg#refill"
                 ></use>
               </svg>
-              <span>Replenish</span>
+              <span>Top-Up</span>
             </button>
-
-            <!--User-->
-            <div class="stad">
+            <!--Пользователь-->
+            <div class="stad media_none">
               <button class="btn-icon">
                 <svg
                   class="header-icon header-download"
@@ -3973,13 +5073,13 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#user"
+                    href="../../../../../../assets/img/icons/sprite.svg#user"
                   ></use>
                 </svg>
               </button>
               <div class="staddrop center notBottom">
                 <h2 class="staddrop-email"></h2>
-                <!--USER VERIFICATION-->
+                <!--ВЕРИФИКАЦИЯ ПОЛЬЗАКА-->
                 <div class="staddrop-state verif">
                   <svg
                     class="header-icon header-download"
@@ -3988,7 +5088,7 @@
                     viewBox="0 0 16 16"
                   >
                     <use
-                      href="../../../../../assets/img/icons/sprite.svg#verification"
+                      href="../../../../../../assets/img/icons/sprite.svg#verification"
                     ></use>
                   </svg>
                   <span>Verification</span>
@@ -4001,7 +5101,7 @@
                     viewBox="0 0 21 17"
                   >
                     <use
-                      href="../../../../../assets/img/icons/sprite.svg#diamond"
+                      href="../../../../../../assets/img/icons/sprite.svg#diamond"
                     ></use>
                   </svg>
                   <span>Regular User</span>
@@ -4014,7 +5114,7 @@
                     viewBox="0 0 21 17"
                   >
                     <use
-                      href="../../../../../assets/img/icons/sprite.svg#x"
+                      href="../../../../../../assets/img/icons/sprite.svg#x"
                     ></use>
                   </svg>
                   <span>Link Twitter Account</span>
@@ -4025,7 +5125,7 @@
                       <div class="staddrop-icon">
                         <svg width="18" height="18" viewBox="0 0 22 22">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#panel"
+                            href="../../../../../../assets/img/icons/sprite.svg#panel"
                           ></use>
                         </svg>
                       </div>
@@ -4045,7 +5145,7 @@
                           viewBox="0 0 22 22"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#user-wallet"
+                            href="../../../../../../assets/img/icons/sprite.svg#user-wallet"
                           ></use>
                         </svg>
                       </div>
@@ -4062,7 +5162,7 @@
                           viewBox="0 0 19 26"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#warrants"
+                            href="../../../../../../assets/img/icons/sprite.svg#warrants"
                           ></use>
                         </svg>
                       </div>
@@ -4079,7 +5179,7 @@
                           viewBox="0 0 19 26"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#user-notbg"
+                            href="../../../../../../assets/img/icons/sprite.svg#user-notbg"
                           ></use>
                         </svg>
                       </div>
@@ -4096,7 +5196,7 @@
                           viewBox="0 0 27 20"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#user-plus"
+                            href="../../../../../../assets/img/icons/sprite.svg#user-plus"
                           ></use>
                         </svg>
                       </div>
@@ -4113,7 +5213,7 @@
                           viewBox="0 0 22 18"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#bonus"
+                            href="../../../../../../assets/img/icons/sprite.svg#bonus"
                           ></use>
                         </svg>
                       </div>
@@ -4130,7 +5230,7 @@
                           viewBox="0 0 22 18"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#settings"
+                            href="../../../../../../assets/img/icons/sprite.svg#settings"
                           ></use>
                         </svg>
                       </div>
@@ -4147,7 +5247,7 @@
                           viewBox="0 0 24 24"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#exit"
+                            href="../../../../../../assets/img/icons/sprite.svg#exit"
                           ></use>
                         </svg>
                       </div>
@@ -4157,9 +5257,8 @@
                 </ul>
               </div>
             </div>
-
-            <!--Wallet-->
-            <div class="stad">
+            <!--Кошелек-->
+            <div class="stad media_none">
               <button class="btn-icon">
                 <svg
                   class="header-icon header-download"
@@ -4168,7 +5267,7 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#user-wallet"
+                    href="../../../../../../assets/img/icons/sprite.svg#user-wallet"
                   ></use>
                 </svg>
               </button>
@@ -4182,7 +5281,7 @@
                       <div class="staddrop-icon">
                         <svg width="18" height="18" viewBox="0 0 22 22">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#panel"
+                            href="../../../../../../assets/img/icons/sprite.svg#panel"
                           ></use>
                         </svg>
                       </div>
@@ -4199,7 +5298,7 @@
                           viewBox="0 0 23 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-spot"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-spot"
                           ></use>
                         </svg>
                       </div>
@@ -4216,7 +5315,7 @@
                           viewBox="0 0 23 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-marg"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-marg"
                           ></use>
                         </svg>
                       </div>
@@ -4233,7 +5332,7 @@
                           viewBox="0 0 23 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-futur"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-futur"
                           ></use>
                         </svg>
                       </div>
@@ -4250,7 +5349,7 @@
                           viewBox="0 0 23 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-option"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-option"
                           ></use>
                         </svg>
                       </div>
@@ -4267,7 +5366,7 @@
                           viewBox="0 0 26 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-bot"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-bot"
                           ></use>
                         </svg>
                       </div>
@@ -4284,7 +5383,7 @@
                           viewBox="0 0 25 29"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-earn"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-earn"
                           ></use>
                         </svg>
                       </div>
@@ -4301,11 +5400,11 @@
                           viewBox="0 0 24 24"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-add"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-add"
                           ></use>
                         </svg>
                       </div>
-                      <span>Wallet for Replenishment</span>
+                      <span>Wallet for Deposit</span>
                     </div>
                   </li>
                   <li class="staddrop-item">
@@ -4313,7 +5412,7 @@
                       <div class="staddrop-icon">
                         <svg width="18" height="18" viewBox="0 0 25 25">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-history"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-history"
                           ></use>
                         </svg>
                       </div>
@@ -4330,7 +5429,7 @@
                           viewBox="0 0 24 25"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-extract"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-extract"
                           ></use>
                         </svg>
                       </div>
@@ -4347,19 +5446,18 @@
                           viewBox="0 0 23 23"
                         >
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#w-check"
+                            href="../../../../../../assets/img/icons/sprite.svg#w-check"
                           ></use>
                         </svg>
                       </div>
-                      <span>Check</span>
+                      <span>Verification</span>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-
             <!--Сообщения системы-->
-            <div class="stad">
+            <div class="stad media_none">
               <button class="btn-icon" id="ic-message">
                 <svg
                   class="header-icon header-download"
@@ -4368,7 +5466,7 @@
                   viewBox="0 0 20 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#messages"
+                    href="../../../../../../assets/img/icons/sprite.svg#messages"
                   ></use>
                 </svg>
                 <span class="btn-icon__mark"></span>
@@ -4383,7 +5481,7 @@
                     viewBox="0 0 24 24"
                   >
                     <use
-                      href="../../../../../assets/img/icons/sprite.svg#arrow2-right"
+                      href="../../../../../../assets/img/icons/sprite.svg#arrow2-right"
                     ></use>
                   </svg>
                 </a>
@@ -4393,7 +5491,7 @@
                       <div class="beadroll-icon">
                         <svg width="16" height="16" viewBox="0 0 19 18">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#m-p2p"
+                            href="../../../../../../assets/img/icons/sprite.svg#m-p2p"
                           ></use>
                         </svg>
                       </div>
@@ -4401,16 +5499,17 @@
                         <div class="beadroll-left">
                           <div class="beadroll-header">
                             <h4>P2P Order Notifications</h4>
+
                             <svg
                               class="beadroll-header__arrow"
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                               ></use>
                             </svg>
                           </div>
-                          <p>No new messages</p>
+                          <p>No new messages yet</p>
                         </div>
                         <div class="beadroll-right">
                           <div class="beadroll-status"></div>
@@ -4424,7 +5523,7 @@
                       <div class="beadroll-icon">
                         <svg width="16" height="16" viewBox="0 0 19 18">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#m-notice"
+                            href="../../../../../../assets/img/icons/sprite.svg#m-notice"
                           ></use>
                         </svg>
                       </div>
@@ -4437,13 +5536,13 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                               ></use>
                             </svg>
                           </div>
                           <p>
-                            New assets available for loans on Binance (with
-                            flexible rates) and VIP loans (07/24/2024)
+                            New assets available for Binance loans (with
+                            flexible rates) and VIP loans (24.07.2024)
                           </p>
                         </div>
                         <div class="beadroll-right">
@@ -4458,7 +5557,7 @@
                       <div class="beadroll-icon">
                         <svg width="17" height="16" viewBox="0 0 19 18">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#m-system"
+                            href="../../../../../../assets/img/icons/sprite.svg#m-system"
                           ></use>
                         </svg>
                       </div>
@@ -4471,7 +5570,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                               ></use>
                             </svg>
                           </div>
@@ -4489,7 +5588,7 @@
                       <div class="beadroll-icon">
                         <svg width="16" height="16" viewBox="0 0 19 18">
                           <use
-                            href="../../../../../assets/img/icons/sprite.svg#m-promotions"
+                            href="../../../../../../assets/img/icons/sprite.svg#m-promotions"
                           ></use>
                         </svg>
                       </div>
@@ -4502,7 +5601,7 @@
                               viewBox="0 0 24 24"
                             >
                               <use
-                                href="../../../../../assets/img/icons/sprite.svg#arrow-right"
+                                href="../../../../../../assets/img/icons/sprite.svg#arrow-right"
                               ></use>
                             </svg>
                           </div>
@@ -4518,13 +5617,13 @@
                 </ul>
               </div>
             </div>
-
             <!--END ЕСЛИ ПОЬЗАК ЗАРЕГАН-->
             <!--ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ ЗАРЕГАН-->
             <div class="header-authentication hidden">
               <button class="btn-web gray">Log In</button>
-              <button class="btn-web yellow">Sign Up</button>
+              <button class="btn-web yellow">Register</button>
             </div>
+
             <!--END ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ ЗАРЕГАН-->
             <!--Зайти с помощью qr-->
             <div class="stad">
@@ -4536,15 +5635,16 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#download"
+                    href="../../../../../../assets/img/icons/sprite.svg#download"
                   ></use>
                 </svg>
+                <p>Download</p>
               </button>
               <div class="staddrop">
                 <div class="staddrop-img">
                   <div class="staddrop-logo">
                     <img
-                      src="../../../../../assets/img/icons/logo.png"
+                      src="../../../../../../assets/img/icons/logo.png"
                       alt="logo"
                     />
                   </div>
@@ -4562,63 +5662,63 @@
                     <path
                       fill="#000000"
                       d="M0 0h7v1H0zM8 0h2v1H8zM11 0h1v1H11zM15 0h2v1H15zM19 0h2v1H19zM23 
-                                    0h1v1H23zM28 0h4v1H28zM34,0 h7v1H34zM0 1h1v1H0zM6 1h1v1H6zM8 1h1v1H8zM11 1h1v1H11zM13 
-                                    1h1v1H13zM17 1h1v1H17zM21 1h4v1H21zM26 1h1v1H26zM28 1h1v1H28zM30 1h1v1H30zM32 1h1v1H32zM34 
-                                    1h1v1H34zM40,1 h1v1H40zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM11 2h2v1H11zM14 2h3v1H14zM18 2h1v1H18zM20 
-                                    2h3v1H20zM25 2h3v1H25zM30 2h1v1H30zM32 2h1v1H32zM34 2h1v1H34zM36 2h3v1H36zM40,2 h1v1H40zM0 3h1v1H0zM2 
-                                    3h3v1H2zM6 3h1v1H6zM8 3h1v1H8zM10 3h1v1H10zM12 3h1v1H12zM18 3h1v1H18zM21 3h2v1H21zM24 3h1v1H24zM28 
-                                    3h2v1H28zM31 3h2v1H31zM34 3h1v1H34zM36 3h3v1H36zM40,3 h1v1H40zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 
-                                    4h1v1H11zM15 4h2v1H15zM18 4h2v1H18zM24 4h2v1H24zM27 4h3v1H27zM31 4h2v1H31zM34 4h1v1H34zM36 4h3v1H36zM40,4 
-                                    h1v1H40zM0 5h1v1H0zM6 5h1v1H6zM10 5h1v1H10zM12 5h1v1H12zM14 5h2v1H14zM17 5h4v1H17zM24 5h2v1H24zM29 5h3v1H29zM34 
-                                    5h1v1H34zM40,5 h1v1H40zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 
-                                    6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h1v1H26zM28 6h1v1H28zM30 6h1v1H30zM32 6h1v1H32zM34,6 h7v1H34zM8 
-                                    7h4v1H8zM13 7h1v1H13zM17 7h2v1H17zM22 7h1v1H22zM27 7h4v1H27zM0 8h1v1H0zM2 8h2v1H2zM5 8h3v1H5zM9 8h2v1H9zM13 
-                                    8h2v1H13zM16 8h3v1H16zM21 8h2v1H21zM26 8h7v1H26zM34 8h1v1H34zM37 8h1v1H37zM39,8 h2v1H39zM1 9h1v1H1zM5 
-                                    9h1v1H5zM7 9h3v1H7zM11 9h2v1H11zM14 9h3v1H14zM19 9h1v1H19zM21 9h1v1H21zM23 9h1v1H23zM28 9h2v1H28zM31 
-                                    9h6v1H31zM38,9 h3v1H38zM1 10h2v1H1zM4 10h1v1H4zM6 10h3v1H6zM13 10h6v1H13zM22 10h5v1H22zM30 10h1v1H30zM33 
-                                    10h2v1H33zM36 10h1v1H36zM38 10h2v1H38zM1 11h1v1H1zM3 11h3v1H3zM8 11h1v1H8zM10 11h5v1H10zM16 11h1v1H16zM18 
-                                    11h3v1H18zM23 11h1v1H23zM25 11h4v1H25zM30 11h1v1H30zM32 11h1v1H32zM34 11h3v1H34zM39 11h1v1H39zM0 
-                                    12h1v1H0zM3 12h4v1H3zM10 12h2v1H10zM13 12h1v1H13zM17 12h1v1H17zM19 12h1v1H19zM25 12h3v1H25zM29 
-                                    12h1v1H29zM31 12h1v1H31zM37 12h2v1H37zM0 13h5v1H0zM8 13h1v1H8zM12 13h3v1H12zM16 13h3v1H16zM21 
-                                    13h3v1H21zM26 13h1v1H26zM28 13h4v1H28zM34 13h1v1H34zM37 13h2v1H37zM40,13 h1v1H40zM2 14h2v1H2zM5 
-                                    14h2v1H5zM8 14h3v1H8zM13 14h2v1H13zM17 14h2v1H17zM22 14h1v1H22zM24 14h1v1H24zM27 14h6v1H27zM34 
-                                    14h1v1H34zM36 14h2v1H36zM39,14 h2v1H39zM0 15h4v1H0zM5 15h1v1H5zM8 15h1v1H8zM11 15h2v1H11zM14 
-                                    15h1v1H14zM19 15h4v1H19zM24 15h1v1H24zM26 15h1v1H26zM28 15h1v1H28zM30 15h2v1H30zM34 15h2v1H34zM37 
-                                    15h1v1H37zM40,15 h1v1H40zM0 16h1v1H0zM3 16h2v1H3zM6 16h2v1H6zM10 16h2v1H10zM18 16h2v1H18zM21 
-                                    16h3v1H21zM25 16h1v1H25zM27 16h2v1H27zM30 16h1v1H30zM32 16h1v1H32zM36 16h1v1H36zM39 16h1v1H39zM0 
-                                    17h3v1H0zM4 17h1v1H4zM7 17h1v1H7zM9 17h1v1H9zM13 17h2v1H13zM16 17h3v1H16zM20 17h1v1H20zM22 
-                                    17h3v1H22zM29 17h2v1H29zM32 17h2v1H32zM35 17h1v1H35zM0 18h11v1H0zM12 18h2v1H12zM15 18h1v1H15zM17 
-                                    18h1v1H17zM20 18h2v1H20zM24 18h5v1H24zM32 18h1v1H32zM34 18h1v1H34zM36 18h2v1H36zM3 19h2v1H3zM7 
-                                    19h2v1H7zM11 19h1v1H11zM14 19h1v1H14zM22 19h2v1H22zM25 19h2v1H25zM28 19h3v1H28zM32 19h1v1H32zM35 
-                                    19h1v1H35zM37,19 h4v1H37zM0 20h1v1H0zM3 20h2v1H3zM6 20h3v1H6zM11 20h4v1H11zM16 20h1v1H16zM18 
-                                    20h1v1H18zM22 20h1v1H22zM25 20h3v1H25zM33 20h2v1H33zM36 20h1v1H36zM39 20h1v1H39zM0 21h4v1H0zM7 
-                                    21h1v1H7zM10 21h1v1H10zM15 21h1v1H15zM18 21h3v1H18zM22 21h2v1H22zM25 21h1v1H25zM27 21h2v1H27zM30,21 
-                                    h11v1H30zM0 22h1v1H0zM4 22h1v1H4zM6 22h1v1H6zM8 22h3v1H8zM15 22h1v1H15zM21 22h3v1H21zM25 22h1v1H25zM28 
-                                    22h1v1H28zM30 22h1v1H30zM33 22h1v1H33zM36 22h2v1H36zM39 22h1v1H39zM0 23h2v1H0zM4 23h1v1H4zM7 23h1v1H7zM11 
-                                    23h1v1H11zM13 23h1v1H13zM15 23h2v1H15zM20 23h1v1H20zM22 23h2v1H22zM25 23h1v1H25zM30 23h2v1H30zM33 23h1v1H33zM35 
-                                    23h1v1H35zM2 24h1v1H2zM4 24h5v1H4zM11 24h1v1H11zM13 24h3v1H13zM17 24h1v1H17zM19 24h1v1H19zM22 24h1v1H22zM24 
-                                    24h3v1H24zM29 24h1v1H29zM38,24 h3v1H38zM2 25h1v1H2zM4 25h1v1H4zM7 25h1v1H7zM9 25h1v1H9zM12 25h2v1H12zM17 
-                                    25h3v1H17zM21 25h1v1H21zM24 25h10v1H24zM37 25h2v1H37zM40,25 h1v1H40zM0 26h1v1H0zM4 26h1v1H4zM6 26h2v1H6zM9 
-                                    26h1v1H9zM11 26h5v1H11zM19 26h2v1H19zM26 26h1v1H26zM28 26h1v1H28zM30 26h5v1H30zM37 26h1v1H37zM39,26 
-                                    h2v1H39zM0 27h4v1H0zM5 27h1v1H5zM8 27h2v1H8zM12 27h4v1H12zM18 27h6v1H18zM26 27h1v1H26zM28 27h1v1H28zM31 
-                                    27h2v1H31zM35 27h1v1H35zM37 27h1v1H37zM39,27 h2v1H39zM0 28h2v1H0zM3 28h1v1H3zM6 28h1v1H6zM10 28h4v1H10zM16
-                                    28h1v1H16zM18 28h2v1H18zM22 28h1v1H22zM25 28h1v1H25zM27 28h2v1H27zM30 28h3v1H30zM35 28h3v1H35zM39,28 h2v1H39zM1 
-                                    29h4v1H1zM8 29h2v1H8zM12 29h1v1H12zM19 29h1v1H19zM22 29h1v1H22zM24 29h3v1H24zM28 29h1v1H28zM30 29h1v1H30zM32 
-                                    29h1v1H32zM35 29h1v1H35zM38 29h1v1H38zM0 30h1v1H0zM3 30h4v1H3zM8 30h1v1H8zM10 30h2v1H10zM14 30h1v1H14zM16 
-                                    30h2v1H16zM20 30h1v1H20zM22 30h3v1H22zM27 30h2v1H27zM33 30h3v1H33zM37 30h2v1H37zM2 31h4v1H2zM7 31h2v1H7zM14 
-                                    31h5v1H14zM20 31h1v1H20zM22 31h1v1H22zM24 31h1v1H24zM29 31h3v1H29zM34 31h1v1H34zM37 31h3v1H37zM1 32h2v1H1zM4 
-                                    32h3v1H4zM8 32h1v1H8zM11 32h1v1H11zM14 32h4v1H14zM19 32h3v1H19zM23 32h2v1H23zM26 32h1v1H26zM28 32h3v1H28zM32 
-                                    32h5v1H32zM38 32h1v1H38zM40,32 h1v1H40zM8 33h1v1H8zM13 33h4v1H13zM18 33h2v1H18zM23 33h1v1H23zM28 33h2v1H28zM32 
-                                    33h1v1H32zM36,33 h5v1H36zM0 34h7v1H0zM8 34h1v1H8zM11 34h2v1H11zM14 34h4v1H14zM20 34h5v1H20zM26 34h1v1H26zM30 
-                                    34h3v1H30zM34 34h1v1H34zM36 34h2v1H36zM0 35h1v1H0zM6 35h1v1H6zM8 35h1v1H8zM10 35h4v1H10zM15 35h1v1H15zM18 
-                                    35h1v1H18zM20 35h3v1H20zM24 35h3v1H24zM29 35h1v1H29zM32 35h1v1H32zM36 35h1v1H36zM39,35 h2v1H39zM0 36h1v1H0zM2 
-                                    36h3v1H2zM6 36h1v1H6zM11 36h1v1H11zM13 36h2v1H13zM18 36h2v1H18zM21 36h3v1H21zM27 36h1v1H27zM32 36h5v1H32zM38 
-                                    36h1v1H38zM0 37h1v1H0zM2 37h3v1H2zM6 37h1v1H6zM8 37h1v1H8zM10 37h2v1H10zM14 37h1v1H14zM16 37h4v1H16zM24 
-                                    37h1v1H24zM27 37h3v1H27zM31 37h1v1H31zM36 37h2v1H36zM39 37h1v1H39zM0 38h1v1H0zM2 38h3v1H2zM6 38h1v1H6zM8 
-                                    38h1v1H8zM11 38h2v1H11zM14 38h1v1H14zM16 38h1v1H16zM19 38h1v1H19zM21 38h2v1H21zM24 38h2v1H24zM28 38h3v1H28zM32 
-                                    38h1v1H32zM35 38h1v1H35zM38,38 h3v1H38zM0 39h1v1H0zM6 39h1v1H6zM9 39h1v1H9zM11 39h3v1H11zM15 39h2v1H15zM21 
-                                    39h2v1H21zM26 39h3v1H26zM32 39h1v1H32zM34 39h1v1H34zM36 39h2v1H36zM39 39h1v1H39zM0 40h7v1H0zM8 40h5v1H8zM14 
-                                    40h2v1H14zM19 40h5v1H19zM25 40h1v1H25zM31 40h4v1H31zM39 40h1v1H39z"
+                                      0h1v1H23zM28 0h4v1H28zM34,0 h7v1H34zM0 1h1v1H0zM6 1h1v1H6zM8 1h1v1H8zM11 1h1v1H11zM13 
+                                      1h1v1H13zM17 1h1v1H17zM21 1h4v1H21zM26 1h1v1H26zM28 1h1v1H28zM30 1h1v1H30zM32 1h1v1H32zM34 
+                                      1h1v1H34zM40,1 h1v1H40zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM11 2h2v1H11zM14 2h3v1H14zM18 2h1v1H18zM20 
+                                      2h3v1H20zM25 2h3v1H25zM30 2h1v1H30zM32 2h1v1H32zM34 2h1v1H34zM36 2h3v1H36zM40,2 h1v1H40zM0 3h1v1H0zM2 
+                                      3h3v1H2zM6 3h1v1H6zM8 3h1v1H8zM10 3h1v1H10zM12 3h1v1H12zM18 3h1v1H18zM21 3h2v1H21zM24 3h1v1H24zM28 
+                                      3h2v1H28zM31 3h2v1H31zM34 3h1v1H34zM36 3h3v1H36zM40,3 h1v1H40zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM11 
+                                      4h1v1H11zM15 4h2v1H15zM18 4h2v1H18zM24 4h2v1H24zM27 4h3v1H27zM31 4h2v1H31zM34 4h1v1H34zM36 4h3v1H36zM40,4 
+                                      h1v1H40zM0 5h1v1H0zM6 5h1v1H6zM10 5h1v1H10zM12 5h1v1H12zM14 5h2v1H14zM17 5h4v1H17zM24 5h2v1H24zM29 5h3v1H29zM34 
+                                      5h1v1H34zM40,5 h1v1H40zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 
+                                      6h1v1H20zM22 6h1v1H22zM24 6h1v1H24zM26 6h1v1H26zM28 6h1v1H28zM30 6h1v1H30zM32 6h1v1H32zM34,6 h7v1H34zM8 
+                                      7h4v1H8zM13 7h1v1H13zM17 7h2v1H17zM22 7h1v1H22zM27 7h4v1H27zM0 8h1v1H0zM2 8h2v1H2zM5 8h3v1H5zM9 8h2v1H9zM13 
+                                      8h2v1H13zM16 8h3v1H16zM21 8h2v1H21zM26 8h7v1H26zM34 8h1v1H34zM37 8h1v1H37zM39,8 h2v1H39zM1 9h1v1H1zM5 
+                                      9h1v1H5zM7 9h3v1H7zM11 9h2v1H11zM14 9h3v1H14zM19 9h1v1H19zM21 9h1v1H21zM23 9h1v1H23zM28 9h2v1H28zM31 
+                                      9h6v1H31zM38,9 h3v1H38zM1 10h2v1H1zM4 10h1v1H4zM6 10h3v1H6zM13 10h6v1H13zM22 10h5v1H22zM30 10h1v1H30zM33 
+                                      10h2v1H33zM36 10h1v1H36zM38 10h2v1H38zM1 11h1v1H1zM3 11h3v1H3zM8 11h1v1H8zM10 11h5v1H10zM16 11h1v1H16zM18 
+                                      11h3v1H18zM23 11h1v1H23zM25 11h4v1H25zM30 11h1v1H30zM32 11h1v1H32zM34 11h3v1H34zM39 11h1v1H39zM0 
+                                      12h1v1H0zM3 12h4v1H3zM10 12h2v1H10zM13 12h1v1H13zM17 12h1v1H17zM19 12h1v1H19zM25 12h3v1H25zM29 
+                                      12h1v1H29zM31 12h1v1H31zM37 12h2v1H37zM0 13h5v1H0zM8 13h1v1H8zM12 13h3v1H12zM16 13h3v1H16zM21 
+                                      13h3v1H21zM26 13h1v1H26zM28 13h4v1H28zM34 13h1v1H34zM37 13h2v1H37zM40,13 h1v1H40zM2 14h2v1H2zM5 
+                                      14h2v1H5zM8 14h3v1H8zM13 14h2v1H13zM17 14h2v1H17zM22 14h1v1H22zM24 14h1v1H24zM27 14h6v1H27zM34 
+                                      14h1v1H34zM36 14h2v1H36zM39,14 h2v1H39zM0 15h4v1H0zM5 15h1v1H5zM8 15h1v1H8zM11 15h2v1H11zM14 
+                                      15h1v1H14zM19 15h4v1H19zM24 15h1v1H24zM26 15h1v1H26zM28 15h1v1H28zM30 15h2v1H30zM34 15h2v1H34zM37 
+                                      15h1v1H37zM40,15 h1v1H40zM0 16h1v1H0zM3 16h2v1H3zM6 16h2v1H6zM10 16h2v1H10zM18 16h2v1H18zM21 
+                                      16h3v1H21zM25 16h1v1H25zM27 16h2v1H27zM30 16h1v1H30zM32 16h1v1H32zM36 16h1v1H36zM39 16h1v1H39zM0 
+                                      17h3v1H0zM4 17h1v1H4zM7 17h1v1H7zM9 17h1v1H9zM13 17h2v1H13zM16 17h3v1H16zM20 17h1v1H20zM22 
+                                      17h3v1H22zM29 17h2v1H29zM32 17h2v1H32zM35 17h1v1H35zM0 18h11v1H0zM12 18h2v1H12zM15 18h1v1H15zM17 
+                                      18h1v1H17zM20 18h2v1H20zM24 18h5v1H24zM32 18h1v1H32zM34 18h1v1H34zM36 18h2v1H36zM3 19h2v1H3zM7 
+                                      19h2v1H7zM11 19h1v1H11zM14 19h1v1H14zM22 19h2v1H22zM25 19h2v1H25zM28 19h3v1H28zM32 19h1v1H32zM35 
+                                      19h1v1H35zM37,19 h4v1H37zM0 20h1v1H0zM3 20h2v1H3zM6 20h3v1H6zM11 20h4v1H11zM16 20h1v1H16zM18 
+                                      20h1v1H18zM22 20h1v1H22zM25 20h3v1H25zM33 20h2v1H33zM36 20h1v1H36zM39 20h1v1H39zM0 21h4v1H0zM7 
+                                      21h1v1H7zM10 21h1v1H10zM15 21h1v1H15zM18 21h3v1H18zM22 21h2v1H22zM25 21h1v1H25zM27 21h2v1H27zM30,21 
+                                      h11v1H30zM0 22h1v1H0zM4 22h1v1H4zM6 22h1v1H6zM8 22h3v1H8zM15 22h1v1H15zM21 22h3v1H21zM25 22h1v1H25zM28 
+                                      22h1v1H28zM30 22h1v1H30zM33 22h1v1H33zM36 22h2v1H36zM39 22h1v1H39zM0 23h2v1H0zM4 23h1v1H4zM7 23h1v1H7zM11 
+                                      23h1v1H11zM13 23h1v1H13zM15 23h2v1H15zM20 23h1v1H20zM22 23h2v1H22zM25 23h1v1H25zM30 23h2v1H30zM33 23h1v1H33zM35 
+                                      23h1v1H35zM2 24h1v1H2zM4 24h5v1H4zM11 24h1v1H11zM13 24h3v1H13zM17 24h1v1H17zM19 24h1v1H19zM22 24h1v1H22zM24 
+                                      24h3v1H24zM29 24h1v1H29zM38,24 h3v1H38zM2 25h1v1H2zM4 25h1v1H4zM7 25h1v1H7zM9 25h1v1H9zM12 25h2v1H12zM17 
+                                      25h3v1H17zM21 25h1v1H21zM24 25h10v1H24zM37 25h2v1H37zM40,25 h1v1H40zM0 26h1v1H0zM4 26h1v1H4zM6 26h2v1H6zM9 
+                                      26h1v1H9zM11 26h5v1H11zM19 26h2v1H19zM26 26h1v1H26zM28 26h1v1H28zM30 26h5v1H30zM37 26h1v1H37zM39,26 
+                                      h2v1H39zM0 27h4v1H0zM5 27h1v1H5zM8 27h2v1H8zM12 27h4v1H12zM18 27h6v1H18zM26 27h1v1H26zM28 27h1v1H28zM31 
+                                      27h2v1H31zM35 27h1v1H35zM37 27h1v1H37zM39,27 h2v1H39zM0 28h2v1H0zM3 28h1v1H3zM6 28h1v1H6zM10 28h4v1H10zM16
+                                      28h1v1H16zM18 28h2v1H18zM22 28h1v1H22zM25 28h1v1H25zM27 28h2v1H27zM30 28h3v1H30zM35 28h3v1H35zM39,28 h2v1H39zM1 
+                                      29h4v1H1zM8 29h2v1H8zM12 29h1v1H12zM19 29h1v1H19zM22 29h1v1H22zM24 29h3v1H24zM28 29h1v1H28zM30 29h1v1H30zM32 
+                                      29h1v1H32zM35 29h1v1H35zM38 29h1v1H38zM0 30h1v1H0zM3 30h4v1H3zM8 30h1v1H8zM10 30h2v1H10zM14 30h1v1H14zM16 
+                                      30h2v1H16zM20 30h1v1H20zM22 30h3v1H22zM27 30h2v1H27zM33 30h3v1H33zM37 30h2v1H37zM2 31h4v1H2zM7 31h2v1H7zM14 
+                                      31h5v1H14zM20 31h1v1H20zM22 31h1v1H22zM24 31h1v1H24zM29 31h3v1H29zM34 31h1v1H34zM37 31h3v1H37zM1 32h2v1H1zM4 
+                                      32h3v1H4zM8 32h1v1H8zM11 32h1v1H11zM14 32h4v1H14zM19 32h3v1H19zM23 32h2v1H23zM26 32h1v1H26zM28 32h3v1H28zM32 
+                                      32h5v1H32zM38 32h1v1H38zM40,32 h1v1H40zM8 33h1v1H8zM13 33h4v1H13zM18 33h2v1H18zM23 33h1v1H23zM28 33h2v1H28zM32 
+                                      33h1v1H32zM36,33 h5v1H36zM0 34h7v1H0zM8 34h1v1H8zM11 34h2v1H11zM14 34h4v1H14zM20 34h5v1H20zM26 34h1v1H26zM30 
+                                      34h3v1H30zM34 34h1v1H34zM36 34h2v1H36zM0 35h1v1H0zM6 35h1v1H6zM8 35h1v1H8zM10 35h4v1H10zM15 35h1v1H15zM18 
+                                      35h1v1H18zM20 35h3v1H20zM24 35h3v1H24zM29 35h1v1H29zM32 35h1v1H32zM36 35h1v1H36zM39,35 h2v1H39zM0 36h1v1H0zM2 
+                                      36h3v1H2zM6 36h1v1H6zM11 36h1v1H11zM13 36h2v1H13zM18 36h2v1H18zM21 36h3v1H21zM27 36h1v1H27zM32 36h5v1H32zM38 
+                                      36h1v1H38zM0 37h1v1H0zM2 37h3v1H2zM6 37h1v1H6zM8 37h1v1H8zM10 37h2v1H10zM14 37h1v1H14zM16 37h4v1H16zM24 
+                                      37h1v1H24zM27 37h3v1H27zM31 37h1v1H31zM36 37h2v1H36zM39 37h1v1H39zM0 38h1v1H0zM2 38h3v1H2zM6 38h1v1H6zM8 
+                                      38h1v1H8zM11 38h2v1H11zM14 38h1v1H14zM16 38h1v1H16zM19 38h1v1H19zM21 38h2v1H21zM24 38h2v1H24zM28 38h3v1H28zM32 
+                                      38h1v1H32zM35 38h1v1H35zM38,38 h3v1H38zM0 39h1v1H0zM6 39h1v1H6zM9 39h1v1H9zM11 39h3v1H11zM15 39h2v1H15zM21 
+                                      39h2v1H21zM26 39h3v1H26zM32 39h1v1H32zM34 39h1v1H34zM36 39h2v1H36zM39 39h1v1H39zM0 40h7v1H0zM8 40h5v1H8zM14 
+                                      40h2v1H14zM19 40h5v1H19zM25 40h1v1H25zM31 40h4v1H31zM39 40h1v1H39z"
                       shape-rendering="crispEdges"
                     ></path>
                   </svg>
@@ -4642,9 +5742,10 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#lang"
+                    href="../../../../../../assets/img/icons/sprite.svg#lang"
                   ></use>
                 </svg>
+                <p>Russian</p>
               </button>
               <div class="staddrop">
                 <div class="half">
@@ -4749,8 +5850,12 @@
                   </div>
                   <div class="half-item">
                     <span>Currency</span>
-                    <input class="half-input" type="text" name="currency"
-                    placeholder="Search />
+                    <input
+                      class="half-input"
+                      type="text"
+                      name="currency"
+                      placeholder="Search"
+                    />
                     <ul class="half-list">
                       <li class="half-item">
                         <a
@@ -4861,7 +5966,8 @@
                 </div>
               </div>
             </div>
-            <div class="stad">
+            <div class="stad stad-dark">
+              <p>Topic</p>
               <button class="btn-icon" id="btn-night">
                 <svg
                   class="header-icon header-night"
@@ -4870,7 +5976,7 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#night"
+                    href="../../../../../../assets/img/icons/sprite.svg#night"
                   ></use>
                 </svg>
                 <svg
@@ -4880,12 +5986,256 @@
                   viewBox="0 0 24 24"
                 >
                   <use
-                    href="../../../../../assets/img/icons/sprite.svg#day"
+                    href="../../../../../../assets/img/icons/sprite.svg#day"
+                  ></use>
+                </svg>
+              </button>
+
+              <button class="btn-icon-mobile" id="btn-night-mobile">
+                <svg
+                  id="btn1"
+                  class="header-icon header-day"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <use
+                    href="../../../../../../assets/img/icons/sprite.svg#day"
+                  ></use>
+                </svg>
+                <svg
+                  id="btn2"
+                  class="header-icon header-night"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <use
+                    href="../../../../../../assets/img/icons/sprite.svg#night"
                   ></use>
                 </svg>
               </button>
             </div>
           </div>
+        </div>
+        <div class="box_mobile-nav-menu">
+          <button class="btn-web yellow">
+            <svg
+              class="btn-web__icon"
+              width="20"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <use
+                href="../../../../../../assets/img/icons/sprite.svg#refill"
+              ></use>
+            </svg>
+            <span>Top-up</span>
+          </button>
+          <!-- User -->
+          <div class="stad-mobile-user">
+            <button class="btn-icon-user" onclick="toggleDropdownUser()">
+              <svg
+                class="header-icon header-download"
+                width="19"
+                height="19"
+                viewBox="0 0 24 24"
+              >
+                <use
+                  href="../../../../../../assets/img/icons/sprite.svg#user"
+                ></use>
+              </svg>
+            </button>
+
+            <div class="staddrop-user">
+              <a href="#" class="logo-link_none" onclick="toggleDropdownUser()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </a>
+
+              <h2 class="staddrop-email"></h2>
+              <!-- User Verification -->
+              <div class="staddrop-state verif">
+                <svg
+                  class="header-icon header-download"
+                  width="13"
+                  height="13"
+                  viewBox="0 0 16 16"
+                >
+                  <use
+                    href="../../../../../../assets/img/icons/sprite.svg#verification"
+                  ></use>
+                </svg>
+                <span>Verification</span>
+              </div>
+              <a href="#" onclick="return false;" class="staddrop-state">
+                <svg
+                  class="header-icon header-download"
+                  width="16"
+                  height="17"
+                  viewBox="0 0 21 17"
+                >
+                  <use
+                    href="../../../../../../assets/img/icons/sprite.svg#diamond"
+                  ></use>
+                </svg>
+                <span>Regular User</span>
+              </a>
+              <div class="staddrop-state" id="link-twitter">
+                <svg
+                  class="header-icon header-download"
+                  width="16"
+                  height="17"
+                  viewBox="0 0 21 17"
+                >
+                  <use
+                    href="../../../../../../assets/img/icons/sprite.svg#x"
+                  ></use>
+                </svg>
+                <span>Link X Account</span>
+              </div>
+              <ul class="staddrop-list">
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-icon">
+                      <svg width="18" height="18" viewBox="0 0 22 22">
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#panel"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Dashboard</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a
+                    href="/en/my/wallet/account/overview"
+                    class="staddrop-link"
+                  >
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 22 22"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#user-wallet"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Assets</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 19 26"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#warrants"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Orders</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 19 26"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#user-notbg"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Account</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 27 20"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#user-plus"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Referral Program</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 22 18"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#bonus"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Bonus Center</span>
+                  </a>
+                </li>
+                <li class="staddrop-item">
+                  <a href="#" onclick="return false;" class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 22 18"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#settings"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Settings</span>
+                  </a>
+                </li>
+                <li class="staddrop-item exit" id="exit-user">
+                  <div class="staddrop-link">
+                    <div class="staddrop-link__img">
+                      <svg
+                        class="staddrop-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                      >
+                        <use
+                          href="../../../../../../assets/img/icons/sprite.svg#exit"
+                        ></use>
+                      </svg>
+                    </div>
+                    <span>Logout</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Mobile Menu -->
+          <a class="hamburger-menu" onclick="toggleMenu(event)">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </a>
         </div>
       </header>
       <!--END Шапка-->
@@ -5529,6 +6879,8 @@
     <script src="../../../../../assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../../../../../assets/js/lang.js"></script>
+    <script src="../../../../../assets/style/media/media.js"></script>
+
     <script>
       function getDefaultDates() {
         const today = new Date();
@@ -5787,19 +7139,45 @@
           //     : "green"
           // }>${transaction.party}</td>
 
+          // row.innerHTML = `
+          //       <td>${formatTimestamp(transaction.time)}</td>
+          //       <td>${
+          //         transaction.ticker === "BTCUSDT Бессрочный"
+          //           ? "BTCUSDT Perpetual"
+          //           : ""
+          //       }</td>
+          //       <td class=${
+          //         transaction.party === "Открыть шорт" ||
+          //         transaction.party === "Закрыть лонг"
+          //           ? "red"
+          //           : "green"
+          //       }>${
+          //   transaction.party === "Закрыть шорт"
+          //     ? "Close Short"
+          //     : transaction.party === "Закрыть лонг"
+          //     ? "Close Long"
+          //     : transaction.party === "Открыть шорт"
+          //     ? "Open Short"
+          //     : transaction.party === "Открыть лонг"
+          //     ? "Open Long"
+          //     : ""
+          // }</td>
+          //       <td>${formatter.format(transaction.price)}</td>
+          //       <td>${(+transaction.quantity).toFixed(1)} USDT</td>
+          //       <td>${transaction.commission} USDT</td>
+          //       <td>${transaction.realized_profit} USDT</td>
+          //   `;
+
           row.innerHTML = `
-                <td>${formatTimestamp(transaction.time)}</td>
-                <td>${
-                  transaction.ticker === "BTCUSDT Бессрочный"
-                    ? "BTCUSDT Perpetual"
-                    : ""
-                }</td>
-                <td class=${
-                  transaction.party === "Открыть шорт" ||
-                  transaction.party === "Закрыть лонг"
-                    ? "red"
-                    : "green"
-                }>${
+  <td data-label="Time">${formatTimestamp(transaction.time)}</td>
+  <td data-label="Ticker">${
+    transaction.ticker === "BTCUSDT Бессрочный" ? "BTCUSDT Perpetual" : ""
+  }</td>
+  <td data-label="Side" class=${
+    transaction.party === "Открыть шорт" || transaction.party === "Закрыть лонг"
+      ? "red"
+      : "green"
+  }>${
             transaction.party === "Закрыть шорт"
               ? "Close Short"
               : transaction.party === "Закрыть лонг"
@@ -5810,12 +7188,11 @@
               ? "Open Long"
               : ""
           }</td>
-                <td>${formatter.format(transaction.price)}</td>
-                <td>${(+transaction.quantity).toFixed(1)} USDT</td>
-                <td>${transaction.commission} USDT</td>
-                <td>${transaction.realized_profit} USDT</td>
-            `;
-
+  <td data-label="Price">${formatter.format(transaction.price)}</td>
+  <td data-label="Quantity">${(+transaction.quantity).toFixed(1)} USDT</td>
+  <td data-label="Commission">${transaction.commission} USDT</td>
+  <td data-label="Realized Profit">${transaction.realized_profit} USDT</td>
+`;
           tbody.appendChild(row);
         });
       }

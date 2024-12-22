@@ -112,7 +112,7 @@
     display: flex;
     align-items: center;
     color: var(--color-textPrimary);
-    background-color:  var(--color-Line);
+    background-color: var(--color-Line);
     padding: 2px 8px;
     border-radius: 10px;
     margin-bottom: 8px;
@@ -122,12 +122,12 @@
 
     &.verif {
       color: var(--color-textBuy);
-      background-color:  rgba(#003722, 0.5);
+      background-color: rgba(#003722, 0.5);
       cursor: text;
     }
 
     &.day {
-      color:  var(--color-textPrimaryDay);
+      color: var(--color-textPrimaryDay);
       background-color: var(--color-bg3);
     }
 
@@ -238,15 +238,15 @@
     &::-webkit-scrollbar {
       width: 7px;
     }
-    
+
     &::-webkit-scrollbar-track {
-      background-color: var(--color-CardBg); 
+      background-color: var(--color-CardBg);
     }
-    
+
     &::-webkit-scrollbar-thumb {
-      background-color: var(--color-Line); 
-      border-radius: 15px; 
-      border: 3px solid var(--color-Line); 
+      background-color: var(--color-Line);
+      border-radius: 15px;
+      border: 3px solid var(--color-Line);
     }
 
     &-link {
@@ -285,7 +285,7 @@
         margin: 2px 0 0;
         max-width: 230px;
         white-space: nowrap;
-        overflow: hidden; 
+        overflow: hidden;
         text-overflow: ellipsis;
       }
     }
@@ -304,7 +304,7 @@
         line-height: 22px;
         color: var(--color-textPrimary);
         white-space: nowrap;
-        overflow: hidden; 
+        overflow: hidden;
         text-overflow: ellipsis;
       }
 
@@ -416,15 +416,15 @@
       &::-webkit-scrollbar {
         width: 7px;
       }
-      
+
       &::-webkit-scrollbar-track {
-        background-color: var(--color-CardBg); 
+        background-color: var(--color-CardBg);
       }
-      
+
       &::-webkit-scrollbar-thumb {
-        background-color: var(--color-Line); 
-        border-radius: 15px; 
-        border: 3px solid var(--color-Line); 
+        background-color: var(--color-Line);
+        border-radius: 15px;
+        border: 3px solid var(--color-Line);
       }
     }
 
@@ -469,13 +469,13 @@
 body.white {
   .beadroll {
     &::-webkit-scrollbar-track {
-      background-color: var(--color-bg1); 
+      background-color: var(--color-bg1);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--color-line); 
-      border-radius: 15px; 
-      border: 3px solid var(--color-line); 
+      background-color: var(--color-line);
+      border-radius: 15px;
+      border: 3px solid var(--color-line);
     }
 
     &-icon {
@@ -490,7 +490,7 @@ body.white {
   .staddrop-end svg {
     stroke: var(--color-iconNormal);
     fill: none;
-  } 
+  }
 
   .staddrop-end:hover svg {
     stroke: var(--color-textPrimaryDay);
@@ -498,13 +498,13 @@ body.white {
 
   .half-list {
     &::-webkit-scrollbar-track {
-      background-color: var(--color-bg1); 
+      background-color: var(--color-bg1);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--color-line); 
-      border-radius: 15px; 
-      border: 3px solid var(--color-line); 
+      background-color: var(--color-line);
+      border-radius: 15px;
+      border: 3px solid var(--color-line);
     }
   }
 

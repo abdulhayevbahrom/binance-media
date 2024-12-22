@@ -1,5 +1,6 @@
 // MAIN API
-const API = "https://www.binance.com";
+// const API = "https://www.binance.com";
+const API = "http://91.210.149.127:8010";
 
 // TODAY'S DATE
 let today_start = moment().startOf("day");
@@ -11,8 +12,8 @@ let today_end = moment().endOf("day");
 function noData(margin_top) {
   return `
     <div style="margin-top: ${margin_top || 0}px;" class="no_data_box">
-      <img width="50%" src="/analysis/assets/download.png" alt="No Data" />
-      <p style="color: #848e9c; font-size: 16px; text-align: center; margin-top: 10px;">No data</p>
+      <img width="50%" src="./analysis/assets/download.png" alt="No Data" />
+      <p style="color: #848e9c; font-size: 16px; text-align: center; margin-top: 10px;">Нет данных</p>
     </div>`;
 }
 
@@ -55,17 +56,16 @@ const pnl_today = async () => {
 
   let [title, percent, usd] = today.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -90,17 +90,16 @@ const pnl_seven = async () => {
 
   let [title, percent, usd] = seven.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -125,17 +124,16 @@ const pnl_month = async () => {
 
   let [title, percent, usd] = month.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -160,17 +158,16 @@ const pnl_all = async () => {
   let data = res?.data;
 
   let [title, percent, usd] = all.children;
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -222,9 +219,9 @@ const profitAndLoss = async (
   pnl.innerHTML = (data?.pnl || 0) + " USD";
   total_amount.innerHTML = (data?.total_amount || 0) + " USD";
   profitability_ratio.innerHTML = (data?.profitability_ratio || 0) + " %";
-  profit_days.innerHTML = (data?.profit_days || 0) + " Days";
-  loss_days.innerHTML = (data?.loss_days || 0) + " Days";
-  breakeven_days.innerHTML = (data?.breakeven_days || 0) + " Days";
+  profit_days.innerHTML = (data?.profit_days || 0) + " Дней";
+  loss_days.innerHTML = (data?.loss_days || 0) + " Дней";
+  breakeven_days.innerHTML = (data?.breakeven_days || 0) + " Дней";
   average_profit.innerHTML = (data?.average_profit || 0) + " USD";
   average_loss.innerHTML = (data?.average_loss || 0) + " USD";
   profit_loss_ratio.innerHTML = data?.profit_loss_ratio || 0;
@@ -565,7 +562,7 @@ async function showData(start_date, end_date) {
         labels: keys, // Metkalar (x o'qi uchun)
         datasets: [
           {
-            label: "PNL by Days",
+            label: "PNL по дням",
             data: values, // Ma'lumotlar
             backgroundColor: function (context) {
               const value = context.dataset.data[context.dataIndex];
@@ -608,7 +605,7 @@ async function showData(start_date, end_date) {
             bodyColor: "#fff",
             callbacks: {
               label: function (context) {
-                return `PNL by Days: ${context.raw} USD`;
+                return `PNL по дням: ${context.raw} USD`;
               },
             },
           },
@@ -679,11 +676,9 @@ async function showData(start_date, end_date) {
 
       // Get today's date for comparison
       const today = new Date();
-      const todayDateString = `${today.getFullYear()}-${
-        today.getMonth() + 1 < 10 ? "0" : ""
-      }${today.getMonth() + 1}-${
-        today.getDate() < 10 ? "0" : ""
-      }${today.getDate()}`;
+      const todayDateString = `${today.getFullYear()}-${today.getMonth() + 1 < 10 ? "0" : ""
+        }${today.getMonth() + 1}-${today.getDate() < 10 ? "0" : ""
+        }${today.getDate()}`;
 
       // Create empty days before the first day
       for (let i = 0; i < firstDayIndex; i++) {
@@ -698,9 +693,8 @@ async function showData(start_date, end_date) {
         dayDiv.classList.add("day");
         dayDiv.innerText = day;
 
-        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${
-          day < 10 ? "0" : ""
-        }${day}`;
+        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${day < 10 ? "0" : ""
+          }${day}`;
 
         // Check if today's or a past date
         const isPastOrToday = new Date(currentDate) <= today;
@@ -749,43 +743,36 @@ async function showData(start_date, end_date) {
             modal.style.color = "#222";
 
             modal.innerHTML = `
-            <p style="margin-bottom:7px;">${currentDate}</p>
-            <p>Daily PNL: <span style="color: ${
-              datas?.dayli_pnl > 0
+              <p style="margin-bottom:7px;">${currentDate}</p>
+              <p>Дневной PNL: <span style="color: ${datas?.dayli_pnl > 0
                 ? "#2ebd85"
                 : datas?.dayli_pnl < 0
-                ? "#e1545e"
-                : "#222"
-            };">${
-              (datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
-            } USD</span></p>
-            <p>Total PNL: <span style="color: ${
-              datas?.summ_pnl > 0
+                  ? "#e1545e"
+                  : "#222"
+              };">${(datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
+              } USD</span></p>
+              <p>Суммарный PNL: <span style="color: ${datas?.summ_pnl > 0
                 ? "#2ebd85"
                 : datas?.summ_pnl < 0
-                ? "#e1545e"
-                : "#222"
-            };">${
-              (datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
-            } USD</span></p>
-            <p>Total PNL %: <span style="color: ${
-              datas?.summ_pnl_proc > 0
+                  ? "#e1545e"
+                  : "#222"
+              };">${(datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
+              } USD</span></p>
+              <p>Суммарный PNL %: <span style="color: ${datas?.summ_pnl_proc > 0
                 ? "#2ebd85"
                 : datas?.summ_pnl_proc < 0
-                ? "#e1545e"
-                : "#222"
-            };">${
-              (datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
-            } %</span></p>
-            <p>Total Transfers, Net: <span style="color: ${
-              datas?.summ_translations > 0
+                  ? "#e1545e"
+                  : "#222"
+              };">${(datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
+              } %</span></p>
+              <p>Суммарные переводы, нетто: <span style="color: ${datas?.summ_translations > 0
                 ? "#2ebd85"
                 : datas?.summ_translations < 0
-                ? "#e1545e"
-                : "#222"
-            };">${datas?.summ_translations}</span></p>
-            <p>Trading Volume: <span>${datas?.trading_volume}</span></p>
-          `;
+                  ? "#e1545e"
+                  : "#222"
+              };">${datas?.summ_translations}</span></p>
+              <p>Объем торгов: <span>${datas?.trading_volume}</span></p>
+            `;
 
             const rect = dayDiv.getBoundingClientRect();
             modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
@@ -930,7 +917,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
             yAlign: "bottom", // Tooltipni tepa qismida ko'rsatadi
             callbacks: {
               label: function (context) {
-                return `Total PNL: ${context.raw} USD`;
+                return `Совокупный PNL: ${context.raw} USD`;
               },
             },
           },
@@ -1017,7 +1004,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       labels, // Sanalar (X o'qi uchun)
       datasets: [
         {
-          label: "Total PNL %",
+          label: "Совокупный PNL %",
           data: pnl_values, // PNL ma'lumotlari
           borderColor: "#f3b60f", // PNL uchun sariq chiziq
           backgroundColor: "transparent",
@@ -1038,7 +1025,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Total Marking Price of BTCUSDT PERP, %",
+          label: "Совокупная цена маркировки BTCUSDT PERP, %",
           data: btc_values,
           borderColor: "#005eda",
           backgroundColor: "transparent",
@@ -1058,7 +1045,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Total Marking Price of BNBUSDT PERP, %",
+          label: "Совокупная цена маркировки BNBUSDT PERP, %",
           data: bnb_values,
           borderColor: "#ff7700",
           backgroundColor: "transparent",
@@ -1202,7 +1189,7 @@ async function showData_active_values(start_date, end_date) {
           labels: keys, // Sana (labels)
           datasets: [
             {
-              label: "BTC Value",
+              label: "Значение BTC",
               data: values, // BTC qiymatlari
               borderColor: "#f3b60f", // PNL uchun sariq chiziq
               backgroundColor: "transparent", // Zamin rangi
@@ -1261,7 +1248,7 @@ async function showData_active_values(start_date, end_date) {
               caretSize: 6, // Tooltipning uchining kattaligi
               callbacks: {
                 label: function (context) {
-                  return `Price: ${context.raw} USD`;
+                  return `Стоимость: ${context.raw} USD`;
                 },
               },
             },
@@ -1517,7 +1504,7 @@ async function showData_daily_comission(start_date, end_date) {
           labels: keys, // Метки для оси X
           datasets: [
             {
-              label: "Daily PNL",
+              label: "PNL по дням",
               data: values, // Данные для графика
               backgroundColor: function (context) {
                 const value = context?.dataset?.data[context?.dataIndex];
@@ -1567,7 +1554,7 @@ async function showData_daily_comission(start_date, end_date) {
               bodyColor: "#fff", // Tooltip matn rangi
               callbacks: {
                 label: function (context) {
-                  return `Value: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
+                  return `Значение: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
                 },
               },
             },
@@ -1820,9 +1807,9 @@ async function showData_transaction(start_date, end_date) {
 }
 
 all_sum_komiccy_for_transaction_checkbox.onclick = (e) =>
-  (all_sum_komiccy_for_transaction.style.display = e.target.checked
-    ? "block"
-    : "none");
+(all_sum_komiccy_for_transaction.style.display = e.target.checked
+  ? "block"
+  : "none");
 
 // SHOW CHECKBOX TRANSAKTION
 let checkbox_transaktion_api = "/accounts/financing-and-transaction-fees";

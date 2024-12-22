@@ -1,3 +1,5 @@
+
+
 function openMenu() {
     const menuBox = document.querySelector('.header-container');
     menuBox.classList.add('active');
@@ -12,11 +14,15 @@ function closeMenu() {
 
 function toggleMenu(event) {
     event.preventDefault();
+    const body = document.querySelector('body');
+
     const menuBox = document.querySelector('.header-container');
     if (menuBox.classList.contains('active')) {
         closeMenu();
+        body.style.overflow = "auto"
     } else {
         openMenu();
+        body.style.overflow = "hidden"
     }
 }
 
@@ -91,6 +97,7 @@ btn_Close.addEventListener('click', function () {
 
 
 // =========================================
+
 document.querySelector("#btn-night-mobile").addEventListener("click", () => {
     document.body.classList.toggle("white");
     document.querySelector(".header-container").classList.toggle("white");
@@ -149,3 +156,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+//======================================
+function toggleDropdownUser() {
+    const body = document.body; // To'g'ridan-to'g'ri body tanlang
+    const staddrop = document.querySelector(".staddrop-user");
+
+    if (staddrop.classList.contains("show")) {
+        staddrop.classList.remove("show");
+        body.style.overflow = "auto"; // Dropdown yopilganda, scrollni tiklang
+    } else {
+        staddrop.classList.add("show");
+        body.style.overflow = "hidden"; // Dropdown ochilganda, scrollni o'chiring
+    }
+}
+
+
+//==================================
+function toggleInput() {
+    const input = document.getElementById('disable');
+    if (input.style.display === 'none') {
+        input.style.display = 'inline-block'; // Inputni ochadi
+    } else {
+        input.style.display = 'none'; // Inputni yopadi
+    }
+}

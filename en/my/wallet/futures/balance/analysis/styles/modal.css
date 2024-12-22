@@ -233,10 +233,7 @@
   position: relative;
   font-weight: 400;
   font-size: 14px;
-  /* line-height: 20px; */
   color: #5e6673;
-
-  /* margin-top: 9px; */
 }
 
 .custom_checkbox label:before {
@@ -254,7 +251,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.custom_checkbox input:checked + label::after {
+.custom_checkbox input:checked+label::after {
   content: "";
   display: block;
   position: absolute;
@@ -267,7 +264,7 @@
   transform: rotate(40deg);
 }
 
-.custom_checkbox input:checked + label::before {
+.custom_checkbox input:checked+label::before {
   content: "";
   background-color: #f0b90b;
   border-color: #f0b90b;

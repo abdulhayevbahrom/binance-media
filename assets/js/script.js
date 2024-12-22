@@ -8,7 +8,7 @@ const accordionButtons = document.querySelectorAll(
   ".sidebar__menu-item--accordion"
 );
 
-accordionButtons.forEach(button => {
+accordionButtons?.forEach(button => {
   button.addEventListener("click", () => {
     button.classList.toggle("sidebar__menu-item--open");
   });
@@ -199,8 +199,8 @@ const updateBalanceDisplay = isHidden => {
     item.textContent = isHidden
       ? "******"
       : `${pnlData.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData.pnl)}(${Math.abs(
-          pnlData.percentage
-        )}%)`;
+        pnlData.percentage
+      )}%)`;
   });
 };
 
@@ -325,7 +325,7 @@ document.querySelectorAll(".holdings__currency").forEach(info => {
 const underDollarCheckbox = document.querySelector("#underDollarCheckbox");
 
 underDollarCheckbox.addEventListener("click", () => {
-  underDollarCheckbox.classList.toggle("active");
+  underDollarCheckbox?.classList.toggle("active");
 });
 
 new Swiper(".suggestions", {

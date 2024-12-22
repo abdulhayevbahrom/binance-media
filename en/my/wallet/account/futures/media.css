@@ -1,0 +1,428 @@
+.futures-head__buttons-mobile {
+    display: none;
+}
+
+.media_mobile {
+    display: none;
+}
+
+
+
+/* media */
+@media screen and (max-width: 950px) {
+
+    .page-with-sidebar .main {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .futures-balance {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .futures-balance__right {
+        width: 100%;
+        position: relative;
+        padding: 20px;
+    }
+
+    .futures-balance__items {
+        margin-top: 30px;
+        /* flex-direction: column; */
+    }
+
+    .futures-balance__left {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 6px;
+    }
+
+    .futures-balance__main {
+        width: 100%;
+    }
+
+    .futures-balance__pnl-tooltip {
+        display: flex !important;
+    }
+
+    .futures-balance__pnl-wrapper {
+        width: 100%;
+        display: flex !important;
+        justify-content: space-between;
+    }
+
+    .futures-balance__pnl-wrapper>span {
+        text-wrap: nowrap;
+    }
+
+    .futures-balance__pnl-wrapper>a {
+        text-wrap: nowrap;
+    }
+
+    .futures-head .futures-head__buttons {
+        display: none;
+    }
+
+    .futures-head__buttons {
+        gap: 4px;
+    }
+
+    .futures-head__buttons>button {
+        padding: 0 8px;
+    }
+
+    .futures-head__more-button {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+
+    .futures-balance__right {
+        width: 100%;
+        position: relative;
+        padding: 5px;
+    }
+
+    .futures-balance__head>h3 {
+        font-size: 16px;
+    }
+
+    .futures-balance__items {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .futures-balance-chart__legend-item {
+        background-color: transparent;
+        border-radius: 4px;
+        padding: 0 8px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        transition: all 0.25s;
+    }
+
+    .futures-balance__switch-chart {
+        position: absolute;
+        display: flex;
+        right: 0;
+        top: auto;
+        padding: 2px;
+        background-color: var(--color-Input);
+        border-radius: 6px;
+    }
+
+    .futures-head .futures-head__more {
+        display: none;
+    }
+
+    .futures-head__buttons-mobile {
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .futures-holdings__table {
+        display: block;
+        /* padding: 10px; */
+    }
+
+    .futures-holdings__table thead {
+        display: none;
+    }
+
+    .futures-holdings__table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .futures-holdings__table tbody tr {
+        display: block;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        padding: 8px 0;
+        width: 100%;
+    }
+
+    .futures-holdings__table tbody tr td {
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center;
+        padding: 8px 0;
+        /* width: 100%; */
+        text-wrap: nowrap;
+    }
+
+    .futures-holdings__table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: 500;
+        color: var(--color-textThird);
+        text-align: left;
+    }
+
+    .futures-holdings__table th:not(:last-child),
+    .futures-holdings__table td:not(:last-child) {
+        padding-right: 5px;
+    }
+
+    .futures-holdings__table tbody tr td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        color: white;
+        position: relative;
+    }
+
+
+    #unrealized-pnl,
+    #balance-value,
+    #margin-values,
+    #balance-equivalent,
+    #usdt-balance-value,
+    #usdt-unrealized-pnl,
+    #usdt-margin-value,
+    #usdt-transferable,
+    #usdt-equivalent,
+    #usdt-action,
+    #bnb-balance-value,
+    #bnb-unrealized-pnl,
+    #bnb-margin-value,
+    #bnb-transferable,
+    #bnb-equivalent,
+    #bnb-action,
+    #btc-balance-value,
+    #btc-unrealized-pnl,
+    #btc-margin-value,
+    #btc-transferable,
+    #btc-equivalent,
+    #eth-balance-value,
+    #eth-unrealized-pnl,
+    #eth-margin-value,
+    #eth-transferable,
+    #eth-equivalent,
+    #eth-action,
+    #fdusd-balance-value,
+    #fdusd-unrealized-pnl,
+    #fdusd-margin-value,
+    #fdusd-transferable,
+    #fdusd-equivalent,
+    #usdc-balance-value,
+    #usdc-unrealized-pnl,
+    #usdc-margin-value,
+    #usdc-transferable,
+    #usdc-equivalent,
+    #usdc-action {
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center;
+        width: 100%;
+    }
+
+    .media_dack {
+        display: none;
+    }
+
+    .media_mobile {
+        display: block;
+        fill: gray;
+        padding: 0;
+        display: flex;
+        justify-content: end;
+        align-items: flex-start;
+        margin-right: -12px;
+    }
+
+
+
+    #btc-action>div {
+        width: 100px;
+        height: 200px;
+        position: absolute;
+        right: -730%;
+        top: -1260%;
+        z-index: 200;
+        display: flex;
+        justify-content: end;
+        align-items: flex-start;
+    }
+
+
+    .futures-holdings__table tbody tr td img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+
+    .wrapper .header-nav {
+        width: 100%;
+        margin-top: 70px;
+    }
+
+    .media_none {
+        display: none;
+    }
+
+
+
+    .btn-web {
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        height: 30px;
+        border-radius: 5px;
+        font-weight: 500;
+        font-family: "BinancePlex", "Arial", sans-serif;
+        font-size: 0.7rem;
+        line-height: 100%;
+        color: var(--color-textPrimary);
+    }
+
+    .page-with-sidebar .stad {
+        display: block;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        padding: 0 8px !important;
+        align-items: center;
+        border-radius: 8px;
+    }
+
+    .page-with-sidebar .stad:hover {
+        background-color: #f0f0f000;
+    }
+
+    .page-with-sidebar .stad>.btn-icon {
+        height: auto;
+        width: auto;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0px;
+        /* color: #707a8a !important; */
+        /* gap: 10px; */
+    }
+
+
+}
+
+.box_mobile-nav-menu {
+    display: none;
+}
+
+.stad-mobile-user {
+    display: none;
+}
+
+.box_mobile-nav-menu .search {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .wrapper .search {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        right: 0;
+        width: 93%;
+        margin: 0 auto;
+    }
+
+    .box_mobile-nav-menu {
+        display: block;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .staddrop-user {
+        width: 100%;
+        height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--color-CardBg);
+        border-radius: 0 0 8px 8px;
+        border: 1px solid var(--color-Line);
+        overflow: hidden;
+        z-index: 601;
+        padding: 16px;
+        opacity: 0;
+
+    }
+
+    .staddrop-user.show {
+        width: 100%;
+        display: block;
+        opacity: 1;
+    }
+
+    .btn-icon-user {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-icon {
+        margin-right: 0px;
+    }
+
+
+
+    .stad-mobile-user {
+        display: block;
+        position: relative;
+        height: 64px;
+        display: flex;
+        align-items: center;
+    }
+
+
+
+    .sidebar__menu {
+        max-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        scrollbar-color: #88888879 #e0e0e000;
+    }
+
+    /* Chrome, Edge va Safari uchun scrollbar stili */
+    .sidebar__menu::-webkit-scrollbar {
+        width: 2px;
+        /* Skroll kengligi */
+    }
+
+    .sidebar__menu::-webkit-scrollbar-track {
+        background: #e0e0e0;
+        /* Skroll track rangi */
+    }
+
+    .sidebar__menu::-webkit-scrollbar-thumb {
+        background-color: #888;
+        /* Skroll ustidagi tugma rangi */
+        border-radius: 4px;
+        /* Skroll tugma burchaklari */
+        border: 2px solid #e0e0e0;
+        /* Skroll tugma chet chizig'i */
+    }
+
+    .header-rightside .yellow {
+        display: none;
+    }
+}

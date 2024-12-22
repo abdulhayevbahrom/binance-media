@@ -1113,7 +1113,7 @@ button {
 
 @media (max-width: 1023px) {
   .transaction-history__table {
-    /* display: none; */
+    display: none;
   }
 }
 
@@ -1180,6 +1180,10 @@ button {
   align-items: center;
   gap: 16px;
   margin: 24px 0;
+}
+
+.order-filters-mobile {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -1995,7 +1999,6 @@ button {
 .futures-balance__right {
   width: 40%;
   position: relative;
-  padding: 20px;
 }
 
 .futures-balance__value {
@@ -6216,11 +6219,11 @@ body.white .footer-copyright::before {
   border-color: var(--color-bg3);
 }
 
-.search-block.day .-cancel {
+.search-block.day .search-cancel {
   color: var(--color-textPrimaryDay);
 }
 
-.search-block.day .-input {
+.search-block.day .search-input {
   color: var(--color-textPrimaryDay);
   outline: transparent;
   border-color: var(--color-textPrimary);

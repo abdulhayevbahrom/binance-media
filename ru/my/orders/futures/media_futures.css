@@ -2,11 +2,37 @@
     display: none;
 }
 
+.main .order-filters-mobile {
+    display: none;
+}
+
+.order-filters-mobile_fu {
+    display: none;
+}
+
+.order-filters-mobile-tr {
+    display: none;
+}
+
 @media (max-width: 768px) {
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+    }
+
+    .order-filters-mobile_fu {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order-filters-mobile-tr {
+        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .main>.orders-reload {
@@ -15,6 +41,11 @@
         justify-content: center;
         align-items: center;
     }
+
+    .order-filters {
+        display: none;
+    }
+
 
     .order-filters-mobile {
         display: block;

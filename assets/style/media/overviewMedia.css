@@ -1,0 +1,157 @@
+@media (max-width: 768px) {
+  .balance {
+    margin-top: 24px;
+    height: 390px;
+    padding-bottom: 0 !important;
+    justify-content: flex-start;
+  }
+
+  div.section.balance.expand {
+    height: 270px !important;
+
+    .wallet-balance-preview-chart-container {
+      position: absolute;
+      top: 150px !important;
+      left: 0;
+
+      #wallet-balance-preview-chart {
+        width: 100% !important;
+        height: 160px !important;
+      }
+    }
+
+    .wallet-balance-chart-container,
+    #wallet-balance-chart {
+      display: none !important;
+    }
+  }
+
+  div.section.balance.expanded {
+    height: 300px !important;
+
+    .wallet-balance-chart-container,
+    #wallet-balance-chart {
+      display: block !important;
+      height: 160px !important;
+    }
+
+    .chart-filter-buttons {
+      left: 0;
+      top: 190px !important;
+    }
+
+    .wallet-balance-chart-container {
+      position: absolute !important;
+      top: 200px;
+      width: 100% !important;
+    }
+    .wallet-balance-chart__labels {
+      top: 120px !important;
+    }
+  }
+
+  .chart-filter-buttons {
+    left: 0;
+    top: 170px !important;
+  }
+
+  .wallet-balance-chart-container {
+    position: absolute !important;
+    top: 180px;
+    width: 100% !important;
+  }
+
+  .wallet-balance-chart__labels {
+    top: 124px !important;
+    bottom: auto !important;
+    width: 97% !important;
+  }
+
+  .balance__expand-button {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .wallet-balance-chart__labels {
+    width: 95% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .transaction-history__table {
+    thead {
+      display: none;
+    }
+
+    tbody {
+      tr {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        td {
+          color: #999;
+          font-size: 16px;
+          position: absolute;
+
+          svg {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            left: -33px;
+          }
+
+          &:nth-child(1) {
+            top: 10px;
+            left: 43px;
+          }
+
+          &:nth-child(3) {
+            top: 35px;
+            left: 43px;
+            text-wrap: no-wrap;
+            white-space: nowrap;
+          }
+          &:nth-child(2) {
+            top: 10px;
+            right: 0;
+            text-wrap: no-wrap;
+            white-space: nowrap;
+            text-align: right;
+            padding: 0 10px;
+            color: #fff;
+          }
+          &:nth-child(4) {
+            top: 35px;
+            right: 0;
+            text-wrap: no-wrap;
+            white-space: nowrap;
+            font-size: 16px;
+            color: #999;
+            text-align: right;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .transaction-history__head {
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  .transaction-history__table {
+    tbody {
+      tr {
+        td {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

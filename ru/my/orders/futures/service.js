@@ -1,24 +1,39 @@
 // Modal va tugmalarni olish
 const modal = document.querySelector('.order-filters_modal');
-const toggleButton = document.querySelector('.order-filters-mobile > button');
+const toggleButtons = [
+    document.querySelector('.order-filters-mobile > button'),
+    document.querySelector('.order-filters-mobile_fu > button'),
+    document.querySelector('.order-filters-mobile-tr > button')
+];
 const closeModalButton = document.querySelector('.close-modal');
 
 // Modalni ochish va yopish funksiyasi
-toggleButton.addEventListener('click', () => {
-    modal.classList.toggle('active');
+toggleButtons.forEach((button) => {
+    if (button) {
+        button.addEventListener('click', () => {
+            modal.classList.toggle('active');
+        });
+    }
 });
 
 // "Close" tugmachasini bosganda modalni yopish
-closeModalButton.addEventListener('click', () => {
-    modal.classList.remove('active');
-});
+if (closeModalButton) {
+    closeModalButton.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+}
 
 // Modal tashqarisiga bosganda modalni yopish
 document.addEventListener('click', (event) => {
-    if (!modal.contains(event.target) && !toggleButton.contains(event.target)) {
+    const isClickInsideModal = modal.contains(event.target);
+    const isClickOnToggleButton = toggleButtons.some(button => button && button.contains(event.target));
+
+    if (!isClickInsideModal && !isClickOnToggleButton) {
         modal.classList.remove('active');
     }
 });
+
+
 
 // ===================================
 // Select all the buttons

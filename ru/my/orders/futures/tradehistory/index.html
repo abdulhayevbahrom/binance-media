@@ -3795,56 +3795,57 @@
                 </path>
               </svg>
             </button>
-            <div class="order-select">
-              <button class="order-select__label" onclick="setActive(this)" data-value="all">
-                ВСЕ
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="bnb-btc">
-                BNB/BTC
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="nuls-btc">
-                NULS/BTC
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="neo-btc">
-                NEO/BTC
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="link-btc">
-                LINK/BTC
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="iota-btc">
-                IOTA/BTC
-              </button>
-              <button class="order-select__label" onclick="setActive(this)" data-value="etc-btc">
-                ETC/BTC
-              </button>
-            </div>
-            <div class="calendar">
-              <div class="calendar__preview" id="dateRangePicker"></div>
-            </div>
 
-            <div class="order-select" id="side-select">
-              <span class="order-select__label">
-                Сторона
+            <p>Тикер</p>
+            <div class="order-select">
+              <span onclick="IsSelectOpen()" class="order-select__label">
                 <div>
+                  <span id="order-select__value"></span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
                     <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
                   </svg>
                 </div>
               </span>
-              <div class="order-select__list-wrapper">
+              <div class="order-select__list-wrapper-box">
                 <div class="order-select__list">
-                  <span class="order-select__option" data-value="all">
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="all">
                     ВСЕ
-                  </span>
-                  <span class="order-select__option" data-value="buy">
-                    Купить
-                  </span>
-                  <span class="order-select__option" data-value="sell">
-                    Продать
-                  </span>
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="bnb-btc">
+                    BNB/BTC
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="nuls-btc">
+                    NULS/BTC
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="neo-btc">
+                    NEO/BTC
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="link-btc">
+                    LINK/BTC
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="iota-btc">
+                    IOTA/BTC
+                  </button>
+                  <button onclick="IsSelectOpen()" class="order-select__option" data-value="etc-btc">
+                    ETC/BTC
+                  </button>
                 </div>
               </div>
             </div>
+
+            <p>Сторона</p>
+            <div class="order-select order-select-str">
+              <button class="order-select__order" onclick="setActive(this)" data-value="all">
+                ВСЕ
+              </button>
+              <button class="order-select__order" onclick="setActive(this)" data-value="buy">
+                Купить
+              </button>
+              <button class="order-select__order" onclick="setActive(this)" data-value="sell">
+                Купить
+              </button>
+            </div>
+
             <div class="order-search-box">
               <button class="reset-selects">Сброс</button>
               <button class="order-search-button">Поиск</button>
@@ -3900,6 +3901,8 @@
   <script src="../../../../../assets/style/media/media.js"></script>
   <script src="../../../../../assets/js/style.js"></script>
   <script src="../../../../../assets/sidebar-service.js"></script>
+  <script src="../../../../../assets/select-service.js"></script>
+
   <script src="../service.js"></script>
   <script>
 

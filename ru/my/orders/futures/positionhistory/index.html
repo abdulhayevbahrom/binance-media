@@ -3503,6 +3503,7 @@
             <button>COIN-M</button>
           </div>
 
+
           <button>
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
               <path
@@ -3519,16 +3520,43 @@
                 </path>
               </svg>
             </button>
-            <div class="order-select">
-              <button class="order-select__label" data-value="all" onclick="setActive(this)">ВСЕ</button>
-              <button class="order-select__label" data-value="limit-order"
-                onclick="setActive(this)">Кросс-моржа</button>
-              <button class="order-select__label" data-value="limit-stop"
-                onclick="setActive(this)">Изолированная</button>
-            </div>
+            <p>Дата</p>
             <div class="calendar">
               <div class="calendar__preview" id="dateRangePicker"></div>
             </div>
+
+            <p>* Поддерживается до 10 000 записей о сделках. Макс. период поиска: последние 3 месяца для исполненных
+              ордеров и 3 дня для
+              неисполненных ордеров. Для просмотра данных за больший период времени воспользуйтесь функцией «Экспорт» и
+              выберите <br />
+              «Загрузка большого объема данных».
+            </p>
+
+            <p>Режим</p>
+            <div class="order-select">
+              <span class="order-select__label">
+                <div>
+                  <span id="order-select__value"></span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </span>
+              <div class="order-select__list-wrapper">
+                <div class="order-select__list">
+                  <span class="order-select__option" data-value="all">
+                    ВСЕ
+                  </span>
+                  <span class="order-select__option" data-value="limit-order">
+                    Кросс-моржа
+                  </span>
+                  <span class="order-select__option" data-value="limit-stop">
+                    Изолированная
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <div class="order-search-box">
               <button class="reset-selects">Сброс</button>
               <button class="order-search-button">Поиск</button>
@@ -3563,6 +3591,7 @@
   <script src="../../../../../assets/style/media/media.js"></script>
   <script src="../../../../../assets/js/style.js"></script>
   <script src="../../../../../assets/sidebar-service.js"></script>
+  <script src="../../../../../assets/select-service.js"></script>
   <script src="../service.js"></script>
   <script>
 

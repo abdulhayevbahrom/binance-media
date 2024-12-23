@@ -4,26 +4,26 @@ document.querySelector("#btn-night").addEventListener("click", () => {
   document.querySelector(".header-night").classList.toggle("hidden");
   document.querySelector(".header-day").classList.toggle("hidden");
   document.querySelector(".btn-web.gray").classList.toggle("day");
-  document.querySelectorAll(".header-icon").forEach(element => {
+  document.querySelectorAll(".header-icon").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".icon-drop").forEach(el => {
+  document.querySelectorAll(".icon-drop").forEach((el) => {
     el.classList.toggle("day");
   });
-  document.querySelectorAll(".header-item").forEach(element => {
+  document.querySelectorAll(".header-item").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".header-drop").forEach(element => {
+  document.querySelectorAll(".header-drop").forEach((element) => {
     element.classList.toggle("day");
   });
   document.querySelector(".search-block").classList.toggle("day");
-  document.querySelectorAll(".staddrop").forEach(element => {
+  document.querySelectorAll(".staddrop").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".staddrop-state").forEach(element => {
+  document.querySelectorAll(".staddrop-state").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".staddrop-item").forEach(element => {
+  document.querySelectorAll(".staddrop-item").forEach((element) => {
     element.classList.toggle("day");
   });
   document.querySelector(".footer-switch").classList.toggle("active");
@@ -31,33 +31,33 @@ document.querySelector("#btn-night").addEventListener("click", () => {
 });
 
 // ПЕРЕКЛЮЧАТЕЛЬ ДНЯ_НОЧИ В ФУТЕРЕ
-document.querySelector(".footer-switch").addEventListener("click", e => {
+document.querySelector(".footer-switch").addEventListener("click", (e) => {
   document.querySelector(".footer-switch").classList.toggle("active");
   document.querySelector(".header-night").classList.toggle("hidden");
   document.querySelector(".header-day").classList.toggle("hidden");
   document.body.classList.toggle("white");
   document.querySelector(".header-container").classList.toggle("white");
   document.querySelector(".btn-web.gray").classList.toggle("day");
-  document.querySelectorAll(".header-icon").forEach(element => {
+  document.querySelectorAll(".header-icon").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".icon-drop").forEach(el => {
+  document.querySelectorAll(".icon-drop").forEach((el) => {
     el.classList.toggle("day");
   });
-  document.querySelectorAll(".header-item").forEach(element => {
+  document.querySelectorAll(".header-item").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".header-drop").forEach(element => {
+  document.querySelectorAll(".header-drop").forEach((element) => {
     element.classList.toggle("day");
   });
   document.querySelector(".search-block").classList.toggle("day");
-  document.querySelectorAll(".staddrop").forEach(element => {
+  document.querySelectorAll(".staddrop").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".staddrop-state").forEach(element => {
+  document.querySelectorAll(".staddrop-state").forEach((element) => {
     element.classList.toggle("day");
   });
-  document.querySelectorAll(".staddrop-item").forEach(element => {
+  document.querySelectorAll(".staddrop-item").forEach((element) => {
     element.classList.toggle("day");
   });
   //Ниже пишем Условия для маин:
@@ -67,9 +67,9 @@ document.querySelector(".footer-switch").addEventListener("click", e => {
 const navItem = document.querySelectorAll(".header-item");
 const navHeader = document.querySelectorAll(".header-item a");
 
-navItem.forEach(e => {
+navItem.forEach((e) => {
   e.addEventListener("mouseenter", () => {
-    navHeader.forEach(e => {
+    navHeader.forEach((e) => {
       e.style.color = "#EAECEF";
     });
   });
@@ -99,7 +99,7 @@ document.querySelector(".search-closed").addEventListener("click", () => {
   document.querySelector(".initdata").classList.remove("hidden");
   document.querySelector(".result").classList.add("hidden");
   document.querySelector(".history").classList.remove("hidden");
-  document.querySelectorAll(".results").forEach(e => {
+  document.querySelectorAll(".results").forEach((e) => {
     e.classList.remove("open");
   });
 });
@@ -110,7 +110,7 @@ let isDown = false;
 let startX;
 let scrollLeft;
 
-slider.addEventListener("mousedown", e => {
+slider.addEventListener("mousedown", (e) => {
   isDown = true;
   slider.classList.add("active");
   startX = e.pageX - slider.offsetLeft;
@@ -124,7 +124,7 @@ slider.addEventListener("mouseup", () => {
   isDown = false;
   slider.classList.remove("active");
 });
-slider.addEventListener("mousemove", e => {
+slider.addEventListener("mousemove", (e) => {
   if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - slider.offsetLeft;
@@ -137,11 +137,11 @@ const radioButton = document.querySelectorAll(".result-radio");
 const infoSection = document.querySelectorAll(".results");
 let radioValid;
 
-radioButton.forEach(e => {
-  e.addEventListener("click", e => {
+radioButton.forEach((e) => {
+  e.addEventListener("click", (e) => {
     const blockRender = e.currentTarget.dataset.path;
 
-    infoSection.forEach(e => {
+    infoSection.forEach((e) => {
       if (
         !document
           .querySelector(`[data-target=${blockRender}]`)
@@ -210,6 +210,7 @@ document.querySelector("#history-delete").addEventListener("click", () => {
 // ПОИСК: Открыть блок поиска
 const search = document.querySelector("#search");
 const serchBlock = document.querySelector(".search-block");
+console.log(search);
 
 document.querySelector("#search").addEventListener("click", () => {
   serchBlock.classList.toggle("hidden");
@@ -217,7 +218,7 @@ document.querySelector("#search").addEventListener("click", () => {
 });
 
 //КЛИК ВНЕ ПОИСКА, ЗАКРЫТЬ БЛОК (Без фона)
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
   const withinBoundaries = e
     .composedPath()
     .includes(document.querySelector(".search"));

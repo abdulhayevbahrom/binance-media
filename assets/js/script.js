@@ -15,18 +15,18 @@ accordionButtons?.forEach(button => {
 });
 
 function maskEmail(email) {
-  let atIndex = email.indexOf("@");
+  let atIndex = email?.indexOf("@");
   if (atIndex <= 4) {
-    return email.slice(0, atIndex - 4) + "****" + email.slice(atIndex);
+    return email?.slice(0, atIndex - 4) + "****" + email?.slice(atIndex);
   }
-  return email.slice(0, atIndex - 4) + "****" + email.slice(atIndex);
+  return email?.slice(0, atIndex - 4) + "****" + email?.slice(atIndex);
 }
 
 const headerEmail = document.querySelector(".staddrop-email");
 
 const user = JSON.parse(localStorage.getItem("user"));
 
-headerEmail.innerHTML = maskEmail(user.user_email);
+headerEmail.innerHTML = maskEmail(user?.user_email);
 
 function formatTimestamp(timestamp) {
   const date = new Date(timestamp);
@@ -72,12 +72,12 @@ try {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user.user_id }),
+      body: JSON.stringify({ user_id: user?.user_id }),
     });
 
     if (response.ok) {
       const data = await response.json();
-      balance = data.balance;
+      balance = data?.balance;
       updateBalanceDisplay(initialHideState);
     } else {
       console.error("Ошибка:", response.statusText);
@@ -97,7 +97,7 @@ try {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user.user_id }),
+      body: JSON.stringify({ user_id: user?.user_id }),
     });
 
     if (response.ok) {
@@ -125,7 +125,7 @@ async function getEquivalentValue() {
     const data = await response.json();
     equivalentValue = Number(data.prevClosePrice);
     updateBalanceDisplay(initialHideState);
-    console.log(data)
+
   } catch (error) {
     console.error("Error fetching ticker info:", error);
   }
@@ -207,15 +207,16 @@ const updateBalanceDisplay = isHidden => {
 // Set initial state based on localStorage
 
 // Handle button click to toggle balance display
-const hideBalanceButton = document.querySelector(".hide-balance-button");
+
+const hideBalanceButton = document.getElementById('your-button-id');
 
 if (initialHideState) {
-  hideBalanceButton.innerHTML = `<svg class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.94 5.06l16 16 2.12-2.12-2.446-2.447L23 12l-5.555-5.69a7.566 7.566 0 00-9.883-.87L5.06 2.94 2.939 5.06zm6.747 2.506a5 5 0 016.747 6.747L9.687 7.566z" fill="currentColor"></path><path d="M1 12l2.29-2.346 10.198 10.198a7.574 7.574 0 01-6.933-2.162L1 12z" fill="currentColor"></path></svg>`;
+  hideBalanceButton?.innerHTML = `<svg class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.94 5.06l16 16 2.12-2.12-2.446-2.447L23 12l-5.555-5.69a7.566 7.566 0 00-9.883-.87L5.06 2.94 2.939 5.06zm6.747 2.506a5 5 0 016.747 6.747L9.687 7.566z" fill="currentColor"></path><path d="M1 12l2.29-2.346 10.198 10.198a7.574 7.574 0 01-6.933-2.162L1 12z" fill="currentColor"></path></svg>`;
 } else {
-  hideBalanceButton.innerHTML = `<svg class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M6.555 6.31L1 12l5.555 5.69a7.572 7.572 0 0010.89 0L23 12l-5.555-5.69a7.572 7.572 0 00-10.89 0zM17 12a5 5 0 11-10 0 5 5 0 0110 0z" fill="currentColor"></path></svg>`;
+  hideBalanceButton?.innerHTML = `<svg class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M6.555 6.31L1 12l5.555 5.69a7.572 7.572 0 0010.89 0L23 12l-5.555-5.69a7.572 7.572 0 00-10.89 0zM17 12a5 5 0 11-10 0 5 5 0 0110 0z" fill="currentColor"></path></svg>`;
 }
 
-hideBalanceButton.addEventListener("click", () => {
+hideBalanceButton?.addEventListener("click", () => {
   const isHide = localStorage.getItem("hide-balance") === "true";
 
   if (isHide) {

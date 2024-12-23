@@ -3253,7 +3253,7 @@
                 d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
                 fill="currentColor"></path>
             </svg>
-            <span class="sidebar__menu-item-title">Фьючерсный ордер</span>
+            <span class="sidebar__menu-item-title">История транзакций</span>
             <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -3561,6 +3561,7 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="../../../../../assets/js/lang.js"></script>
   <script src="../../../../../assets/style/media/media.js"></script>
+  <script src="../../../../../assets/js/style.js"></script>
   <script src="../service.js"></script>
   <script>
 
@@ -3604,7 +3605,7 @@
             },
             body: JSON.stringify({
               "user": {
-                "user_id": user.user_id
+                "user_id": user?.user_id
               },
               "start_date": startDate,
               "end_date": endDate,

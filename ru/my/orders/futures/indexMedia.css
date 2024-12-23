@@ -1,10 +1,10 @@
 .order-table {
   padding: 40px !important;
-  background-color: blue !important;
   width: 100%;
 }
 
 .order-not-found {
+  width: 70% !important;
   justify-content: center;
   align-items: center;
 }
@@ -12,4 +12,34 @@
 .order-page--futures + .footer {
   position: absolute;
   bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .order-not-found {
+    width: 60% !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .order-not-found {
+    width: 50% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .order-table {
+    width: 90% !important;
+
+    tbody {
+      width: 100% !important;
+
+      tr {
+        flex-direction: column;
+        width: 100% !important;
+      }
+    }
+  }
+  .order-not-found {
+    width: 100% !important;
+  }
 }

@@ -3463,7 +3463,7 @@
       <!--Сайдбар-->
       <div class="sidebar-wrap">
         <div class="sidebar">
-          <div class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
+          <div onclick="toggleSidebar()" class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
             <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3476,11 +3476,13 @@
                 fill="currentColor"></path>
             </svg>
           </div>
+
           <div class="sidebar__menu">
             <a class="sidebar__menu-item" href="/ru/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
-                  fill="currentColor"></path>
+                  fill="currentColor">
+                </path>
               </svg>
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
@@ -3659,6 +3661,7 @@
               <span class="sidebar__menu-item-title">Настройки</span>
             </a>
           </div>
+
         </div>
       </div>
       <!--END Сайдбар-->
@@ -3889,14 +3892,29 @@
     </footer>
   </div>
 
+
   <script src="../../../../../assets/js/script.js"></script>
   <script src="../../../../../assets/js/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="../../../../../assets/js/lang.js"></script>
   <script src="../../../../../assets/style/media/media.js"></script>
+  <script src="../../../../../assets/js/style.js"></script>
+  <script src="../../../../../assets/sidebar-service.js"></script>
   <script src="../service.js"></script>
   <script>
 
+    /*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Returns the default date range of the last 7 days.
+     * 
+     * This function calculates the current date and the date 7 days prior,
+     * formats them as 'YYYY-MM-DD', and returns them in an array.
+     *
+     * @returns {Array} An array containing two formatted date strings: 
+     * the first element is the date 7 days ago, and the second element is today's date.
+     */
+
+    /******  57a3a8b7-ef19-4780-bc68-fdccdbef2db6  *******/
     function getDefaultDates() {
       const today = new Date();
       const sevenDaysAgo = new Date(today);
@@ -3925,7 +3943,7 @@
 
     async function sendRequestWithDates(startDate, endDate) {
       try {
-        const user = JSON.parse(localStorage.getItem('user'));
+        const user = JSON.parse(localStorage.getItem('user')); // user olingan
 
         const response = await fetch(
           `${SERVER_URL}/accounts/trade-history`,
@@ -3936,7 +3954,7 @@
             },
             body: JSON.stringify({
               "user": {
-                "user_id": user.user_id
+                "user_id": user?.user_id // To'g'ri o'zgaruvchini ishlatish
               },
               "start_date": startDate,
               "end_date": endDate,
@@ -3958,7 +3976,6 @@
         console.error(error);
       }
     }
-
     let [startDate, endDate] = getDefaultDates();
 
     flatpickr("#dateRangePicker", {
@@ -4125,20 +4142,19 @@
         // `;
 
         row.innerHTML = `
-  <td data-label="Время">${formatTimestamp(transaction.time)}</td>
-  <td data-label="Тикер">${transaction.ticker}</td>
-  <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
-  <td data-label="Цена">${formatter.format(transaction.price)}</td>
-  <td data-label="Количество">${(+transaction.quantity).toFixed(1)} USDT</td>
-  <td data-label="Комиссия">${transaction.commission} USDT</td>
-  <td data-label="Реализованная прибыль">${transaction.realized_profit} USDT</td>
-`;
+            <td data-label="Время">${formatTimestamp(transaction.time)}</td>
+            <td data-label="Тикер">${transaction.ticker}</td>
+            <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
+            <td data-label="Цена">${formatter.format(transaction.price)}</td>
+            <td data-label="Количество">${(+transaction.quantity).toFixed(1)} USDT</td>
+            <td data-label="Комиссия">${transaction.commission} USDT</td>
+            <td data-label="Реализованная прибыль">${transaction.realized_profit} USDT</td>
+          `;
 
         tbody.appendChild(row);
       });
     }
-  </script>
-  <script>
+
 
 
     // Ticker select
@@ -4452,11 +4468,11 @@
     const infoSection = document.querySelectorAll(".results");
     let radioValid;
 
-    radioButton.forEach(e => {
+    radioButton?.forEach(e => {
       e.addEventListener("click", e => {
         const blockRender = e.currentTarget.dataset.path;
 
-        infoSection.forEach(e => {
+        infoSection?.forEach(e => {
           if (
             !document
               .querySelector(`[data-target=${blockRender}]`)

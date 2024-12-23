@@ -45,8 +45,8 @@ function updateIcon(isOpen) {
 const buttons = document.querySelectorAll('.header-item');
 // const buttons = Array.from(document.querySelectorAll('.header-item > a'));
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
+buttons?.forEach(button => {
+    button?.addEventListener('click', () => {
         const modalId = button.getAttribute('data-modal'); // Modal ID ni oladi
         const modal = document.getElementById(modalId);
 
@@ -68,7 +68,7 @@ buttons.forEach(button => {
 
 
 // Modalni tashqi joyga bosganda yopish
-window.addEventListener('click', event => {
+window?.addEventListener('click', event => {
     if (event.target.classList.contains('header-drop')) {
         event.target.style.display = 'none';
     }
@@ -85,7 +85,7 @@ window.addEventListener('click', event => {
 const btn_Close = document.querySelector('.logo-link-long');
 const drop = document.querySelector('.staddrop-long');
 
-document.getElementById('btn-lang').addEventListener('click', function (event) {
+document?.getElementById('btn-lang').addEventListener('click', function (event) {
     drop.style.display = (drop.style.display === 'block') ? 'none' : 'block';
     event.stopPropagation();
 });
@@ -98,7 +98,7 @@ btn_Close.addEventListener('click', function () {
 
 // =========================================
 
-document.querySelector("#btn-night-mobile").addEventListener("click", () => {
+document.querySelector("#btn-night-mobile")?.addEventListener("click", () => {
     document.body.classList.toggle("white");
     document.querySelector(".header-container").classList.toggle("white");
     document.querySelector(".header-night").classList.toggle("hidden");
@@ -134,7 +134,7 @@ document.querySelector("#btn-night-mobile").addEventListener("click", () => {
 
 
 //=======================================
-document.addEventListener('DOMContentLoaded', () => {
+document?.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('#btn-night-mobile .header-icon');
 
     // Local Storage-dan holatni o'qish
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             // Hamma tugmalarni faol holatdan chiqarish
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons?.forEach(btn => btn.classList.remove('active'));
 
             // Bosilgan tugmani faol holatga o‘tkazish
             button.classList.add('active');

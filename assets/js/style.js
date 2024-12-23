@@ -210,9 +210,7 @@ document.querySelector("#history-delete")?.addEventListener("click", () => {
 // ПОИСК: Открыть блок поиска
 const search = document.querySelector("#search");
 const serchBlock = document.querySelector(".search-block");
-console.log(search);
 
-console.log(document.querySelector("#search"));
 document.querySelector("#search")?.addEventListener("click", () => {
   console.log("ok");
   serchBlock.classList.toggle("hidden");

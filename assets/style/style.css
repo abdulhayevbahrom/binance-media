@@ -35,7 +35,9 @@ body.noscroll {
 *,
 *::after,
 *::before {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -61,7 +63,12 @@ button {
 .wrapper {
   overflow: hidden;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
 }
@@ -467,9 +474,6 @@ button {
   height: 100%;
   line-height: 22px;
   outline: none;
-  color: white;
-}
-.holdings__search-input::-moz-placeholder {
   color: white;
 }
 .holdings__search-input::placeholder {
@@ -1000,14 +1004,6 @@ button {
   gap: 16px;
   margin: 24px 0;
 }
-<<<<<<< HEAD
-
-.order-filters-mobile {
-  display: none;
-}
-
-=======
->>>>>>> dde401a43c45e36b9e7396551268051a7aacb66d
 @media (max-width: 768px) {
   .order-filters {
     display: none;
@@ -1090,14 +1086,11 @@ button {
   color: var(--color-textThird);
   height: 305px;
   width: 100%;
-  position: absolute;
+  position: static;
 }
 .order-not-found svg {
   width: 96px;
   height: 96px;
-}
-.order-not-found:hover {
-  background-color: var(--color-bg4);
 }
 
 .order-search-button {
@@ -1182,7 +1175,6 @@ button {
   margin-bottom: 5px;
   position: relative;
   cursor: default;
-  width: -moz-fit-content;
   width: fit-content;
 }
 .position__detail .label {
@@ -1306,7 +1298,6 @@ button {
   background-color: var(--color-CardBg);
   color: var(--color-textPrimary);
   max-height: 160px;
-  width: -moz-max-content;
   width: max-content;
   max-width: 320px;
   overflow-y: auto;
@@ -1408,9 +1399,6 @@ button {
 }
 .auth-card__input:focus {
   border: 1px solid var(--color-textBrand);
-}
-.auth-card__input::-moz-placeholder {
-  color: var(--color-textThird);
 }
 .auth-card__input::placeholder {
   color: var(--color-textThird);
@@ -1527,9 +1515,7 @@ button {
   line-height: 22px;
   color: var(--color-textBrand);
   opacity: 0.87;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .auth-link:hover {
   opacity: 1;
@@ -1994,7 +1980,6 @@ button {
 }
 
 .dashed {
-  width: -moz-fit-content;
   width: fit-content;
   border-bottom-color: var(--color-PrimaryText);
   border-bottom-style: dashed;
@@ -2192,7 +2177,6 @@ button {
 }
 
 .back-btn {
-  width: -moz-fit-content;
   width: fit-content;
   margin-top: 28px;
   margin-bottom: 32px;
@@ -2313,6 +2297,7 @@ button {
   text-overflow: ellipsis;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
   word-break: break-all;
@@ -2363,6 +2348,7 @@ button {
   transition: all 0.15s linear;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -2738,7 +2724,6 @@ button {
 .bn-tooltips-wrap {
   display: inline-flex;
   position: relative;
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -2801,7 +2786,8 @@ button {
 }
 
 .bn-tooltips-ele:hover .bn-tooltips {
-  max-height: 200px; /* You can set this to fit the content */
+  max-height: 200px;
+  /* You can set this to fit the content */
   opacity: 1;
   visibility: visible;
 }
@@ -2891,13 +2877,16 @@ button {
 /* Основной контейнер календаря */
 .grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7 колонок для дней недели */
-  gap: 5px; /* Промежуток между элементами */
+  grid-template-columns: repeat(7, 1fr);
+  /* 7 колонок для дней недели */
+  gap: 5px;
+  /* Промежуток между элементами */
 }
 
 @media (min-width: 768px) {
   .grid {
-    gap: 10px; /* Увеличение промежутка на больших экранах */
+    gap: 10px;
+    /* Увеличение промежутка на больших экранах */
   }
 }
 /* Стиль для каждого дня недели (S, M, T, W, T, F, S) */
@@ -2908,15 +2897,18 @@ button {
 
 @media (min-width: 768px) {
   .typography-caption2 {
-    font-size: 14px; /* Увеличение шрифта на больших экранах */
+    font-size: 14px;
+    /* Увеличение шрифта на больших экранах */
   }
 }
 .text-SecondaryText {
-  color: #848e9c; /* Цвет для текста в будние дни */
+  color: #848e9c;
+  /* Цвет для текста в будние дни */
 }
 
 .md\\:text-tertiarytext {
-  color: #6c757d; /* Цвет для текста на больших экранах */
+  color: #6c757d;
+  /* Цвет для текста на больших экранах */
 }
 
 /* Стиль для ячеек с числами */
@@ -2925,19 +2917,23 @@ button {
 }
 
 .md\\:h-\[54px\] {
-  height: 54px; /* Увеличение высоты на больших экранах */
+  height: 54px;
+  /* Увеличение высоты на больших экранах */
 }
 
 .rounded-\[6px\] {
-  border-radius: 6px; /* Скругление углов ячеек */
+  border-radius: 6px;
+  /* Скругление углов ячеек */
 }
 
 .typography-body4 {
-  font-size: 14px; /* Размер шрифта для чисел */
+  font-size: 14px;
+  /* Размер шрифта для чисел */
 }
 
 .md\\:typography-subtitle2 {
-  font-size: 16px; /* Увеличение шрифта на больших экранах */
+  font-size: 16px;
+  /* Увеличение шрифта на больших экранах */
 }
 
 .flex {
@@ -3893,12 +3889,12 @@ button {
   background-color: #2d2a20 !important;
   color: var(--color-textPrimary) !important;
   border: 0 !important;
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
 .flatpickr-calendar {
   padding: 18px 32px !important;
-  width: -moz-fit-content !important;
   width: fit-content !important;
   border-radius: 16px;
 }
@@ -3907,6 +3903,7 @@ button {
 }
 
 .dayContainer + .dayContainer {
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -3919,6 +3916,7 @@ button {
 .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
 .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
 .flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
@@ -4115,9 +4113,6 @@ button {
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-}
-.b-first__input::-moz-placeholder {
-  color: #848e9c;
 }
 .b-first__input::placeholder {
   color: #848e9c;
@@ -4618,9 +4613,7 @@ button {
   line-height: 28px;
   padding-right: 40px;
   z-index: 2;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   color: var(--color-textPrimary);
 }
 
@@ -4696,16 +4689,13 @@ button {
 
 .select {
   position: relative;
-  height: -moz-fit-content;
   height: fit-content;
 }
 .select__label {
   display: flex;
   align-items: center;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
@@ -4751,7 +4741,6 @@ button {
 
 .order-select {
   position: relative;
-  height: -moz-fit-content;
   height: fit-content;
 }
 .order-select__label {
@@ -4761,9 +4750,7 @@ button {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   width: 100%;
   height: 40px;
   border: 1px solid var(--color-Line);
@@ -4953,9 +4940,6 @@ button {
   padding: 0 16px 0 36px;
   transition: all 0.25s;
 }
-.order-page--futures .order-select .order-select__search-input::-moz-placeholder, .analysis-modal .order-select .order-select__search-input::-moz-placeholder {
-  color: var(--color-textThird);
-}
 .order-page--futures .order-select .order-select__search-input::placeholder,
 .analysis-modal .order-select .order-select__search-input::placeholder {
   color: var(--color-textThird);
@@ -5107,11 +5091,6 @@ button {
   caret-color: var(--color-textBrand);
   margin-bottom: 16px;
 }
-.footer-input::-moz-placeholder {
-  color: var(--color-TertiaryText);
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-}
 .footer-input::placeholder {
   color: var(--color-TertiaryText);
   font-size: 0.875rem;
@@ -5168,8 +5147,7 @@ button {
 .footer-navlist {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -moz-column-gap: 24px;
-       column-gap: 24px;
+  column-gap: 24px;
 }
 .footer-navlist .footer-list.mb {
   margin-bottom: 40px;
@@ -5227,6 +5205,8 @@ body.white .footer-icon {
 }
 body.white .footer-drop {
   background-color: var(--color-bg1);
+  -webkit-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
+  -moz-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
   box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
 }
 body.white .footer-switch {
@@ -5372,7 +5352,6 @@ body.white .footer-copyright::before {
   display: none;
   gap: 24px;
   position: absolute;
-  width: -moz-fit-content;
   width: fit-content;
   background-color: var(--color-popupBg);
   padding: 24px;
@@ -5396,6 +5375,8 @@ body.white .footer-copyright::before {
 }
 .header-drop.day {
   background-color: var(--color-bg1);
+  -webkit-box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
+  -moz-box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
   box-shadow: 0px 5px 8px 0px rgba(161, 161, 161, 0.2);
 }
 .header-drop.day dt {
@@ -5446,7 +5427,6 @@ body.white .footer-copyright::before {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 500;
-  width: -moz-fit-content;
   width: fit-content;
 }
 .header-feature__img {
@@ -5456,7 +5436,6 @@ body.white .footer-copyright::before {
   width: 240px;
 }
 .header-feature__header {
-  width: -moz-fit-content;
   width: fit-content;
   display: flex;
   align-items: flex-end;
@@ -5521,6 +5500,8 @@ body.white .footer-copyright::before {
 }
 .search-block.day {
   background-color: var(--color-bg1);
+  -webkit-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
+  -moz-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
   box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
   border: none;
 }
@@ -5530,17 +5511,9 @@ body.white .footer-copyright::before {
 .search-block.day .initdata-link {
   border-color: var(--color-bg3);
 }
-<<<<<<< HEAD
-
 .search-block.day .search-cancel {
   color: var(--color-textPrimaryDay);
 }
-
-=======
-.search-block.day .search-cancel {
-  color: var(--color-textPrimaryDay);
-}
->>>>>>> dde401a43c45e36b9e7396551268051a7aacb66d
 .search-block.day .search-input {
   color: var(--color-textPrimaryDay);
   outline: transparent;
@@ -5616,11 +5589,6 @@ body.white .footer-copyright::before {
   font-family: "BinancePlex", "Arial", sans-serif;
   color: var(--color-textPrimary);
   caret-color: var(--color-textBrand);
-}
-.search-form input::-moz-placeholder {
-  color: var(--color-TertiaryText);
-  font-size: 0.875rem;
-  line-height: 0.875rem;
 }
 .search-form input::placeholder {
   color: var(--color-TertiaryText);
@@ -5714,11 +5682,12 @@ body.white .footer-copyright::before {
   color: var(--color-TertiaryText);
 }
 .search .result-tabs li {
-  min-width: -moz-fit-content;
   min-width: fit-content;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .search .result-tabs::-webkit-scrollbar {
@@ -5917,9 +5886,7 @@ body.white .footer-copyright::before {
 }
 .search .history-btn {
   background-color: transparent;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 0;
   cursor: pointer;
@@ -6061,6 +6028,8 @@ body.white .footer-copyright::before {
 }
 .staddrop.day {
   background-color: var(--color-bg1) !important;
+  -webkit-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
+  -moz-box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
   box-shadow: 4px 4px 16px 0px rgba(24, 26, 32, 0.2);
   border: none;
 }
@@ -6122,7 +6091,6 @@ body.white .footer-copyright::before {
   padding: 2px 8px;
   border-radius: 10px;
   margin-bottom: 8px;
-  width: -moz-fit-content;
   width: fit-content;
   font-size: 0.75rem;
   cursor: pointer;
@@ -6356,11 +6324,6 @@ body.white .footer-copyright::before {
   caret-color: var(--color-textBrand);
   margin-bottom: 16px;
 }
-.staddrop .half-input::-moz-placeholder {
-  color: var(--color-TertiaryText);
-  font-size: 0.875rem;
-  line-height: 0.875rem;
-}
 .staddrop .half-input::placeholder {
   color: var(--color-TertiaryText);
   font-size: 0.875rem;
@@ -6477,9 +6440,7 @@ body.white .half-input:focus {
 .custom-checkbox + label {
   display: inline-flex;
   align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   font-weight: 500;
   color: var(--color-textPrimary);
   cursor: pointer;

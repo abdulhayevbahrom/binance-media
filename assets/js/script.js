@@ -47,6 +47,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 const mobileSelectedButton = document.querySelector(".sidebar-selected");
 
 mobileSelectedButton.addEventListener("click", () => {
+
   mobileSelectedButton.classList.toggle("sidebar-selected--open");
   document.querySelector(".sidebar").classList.toggle("screen");
 

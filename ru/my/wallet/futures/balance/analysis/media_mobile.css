@@ -1,0 +1,394 @@
+/* media */
+.tooltip-main_bottom {
+  border-bottom: 1px dashed #555;
+  width: 136px
+}
+
+.selectDates>p {
+  display: none;
+}
+
+@media screen and (max-width:950px) {
+  .page-with-sidebar .main {
+    width: 100%;
+    padding: 0 6px;
+  }
+
+  .tooltip-nav {
+    position: relative;
+    display: inline-block;
+    font-size: 20px !important;
+  }
+
+  .wrapper_header {
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    color: white;
+    gap: 20px;
+  }
+
+  .wrapper_header span {
+    line-height: 35px;
+  }
+
+  .wrapper_header span>span {
+    line-height: 20px;
+  }
+
+  .back-btn {
+    width: fit-content;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #848e9c;
+  }
+
+  .usd_coin {
+    padding-top: 40px;
+  }
+
+  .usd_coin_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 3px 10px;
+    border-radius: 15px;
+    border: 0.5px solid #3f3f3f;
+    margin-top: 20px;
+  }
+
+  .usd_coin_container_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .usd_coin_container_item_title {
+    flex: 1;
+    /* Chap tarafga joylashadi */
+  }
+
+  .usd_coin_container_item_percent,
+  .usd_coin_container_item_usd {
+    flex: 0;
+    text-align: right;
+  }
+
+  .eyeO-N {
+    margin: 0;
+    /* Marginni olib tashlash */
+  }
+
+  .usd_coin_container_item_percent {
+    margin-bottom: 5px;
+    /* Yig‘indini ajratish uchun masofa */
+  }
+
+  .usd_coin_container_item_usd {
+    font-size: 13px;
+    /* Kichikroq shrift */
+  }
+
+  .usd_coin_container_item {
+    padding: 7px 0;
+  }
+
+  .usd_coin_container_item>div {
+    display: flex;
+    flex-direction: column;
+    /* O‘ng tarafda ustma-ust joylashish */
+  }
+
+  .usd_coin_container_item_percent {
+    font-size: 17px;
+  }
+
+  .usd_coin_container_item_usd {
+    font-size: 14px !important;
+  }
+
+  .tooltip-main_bottom {
+    border-bottom: 1px dashed #555;
+    width: 50px
+  }
+
+  .usd_coin_filter_by_date_nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .usd_coin_filter_by_date_nav button {
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 7px;
+    background: transparent;
+    text-wrap: nowrap;
+    font-family: "Binance PLEX";
+  }
+
+  .selectDates>i {
+    display: none;
+  }
+
+  .selectDates input {
+    opacity: 0;
+    width: 20px;
+  }
+
+  .selectDates>p {
+    display: block;
+    font-size: 14px;
+  }
+
+  .selectDates p:hover {
+    color: #fcd535;
+  }
+
+  .selectDates {
+    width: 100%;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    background: transparent;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    padding: 7px;
+  }
+
+  .selectDates:hover {
+    border: none;
+  }
+
+  .usd_coin_filter_by_date {
+    padding: 5px;
+    gap: 10px;
+  }
+
+  .usd_coin_filter_by_date_title {
+    font-size: 17px;
+  }
+
+  .profit-loss-analysis {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    gap: 5%;
+  }
+
+  .pnlChartr_box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 8px 0;
+  }
+
+  .pnlChartr_box {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: -10px;
+  }
+
+  #days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  #days-container .day {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    height: 50px;
+    border-radius: 10px;
+    /* background-color: #1e1e1e; */
+    font-size: 13px;
+    color: white;
+    position: relative;
+    font-family: "Binance PLEX";
+  }
+
+  .daterangepicker {
+    position: absolute;
+    color: inherit;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin-top: 7px;
+    top: 100px;
+    left: 20px;
+    z-index: 3001;
+    display: none;
+    font-family: arial;
+    font-size: 15px;
+    line-height: 1em;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    gap: 10px;
+  }
+
+  .chart-container {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 10px;
+  }
+
+  .diagramma-naib_container {
+    padding: 0px;
+  }
+
+  .tabs button {
+    text-wrap: nowrap;
+    overflow: hidden;
+    max-width: 120px;
+    font-size: 12px;
+  }
+
+  .daterangepicker .drp-calendar {
+    display: none;
+    max-width: 100%;
+  }
+
+
+
+
+
+
+  .container-table-istory table {
+    border: 0;
+  }
+
+  .container-table-istory table thead {
+    display: none;
+  }
+
+  .container-table-istory table tr {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .container-table-istory table td {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    position: relative;
+    padding-left: 50%;
+    white-space: nowrap;
+  }
+
+  .container-table-istory table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    z-index: 10;
+    font-size: 14px;
+  }
+
+  .footer {
+    width: 100%;
+    padding: 4px 24px 15px 24px;
+    box-sizing: border-box;
+  }
+
+  .container-table-istory table td.red {
+    color: #ff4d4d;
+  }
+
+
+  .table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  .table th {
+    display: none;
+  }
+
+  .ticker_analysis_table_bod td {
+    text-align: right;
+  }
+
+  .ticker_analysis_table_bod td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    z-index: 10;
+    font-size: 14px;
+  }
+
+  .summary-commission {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: .5px solid#848e9c2b;
+  }
+
+  .charts-commission {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .chart-box-commission {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+
+  .chart-box-commission h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+
+  #all_sum_komiccy_for_transaction {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  .box-commission {
+    padding: 0px;
+    border-radius: 8px;
+    text-align: start;
+    margin: 6px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .box-commission>p {
+    line-height: 20px;
+  }
+}

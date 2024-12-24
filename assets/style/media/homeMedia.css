@@ -1,0 +1,350 @@
+.apple_and_playmarket {
+  display: none;
+}
+.b-today {
+  box-sizing: border-box;
+  width: 100% !important;
+  display: block;
+}
+
+.b-today__container.container {
+  width: 100%;
+  padding: 80px 0;
+  margin: 0;
+}
+
+.footer {
+  box-sizing: border-box;
+}
+
+.footer-content {
+  width: 100%;
+}
+
+.footer-list {
+  .fa-plus,
+  .fa-minus {
+    display: none;
+  }
+}
+@media screen and (max-width: 1030px) {
+  .b-first__container {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .b-first__intro {
+    width: 60%;
+    padding-left: 4%;
+  }
+  .b-first__sidebar {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 4%;
+  }
+
+  .b-wherever {
+    width: 100%;
+    padding: 4%;
+    box-sizing: border-box;
+  }
+  .b-wherever__container {
+    padding: 0;
+    width: 100%;
+    gap: 50px;
+  }
+
+  .b-wherevert__lt {
+    width: 50%;
+  }
+  .b-wherevert__lt img {
+    object-fit: contain;
+  }
+  .b-wherevert__rt {
+    width: 50%;
+  }
+
+  .b-wherever__title {
+    font-size: 28px;
+  }
+  .b-wherever__qrcode {
+    width: 164px;
+    height: 164px;
+    padding: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .b-wherever__qr div:last-child {
+    flex: 1;
+  }
+
+  .b-wherever__links a span {
+    font-size: 14px;
+  }
+
+  .b-today__title {
+    font-size: 28px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .footer-icongroup {
+    display: flex;
+  }
+  .footer-selectgroup {
+    display: flex;
+    gap: 5%;
+  }
+
+  .footer {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .b-wherever__container {
+    gap: 30px;
+  }
+  .b-wherevert__rt {
+    width: 46%;
+  }
+
+  .b-wherever__links {
+    width: 100%;
+    margin: 20px;
+    gap: 0;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 811px) {
+  .b-first__intro {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .b-first {
+    padding-bottom: 0;
+  }
+  .b-first__intro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 4%;
+  }
+
+  .b-first__title {
+    font-size: 32px;
+    display: inline;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .b-first__form {
+    width: auto;
+  }
+
+  .b-first__all,
+  .b-first__form > input {
+    display: none;
+  }
+
+  .b-first__module {
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    padding-bottom: 50px;
+  }
+
+  .tab-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .b-first__tp .b-first__other {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .b-wherever__container {
+    flex-direction: column-reverse;
+    padding-bottom: 6%;
+  }
+
+  .b-wherevert__lt,
+  .b-wherevert__rt {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .b-wherevert__lt {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .b-wherever__tabs li:first-child {
+    display: none;
+  }
+
+  .b-wherever__title {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .b-wherever__other,
+  .b-wherever__qr,
+  .b-wherever__links {
+    display: none;
+  }
+
+  .apple_and_playmarket {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    a {
+      width: 135px;
+      height: 40px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .b-faq__container {
+    padding: 0;
+  }
+
+  .b-faq__item {
+    margin: 0;
+    padding: 14px 24px;
+  }
+
+  .b-faq__title {
+    font-size: 24px;
+  }
+  .b-faq__label {
+    font-size: 16px;
+  }
+
+  .b-today {
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .b-today__title {
+    font-size: 18px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .b-today__btn {
+    font-size: 16px;
+    padding: 10px 12px;
+    height: auto;
+    margin-bottom: 14px;
+  }
+
+  .footer-navlist__group {
+    margin-bottom: 0;
+    gap: 0;
+    line-height: 1;
+    height: auto;
+
+    dt {
+      margin-bottom: 15px !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .footer-navlist {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-list {
+    margin-bottom: 20px !important;
+    dd {
+      display: none;
+    }
+
+    .fa-minus {
+      display: none;
+    }
+
+    .fa-plus {
+      display: block;
+    }
+
+    &.showLinks1 .fa-minus {
+      display: block;
+    }
+
+    &.showLinks1 .fa-plus {
+      display: none;
+    }
+
+    &.showLinks1 dd {
+      display: block;
+      padding-left: 24px;
+    }
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+    span {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .footer-icongroup {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .b-first__dynamics {
+    width: auto;
+    margin-left: 20px;
+  }
+
+  .b-faq__item {
+    padding: 10px 15px;
+  }
+}

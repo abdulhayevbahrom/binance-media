@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "BinancePlex", "Arial", sans-serif;
+  line-height: 110%;
+  background-color: var(--color-bg);
+  color: var(--color-textPrimary);
+
+  &.white {
+    background-color: var(--color-bg1);
+    color: var(--color-textPrimaryDay);
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 7px; /* Ширина всего элемента навигации */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-bg); /* Цвет дорожки */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #5e6673; /* Цвет бегунка */
+  border-radius: 15px; /* Округление бегунка */
+  border: 3px solid #5e6673; /* Оформление границ бегунка */
+}
+
+body.noscroll {
+  overflow: hidden;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+//for me
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.proba {
+  height: 1200px;
+  width: 100%;
+}
+
+.black {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.3;
+  z-index: 45;
+
+  &.active {
+    display: block;
+  }
+}
+
+.no-padding {
+  padding: 0 !important;
+}

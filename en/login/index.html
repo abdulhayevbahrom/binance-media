@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Binance</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/img/logo/favicon.ico"
+      type="image/x-icon"
+      data-shuvi-head="true"
+    />
+    <link rel="stylesheet" href="../../assets/style/style.css" />
+    <link rel="stylesheet" href="../../assets/style/media/loginMedia.css" />
+  </head>
+  <body>
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <img
+          class="logo"
+          src="data:image/png;base64,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"
+          alt="Binance"
+        />
+        <div class="auth-card__header">
+          <h3 class="auth-card__title">Login</h3>
+          <button class="auth-card__qr-button">
+            <svg
+              size="32"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#EAECEF"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm11 0h-2v4h4v-2h3v-2h-4v2h-1v-2zm5 3h-2v2h-2v2h4v-4zm-5 2h-2v2h2v-2zM13 4h7v7h-7V4zM8.5 6.5h-2v2h2v-2zm-2 9h2v2h-2v-2zm11-9h-2v2h2v-2z"
+                fill="#EAECEF"
+              ></path>
+            </svg>
+            <p class="auth-card__qr-tooltip-text">Login via QR code</p>
+            <div class="auth-card__qr-tooltip-text--arrow"></div>
+          </button>
+          <div class="auth-card__qr-main">
+            <div class="auth-card__qr-main--arrow"></div>
+            <div class="auth-card__qr-images">
+              <img class="auth-card__qr-image" src="../../assets/img/qr.png" />
+              <img
+                class="auth-card__qr-scan-image"
+                src="../../assets/img/qr-scan.svg"
+              />
+            </div>
+            <p class="auth-card__qr-main-text">
+              Scan this code using"
+              <a class="auth-link" href="/download">application Binance</a> for
+              for quick login.
+            </p>
+          </div>
+        </div>
+        <div class="auth-card__main">
+          <form onsubmit="handleFormSubmit(event)">
+            <label class="auth-card__input-box">
+              Email/Phone number
+              <input
+                class="auth-card__input"
+                placeholder="Email address/phone number (without country code)"
+                name="email"
+                type="email"
+              />
+              <button class="auth-card__clear-button" type="button">
+                <svg
+                  fill="#848e9c"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"
+                    fill="#848e9c"
+                  ></path>
+                </svg>
+              </button>
+            </label>
+            <span class="input-error"></span>
+            <button class="auth-card__button">Next</button>
+          </form>
+        </div>
+        <div class="auth-card__socials">
+          <div class="auth-card__socials-title">
+            <span class="auth-card__socials-line"></span>
+            <span>or</span>
+            <span class="auth-card__socials-line"></span>
+          </div>
+          <a href="#" onclick="return false;" class="auth-card__social">
+            <img
+              class="auth-card__social-icon"
+              src="../../assets/img/icons/google.png"
+              alt="Google"
+            />
+            <span>Continue with Google</span>
+          </a>
+          <a href="#" onclick="return false;" class="auth-card__social">
+            <img
+              class="auth-card__social-icon"
+              src="../../assets/img/icons/ios.png"
+              alt="IOS"
+            />
+            <span>Continue with Apple</span>
+          </a>
+        </div>
+      </div>
+      <a class="auth-link" href="/register">Create an account Binance</a>
+    </div>
+    <footer class="login-footer">
+      <span
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="#EAECEF"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.23 20.403a9.011 9.011 0 005.684-7.153h-3.942c-.147 2.86-.793 5.388-1.741 7.153zm-.757-7.153c-.178 4.102-1.217 7.25-2.473 7.25-1.256 0-2.295-3.148-2.473-7.25h4.946zm0-2.5H9.527C9.705 6.648 10.744 3.5 12 3.5c1.256 0 2.295 3.148 2.473 7.25zm2.499 0h3.942a9.01 9.01 0 00-5.683-7.153c.948 1.765 1.594 4.293 1.741 7.153zm-9.936 0c.147-2.862.793-5.392 1.743-7.156a9.01 9.01 0 00-5.693 7.156h3.95zm0 2.5h-3.95a9.01 9.01 0 005.693 7.157c-.95-1.765-1.596-4.295-1.743-7.157z"
+            fill="#EAECEF"
+          ></path>
+        </svg>
+        English</span
+      >
+      <button>Cookies</button>
+      <a href="#" onclick="return false;">Terms</a>
+      <a href="#" onclick="return false;">Privacy</a>
+    </footer>
+    <script>
+      const input = document.querySelector(".auth-card__input");
+      const clearButton = document.querySelector(".auth-card__clear-button");
+      const inputError = document.querySelector(".input-error");
+      const sendButton = document.querySelector(".auth-card__button");
+
+      function toggleClearButton() {
+        if (input.value.length > 0) {
+          clearButton.style.display = "block";
+        } else {
+          clearButton.style.display = "none";
+        }
+
+        inputError.textContent = "";
+        input.classList.remove("error");
+      }
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const email = input.value;
+
+        if (email && input.checkValidity()) {
+          localStorage.setItem("login_email", email);
+
+          window.location.href = "/en/login-password";
+        } else {
+          inputError.textContent =
+            "Enter a valid email address or phone number. When entering a phone number, do not use spaces or special characters";
+          input.classList.add("error");
+        }
+      }
+
+      input.addEventListener("input", toggleClearButton);
+
+      clearButton.addEventListener("click", () => {
+        input.value = "";
+        toggleClearButton();
+      });
+
+      const qrButton = document.querySelector(".auth-card__qr-button");
+      const qrMain = document.querySelector(".auth-card__qr-main");
+
+      qrButton.addEventListener("click", () => {
+        qrMain.classList.toggle("show");
+
+        document.querySelector(".auth-card__qr-tooltip-text").style.opacity =
+          "0";
+        document.querySelector(".auth-card__qr-tooltip-text").style.zIndex =
+          "-1";
+        document.querySelector(
+          ".auth-card__qr-tooltip-text--arrow"
+        ).style.opacity = "0";
+        document.querySelector(
+          ".auth-card__qr-tooltip-text--arrow"
+        ).style.zIndex = "-1";
+      });
+    </script>
+  </body>
+</html>

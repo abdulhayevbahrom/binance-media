@@ -3653,7 +3653,7 @@
       <!--Сайдбар-->
       <div class="sidebar-wrap">
         <div class="sidebar">
-          <div class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
+          <div onclick="toggleSidebar()" class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
             <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3670,7 +3670,8 @@
             <a class="sidebar__menu-item" href="/ru/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
-                  fill="currentColor"></path>
+                  fill="currentColor">
+                </path>
               </svg>
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
@@ -4378,12 +4379,13 @@
   </div>
 
   <script src="../../../../../assets/js/script.js"></script>
-  <script src="../../../../../assets/js/config.js"></script>
   <script src="../../../../../assets/style/media/media.js"></script>
   <script src="../../../../../assets/js/style.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../../../../../assets/js/lang.js"></script>
-
+  <script src="../../../../../assets/js/config.js"></script>
+  <script src="../../../../../assets/sidebar-service.js"></script>
+  <script src="../../../../../assets/search-service.js"></script>
   <script>
     // Sidebar accordions
     const accordionButtons = document.querySelectorAll(

@@ -26,6 +26,8 @@
     />
     <link rel="stylesheet" href="../../../wallet/account/futures/media.css" />
 
+    <link rel="stylesheet" href="../media_futures.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -6837,6 +6839,147 @@
             <button class="order-search-button">Search</button>
             <button class="reset-selects">Reset</button>
           </div>
+
+          <div class="order-filters-mobile-tr">
+            <div class="order-tab" id="order-tab-1">
+              <button class="order-tab-active">USDⓈ-M</button>
+              <button>COIN-M</button>
+            </div>
+
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#e8eaed"
+              >
+                <path
+                  d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"
+                />
+              </svg>
+            </button>
+
+            <div class="order-filters_modal">
+              <button class="close-modal">
+                <p>Filter</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#e8eaed"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+                  ></path>
+                </svg>
+              </button>
+
+              <p>Ticker</p>
+              <div class="order-select">
+                <span onclick="IsSelectOpen()" class="order-select__label">
+                  <div>
+                    <span id="order-select__value"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </div>
+                </span>
+                <div class="order-select__list-wrapper-box">
+                  <div class="order-select__list">
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="all"
+                    >
+                      ALL
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="bnb-btc"
+                    >
+                      BNB/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="nuls-btc"
+                    >
+                      NULS/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="neo-btc"
+                    >
+                      NEO/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="link-btc"
+                    >
+                      LINK/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="iota-btc"
+                    >
+                      IOTA/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="etc-btc"
+                    >
+                      ETC/BTC
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <p>Side</p>
+              <div class="order-select order-select-str">
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="all"
+                >
+                  ALL
+                </button>
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="buy"
+                >
+                  Buy
+                </button>
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="sell"
+                >
+                  Sell
+                </button>
+              </div>
+
+              <div class="order-search-box">
+                <button class="reset-selects">Reset</button>
+                <button class="order-search-button">Search</button>
+              </div>
+            </div>
+          </div>
+
           <table class="order-table tradehistory-table">
             <colgroup>
               <col style="width: 16.8%" />
@@ -6880,6 +7023,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../../../../../assets/js/lang.js"></script>
     <script src="../../../../../assets/style/media/media.js"></script>
+    <script src="../../../../../assets/sidebar-service.js"></script>
+    <script src="../../../../../assets/select-service.js"></script>
+    <script src="../service.js"></script>
 
     <script>
       function getDefaultDates() {

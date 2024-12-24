@@ -7,20 +7,32 @@ const toggleButtons = [
 ];
 const closeModalButton = document.querySelector('.close-modal');
 
-// Modalni ochish va yopish funksiyasi
+// Modalni ochish funksiyasi
 toggleButtons.forEach((button) => {
     if (button) {
         button.addEventListener('click', () => {
-            modal.classList.toggle('active');
+            modal.style.display = 'block';
+            modal.classList.add('active');
+            modal.classList.remove('closing');
         });
     }
 });
 
+// Modalni yopish funksiyasi
+function closeModal() {
+    modal.classList.remove('active');
+    modal.classList.add('closing');
+
+    // Animatsiya tugagandan so'ng modalni yashirish
+    modal.addEventListener('animationend', () => {
+        modal.classList.remove('closing');
+        modal.style.display = 'none';
+    }, { once: true });
+}
+
 // "Close" tugmachasini bosganda modalni yopish
 if (closeModalButton) {
-    closeModalButton.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
+    closeModalButton.addEventListener('click', closeModal);
 }
 
 // Modal tashqarisiga bosganda modalni yopish
@@ -29,11 +41,9 @@ document.addEventListener('click', (event) => {
     const isClickOnToggleButton = toggleButtons.some(button => button && button.contains(event.target));
 
     if (!isClickInsideModal && !isClickOnToggleButton) {
-        modal.classList.remove('active');
+        closeModal();
     }
 });
-
-
 
 // ===================================
 // Select all the buttons
@@ -48,3 +58,5 @@ function setActive(button) {
     // Add the 'selected' and 'active' classes to the clicked button
     button.classList.add('selected', 'active');
 }
+
+

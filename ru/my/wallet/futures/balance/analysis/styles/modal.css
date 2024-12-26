@@ -272,3 +272,19 @@
   background-color: #f0b90b;
   border-color: #f0b90b;
 }
+
+/* 768 */
+
+@media screen and (max-width: 768px) {
+  .share_modal_wrapper {
+    background-color: #181a20;
+  }
+
+  /* .share_modal_close {
+    right: 0;
+  } */
+
+  #modalMain {
+    border: 2px solid #f0b9;
+  }
+}

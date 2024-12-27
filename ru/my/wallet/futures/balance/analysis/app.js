@@ -8,7 +8,6 @@ let today_end = moment().endOf("day");
 // let currentPage = 1;
 
 // NO DATA
-
 function noData(margin_top) {
   return `
     <div style="margin-top: ${margin_top || 0}px;" class="no_data_box">
@@ -1089,6 +1088,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       },
       plugins: {
         legend: {
+          display: window.innerWidth > 550, // Media query asosida
           labels: {
             color: "#fff",
             usePointStyle: true,
@@ -1114,6 +1114,13 @@ async function showData_usdt_btc_eth(start_date, end_date) {
         intersect: false,
       },
     },
+  });
+
+  // Ekran o'lchamiga mos holda legendni qayta o'rnatish
+  window.addEventListener("resize", () => {
+    multiLineChartInstance.options.plugins.legend.display =
+      window.innerWidth > 550;
+    multiLineChartInstance.update();
   });
 }
 
@@ -1351,16 +1358,15 @@ async function showData_details(page) {
     data.forEach((item) => {
       let tr = document.createElement("tr");
       tr.innerHTML = `
-                        <td>${item.date}</td>
-                        <td>${item.dayli_pnl}</td>
-                        <td>${item.summ_pnl}</td>
-                        <td>${item.summ_pnl_proc}</td>
-                        <td>${item.summ_translations}</td>
-                        <td>${item.trading_volume}</td>
-                    `;
+      <td class="dayOf_details">${item.date}</td>
+      <td data-label="PNL по дням(USD)">${item.dayli_pnl} USD</td>
+      <td data-label="Совокупный PNL(USD)">${item.summ_pnl} USD</td>
+      <td data-label="Совокупный PNL %">${item.summ_pnl_proc}</td>
+      <td data-label="Сумма переводов, нетто(USD)">${item.summ_translations}  USD</td>
+      <td data-label="Объем торгов">${item.trading_volume}</td>
+      `;
       details_table_body.appendChild(tr);
     });
-
     // Tugmalarni yangilash
     document.getElementById("prev-btn").disabled = currentPage <= 1;
     document.getElementById("next-btn").disabled = data.length < 10;
@@ -1722,53 +1728,52 @@ async function showData_analis_tiker(start_date, end_date) {
     hideLoading();
     let data = res?.data;
 
-    const tbody = document.querySelector(".table tbody");
+    const tbody = document.getElementById("ticker_analysis_table_body");
     tbody.innerHTML = "";
+    let datalab = [
+      {
+        ticker: "BTCUSDT",
+        image: "./assets/bitcoin.png",
+        total_pnl: data?.total_pnl || "0.0000",
+        profit: data?.profit || "0.0000",
+        loss: data?.loss || "0.0000",
+        total_purchases: data?.total_purchases || "0.0000",
+        total_sales: data?.total_sales || "0.0000",
+        average_purchase_price: data?.average_purchase_price || "0.0000",
+        average_selling_price: data?.average_selling_price || "0.0000",
+      },
+      {
+        ticker: "ETHUSDT",
+        image: "./assets/ethereum.png",
+        total_pnl: "0.0000",
+        profit: "0.0000",
+        loss: "0.0000",
+        total_purchases: "0.0000",
+        total_sales: "0.0000",
+        average_purchase_price: "0.0000",
+        average_selling_price: "0.0000",
+      },
+    ];
 
-    let keys = Object.keys(data || {})?.map((value) =>
-      moment(value).format("MM-DD")
-    );
-
-    if (keys.length) {
-      let datalab = [
-        {
-          ticker: "BTCUSDT",
-          image: "/analysis/assets/bitcoin.png",
-          ...data,
-        },
-        {
-          ticker: "ETHUSDT",
-          image: "/analysis/assets/ethereum.png",
-          total_pnl: 0,
-          profit: 0,
-          loss: 0,
-          total_purchases: 0,
-          total_sales: 0,
-          average_purchase_price: 0,
-          average_selling_price: 0,
-        },
-      ];
-
-      datalab.forEach((item) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-        <td>
-            <div style="display: flex;align-items:center; gap: 5px;">
-                <img width="25" src="${item.image}" alt="">
-                ${item.ticker}
+    datalab.forEach((item) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+          <td>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <img width="25" src="${item.image}" alt="">
+              ${item.ticker}
             </div>
-        </td>
-        <td>${item.total_pnl}</td>
-        <td>${item.profit}</td>
-        <td>${item.loss}</td>
-        <td>${item.total_purchases}</td>
-        <td>${item.total_sales}</td>
-        <td>${item.average_purchase_price}</td>
-        <td>${item.average_selling_price}</td>
-    `;
-        tbody.appendChild(row);
-      });
-    }
+          </td>
+          <td data-label="Общий реализованный PnL">${item.total_pnl} USDT</td>
+          <td data-label="Общая реализованная прибыль">${item.profit} USDT</td>
+          <td data-label="Общий реализованный убыток">${item.loss} USDT</td>
+          <td data-label="Всего покупок">${item.total_purchases} USDT</td>
+          <td data-label="Всего продаж">${item.total_sales} USDT</td>
+          <td data-label="Средняя цена покупки">${item.average_purchase_price} USDT</td>
+          <td data-label="Средняя цена продажи">${item.average_selling_price} USDT</td>
+        `;
+      tbody.appendChild(row);
+    });
   } catch (err) {
     console.log(err);
   }

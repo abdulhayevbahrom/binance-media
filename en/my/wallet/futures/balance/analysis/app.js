@@ -1089,6 +1089,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       },
       plugins: {
         legend: {
+          display: window.innerWidth > 550, // Media query asosida
           labels: {
             color: "#fff",
             usePointStyle: true,
@@ -1114,6 +1115,11 @@ async function showData_usdt_btc_eth(start_date, end_date) {
         intersect: false,
       },
     },
+  });
+  window.addEventListener("resize", () => {
+    multiLineChartInstance.options.plugins.legend.display =
+      window.innerWidth > 550;
+    multiLineChartInstance.update();
   });
 }
 
@@ -1351,16 +1357,15 @@ async function showData_details(page) {
     data.forEach((item) => {
       let tr = document.createElement("tr");
       tr.innerHTML = `
-                        <td>${item.date}</td>
-                        <td>${item.dayli_pnl}</td>
-                        <td>${item.summ_pnl}</td>
-                        <td>${item.summ_pnl_proc}</td>
-                        <td>${item.summ_translations}</td>
-                        <td>${item.trading_volume}</td>
-                    `;
+    <td class="dayOf_details">${item.date}</td>
+    <td data-label="Daily PNL (USD)">${item.daily_pnl} USD</td>
+    <td data-label="Cumulative PNL (USD)">${item.cumulative_pnl} USD</td>
+    <td data-label="Cumulative PNL %">${item.cumulative_pnl_percent}</td>
+    <td data-label="Net Transfer Amount (USD)">${item.net_transfer_amount} USD</td>
+    <td data-label="Trading Volume">${item.trading_volume}</td>
+  `;
       details_table_body.appendChild(tr);
     });
-
     // Tugmalarni yangilash
     document.getElementById("prev-btn").disabled = currentPage <= 1;
     document.getElementById("next-btn").disabled = data.length < 10;

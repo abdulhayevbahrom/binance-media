@@ -8,10 +8,11 @@
 
   div.section.balance.expand {
     height: 270px !important;
+    margin-bottom: 100px;
 
     .wallet-balance-preview-chart-container {
       position: absolute;
-      top: 150px !important;
+      top: 200px !important;
       left: 0;
 
       #wallet-balance-preview-chart {

@@ -26,7 +26,10 @@
     />
     <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
 
-    <link rel="stylesheet" href="../../../../../assets/style/media/media_futures.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../../assets/style/media/media_futures.css"
+    />
 
     <link
       rel="stylesheet"
@@ -6876,6 +6879,10 @@
                 </svg>
               </button>
 
+              <div class="calendar">
+                <div class="calendar__preview" id="dateRangePicker"></div>
+              </div>
+
               <p>Ticker</p>
               <div class="order-select">
                 <span onclick="IsSelectOpen()" class="order-select__label">
@@ -7316,10 +7323,10 @@
 
           row.innerHTML = `
   <td data-label="Time">${formatTimestamp(transaction.time)}</td>
-  <td data-label="Ticker">${
+  <td>${
     transaction.ticker === "BTCUSDT Бессрочный" ? "BTCUSDT Perpetual" : ""
   }</td>
-  <td data-label="Side" class=${
+  <td class=${
     transaction.party === "Открыть шорт" || transaction.party === "Закрыть лонг"
       ? "red"
       : "green"

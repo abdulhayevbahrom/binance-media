@@ -6807,24 +6807,28 @@
                           />
                           USDT
                         </td>
-                        <td data-label="Баланс кошелька" id="balance-value">
+                        <td
+                          data-label="Баланс кошелька"
+                          id="usdt-balance-value"
+                        >
                           0
                         </td>
                         <td
                           data-label="Нереализованный PNL"
-                          id="unrealized-pnl"
+                          id="usdt-unrealized-pnl"
                         >
                           0.00000000
                         </td>
-                        <!-- margin-value -->
-                        <td data-label="Баланс маржи" id="margin-value">0</td>
+                        <td data-label="Баланс маржи" id="usdt-margin-value">
+                          0
+                        </td>
                         <td
                           data-label="Доступно для перевода"
-                          id="balance-value"
+                          id="usdt-transferable"
                         >
                           0
                         </td>
-                        <td data-label="Взнос активов" id="balance-equivalent">
+                        <td data-label="Взнос активов" id="usdt-equivalent">
                           10.2431
                         </td>
                         <td id="btc-action">
@@ -7180,25 +7184,25 @@
       </footer>
     </div>
 
-    <!-- <script src="../../../../../assets/js/script.js"></script> -->
     <script src="../../../../../assets/style/media/media.js"></script>
     <script src="../../../../../assets/js/style.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../../../../../assets/js/lang.js"></script>
     <script src="../../../../../assets/js/config.js"></script>
+    <script src="../../../../../assets/js/script.js"></script>
     <script src="../../../../../assets/sidebar-service.js"></script>
     <script src="../../../../../assets/search-service.js"></script>
     <script>
       // Sidebar accordions
-      // const accordionButtons = document.querySelectorAll(
-      //   ".sidebar__menu-item--accordion"
-      // );
+      const accordionButtons = document.querySelectorAll(
+        ".sidebar__menu-item--accordion"
+      );
 
-      // accordionButtons.forEach((button) => {
-      //   button.addEventListener("click", () => {
-      //     button.classList.toggle("sidebar__menu-item--open");
-      //   });
-      // });
+      accordionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          button.classList.toggle("sidebar__menu-item--open");
+        });
+      });
 
       let balance;
       let marginBalance;
@@ -7215,8 +7219,6 @@
             "https://api.binance.com/api/v3/ticker/24hr?symbol=USDCUSDT"
           );
           const data = await response.json();
-          console.log(data);
-
           equivalentValue = Number(data.prevClosePrice);
           updateBalanceDisplay(initialHideState);
         })();
@@ -7322,7 +7324,6 @@
 
           if (response.ok) {
             const data = await response.json();
-            console.log(data);
             pnlData = data;
             updateBalanceDisplay(initialHideState);
           } else {
@@ -7449,7 +7450,6 @@
 
       //============================
     </script>
-    <script src="../../../../../assets/js/script.js"></script>
 
     <script>
       const discountSwitch = document.querySelector(".switch");

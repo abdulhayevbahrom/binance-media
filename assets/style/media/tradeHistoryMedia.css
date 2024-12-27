@@ -42,6 +42,9 @@
 }
 
 @media screen and (max-width: 980px) {
+  .main {
+    padding-right: 0 !important;
+  }
   .tradehistory-table {
     width: 100% !important;
 
@@ -53,22 +56,45 @@
         width: 77vw !important;
         display: block;
         margin-bottom: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 14px !important;
+        padding-top: 56px !important;
+        position: relative;
+        padding-right: 0 !important;
 
         td {
           display: block;
           text-align: right;
-          padding-left: 50%;
+          /* padding-left: 50%; */
           position: relative;
 
+          * {
+            font-weight: normal !important;
+            color: #999;
+          }
+
           &::before {
+            color: #999;
+
             content: attr(data-label);
             position: absolute;
             left: 0;
             width: 50%;
             padding-left: 10px;
-            font-weight: bold;
             text-align: left;
+          }
+
+          &:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: 10px;
+          }
+
+          &:nth-child(3) {
+            position: absolute;
+            top: 23px;
+            left: 0;
+            padding-left: 10px;
           }
         }
       }

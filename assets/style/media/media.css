@@ -48,7 +48,7 @@
   .futures-balance__pnl-wrapper {
     width: 100%;
     display: flex !important;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
 
   .futures-balance__pnl-wrapper > span {
@@ -89,7 +89,7 @@
   .futures-balance__items {
     margin-top: 24px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 13px;
   }
 

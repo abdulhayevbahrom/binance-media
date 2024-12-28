@@ -51,11 +51,11 @@
     /* justify-content: space-between; */
   }
 
-  .futures-balance__pnl-wrapper > span {
+  .futures-balance__pnl-wrapper>span {
     text-wrap: nowrap;
   }
 
-  .futures-balance__pnl-wrapper > a {
+  .futures-balance__pnl-wrapper>a {
     text-wrap: nowrap;
   }
 
@@ -67,7 +67,7 @@
     gap: 4px;
   }
 
-  .futures-head__buttons > button {
+  .futures-head__buttons>button {
     padding: 0 8px;
   }
 
@@ -82,7 +82,7 @@
     padding: 5px;
   }
 
-  .futures-balance__head > h3 {
+  .futures-balance__head>h3 {
     font-size: 16px;
   }
 
@@ -184,7 +184,7 @@
   #balance-equivalent,
   #balance-value,
   #unrealized-pnl,
-  #margin-value,
+  /* #margin-values, */
   #usdt-action,
   #bnb-balance-value,
   #bnb-unrealized-pnl,
@@ -234,7 +234,7 @@
     margin-right: -12px;
   }
 
-  #btc-action > div {
+  #btc-action>div {
     width: 100px;
     height: 200px;
     position: absolute;
@@ -290,7 +290,7 @@
     background-color: #f0f0f000;
   }
 
-  .page-with-sidebar .stad > .btn-icon {
+  .page-with-sidebar .stad>.btn-icon {
     height: auto;
     width: auto;
     border-radius: 10px;

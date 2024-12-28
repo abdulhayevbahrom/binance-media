@@ -1,4 +1,4 @@
-document.querySelector("#exit-user").addEventListener("click", () => {
+document.querySelector("#exit-user")?.addEventListener("click", () => {
   window.location.href = "/ru/login";
   localStorage.clear();
 });
@@ -9,7 +9,7 @@ const accordionButtons = document.querySelectorAll(
 );
 
 accordionButtons?.forEach((button) => {
-  button.addEventListener("click", () => {
+  button?.addEventListener("click", () => {
     button.classList.toggle("sidebar__menu-item--open");
   });
 });
@@ -46,7 +46,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 
 const mobileSelectedButton = document.querySelector(".sidebar-selected");
 
-mobileSelectedButton.addEventListener("click", () => {
+mobileSelectedButton?.addEventListener("click", () => {
   mobileSelectedButton.classList.toggle("sidebar-selected--open");
   document.querySelector(".sidebar").classList.toggle("screen");
 
@@ -97,7 +97,7 @@ try {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: user.user_id }),
+      body: JSON.stringify({ user_id: user?.user_id }),
     });
 
     if (response.ok) {
@@ -105,7 +105,7 @@ try {
       pnlData = data;
       updateBalanceDisplay(initialHideState);
     } else {
-      console.error("Ошибка:", response.statusText);
+      console.error("Ошибка:", response?.statusText);
       return;
     }
   })();
@@ -199,13 +199,13 @@ const updateBalanceDisplay = (isHidden) => {
   });
 
   balancePnl.forEach((item) => {
-    item.classList.add(pnlData.pnl < 0 ? "negative" : "positive");
+    item.classList.add(pnlData?.pnl < 0 ? "negative" : "positive");
 
     item.textContent = isHidden
       ? "******"
-      : `${pnlData.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData.pnl)}(${Math.abs(
-          pnlData.percentage
-        )}%)`;
+      : `${pnlData?.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData?.pnl)}(${Math.abs(
+        pnlData?.percentage
+      )}%)`;
   });
 };
 
@@ -220,7 +220,7 @@ if (initialHideState) {
   hideBalanceButton.innerHTML = `<svg class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M6.555 6.31L1 12l5.555 5.69a7.572 7.572 0 0010.89 0L23 12l-5.555-5.69a7.572 7.572 0 00-10.89 0zM17 12a5 5 0 11-10 0 5 5 0 0110 0z" fill="currentColor"></path></svg>`;
 }
 
-hideBalanceButton.addEventListener("click", () => {
+hideBalanceButton?.addEventListener("click", () => {
   const isHide = localStorage.getItem("hide-balance") === "true";
 
   if (isHide) {
@@ -257,7 +257,7 @@ const showTab = (elTabBtn) => {
   }
 };
 
-document.addEventListener("click", (e) => {
+document?.addEventListener("click", (e) => {
   if (e.target && !e.target.closest(".tab-btn")) {
     return;
   }
@@ -300,7 +300,7 @@ function resetIcons() {
 resetIcons();
 
 sortButtons.forEach((button) => {
-  button.addEventListener("click", () => {
+  button?.addEventListener("click", () => {
     resetIcons();
 
     button.innerHTML =
@@ -311,7 +311,7 @@ sortButtons.forEach((button) => {
 });
 
 document.querySelectorAll(".holdings__currency").forEach((info) => {
-  info.addEventListener("click", () => {
+  info?.addEventListener("click", () => {
     let nextElement = info.nextElementSibling;
     while (
       nextElement &&
@@ -329,7 +329,7 @@ document.querySelectorAll(".holdings__currency").forEach((info) => {
 
 const underDollarCheckbox = document.querySelector("#underDollarCheckbox");
 
-underDollarCheckbox.addEventListener("click", () => {
+underDollarCheckbox?.addEventListener("click", () => {
   underDollarCheckbox?.classList.toggle("active");
 });
 

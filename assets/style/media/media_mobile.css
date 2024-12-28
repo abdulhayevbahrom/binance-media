@@ -335,15 +335,6 @@
     color: var(--color-DisabledText);
   }
 
-  .futures-balance__pnl-box {
-    display: flex;
-    align-items: center;
-  }
-
-  .futures-balance__pnl-box>svg {
-    margin-top: 5px;
-  }
-
   #assetOverviewChart {
     display: flex;
     width: 100%;

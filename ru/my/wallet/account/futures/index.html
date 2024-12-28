@@ -3654,7 +3654,7 @@
       <!--Сайдбар-->
       <div class="sidebar-wrap">
         <div class="sidebar">
-          <div class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
+          <div onclick="toggleSidebar()" class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
             <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3670,8 +3670,8 @@
           <div class="sidebar__menu">
             <a class="sidebar__menu-item" href="/ru/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z" fill="currentColor">
-                </path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
+                  fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
@@ -3684,7 +3684,8 @@
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Активы</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3750,7 +3751,8 @@
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Ордера</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3803,7 +3805,8 @@
                   </path>
                 </svg>
                 <span class="sidebar__menu-item-title">Аккаунт</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -4339,10 +4342,84 @@
                     </tr>
                   </tbody>
 
-
+                  <!-- <tbody>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/tether.png" alt="TetherUS" />
+                        USDT
+                      </td>
+                      <td id="balance-value">0</td>
+                      <td id="unrealized-pnl">0.00000000</td>
+                      <td id="margin-value">0</td>
+                      <td id="balance-value">0</td>
+                      <td id="balance-equivalent">10.2431</td>
+                      <div><button>Перевод</button></div><div></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/bnb.png" alt="BNB" />
+                        BNB
+                      </td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td><button>Перевод</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/bitcoin.svg" alt="BTC" />
+                        BTC
+                      </td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td><button>Перевод</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/ethereum.png" alt="ETH" />
+                        ETH
+                      </td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td><button>Перевод</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/fdusd.png" alt="FDUSD" />
+                        FDUSD
+                      </td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td><button>Перевод</button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../../../../../assets/img/currencies/usdc.png" alt="USDC" />
+                        USDC
+                      </td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td>0.00000000</td>
+                      <td><button>Перевод</button></td>
+                    </tr>
+                  </tbody> -->
                 </table>
               </div>
             </div>
+          </div>
         </section>
       </main>
     </div>
@@ -4360,19 +4437,19 @@
   <script src="../../../../../assets/js/lang.js"></script>
   <script src="../../../../../assets/js/config.js"></script>
   <script src="../../../../../assets/js/script.js"></script>
-  <!-- <script src="../../../../../assets/sidebar-service.js"></script> -->
+  <script src="../../../../../assets/sidebar-service.js"></script>
   <script src="../../../../../assets/search-service.js"></script>
   <script>
     // Sidebar accordions
-    // const accordionButtons = document.querySelectorAll(
-    //   ".sidebar__menu-item--accordion"
-    // );
+    const accordionButtons = document.querySelectorAll(
+      ".sidebar__menu-item--accordion"
+    );
 
-    // accordionButtons.forEach((button) => {
-    //   button.addEventListener("click", () => {
-    //     button.classList.toggle("sidebar__menu-item--open");
-    //   });
-    // });
+    accordionButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.toggle("sidebar__menu-item--open");
+      });
+    });
 
     let balance;
     let marginBalance;
@@ -4620,9 +4697,6 @@
 
     //============================
   </script>
-
-  <script src="../../../../../assets/js/script.js"></script>
-
 
   <script>
     const discountSwitch = document.querySelector(".switch");
@@ -4915,9 +4989,6 @@
       });
     }
   </script>
-
-  <!-- <script src="../../../../../assets/sidebar-service.js"></script> -->
-
 </body>
 
 </html>

@@ -776,4 +776,25 @@
     .futures-balance__pnl-box>svg {
         margin-top: 3px;
     }
+
+
+    .balance__pnl-tooltip-text {
+        position: absolute;
+        z-index: -1;
+        transition-duration: 250ms;
+        transition-property: opacity, visibility;
+        transition-timing-function: ease-in-out;
+        opacity: 0;
+        transform: translate(0px, 0px);
+        bottom: 100%;
+        left: -80px;
+        margin-bottom: 12px;
+        background-color: var(--color-textPrimary);
+        color: #0b0e11;
+        max-height: 160px;
+        width: 300px;
+        overflow-y: auto;
+        border-radius: 8px;
+        padding: 8px 12px;
+    }
 }

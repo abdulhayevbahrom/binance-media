@@ -1,6 +1,8 @@
-document.querySelector("#exit-user")?.addEventListener("click", () => {
-  window.location.href = "/ru/login";
-  localStorage.clear();
+document.querySelectorAll("#exit-user").forEach((element) => {
+  element.addEventListener("click", () => {
+    window.location.href = "/ru/login";
+    localStorage.clear();
+  });
 });
 
 // Sidebar accordions

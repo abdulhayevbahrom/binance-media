@@ -10,8 +10,10 @@
   <link rel="stylesheet" href="../../../../../assets/style/style.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/tradeHistoryMedia.css" />
 
-  <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
-  <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
+    <link
+      rel="stylesheet"
+      href="../../../../../assets/style/media/media_futures.css"
+    />
 
   <link rel="stylesheet" href="../../../../../assets/style/media/media_futures.css" />
 
@@ -4265,9 +4267,117 @@
               </button>
             </div>
 
+<<<<<<< HEAD
+              <div class="calendar">
+                <div class="calendar__preview" id="dateRangePicker"></div>
+              </div>
+
+              <p>Ticker</p>
+              <div class="order-select">
+                <span onclick="IsSelectOpen()" class="order-select__label">
+                  <div>
+                    <span id="order-select__value"></span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </div>
+                </span>
+                <div class="order-select__list-wrapper-box">
+                  <div class="order-select__list">
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="all"
+                    >
+                      ALL
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="bnb-btc"
+                    >
+                      BNB/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="nuls-btc"
+                    >
+                      NULS/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="neo-btc"
+                    >
+                      NEO/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="link-btc"
+                    >
+                      LINK/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="iota-btc"
+                    >
+                      IOTA/BTC
+                    </button>
+                    <button
+                      onclick="IsSelectOpen()"
+                      class="order-select__option"
+                      data-value="etc-btc"
+                    >
+                      ETC/BTC
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <p>Side</p>
+              <div class="order-select order-select-str">
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="all"
+                >
+                  ALL
+                </button>
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="buy"
+                >
+                  Buy
+                </button>
+                <button
+                  class="order-select__order"
+                  onclick="setActive(this)"
+                  data-value="sell"
+                >
+                  Sell
+                </button>
+              </div>
+
+              <div class="order-search-box">
+                <button class="reset-selects">Reset</button>
+                <button class="order-search-button">Search</button>
+              </div>
+=======
             <div class="order-search-box">
               <button class="reset-selects">Reset</button>
               <button class="order-search-button">Search</button>
+>>>>>>> 31d08b90a3f5bae214d7f34f25d3d1097303d34d
             </div>
           </div>
         </div>
@@ -4570,6 +4680,50 @@
       transactions.forEach((transaction) => {
         const row = document.createElement("tr");
 
+<<<<<<< HEAD
+          // row.innerHTML = `
+          //       <td>${formatTimestamp(transaction.time)}</td>
+          //       <td>${
+          //         transaction.ticker === "BTCUSDT Бессрочный"
+          //           ? "BTCUSDT Perpetual"
+          //           : ""
+          //       }</td>
+          //       <td class=${
+          //         transaction.party === "Открыть шорт" ||
+          //         transaction.party === "Закрыть лонг"
+          //           ? "red"
+          //           : "green"
+          //       }>${
+          //   transaction.party === "Закрыть шорт"
+          //     ? "Close Short"
+          //     : transaction.party === "Закрыть лонг"
+          //     ? "Close Long"
+          //     : transaction.party === "Открыть шорт"
+          //     ? "Open Short"
+          //     : transaction.party === "Открыть лонг"
+          //     ? "Open Long"
+          //     : ""
+          // }</td>
+          //       <td>${formatter.format(transaction.price)}</td>
+          //       <td>${(+transaction.quantity).toFixed(1)} USDT</td>
+          //       <td>${transaction.commission} USDT</td>
+          //       <td>${transaction.realized_profit} USDT</td>
+          //   `;
+
+          row.innerHTML = `
+  <td data-label="Time">${formatTimestamp(transaction.time)}</td>
+  <td>${
+    transaction.ticker === "BTCUSDT Бессрочный" ? "BTCUSDT Perpetual" : ""
+  }</td>
+  <td class=${
+    transaction.party === "Открыть шорт" || transaction.party === "Закрыть лонг"
+      ? "red"
+      : "green"
+  }>${
+            transaction.party === "Закрыть шорт"
+              ? "Close Short"
+              : transaction.party === "Закрыть лонг"
+=======
         row.innerHTML = `
             <td data-label="Time">${formatTimestamp(transaction.time)}</td>
             <td data-label="Ticker">${transaction.ticker === "BTCUSDT Бессрочный" ? "BTCUSDT Perpetual" : ""
@@ -4580,6 +4734,7 @@
           }>${transaction.party === "Закрыть шорт"
             ? "Close Short"
             : transaction.party === "Закрыть лонг"
+>>>>>>> 31d08b90a3f5bae214d7f34f25d3d1097303d34d
               ? "Close Long"
               : transaction.party === "Открыть шорт"
                 ? "Open Short"

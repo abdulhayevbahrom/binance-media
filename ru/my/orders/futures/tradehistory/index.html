@@ -12,6 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../../../../../assets/style/style.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media_futures.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/media/media_mobile.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
@@ -3796,6 +3797,10 @@
               </svg>
             </button>
 
+            <div class="calendar">
+              <div class="calendar__preview" id="dateRangePicker"></div>
+            </div>
+
             <p>Тикер</p>
             <div class="order-select">
               <span onclick="IsSelectOpen()" class="order-select__label">
@@ -4133,10 +4138,12 @@
         //     <td>${transaction.realized_profit} USDT</td>
         // `;
 
+        // <td data-label="Тикер">${transaction.ticker}</td>
+        // <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
         row.innerHTML = `
             <td data-label="Время">${formatTimestamp(transaction.time)}</td>
-            <td data-label="Тикер">${transaction.ticker}</td>
-            <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
+            <td>${transaction.ticker}</td>
+            <td class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
             <td data-label="Цена">${formatter.format(transaction.price)}</td>
             <td data-label="Количество">${(+transaction.quantity).toFixed(1)} USDT</td>
             <td data-label="Комиссия">${transaction.commission} USDT</td>

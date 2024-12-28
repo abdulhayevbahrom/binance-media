@@ -1,7 +1,7 @@
-const mobileSelectedButton = document.querySelector(".sidebar-selected");
+const mobileSelectedButton1 = document.querySelector(".sidebar-selected");
 
 function toggleSidebar() {
-  mobileSelectedButton.classList.toggle("sidebar-selected--open");
+  mobileSelectedButton1.classList.toggle("sidebar-selected--open");
   document.querySelector(".sidebar").classList.toggle("screen");
 
   if (document.body.style.overflow === "hidden") {
@@ -11,11 +11,11 @@ function toggleSidebar() {
   }
 }
 
-const accordionButtons = document.querySelectorAll(
+const accordionButtons1 = document.querySelectorAll(
   ".sidebar__menu-item--accordion"
 );
 
-accordionButtons.forEach((button) => {
+accordionButtons1.forEach((button) => {
   button.addEventListener("click", () => {
     button.classList.toggle("sidebar__menu-item--open");
   });

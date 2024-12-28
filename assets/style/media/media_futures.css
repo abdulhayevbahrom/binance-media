@@ -55,7 +55,6 @@
     margin: 24px 0;
   }
 
-
   .order-filters_modal>.close-modal {
     width: 100%;
     height: 45px;
@@ -184,12 +183,11 @@
     user-select: none;
     padding: 0 13px;
     height: 38px;
-    border: .5px solid rgba(128, 128, 128, 0.368);
+    border: 0.5px solid rgba(128, 128, 128, 0.368);
     border-radius: 8px;
     color: #e8eaedbe;
     font-size: 15px;
     font-weight: 500;
-
   }
 
   .order-select__list-wrapper-box {
@@ -272,11 +270,11 @@
 
   .order-filters_modal {
     display: none;
-    position: absolute;
+    position: fixed;
     bottom: 0 !important;
     right: 0;
     width: 100%;
-    height: 91.5vh !important;
+    height: 93vh !important;
     background-color: #1a2634;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000 !important;
@@ -286,7 +284,6 @@
     opacity: 0;
     transition: none;
   }
-
 
   .order-filters_modal.active {
     display: block;

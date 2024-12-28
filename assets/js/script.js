@@ -8,7 +8,7 @@ const accordionButtons = document.querySelectorAll(
   ".sidebar__menu-item--accordion"
 );
 
-accordionButtons?.forEach(button => {
+accordionButtons?.forEach((button) => {
   button.addEventListener("click", () => {
     button.classList.toggle("sidebar__menu-item--open");
   });
@@ -125,7 +125,7 @@ async function getEquivalentValue() {
     const data = await response.json();
     equivalentValue = Number(data.prevClosePrice);
     updateBalanceDisplay(initialHideState);
-    console.log(data)
+    console.log(data);
   } catch (error) {
     console.error("Error fetching ticker info:", error);
   }
@@ -133,13 +133,18 @@ async function getEquivalentValue() {
 
 getEquivalentValue();
 
-const convertBalance = currency => {
+const convertBalance = (currency) => {
   if (!currency || currency === "usdt") {
-    return { balance: balance, equivalent: (balance * equivalentValue).toFixed(4) };
+    return {
+      balance: balance,
+      equivalent: (balance * equivalentValue).toFixed(4),
+    };
   } else if (currency === "btc") {
     return {
       balance: parseFloat((balance / 65000).toFixed(4)),
-      equivalent: parseFloat(65000 * ((balance / 65000) * equivalentValue)).toFixed(4),
+      equivalent: parseFloat(
+        65000 * ((balance / 65000) * equivalentValue)
+      ).toFixed(4),
     };
   } else if (currency === "eth") {
     return {
@@ -159,7 +164,7 @@ const convertBalance = currency => {
 };
 
 // Function to update balance display based on hide state
-const updateBalanceDisplay = isHidden => {
+const updateBalanceDisplay = (isHidden) => {
   const selectedValue = localStorage.getItem("selected_currency");
   const balanceEquivalents = document.querySelectorAll(".balance-equivalent");
   const balanceEquivalentsNotEqually = document.querySelectorAll(
@@ -169,7 +174,7 @@ const updateBalanceDisplay = isHidden => {
   const balancePnl = document.querySelectorAll(".balance-pnl");
   const balance = convertBalance(selectedValue).balance.toFixed(4);
 
-  balanceValues.forEach(item => {
+  balanceValues.forEach((item) => {
     let [integerPart, decimalPart] = balance.toString().split(".");
 
     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -181,26 +186,26 @@ const updateBalanceDisplay = isHidden => {
     item.textContent = isHidden ? "******" : formattedBalance;
   });
 
-  balanceEquivalents.forEach(item => {
+  balanceEquivalents.forEach((item) => {
     item.textContent = isHidden
       ? "******"
       : `≈ $${convertBalance(selectedValue).equivalent}`;
   });
 
-  balanceEquivalentsNotEqually.forEach(item => {
+  balanceEquivalentsNotEqually.forEach((item) => {
     item.textContent = isHidden
       ? "******"
       : `$${convertBalance(selectedValue).equivalent}`;
   });
 
-  balancePnl.forEach(item => {
+  balancePnl.forEach((item) => {
     item.classList.add(pnlData.pnl < 0 ? "negative" : "positive");
 
     item.textContent = isHidden
       ? "******"
       : `${pnlData.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData.pnl)}(${Math.abs(
-        pnlData.percentage
-      )}%)`;
+          pnlData.percentage
+        )}%)`;
   });
 };
 
@@ -230,7 +235,7 @@ hideBalanceButton.addEventListener("click", () => {
 });
 
 // Tabs
-const showTab = elTabBtn => {
+const showTab = (elTabBtn) => {
   const elTab = elTabBtn.closest(".tab");
   if (elTabBtn.classList.contains("tab-btn-active")) {
     return;
@@ -252,7 +257,7 @@ const showTab = elTabBtn => {
   }
 };
 
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
   if (e.target && !e.target.closest(".tab-btn")) {
     return;
   }
@@ -287,14 +292,14 @@ const svgSortDescending = `
 const sortButtons = document.querySelectorAll(".holdings__sort-button");
 
 function resetIcons() {
-  sortButtons.forEach(button => {
+  sortButtons.forEach((button) => {
     button.innerHTML = svgDefault;
   });
 }
 
 resetIcons();
 
-sortButtons.forEach(button => {
+sortButtons.forEach((button) => {
   button.addEventListener("click", () => {
     resetIcons();
 
@@ -305,7 +310,7 @@ sortButtons.forEach(button => {
   });
 });
 
-document.querySelectorAll(".holdings__currency").forEach(info => {
+document.querySelectorAll(".holdings__currency").forEach((info) => {
   info.addEventListener("click", () => {
     let nextElement = info.nextElementSibling;
     while (

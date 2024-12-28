@@ -304,7 +304,7 @@
                 </div>
               </li>
 
-              <li class="header-item  header-item-flex">
+              <li class="header-item header-item-flex">
                 <svg id="icon_mobile-bar" width="26" height="26" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_3_79)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -316,7 +316,6 @@
 
               <li class="header-item" data-modal="modal3">
                 <a href="#" onclick="return false;">
-
                   <svg id="icon_mobile-bar" width="24" height="24" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -420,7 +419,6 @@
               </li>
               <li class="header-item" data-modal="modal4">
                 <a href="#" onclick="return false;">
-
                   <svg id="icon_mobile-bar" width="25" height="25" viewBox="0 0 24 25"
                     xmlns=" http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_3_85)">
@@ -675,7 +673,6 @@
               </li>
             </ul>
           </nav>
-
         </div>
         <div class="header-rightside">
           <!--Поиск-->
@@ -2455,7 +2452,7 @@
           </button>
 
           <!--User-->
-          <div class="stad  media_none">
+          <div class="stad media_none">
             <button class="btn-icon">
               <svg class="header-icon header-download" width="19" height="19" viewBox="0 0 24 24">
                 <use href="../../../../../assets/img/icons/sprite.svg#user"></use>
@@ -2568,7 +2565,7 @@
           </div>
 
           <!--Wallet-->
-          <div class="stad  media_none">
+          <div class="stad media_none">
             <button class="btn-icon">
               <svg class="header-icon header-download" width="18" height="20" viewBox="0 0 24 24">
                 <use href="../../../../../assets/img/icons/sprite.svg#user-wallet"></use>
@@ -2691,7 +2688,7 @@
           </div>
 
           <!--Сообщения системы-->
-          <div class="stad  media_none">
+          <div class="stad media_none">
             <button class="btn-icon" id="ic-message">
               <svg class="header-icon header-download" width="16" height="20" viewBox="0 0 20 24">
                 <use href="../../../../../assets/img/icons/sprite.svg#messages"></use>
@@ -2904,7 +2901,7 @@
               </svg>
               <p>Russian</p>
             </button>
-            <div class="staddrop  staddrop-long">
+            <div class="staddrop staddrop-long">
               <a href="#" class="logo-link-long">
                 <i class="fa fa-times" aria-hidden="true"></i>
               </a>
@@ -3030,7 +3027,7 @@
               </div>
             </div>
           </div>
-          <div class="stad  stad-dark">
+          <div class="stad stad-dark">
             <p>Topic</p>
             <button class="btn-icon" id="btn-night">
               <svg class="header-icon header-night" width="20" height="20" viewBox="0 0 24 24">
@@ -3062,7 +3059,6 @@
         </button>
         <!-- User -->
         <div class="stad-mobile-user">
-
           <button class="btn-icon-user" onclick="toggleDropdownUser()">
             <svg class="header-icon header-download" width="19" height="19" viewBox="0 0 24 24">
               <use href="../../../../../../assets/img/icons/sprite.svg#user"></use>
@@ -3447,14 +3443,12 @@
               <span class="futures-balance__equivalent" id="margin-equivalent">≈ $0</span>
               <div class="futures-balance__pnl-wrapper">
                 <span>Realized PnL today </span>
-                <div class="futures-balance__pnl-box">
-                  <a href="/en/my/wallet/futures/balance/analysis" class="futures-balance__pnl">+0.00 (+0.00%)</a>
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M12.288 12l-3.89 3.89 1.768 1.767L15.823 12l-1.768-1.768-3.889-3.889-1.768 1.768 3.89 3.89z"
-                      fill="#EAECEF"></path>
-                  </svg>
-                </div>
+                <a href="/en/my/wallet/futures/balance/analysis" class="futures-balance__pnl">+0.00 (+0.00%)</a>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.288 12l-3.89 3.89 1.768 1.767L15.823 12l-1.768-1.768-3.889-3.889-1.768 1.768 3.89 3.89z"
+                    fill="#EAECEF"></path>
+                </svg>
               </div>
             </div>
             <div class="futures-balance__items">
@@ -3650,11 +3644,17 @@
                         <img src="../../../../../assets/img/currencies/tether.png" alt="TetherUS" />
                         USDT
                       </td>
-                      <td data-label="Wallet Balance" id="usdt-balance-value">0</td>
-                      <td data-label="Unrealized PNL" id="usdt-unrealized-pnl">0.00000000</td>
-                      <td data-label="Margin Balance" id="usdt-margin-value">0</td>
-                      <td data-label="Transferable" id="usdt-transferable">0</td>
-                      <td data-label="Asset Contribution" id="usdt-equivalent">10.2431</td>
+                      <td data-label="Wallet Balance" id="balance-value">
+                        0
+                      </td>
+                      <td data-label="Unrealized PNL" id="unrealized-pnl">
+                        0.00000000
+                      </td>
+                      <td data-label="Margin Balance" id="margin-value">0</td>
+                      <td data-label="Transferable" id="balance-value">0</td>
+                      <td data-label="Asset Contribution" id="usdt-equivalent">
+                        10.2431
+                      </td>
                       <td id="btc-action">
                         <div>
                           <button class="media_dack">Transfer</button>
@@ -3672,11 +3672,21 @@
                         <img src="../../../../../assets/img/currencies/bnb.png" alt="BNB" />
                         BNB
                       </td>
-                      <td data-label="Wallet Balance" id="bnb-balance-value">0.00000000</td>
-                      <td data-label="Unrealized PNL" id="bnb-unrealized-pnl">0.00000000</td>
-                      <td data-label="Margin Balance" id="bnb-margin-value">0.00000000</td>
-                      <td data-label="Transferable" id="bnb-transferable">0.00000000</td>
-                      <td data-label="Asset Contribution" id="bnb-equivalent">0.00000000</td>
+                      <td data-label="Wallet Balance" id="bnb-balance-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Unrealized PNL" id="bnb-unrealized-pnl">
+                        0.00000000
+                      </td>
+                      <td data-label="Margin Balance" id="bnb-margin-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Transferable" id="bnb-transferable">
+                        0.00000000
+                      </td>
+                      <td data-label="Asset Contribution" id="bnb-equivalent">
+                        0.00000000
+                      </td>
                       <td id="btc-action">
                         <div>
                           <button class="media_dack">Transfer</button>
@@ -3694,11 +3704,21 @@
                         <img src="../../../../../assets/img/currencies/bitcoin.svg" alt="BTC" />
                         BTC
                       </td>
-                      <td data-label="Wallet Balance" id="btc-balance-value">0.00000000</td>
-                      <td data-label="Unrealized PNL" id="btc-unrealized-pnl">0.00000000</td>
-                      <td data-label="Margin Balance" id="btc-margin-value">0.00000000</td>
-                      <td data-label="Transferable" id="btc-transferable">0.00000000</td>
-                      <td data-label="Asset Contribution" id="btc-equivalent">0.00000000</td>
+                      <td data-label="Wallet Balance" id="btc-balance-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Unrealized PNL" id="btc-unrealized-pnl">
+                        0.00000000
+                      </td>
+                      <td data-label="Margin Balance" id="btc-margin-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Transferable" id="btc-transferable">
+                        0.00000000
+                      </td>
+                      <td data-label="Asset Contribution" id="btc-equivalent">
+                        0.00000000
+                      </td>
                       <td id="btc-action">
                         <div>
                           <button class="media_dack">Transfer</button>
@@ -3716,11 +3736,21 @@
                         <img src="../../../../../assets/img/currencies/ethereum.png" alt="ETH" />
                         ETH
                       </td>
-                      <td data-label="Wallet Balance" id="eth-balance-value">0.00000000</td>
-                      <td data-label="Unrealized PNL" id="eth-unrealized-pnl">0.00000000</td>
-                      <td data-label="Margin Balance" id="eth-margin-value">0.00000000</td>
-                      <td data-label="Transferable" id="eth-transferable">0.00000000</td>
-                      <td data-label="Asset Contribution" id="eth-equivalent">0.00000000</td>
+                      <td data-label="Wallet Balance" id="eth-balance-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Unrealized PNL" id="eth-unrealized-pnl">
+                        0.00000000
+                      </td>
+                      <td data-label="Margin Balance" id="eth-margin-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Transferable" id="eth-transferable">
+                        0.00000000
+                      </td>
+                      <td data-label="Asset Contribution" id="eth-equivalent">
+                        0.00000000
+                      </td>
                       <td id="btc-action">
                         <div>
                           <button class="media_dack">Transfer</button>
@@ -3738,11 +3768,21 @@
                         <img src="../../../../../assets/img/currencies/fdusd.png" alt="FDUSD" />
                         FDUSD
                       </td>
-                      <td data-label="Wallet Balance" id="fdusd-balance-value">0.00000000</td>
-                      <td data-label="Unrealized PNL" id="fdusd-unrealized-pnl">0.00000000</td>
-                      <td data-label="Margin Balance" id="fdusd-margin-value">0.00000000</td>
-                      <td data-label="Transferable" id="fdusd-transferable">0.00000000</td>
-                      <td data-label="Asset Contribution" id="fdusd-equivalent">0.00000000</td>
+                      <td data-label="Wallet Balance" id="fdusd-balance-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Unrealized PNL" id="fdusd-unrealized-pnl">
+                        0.00000000
+                      </td>
+                      <td data-label="Margin Balance" id="fdusd-margin-value">
+                        0.00000000
+                      </td>
+                      <td data-label="Transferable" id="fdusd-transferable">
+                        0.00000000
+                      </td>
+                      <td data-label="Asset Contribution" id="fdusd-equivalent">
+                        0.00000000
+                      </td>
                       <td id="btc-action">
                         <div>
                           <button class="media_dack">Transfer</button>
@@ -3756,7 +3796,6 @@
                       </td>
                     </tr>
                   </tbody>
-
                 </table>
               </div>
             </div>

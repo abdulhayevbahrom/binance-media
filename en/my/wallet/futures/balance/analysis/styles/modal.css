@@ -233,7 +233,20 @@
   position: relative;
   font-weight: 400;
   font-size: 14px;
+  /* line-height: 20px; */
   color: #5e6673;
+
+  /* margin-top: 9px; */
+}
+
+.custom_checkbox p {
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  /* line-height: 20px; */
+  color: #5e6673;
+
+  /* margin-top: 9px; */
 }
 
 .custom_checkbox label:before {

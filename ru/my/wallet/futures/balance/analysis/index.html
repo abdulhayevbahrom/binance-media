@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="../../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../../assets/style/media/media.css" />
 
-
   <link rel="shortcut icon" href="/analysis/assets/Binance_Logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
@@ -3571,10 +3570,12 @@
                     class="usd_coin_container_item_title tooltip-main tooltip-main_bottom">
                     PnL за Все время.
                   </p>
-                  <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
-                  <p style="font-size: 13px" class="eyeO-N usd_coin_container_item_usd">
-                    0 USD
-                  </p>
+                  <div>
+                    <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
+                    <p style="font-size: 13px" class="eyeO-N usd_coin_container_item_usd">
+                      0 USD
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -3595,6 +3596,7 @@
                     <i class="fa fa-calendar"></i>
                     <p>Настроить</p>
                   </label>
+
                 </div>
 
 
@@ -3604,39 +3606,42 @@
                 <div class="profit-loss-analysis">
                   <div class="analysis-item analysis_item_left">
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="Общий убыток за период">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_1" data-tooltip="Общий убыток за период">
                         Общая прибыль
                       </p>
                       <p class="eyeO-N">00 USD</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="Общая прибыль - Общий убыток">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_2"
+                        data-tooltip="Общая прибыль - Общий убыток">
                         Общий убыток
                       </p>
                       <p class="eyeO-N">00 USD</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="= Общая прибыль - Общий убыток">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_3"
+                        data-tooltip="= Общая прибыль - Общий убыток">
                         Чистая прибыль/чистый убыток
                       </p>
                       <p class="eyeO-N">00 USD</p>
                     </div>
-                    <div class="values">
-                      <p class="tooltip-trigger tooltip-main"
+
+                    <div class="values" id="values-1">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_4"
                         data-tooltip="Статистика объема торгов рассчитывается ежедневно с 0:00 до 23:59:59 UTC. Значения указаны в эквиваленте USD на основе обменного курса режима мультиактивов.">
                         Объем торгов
                       </p>
                       <p class="eyeO-N">00 USD</p>
                     </div>
-                    <div class="values">
-                      <p class="tooltip-trigger tooltip-main"
+                    <div class="values" id="values-2">
+                      <p class="tooltip-trigger tooltip-main  tooltip-main_6"
                         data-tooltip="= Прибыльные дни / (Прибыльные дни + Убыточные дни + Безубыточные дни)">
                         Коэффициент прибыльности
                       </p>
                       <p class="eyeO-N">00 %</p>
                     </div>
-                    <div class="values">
-                      <p class="tooltip-trigger tooltip-main"
+                    <div class="values" id="values-3">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_7"
                         data-tooltip="Количество дней за определенный период, когда ежедневная прибыль и убыток положительны.">
                         Прибыльные дни
                       </p>
@@ -3644,40 +3649,51 @@
                     </div>
                   </div>
 
-                  <div class="analysis-item analysis_item_right">
+                  <div id="values-4" class="analysis-item analysis_item_right">
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main"
+                      <p class="tooltip-trigger tooltip-main tooltip-main_8"
                         data-tooltip="Количество дней за определенный период, когда ежедневная реализованная прибыль и убыток отрицательны.">
                         Убыточные дни
                       </p>
                       <p>0 Дней</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main"
+                      <p class="tooltip-trigger tooltip-main tooltip-main_9"
                         data-tooltip="Количество дней за определенный период, когда ежедневная реализованная прибыль и убыток равны нулю.">
                         Безубыточные дни
                       </p>
                       <p>00 Дней</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="= Общая прибыль / Прибыльные дни">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_10"
+                        data-tooltip="= Общая прибыль / Прибыльные дни">
                         Средняя прибыль
                       </p>
                       <p class="eyeO-N">000 USD</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="= Общий убыток / Убыточные дни">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_11"
+                        data-tooltip="= Общий убыток / Убыточные дни">
                         Средний убыток
                       </p>
                       <p class="eyeO-N">00 USD</p>
                     </div>
                     <div class="values">
-                      <p class="tooltip-trigger tooltip-main" data-tooltip="= Средний доход / Средний убыток">
+                      <p class="tooltip-trigger tooltip-main tooltip-main_12"
+                        data-tooltip="= Средний доход / Средний убыток">
                         Соотношение прибыли/убытка
                       </p>
                       <p>0</p>
                     </div>
                   </div>
+                  <button id="toggle-btn">
+                    <span class="icon-up">
+                      <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </span>
+                    <span class="icon-down">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
                 </div>
                 <div class="tabs">
                   <button class="tablink active" onclick="openTab(event, 'Overview')">
@@ -3698,18 +3714,26 @@
                 <div id="Overview" class="tab-content active">
                   <div class="containe-pnlChartr">
                     <div class="pnlChartr_box">
-                      <div style="display: flex; gap: 10px; font-weight: 600" class="title">
-                        PNL по дням
+                      <div class="pnlChartr_container">
+                        <div style="display: flex; gap: 10px; font-weight: 600" class="title">
+                          PNL по дням
+                        </div>
                         <div id="calendarTitle" style="display: none">
                           <select id="month-selector"></select>
                         </div>
                       </div>
+
                       <div class="icon-container">
                         <div class="icon active" id="chartIcon">
-                          <i class="fas fa-chart-bar"></i>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                            <path d="M160-160v-320h160v320H160Zm240 0v-640h160v640H400Zm240 0v-440h160v440H640Z" />
+                          </svg>
                         </div>
                         <div class="icon" id="calendarIcon">
-                          <i class="fas fa-calendar-alt"></i>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                            <path
+                              d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
+                          </svg>
                         </div>
                       </div>
                     </div>
@@ -3746,7 +3770,14 @@
                       <div class="chart-container">
                         <div class="title">Совокупный PNL %</div>
                         <canvas style="max-height: 290px" id="multiLineChart"></canvas>
+                        <div class="multiLineChart_legend">
+                          <p>Совокупный PNL %</p>
+                          <p>Совокупная цена маркировки BTCUSDT PERP, %</p>
+                          <p>Совокупная цена маркировки BNBUSDT PERP, %</p>
+                        </div>
                       </div>
+
+
                     </div>
                     <br />
                     <div class="container-dg-box">
@@ -3754,13 +3785,12 @@
                         <div class="title">Обзор активов</div>
                         <div id="assetOverviewChart"></div>
                         <div id="pieChart_labels_show_active"></div>
-
                       </div>
 
                       <!-- BTC Price Trend -->
                       <div class="chart-container">
                         <div class="title">Стоимость активов</div>
-                        <canvas style="max-height: 290px" id="btcChart"></canvas>
+                        <canvas style="max-height: 390px" id="btcChart"></canvas>
                       </div>
                     </div>
                   </div>
@@ -3782,60 +3812,30 @@
                       </thead>
                       <tbody id="details_table_body">
                         <tr>
-                          <td id="day-day" data-label="Дата">01.01.2024</td>
-                          <td data-label="PNL по дням(USD)">100</td>
-                          <td data-label="Совокупный PNL(USD)">200</td>
-                          <td data-label="Совокупный PNL %">10%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">50</td>
-                          <td data-label="Объем торгов">1000</td>
+                          <td class="dayOf_details" id="day-day">01.01.2024</td>
+                          <td data-label="PNL по дням(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL %">0.000 %</td>
+                          <td data-label="Сумма переводов, нетто(USD)">0.000 USD</td>
+                          <td data-label="Объем торгов">0.000</td>
                         </tr>
+
                         <tr>
-                          <td data-label="Дата">02.01.2024</td>
-                          <td data-label="PNL по дням(USD)">150</td>
-                          <td data-label="Совокупный PNL(USD)">350</td>
-                          <td data-label="Совокупный PNL %">15%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">30</td>
-                          <td data-label="Объем торгов">1200</td>
+                          <td class="dayOf_details" id="day-day">01.01.2024</td>
+                          <td data-label="PNL по дням(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL %">0.000 %</td>
+                          <td data-label="Сумма переводов, нетто(USD)">0.000 USD</td>
+                          <td data-label="Объем торгов">0.000</td>
                         </tr>
+
                         <tr>
-                          <td data-label="Дата">03.01.2024</td>
-                          <td data-label="PNL по дням(USD)">-50</td>
-                          <td data-label="Совокупный PNL(USD)">300</td>
-                          <td data-label="Совокупный PNL %">8%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">-20</td>
-                          <td data-label="Объем торгов">800</td>
-                        </tr>
-                        <tr>
-                          <td data-label="Дата">04.01.2024</td>
-                          <td data-label="PNL по дням(USD)">200</td>
-                          <td data-label="Совокупный PNL(USD)">500</td>
-                          <td data-label="Совокупный PNL %">12%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">70</td>
-                          <td data-label="Объем торгов">1500</td>
-                        </tr>
-                        <tr>
-                          <td data-label="Дата">05.01.2024</td>
-                          <td data-label="PNL по дням(USD)">300</td>
-                          <td data-label="Совокупный PNL(USD)">800</td>
-                          <td data-label="Совокупный PNL %">20%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">100</td>
-                          <td data-label="Объем торгов">2000</td>
-                        </tr>
-                        <tr>
-                          <td data-label="Дата">06.01.2024</td>
-                          <td data-label="PNL по дням(USD)">-100</td>
-                          <td data-label="Совокупный PNL(USD)">700</td>
-                          <td data-label="Совокупный PNL %">18%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">-50</td>
-                          <td data-label="Объем торгов">900</td>
-                        </tr>
-                        <tr>
-                          <td data-label="Дата">07.01.2024</td>
-                          <td data-label="PNL по дням(USD)">250</td>
-                          <td data-label="Совокупный PNL(USD)">950</td>
-                          <td data-label="Совокупный PNL %">25%</td>
-                          <td data-label="Сумма переводов, нетто(USD)">120</td>
-                          <td data-label="Объем торгов">1700</td>
+                          <td class="dayOf_details" id="day-day">01.01.2024</td>
+                          <td data-label="PNL по дням(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL(USD)">0.000 USD</td>
+                          <td data-label="Совокупный PNL %">0.000 %</td>
+                          <td data-label="Сумма переводов, нетто(USD)">0.000 USD</td>
+                          <td data-label="Объем торгов">0.000</td>
                         </tr>
                       </tbody>
                     </table>
@@ -3946,7 +3946,11 @@
           <div class="share_modal_wrapper">
             <div class="share-modal show">
               <!-- close icon -->
-              <i class="fa-solid fa-xmark share_modal_close"></i>
+              <div class="share-modal_header">
+                <p>Поделиться PnL</p>
+                <i class="fa-solid fa-xmark share_modal_close"></i>
+              </div>
+
               <div id="modalMain" class="share-modal__main">
                 <div class="share-modal__info">
                   <div class="share-modal__mode">
@@ -3959,9 +3963,9 @@
                       FUTURES <span style="color: #474d57">|</span> USDⓈ-M
                     </div>
                   </div>
-                  <h3 class="share-modal__title">
+                  <div class="share-modal__title">
                     Посмотрите на мой PnL по фьючерсным контрактам на Binance
-                  </h3>
+                  </div>
                   <p class="share-modal__period">
                     Период: <span id="from"></span> - <span id="to"></span>
                   </p>
@@ -4008,12 +4012,14 @@
                 <div class="share-modal__checkbox-box">
                   <div class="custom_checkbox" id="pnl-checkbox">
                     <input type="checkbox" id="freei">
-                    <label for="freei">Совокупный PNL(USD)</label>
+                    <label for="freei"></label>
+                    <p>Совокупный PNL(USD)</p>
                   </div>
 
                   <div class="custom_checkbox">
                     <input type="checkbox" id="post">
-                    <label for="post">Коэффициент прибыльности%</label>
+                    <label for="post"></label>
+                    <p>Коэффициент прибыльности%</p>
                   </div>
                 </div>
 
@@ -4033,6 +4039,7 @@
                     text-align: center;
                   ">Скачать изображение, чтобы поделиться</span>
               </div>
+
             </div>
           </div>
           <!-- MODAL END -->
@@ -4061,10 +4068,13 @@
   <script src="../../../../../../assets/js/script.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script src="../../../../../../assets/style/media/media.js"></script>
+  <script src="../../../../../../assets/search-service.js"></script>
+  <script src="../../../../../../assets/sidebar-service.js"></script>
   <script src="./analysis/app.js"></script>
   <script src="./app.js"></script>
 
@@ -4085,6 +4095,28 @@
       const arrowIcon = element.querySelector('.sidebar__menu-item-arrow-icon');
       arrowIcon.classList.toggle('rotate'); // Toggle rotation class
     }
+
+
+    // =========================
+    document.getElementById("toggle-btn").addEventListener("click", function () {
+      const valuesIds = ["values-1", "values-2", "values-3", "values-4"]; // Qo'shimcha ID'larni shu yerga kiriting
+      const button = this;
+
+      valuesIds.forEach(id => {
+        const element = document.getElementById(id);
+        if (element.classList.contains("visible")) {
+          element.classList.remove("visible");
+        } else {
+          element.classList.add("visible");
+        }
+      });
+
+      button.classList.toggle("active");
+    });
+
+
+
+
   </script>
 </body>
 

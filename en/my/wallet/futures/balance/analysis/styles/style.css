@@ -53,6 +53,10 @@ body {
   margin: 10px 0;
 }
 
+.multiLineChart_legend {
+  display: none;
+}
+
 .chart-container {
   padding: 10px;
   width: 100%;
@@ -114,7 +118,8 @@ canvas {
 }
 
 .pnlChartr_box .icon {
-  padding: 2px 12px;
+  width: 50%;
+  height: 100%;
   border-radius: 4px;
   cursor: pointer;
   color: #555;
@@ -127,6 +132,10 @@ canvas {
 .pnlChartr_box .icon.active {
   background-color: #555;
   color: white;
+}
+
+.pnlChartr_box .icon.active svg {
+  fill: white;
 }
 
 .pnlChartr_box .icon:hover {
@@ -150,9 +159,7 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 30px 10px; */
   color: white;
-  /* background-color: crimson; */
 }
 
 .wrapper_header h1 {
@@ -303,7 +310,7 @@ canvas {
   background: #f9d6381b !important;
 }
 
-.table-condensed > thead tr th {
+.table-condensed>thead tr th {
   color: #848e9c !important;
   font-weight: 500 !important;
 }
@@ -312,7 +319,7 @@ canvas {
   color: #848e9c !important;
 }
 
-.thead-dark > tr > th {
+.thead-dark>tr>th {
   color: #848e9c !important;
   font-weight: 500 !important;
 }
@@ -436,7 +443,7 @@ canvas {
 }
 
 /* Tanlangan o'rtadagi kunlar uchun stil */
-.daterangepicker .calendar-table td.available.selected ~ td.available.selected {
+.daterangepicker .calendar-table td.available.selected~td.available.selected {
   color: #c9c9c9;
 }
 
@@ -473,12 +480,12 @@ canvas {
   margin-bottom: 10px;
 }
 
-.analysis-item > .values {
+.analysis-item>.values {
   display: flex;
   justify-content: space-between;
 }
 
-.analysis-item > .values > p:first-child {
+.analysis-item>.values>p:first-child {
   border-bottom: 1px dashed #555;
   margin-bottom: 10px;
   color: #848e9c;
@@ -629,7 +636,7 @@ canvas {
   padding: 6.5px;
 }
 
-.qr-code > img {
+.qr-code>img {
   width: 100%;
   height: 100%;
 }
@@ -673,7 +680,7 @@ canvas {
   margin-left: 8px;
 }
 
-.dawnload-chack-box + button {
+.dawnload-chack-box+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -710,9 +717,13 @@ canvas {
   color: #fff;
 }
 
-.tabs button.active {
+.tablink.active {
   font-weight: bold;
   color: #fff;
+}
+
+.icon.active svg {
+  fill: #ffffff;
 }
 
 .tabs button.active::before {
@@ -759,7 +770,7 @@ canvas {
   text-align: end;
 }
 
-.table > thead > tr > th {
+.table>thead>tr>th {
   /* background-color: #292b34; */
   font-size: 13px;
   text-align: end;
@@ -775,7 +786,7 @@ canvas {
   /* background-color: #1f1f1f; */
 }
 
-.container-table-istory > h3 {
+.container-table-istory>h3 {
   color: #fff;
 }
 
@@ -786,7 +797,7 @@ canvas {
   /* border: 1px solid #2b2b2b; */
 }
 
-.container-table-istory table th > p {
+.container-table-istory table th>p {
   /* background-color: #2f2f2f; */
   font-size: 14px;
   line-height: 20px;
@@ -869,25 +880,32 @@ canvas {
 }
 
 /* ---------------------------- */
+.pnlChartr_box .icon svg {
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  margin: 0;
+  fill: #676767;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+
+
 
 .calendar-container {
   width: 90%;
   /* max-width: 600px; */
 }
 
-/* .header {
+.pnlChartr_container {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-} */
+  gap: 6px;
+}
 
-/* .header h2 {
-  font-size: 20px;
-} */
-
-#calendarTitle {
-  margin-top: -5px;
+.share-modal_header>p {
+  display: none;
 }
 
 #month-selector {
@@ -1046,7 +1064,7 @@ canvas {
   line-height: 30px;
 }
 
-#Fees > p {
+#Fees>p {
   font-size: 13px;
   color: rgb(80, 81, 82) 9;
   line-height: 30px;
@@ -1118,7 +1136,7 @@ canvas {
   align-items: center;
 }
 
-.no_data_box > img {
+.no_data_box>img {
   width: 100px;
 }
 
@@ -1126,7 +1144,7 @@ canvas {
   width: 100%;
 }
 
-#pieChart_labels_one > span:first-child {
+#pieChart_labels_one>span:first-child {
   position: relative;
 }
 
@@ -1140,7 +1158,7 @@ canvas {
   font-size: 14px;
 }
 
-#pieChart_labels_show_active > span:first-child {
+#pieChart_labels_show_active>span:first-child {
   position: relative;
 }
 
@@ -1156,7 +1174,7 @@ canvas {
   color: yellow;
 }
 
-#pieChart_labels_one > span:first-child:before {
+#pieChart_labels_one>span:first-child:before {
   width: 20px;
   height: 4px;
   background-color: #328efd;
@@ -1246,6 +1264,7 @@ canvas {
 }
 
 @keyframes growShrink {
+
   0%,
   100% {
     height: 10px;
@@ -1352,4 +1371,43 @@ canvas {
 
 .rotate {
   transform: rotate(180deg) !important;
+}
+
+/* ========================= */
+/* ===========  Chart  =========== */
+
+.tooltip-trigger {
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltips {
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  transform: translateX(-50%);
+  background-color: rgba(141, 39, 39, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  /* visibility: hidden;
+  opacity: 0; */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltips:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.values:hover .tooltips {
+  visibility: visible;
+  opacity: 1;
 }

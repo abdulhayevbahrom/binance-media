@@ -1,6 +1,4 @@
 // MAIN API
-// const API = "https://www.binance.com";
-// const API = "http://91.210.149.127:8010";
 const API = SERVER_URL;
 
 // TODAY'S DATE
@@ -161,7 +159,8 @@ const pnl_all = async () => {
 
   let data = res?.data;
 
-  let [title, percent, usd] = all.children;
+  let [title, qiymatlar] = all.children;
+  let [percent, usd] = qiymatlar.children;
   percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
     data?.percentage || 0
   } %`;

@@ -206,8 +206,8 @@ const updateBalanceDisplay = (isHidden) => {
     item.textContent = isHidden
       ? "******"
       : `${pnlData?.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData?.pnl)}(${Math.abs(
-        pnlData?.percentage
-      )}%)`;
+          pnlData?.percentage
+        )}%)`;
   });
 };
 

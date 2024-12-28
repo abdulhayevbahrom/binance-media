@@ -405,3 +405,38 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 605px) {
+  .futures-balance__items {
+    margin-top: 30px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dashed {
+    width: -moz-fit-content;
+    width: fit-content;
+    /* border-bottom-color: var(--color-PrimaryText); */
+    border-bottom: 1px dashed #fff;
+    cursor: pointer;
+    gap: 0 !important;
+    position: relative;
+  }
+
+  .futures-balance__items h4 {
+    display: inline-block;
+  }
+
+  .futures-balance__item {
+    width: 100%;
+    display: flex;
+  }
+
+  .futures-balance__item>div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+
+}

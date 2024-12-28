@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -36,7 +36,7 @@
           <a class="logo-link" href="/ru">
             <img src="../../../../../../assets/img/logo/948px-Binance_logo.svg.png" alt="header-logo">
           </a>
-           <nav class="header-nav">
+          <nav class="header-nav">
             <ul class="header-list">
               <li class="header-item">
                 <a href="#" onclick="return false;">
@@ -678,7 +678,7 @@
             </ul>
           </nav>
         </div>
-       <div class="header-rightside">
+        <div class="header-rightside">
           <!--Поиск-->
           <div class="search">
             <button class="btn-icon" id="search">
@@ -3519,7 +3519,7 @@
           </div>
         </div>
       </div>
-       <div class="box_mobile-nav-menu">
+      <div class="box_mobile-nav-menu">
         <button class="btn-web yellow">
           <svg class="btn-web__icon" width="20" height="24" viewBox="0 0 24 24">
             <use href="../../../../../../assets/img/icons/sprite.svg#refill"></use>
@@ -4348,7 +4348,7 @@
 
   <script>
 
-     function handleResize() {
+    function handleResize() {
       const balanceDiv = document.querySelector('.balance');
       if (window.innerWidth < 768) {
         balanceDiv.classList.add('expand');
@@ -4451,7 +4451,7 @@
                   fill="currentColor"
                 ></path>
               </svg>
-              ${transaction.type_name === 'Debit' ? 'Deposit' : 'Withdraw'} USDT
+             ${transaction.type_name} USDT
             </td>
             <td>${transaction.type_name === 'Debit' ? '+' : '-'}${transaction.amount.toFixed(2)}</td>
             <td>${formatTimestamp(transaction.timestamp)}</td>
@@ -4468,7 +4468,7 @@
     const filterButtons = document.querySelectorAll('.chart-filter-button');
 
     console.log(expandButton);
-    
+
 
     const previewLineChartContainer = document.querySelector(".wallet-balance-preview-chart-container");
     let chartPeriod = 7;

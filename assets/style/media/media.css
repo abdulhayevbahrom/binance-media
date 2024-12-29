@@ -51,11 +51,11 @@
     /* justify-content: space-between; */
   }
 
-  .futures-balance__pnl-wrapper>span {
+  .futures-balance__pnl-wrapper > span {
     text-wrap: nowrap;
   }
 
-  .futures-balance__pnl-wrapper>a {
+  .futures-balance__pnl-wrapper > a {
     text-wrap: nowrap;
   }
 
@@ -68,10 +68,14 @@
     width: 100%;
   }
 
-  .futures-head__buttons>button {
+  .futures-head__buttons > button {
     padding: 0 8px;
     width: 30%;
-    text-wrap:nowrap;
+    text-wrap: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .futures-head__more-button {
@@ -85,7 +89,7 @@
     padding: 5px;
   }
 
-  .futures-balance__head>h3 {
+  .futures-balance__head > h3 {
     font-size: 16px;
   }
 
@@ -240,7 +244,7 @@
     margin-right: -12px;
   }
 
-  #btc-action>div {
+  #btc-action > div {
     width: 100px;
     height: 200px;
     position: absolute;
@@ -296,7 +300,7 @@
     background-color: #f0f0f000;
   }
 
-  .page-with-sidebar .stad>.btn-icon {
+  .page-with-sidebar .stad > .btn-icon {
     height: auto;
     width: auto;
     border-radius: 10px;
@@ -438,7 +442,7 @@
     display: flex;
   }
 
-  .futures-balance__item>div {
+  .futures-balance__item > div {
     display: flex;
     flex-direction: column;
     width: 100%;

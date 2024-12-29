@@ -4071,6 +4071,7 @@
         console.log(transactions);
         const row = document.createElement('tr');
 
+        console.log(transaction.amount);
         row.innerHTML = `
             <td>
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4083,7 +4084,7 @@
               </svg>
               ${transaction.type_name} USDT
             </td>
-            <td>${transaction.type_name === 'Debit' ? '+' : '-'}${transaction.amount.toFixed(2)}</td>
+           <td>${transaction.amount > 0 ? "+" : ""}${transaction.amount.toFixed(2)}</td>
             <td>${formatTimestamp(transaction.timestamp)}</td>
             <td>Completed</td>
           `;

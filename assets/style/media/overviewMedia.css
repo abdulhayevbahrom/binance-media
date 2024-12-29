@@ -46,6 +46,7 @@
       top: 200px;
       width: 100% !important;
     }
+
     .wallet-balance-chart__labels {
       top: 120px !important;
     }
@@ -115,6 +116,7 @@
             text-wrap: no-wrap;
             white-space: nowrap;
           }
+
           &:nth-child(2) {
             top: 10px;
             right: 0;
@@ -125,6 +127,7 @@
             color: #fff;
             padding-right: 0;
           }
+
           &:nth-child(4) {
             top: 35px;
             right: 0;
@@ -150,31 +153,102 @@
           &:nth-child(1) {
             padding-right: 0;
           }
+
           &:nth-child(2) {
             padding-right: 0;
           }
+
           &:nth-child(2) {
             top: 10px;
             right: 0;
-            text-wrap: no-wrap;
+            text-wrap: nowrap;
             white-space: nowrap;
             text-align: right;
             padding: 0 10px;
             color: #fff;
             padding-right: 0;
           }
+
           &:nth-child(4) {
             top: 35px;
             right: 20px;
-            text-wrap: no-wrap;
+            text-wrap: nowrap;
             white-space: nowrap;
             font-size: 16px;
             color: #999;
             text-align: right;
             padding: 0 10px;
-            padding-right: 0;
+            z-index: 50;
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .transaction-history__table {
+    tbody {
+      tr {
+        td {
+          &:nth-child(4) {
+            top: 35px;
+            right: 10px;
+            text-wrap: nowrap;
+            white-space: nowrap;
+            font-size: 16px;
+            color: #999;
+            text-align: right;
+            padding: 0 10px;
+            z-index: 50;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .transaction-history__table {
+    tbody {
+      tr {
+        td {
+          &:nth-child(4) {
+            top: 35px;
+            right: 15px;
+            text-wrap: nowrap;
+            white-space: nowrap;
+            font-size: 16px;
+            color: #999;
+            text-align: right;
+            padding: 0 10px;
+            z-index: 50;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .transaction-history__table {
+    tbody {
+      tr {
+        position: relative !important;
+
+        td {
+
+          &:first-child {
+            width: 160px;
+          }
+
+          /* &:nth-child(4) {
+            left: 80%;
+            padding: 0;
+            background: red;
+          } */
+        }
+
       }
     }
   }
@@ -184,6 +258,8 @@
   .transaction-history__head {
     h2 {
       font-size: 18px;
+      text-wrap: nowrap;
+      white-space: nowrap;
     }
   }
 
@@ -192,6 +268,7 @@
       tr {
         td {
           font-size: 13px;
+          text-wrap: nowrap;
         }
       }
     }

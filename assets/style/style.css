@@ -1119,11 +1119,11 @@ button {
   background-color: #0b0e11;
 }
 
-@media (max-width: 1023px) {
+/* @media (max-width: 1023px) {
   .transaction-history__table {
     display: none;
   }
-}
+} */
 
 .transaction-history--mobile {
   display: none;

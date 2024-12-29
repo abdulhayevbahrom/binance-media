@@ -51,11 +51,11 @@
     /* justify-content: space-between; */
   }
 
-  .futures-balance__pnl-wrapper>span {
+  .futures-balance__pnl-wrapper > span {
     text-wrap: nowrap;
   }
 
-  .futures-balance__pnl-wrapper>a {
+  .futures-balance__pnl-wrapper > a {
     text-wrap: nowrap;
   }
 
@@ -67,7 +67,7 @@
     gap: 4px;
   }
 
-  .futures-head__buttons>button {
+  .futures-head__buttons > button {
     padding: 0 8px;
   }
 
@@ -82,7 +82,7 @@
     padding: 5px;
   }
 
-  .futures-balance__head>h3 {
+  .futures-balance__head > h3 {
     font-size: 16px;
   }
 
@@ -162,6 +162,7 @@
     content: attr(data-label);
     font-weight: 500;
     color: var(--color-textThird);
+    color: rgb(120, 134, 148);
     text-align: left;
   }
 
@@ -173,24 +174,22 @@
   .futures-holdings__table tbody tr td {
     display: block;
     text-align: right;
-    font-size: 13px;
+    font-size: 16px;
     color: white;
+    color: #eaecef;
     position: relative;
   }
 
   #unrealized-pnl,
   #balance-value,
   #margin-values,
+  #margin-value,
+  #equivalent,
+  #transferable,
   #balance-equivalent,
-  #balance-value,
-  #unrealized-pnl,
-  #usdt-balance-value,
-  #usdt-unrealized-pnl,
   #usdt-margin-value,
   #usdt-action,
   #bnb-balance-value,
-  #usdt-equivalent,
-  #usdt-transferable,
   #bnb-unrealized-pnl,
   #bnb-margin-value,
   #bnb-transferable,
@@ -238,7 +237,7 @@
     margin-right: -12px;
   }
 
-  #btc-action>div {
+  #btc-action > div {
     width: 100px;
     height: 200px;
     position: absolute;
@@ -294,7 +293,7 @@
     background-color: #f0f0f000;
   }
 
-  .page-with-sidebar .stad>.btn-icon {
+  .page-with-sidebar .stad > .btn-icon {
     height: auto;
     width: auto;
     border-radius: 10px;
@@ -411,7 +410,7 @@
 }
 
 @media screen and (max-width: 605px) {
-  .futures-balance__items {
+  .futures-balance__items:last-child {
     margin-top: 30px;
     flex-direction: column;
     width: 100%;
@@ -436,11 +435,17 @@
     display: flex;
   }
 
-  .futures-balance__item>div {
+  .futures-balance__item > div {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
+  .futures-balance__value {
+    font-size: 24px;
+  }
 
+  .futures-balance__item-value {
+    font-size: 18px;
+  }
 }

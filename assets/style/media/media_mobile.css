@@ -1,15 +1,15 @@
 /* media */
 .tooltip-main_bottom {
   border-bottom: 1px dashed #555;
-  width: 136px
+  width: 136px;
 }
 
 .tooltip-main_bottom_en {
   border-bottom: 1px dashed #555;
-  width: 120px
+  width: 120px;
 }
 
-.selectDates>p {
+.selectDates > p {
   display: none;
 }
 
@@ -17,7 +17,7 @@
   display: none;
 }
 
-@media screen and (max-width:950px) {
+@media screen and (max-width: 950px) {
   .page-with-sidebar .main {
     width: 100%;
     padding: 0 6px;
@@ -43,7 +43,7 @@
     line-height: 35px;
   }
 
-  .wrapper_header span>span {
+  .wrapper_header span > span {
     line-height: 20px;
   }
 
@@ -104,7 +104,7 @@
     padding: 7px 0;
   }
 
-  .usd_coin_container_item>div {
+  .usd_coin_container_item > div {
     display: flex;
     flex-direction: column;
     /* O‘ng tarafda ustma-ust joylashish */
@@ -120,12 +120,12 @@
 
   .tooltip-main_bottom {
     border-bottom: 1px dashed #555;
-    width: 50px
+    width: 50px;
   }
 
   .tooltip-main_bottom_en {
     border-bottom: 1px dashed #555;
-    width: 50px
+    width: 50px;
   }
 
   .usd_coin_filter_by_date_nav {
@@ -145,7 +145,7 @@
     font-family: "Binance PLEX";
   }
 
-  .selectDates>i {
+  .selectDates > i {
     display: none;
   }
 
@@ -154,7 +154,7 @@
     width: 20px;
   }
 
-  .selectDates>p {
+  .selectDates > p {
     display: block;
     font-size: 14px;
   }
@@ -179,7 +179,6 @@
   .selectDates:hover {
     border: none;
   }
-
 
   .usd_coin_filter_by_date {
     padding: 5px;
@@ -251,10 +250,6 @@
     line-height: 1em;
   }
 
-
-
-
-
   .tabs button.active {
     font-weight: bold;
     color: #fff;
@@ -312,14 +307,12 @@
     background-color: var(--color-Line);
   }
 
-
-
   .footer-copyright span {
     margin-right: 0px;
   }
 
   .footer-copyright {
-    border-top: .5px solid rgba(255, 255, 255, 0.53)3a3;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.53) 3a3;
     font-size: 0.875rem;
     display: flex;
     justify-content: center;
@@ -342,7 +335,7 @@
     /* justify-content: center; */
   }
 
-  #assetOverviewChart>div {
+  #assetOverviewChart > div {
     width: 60%;
     height: 265px;
     position: relative;
@@ -357,21 +350,18 @@
 
   .footer-dg {
     display: none;
-    ;
   }
 
   .diagramma-naib_container {
     padding: 0px;
   }
 
-
   .daterangepicker .drp-calendar {
     display: none;
     max-width: 100%;
   }
 
-
-  .container-table-istory>h3 {
+  .container-table-istory > h3 {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 25px;
@@ -415,7 +405,7 @@
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    color: #848E9C;
+    color: #848e9c;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -438,8 +428,6 @@
   }
 
   /* ============================ */
-
-
 
   .container-table-istory table {
     border: 0;
@@ -476,7 +464,7 @@
     left: 0px;
     top: auto;
     font-weight: bold;
-    color: #848E9C;
+    color: #848e9c;
     white-space: nowrap;
     z-index: 10;
     font-size: 14px;
@@ -487,12 +475,12 @@
     width: 100%;
     padding: 4px 24px 15px 24px;
     box-sizing: border-box;
+    padding-bottom: 50px;
   }
 
   .container-table-istory table td.red {
     color: #ff4d4d;
   }
-
 
   .table {
     display: block;
@@ -522,8 +510,8 @@
     display: block;
   }
 
-  #ticker_analysis_table_body>tr {
-    border-bottom: .5px solid #80808048;
+  #ticker_analysis_table_body > tr {
+    border-bottom: 0.5px solid #80808048;
     margin-bottom: 10px;
   }
 
@@ -537,7 +525,6 @@
     border: none;
     color: #ffffffe6;
   }
-
 
   .usd_coin_filter_by_date {
     padding: 15px 15px 15px 8px;
@@ -555,7 +542,7 @@
     left: 5px;
     top: auto;
     font-weight: bold;
-    color: #848E9C;
+    color: #848e9c;
     white-space: nowrap;
     z-index: 10;
     font-size: 14px;
@@ -568,7 +555,7 @@
     flex-direction: column;
     margin-bottom: 20px;
     padding-bottom: 5px;
-    border-bottom: .5px solid#848e9c2b;
+    border-bottom: 0.5px solid#848e9c2b;
   }
 
   .charts-commission {
@@ -604,7 +591,7 @@
     margin-top: 20px;
   }
 
-  .usd_coin_container_item>p {
+  .usd_coin_container_item > p {
     padding: 0;
     margin: 0;
     margin-top: 2px;
@@ -612,12 +599,12 @@
 
   .tooltip-main_bottom {
     position: relative;
-    border: none
+    border: none;
   }
 
   .tooltip-main_bottom_en {
     position: relative;
-    border: none
+    border: none;
   }
 
   .pnlChartr_box .icon-container {
@@ -647,12 +634,12 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-  #pnlChartr_box>.title {
+  #pnlChartr_box > .title {
     display: flex;
     align-items: center;
   }
 
-  #pnlChartr_box>.title p {
+  #pnlChartr_box > .title p {
     padding: 0;
     margin: 0;
     background: #000;
@@ -686,12 +673,12 @@
     font-family: "Binance PLEX";
   }
 
-  .tab-content>p {
+  .tab-content > p {
     line-height: 20px !important;
   }
 
   .tooltip-main_bottom::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 2px;
     left: 0;
@@ -701,7 +688,7 @@
   }
 
   .tooltip-main_bottom_en::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 2px;
     left: 0;
@@ -737,15 +724,57 @@
     justify-content: space-between;
   }
 
-  .box-commission>p {
+  .box-commission > p {
     line-height: 20px;
   }
 }
 
 @media (max-width: 550px) {
+  .pnlChartr_box {
+    margin-bottom: 30px;
+  }
+  .pnlChartr_container {
+    position: relative;
+  }
+  #calendarTitle {
+    position: absolute;
+    top: 30px;
+    left: 47.5%;
+    select {
+      background-color: transparent;
+    }
+  }
+
+  .day-labels span {
+    font-size: 12px;
+  }
+
+  #days-container {
+    display: grid;
+    grid-template-columns: repeat(7, 13.5%);
+    gap: 4px;
+  }
+
+  #days-container .day {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    height: 50px;
+    border-radius: 6px;
+    /* background-color: #1e1e1e; */
+    font-size: 13px;
+    color: white;
+    position: relative;
+    font-family: "Binance PLEX";
+  }
+
+  .day-value {
+    font-size: 11px !important;
+  }
+
   .tabs {
     overflow-x: auto;
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
   }
 
   .tabs::-webkit-scrollbar {
@@ -760,18 +789,18 @@
 
   .usd_coin_filter_by_date_nav button {
     border: none;
-    color: #848E9C;
+    color: #848e9c;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 7px;
     background: transparent;
   }
 
-  .selectDates>p {
-    color: #848E9C;
+  .selectDates > p {
+    color: #848e9c;
   }
 
-  .selectDates>p:hover {
+  .selectDates > p:hover {
     color: #ffffff;
   }
 
@@ -801,14 +830,13 @@
     gap: 30px;
   }
 
-  .tabs>button {
+  .tabs > button {
     white-space: nowrap;
   }
 
-  .tabs>button {
+  .tabs > button {
     text-wrap: nowrap;
   }
-
 
   .share-modal {
     box-sizing: border-box;
@@ -822,7 +850,8 @@
     width: 100%;
     height: 100vh;
     min-height: 100%;
-    box-shadow: rgba(20, 21, 26, 0.16) 0px 8px 16px, rgba(71, 77, 87, 0.16) 0px 16px 32px, rgba(20, 21, 26, 0.1) 0px 0px 1px;
+    box-shadow: rgba(20, 21, 26, 0.16) 0px 8px 16px,
+      rgba(71, 77, 87, 0.16) 0px 16px 32px, rgba(20, 21, 26, 0.1) 0px 0px 1px;
     background-color: #181c1d;
     z-index: 70;
 
@@ -889,7 +918,7 @@
     background: #1f2229;
   }
 
-  .share-modal_header>p {
+  .share-modal_header > p {
     display: block;
     font-size: 14px;
     color: #8f90a3;
@@ -986,8 +1015,6 @@
     top: 0;
   }
 
-
-
   .multiLineChart_legend {
     display: block;
     width: 300px;
@@ -998,7 +1025,7 @@
     position: relative;
     padding-left: 20px;
     font-size: 12px;
-    color: #848E9C;
+    color: #848e9c;
   }
 
   .multiLineChart_legend p::before {
@@ -1028,8 +1055,7 @@
     /* Uchinchi nuqta rang */
   }
 
-
-  .analysis-item>.values>p:first-child {
+  .analysis-item > .values > p:first-child {
     border-bottom: 1px dashed #55555500;
     margin-bottom: 10px;
     color: #848e9c;
@@ -1174,7 +1200,7 @@
   .tooltip-main_21::before,
   .tooltip-main_22::before,
   .tooltip-main_23::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1186,10 +1212,8 @@
   }
 }
 
-
-
 @media (max-width: 380px) {
-  #assetOverviewChart>div {
+  #assetOverviewChart > div {
     width: 60%;
     height: 265px;
     position: relative;

@@ -4438,58 +4438,31 @@
 
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
-      transactions[0].amount = -2
-      transactions.forEach(transaction => {
+      // Clear the table body before adding new rows
+      tbody.innerHTML = '';
+
+      transactions?.forEach(transaction => {
         const row = document.createElement('tr');
 
-        
+        // Determine if the transaction is a deposit or withdrawal
+        const isDeposit = transaction?.amount > 0;
+        const icon = isDeposit ?
+          `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#707A8A"/>
+          </svg>
+          ` :
+          `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z" fill="currentColor"></path>
+       </svg>`;
+
         row.innerHTML = `
-  <td>
-    ${
-      transaction.amount < 0
-        ? `
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"
-            fill="currentColor"
-          ></path>
-        </svg>
-        `
-        : `
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.0"
-          width="100pt"
-          height="100pt"
-          viewBox="0 0 512.000000 512.000000"
-          preserveAspectRatio="xMidYMid meet">
-          <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-          fill="#fff" stroke="none">
-            <path d="M2175 5106 c-37 -17 -70 -52 -84 -89 -8 -19 -11 -360 -11 -1083 l0
-            -1054 -332 0 c-303 0 -337 -2 -374 -19 -61 -28 -89 -73 -89 -142 0 -50 5 -63
-            35 -101 19 -24 283 -327 587 -674 379 -434 563 -636 586 -648 44 -20 90 -20
-            134 0 23 12 207 214 586 648 304 347 568 650 587 674 31 39 35 50 35 102 0 50
-            -5 64 -31 96 -49 60 -62 62 -431 63 l-333 1 -2 1069 c-3 1063 -3 1070 -24
-            1097 -11 15 -33 37 -48 48 -26 20 -41 21 -394 23 -291 2 -373 0 -397 -11z"/>
-            <path d="M162 923 l3 -678 26 -56 c33 -71 87 -125 158 -158 l56 -26 2155 0
-            2155 0 56 26 c71 33 125 87 158 158 l26 56 3 678 3 677 -321 0 -320 0 0 -480
-            0 -480 -1760 0 -1760 0 0 480 0 480 -320 0 -321 0 3 -677z"/>
-          </g>
-        </svg>
-        `
-    }
-    ${transaction.amount < 0 ? "Withdraw" : "Deposit"} USDT
-  </td>
-  <td>${transaction.type_name === 'Debit' ? '+' : '-'}${transaction.amount.toFixed(2)}</td>
-  <td>${formatTimestamp(transaction.timestamp)}</td>
-  <td>Completed</td>
-`;
-
-
+      <td>
+        ${icon} ${isDeposit ? 'Deposit' : 'Withdraw'} USDT
+      </td>
+      <td>${isDeposit ? '+' : ''}${transaction?.amount.toFixed(2)}</td>
+      <td>${formatTimestamp(transaction?.timestamp)}</td>
+      <td>Completed</td>
+    `;
 
         tbody.appendChild(row);
       });

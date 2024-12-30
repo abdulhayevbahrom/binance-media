@@ -486,4 +486,32 @@
   .futures-balance__item-title span {
     text-wrap: nowrap;
   }
+
+  .futures-balance__pnl-tooltip-text {
+    position: relative;
+    z-index: -1;
+    transition-duration: 250ms;
+    transition-property: opacity, visibility;
+    transition-timing-function: ease-in-out;
+    opacity: 0;
+    margin-bottom: 12px;
+    background-color: #5d6773;
+    color: white;
+    /* max-height: 30px; */
+    width: 280px;
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .btn-web>span {
+    text-wrap: nowrap;
+  }
+
+  .futures-balance__pnl-wrapper {
+    z-index: 888 !important;
+  }
 }

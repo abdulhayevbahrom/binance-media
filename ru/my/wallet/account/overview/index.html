@@ -4056,7 +4056,7 @@
 
         if (response.ok) {
           const data = await response.json();
-          populateTable(data.transactions);
+          populateTable(data?.transactions);
         } else {
           console.error("Error:", response.statusText);
         }
@@ -4064,32 +4064,33 @@
     } catch (error) {
       console.error(error);
     }
-
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
+      // Clear the table body before adding new rows
+      tbody.innerHTML = '';
+
       transactions?.forEach(transaction => {
-        console.log(transactions);
         const row = document.createElement('tr');
 
-        console.log(transaction.amount);
-        row.innerHTML = `
-            <td>
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-              
+        // Determine if the transaction is a deposit or withdrawal
+        const isDeposit = transaction?.amount > 0;
+        const icon = isDeposit ?
+          `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#707A8A"/>
+          </svg>
+          ` :
+          `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z" fill="currentColor"></path>
+       </svg>`;
 
-              ${transaction.amount < 0 ? 'Withdraw' : 'Deposit'} USDT
-            </td>
-           <td>${transaction.amount > 0 ? "+" : ""}${transaction.amount.toFixed(2)}</td>
-            <td>${formatTimestamp(transaction.timestamp)}</td>
-            <td>Completed</td>
-          `;
+        row.innerHTML = `
+      <td>
+        ${icon} ${isDeposit ? 'Deposit' : 'Withdraw'} USDT
+      </td>
+      <td>${isDeposit ? '+' : ''}${transaction?.amount.toFixed(2)}</td>
+      <td>${formatTimestamp(transaction?.timestamp)}</td>
+      <td>Completed</td>
+    `;
 
         tbody.appendChild(row);
       });

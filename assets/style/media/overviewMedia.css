@@ -237,7 +237,6 @@
         position: relative !important;
 
         td {
-
           &:first-child {
             width: 160px;
           }
@@ -248,7 +247,6 @@
             background: red;
           } */
         }
-
       }
     }
   }

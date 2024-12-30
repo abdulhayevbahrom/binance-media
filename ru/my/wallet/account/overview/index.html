@@ -4082,7 +4082,9 @@
                   fill="currentColor"
                 ></path>
               </svg>
-              ${transaction.type_name} USDT
+              
+
+              ${transaction.amount < 0 ? 'Withdraw' : 'Deposit'} USDT
             </td>
            <td>${transaction.amount > 0 ? "+" : ""}${transaction.amount.toFixed(2)}</td>
             <td>${formatTimestamp(transaction.timestamp)}</td>

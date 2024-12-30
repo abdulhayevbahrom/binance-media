@@ -4442,21 +4442,21 @@
         const row = document.createElement('tr');
 
         row.innerHTML = `
-            <td>
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-             ${transaction.type_name} USDT
-            </td>
-            <td>${transaction.type_name === 'Debit' ? '+' : '-'}${transaction.amount.toFixed(2)}</td>
-            <td>${formatTimestamp(transaction.timestamp)}</td>
-            <td>Completed</td>
-          `;
+          <td>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          ${transaction.amount < 0 ? 'Withdraw' : 'Deposit'} USDT
+          </td>
+          <td>${transaction.type_name === 'Debit' ? '+' : '-'}${transaction.amount.toFixed(2)}</td>
+          <td>${formatTimestamp(transaction.timestamp)}</td>
+          <td>Completed</td>
+        `;
 
         tbody.appendChild(row);
       });

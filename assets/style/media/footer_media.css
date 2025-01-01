@@ -8,6 +8,10 @@
         justify-content: center;
         align-items: center;
         padding: 64px 24px;
+        position: sticky !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 
     .footer-copyright::before {

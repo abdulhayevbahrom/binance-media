@@ -1,6 +1,7 @@
 .apple_and_playmarket {
   display: none;
 }
+
 .b-today {
   box-sizing: border-box;
   width: 100% !important;
@@ -22,11 +23,13 @@
 }
 
 .footer-list {
+
   .fa-plus,
   .fa-minus {
     display: none;
   }
 }
+
 @media screen and (max-width: 1030px) {
   .b-first__container {
     flex-direction: column;
@@ -38,6 +41,7 @@
     width: 60%;
     padding-left: 4%;
   }
+
   .b-first__sidebar {
     width: 100%;
     margin: 0;
@@ -50,6 +54,7 @@
     padding: 4%;
     box-sizing: border-box;
   }
+
   .b-wherever__container {
     padding: 0;
     width: 100%;
@@ -59,9 +64,11 @@
   .b-wherevert__lt {
     width: 50%;
   }
+
   .b-wherevert__lt img {
     object-fit: contain;
   }
+
   .b-wherevert__rt {
     width: 50%;
   }
@@ -69,6 +76,7 @@
   .b-wherever__title {
     font-size: 28px;
   }
+
   .b-wherever__qrcode {
     width: 164px;
     height: 164px;
@@ -101,6 +109,7 @@
   .footer-icongroup {
     display: flex;
   }
+
   .footer-selectgroup {
     display: flex;
     gap: 5%;
@@ -116,6 +125,7 @@
   .b-wherever__container {
     gap: 30px;
   }
+
   .b-wherevert__rt {
     width: 46%;
   }
@@ -138,6 +148,7 @@
   .b-first {
     padding-bottom: 0;
   }
+
   .b-first__intro {
     width: 100%;
     display: flex;
@@ -154,12 +165,13 @@
     line-height: 1.2;
     text-align: center;
   }
+
   .b-first__form {
     width: auto;
   }
 
   .b-first__all,
-  .b-first__form > input {
+  .b-first__form>input {
     display: none;
   }
 
@@ -250,6 +262,7 @@
   .b-faq__title {
     font-size: 24px;
   }
+
   .b-faq__label {
     font-size: 16px;
   }
@@ -292,8 +305,10 @@
     display: flex;
     flex-direction: column;
   }
+
   .footer-list {
     margin-bottom: 20px !important;
+
     dd {
       display: none;
     }

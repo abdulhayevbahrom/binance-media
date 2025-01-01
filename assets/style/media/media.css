@@ -514,4 +514,22 @@
   .futures-balance__pnl-wrapper {
     z-index: 888 !important;
   }
+
+  .futures-balance__pnl {
+    display: flex;
+    align-items: center;
+  }
+
+  .futures-balance__pnl_svg {
+    margin-top: 2px;
+  }
+
+  .transaction-body {
+    color: #707A8A !important;
+  }
+
+  .transaction-body_title {
+    color: #ffffff !important;
+    fill: #fff;
+  }
 }

@@ -67,12 +67,17 @@
 
   .position__detail {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     position: relative;
     cursor: default;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .position__detail .label {
+    font-size: 16px !important;
+    color: #bcbdc1;
   }
 
   .main {
@@ -96,6 +101,17 @@
 
   .position-list {
     margin-left: 0px;
+  }
+
+  .position-list {
+    margin-left: 0px;
+    min-height: 255px;
+    max-height: 520px;
+    overflow-y: auto;
+  }
+
+  .position-list::-webkit-scrollbar {
+    width: 2px;
   }
 
   .order-filters_modal>.close-modal p {

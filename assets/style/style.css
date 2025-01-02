@@ -2078,6 +2078,7 @@ button {
   display: inline-block;
   margin-left: 8px;
   cursor: pointer;
+  z-index: 999;
 }
 
 .futures-balance__pnl-tooltip {

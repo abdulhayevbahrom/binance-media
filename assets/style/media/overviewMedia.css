@@ -1,11 +1,10 @@
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .balance {
     margin-top: 24px;
     height: 390px;
     padding-bottom: 0 !important;
     justify-content: flex-start;
   }
-
   div.section.balance.expand {
     height: 270px !important;
     margin-bottom: 100px;

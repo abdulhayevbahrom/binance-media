@@ -1533,7 +1533,7 @@ async function showData_daily_comission(start_date, end_date) {
                 return value < 0 ? "#e74c3c" : "#11CB80"; // Красный для отрицательных, зеленый для положительных
               },
               borderWidth: 0,
-              hoverBackgroundColor: "#3498db", // Цвет фона при наведении
+              // hoverBackgroundColor: "#3498db", // Цвет фона при наведении
               bodyFont: {
                 family: "Binance PLEX", // Y o'qi uchun shrift
               },

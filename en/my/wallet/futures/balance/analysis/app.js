@@ -53,7 +53,8 @@ const pnl_today = async () => {
   hideLoading();
   let data = res?.data;
 
-  let [title, percent, usd] = today.children;
+  let [title, qiymatlar] = today.children;
+  let [percent, usd] = qiymatlar.children;
 
   percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
     data?.percentage || 0
@@ -88,7 +89,8 @@ const pnl_seven = async () => {
   hideLoading();
   let data = res?.data;
 
-  let [title, percent, usd] = seven.children;
+  let [title, qiymatlar] = seven.children;
+  let [percent, usd] = qiymatlar.children;
 
   percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
     data?.percentage || 0
@@ -123,7 +125,8 @@ const pnl_month = async () => {
   hideLoading();
   let data = res?.data;
 
-  let [title, percent, usd] = month.children;
+  let [title, qiymatlar] = month.children;
+  let [percent, usd] = qiymatlar.children;
 
   percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
     data?.percentage || 0
@@ -573,7 +576,7 @@ async function showData(start_date, end_date) {
               return value < 0 ? "#e74c3c" : "#11CB80"; // Qizil (salbiy), yashil (ijobiy)
             },
             borderWidth: 0,
-            hoverBackgroundColor: "#3498db", // Fon rangi kursor bilan
+            // hoverBackgroundColor: "#3498db", // Fon rangi kursor bilan
           },
         ],
       },
@@ -1372,10 +1375,10 @@ async function showData_details(page) {
       let tr = document.createElement("tr");
       tr.innerHTML = `
     <td class="dayOf_details">${item.date}</td>
-    <td data-label="Daily PNL (USD)">${item.daily_pnl} USD</td>
-    <td data-label="Cumulative PNL (USD)">${item.cumulative_pnl} USD</td>
-    <td data-label="Cumulative PNL %">${item.cumulative_pnl_percent}</td>
-    <td data-label="Net Transfer Amount (USD)">${item.net_transfer_amount} USD</td>
+    <td data-label="Daily PNL (USD)">${item.dayli_pnl} USD</td>
+    <td data-label="Cumulative PNL (USD)">${item.summ_pnl} USD</td>
+    <td data-label="Cumulative PNL %">${item.summ_pnl_proc}</td>
+    <td data-label="Net Transfer Amount (USD)">${item.summ_translations} USD</td>
     <td data-label="Trading Volume">${item.trading_volume}</td>
   `;
       details_table_body.appendChild(tr);
@@ -1530,7 +1533,7 @@ async function showData_daily_comission(start_date, end_date) {
                 return value < 0 ? "#e74c3c" : "#11CB80"; // Красный для отрицательных, зеленый для положительных
               },
               borderWidth: 0,
-              hoverBackgroundColor: "#3498db", // Цвет фона при наведении
+              // hoverBackgroundColor: "#3498db", // Цвет фона при наведении
               bodyFont: {
                 family: "Binance PLEX", // Y o'qi uchun shrift
               },
@@ -1752,12 +1755,14 @@ async function showData_analis_tiker(start_date, end_date) {
       let datalab = [
         {
           ticker: "BTCUSDT",
-          image: "/analysis/assets/bitcoin.png",
+          // image: "/analysis/assets/bitcoin.png",
+          image: "./assets/bitcoin.png",
           ...data,
         },
         {
           ticker: "ETHUSDT",
-          image: "/analysis/assets/ethereum.png",
+          // image: "/analysis/assets/ethereum.png",
+          image: "./assets/ethereum.png",
           total_pnl: 0,
           profit: 0,
           loss: 0,

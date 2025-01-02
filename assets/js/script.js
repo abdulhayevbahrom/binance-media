@@ -127,7 +127,6 @@ async function getEquivalentValue() {
     const data = await response.json();
     equivalentValue = Number(data.prevClosePrice);
     updateBalanceDisplay(initialHideState);
-    console.log(data);
   } catch (error) {
     console.error("Error fetching ticker info:", error);
   }

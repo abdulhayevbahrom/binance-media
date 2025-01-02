@@ -5,25 +5,23 @@
     padding-bottom: 0 !important;
     justify-content: flex-start;
   }
+
   div.section.balance.expand {
     height: 270px !important;
     margin-bottom: 100px;
 
     .wallet-balance-preview-chart-container {
-      position: absolute;
-      top: 200px !important;
-      left: 0;
-
-      #wallet-balance-preview-chart {
-        width: 100% !important;
-        height: 160px !important;
-      }
+      display: none;
     }
 
     .wallet-balance-chart-container,
     #wallet-balance-chart {
       display: none !important;
     }
+  }
+
+  .transaction-body tr:hover {
+    background: transparent !important;
   }
 
   div.section.balance.expanded {
@@ -114,6 +112,8 @@
             left: 43px;
             text-wrap: no-wrap;
             white-space: nowrap;
+            font-size: 14px;
+            color: #848e9c;
           }
 
           &:nth-child(2) {
@@ -123,8 +123,9 @@
             white-space: nowrap;
             text-align: right;
             padding: 0 10px;
-            color: #fff;
+            color: #eaecef;
             padding-right: 0;
+            font-size: 16px;
           }
 
           &:nth-child(4) {
@@ -132,11 +133,11 @@
             right: 0;
             text-wrap: no-wrap;
             white-space: nowrap;
-            font-size: 16px;
-            color: #999;
             text-align: right;
             padding: 0 10px;
             padding-right: 0;
+            font-size: 14px;
+            color: #848e9c;
           }
         }
       }
@@ -164,7 +165,6 @@
             white-space: nowrap;
             text-align: right;
             padding: 0 10px;
-            color: #fff;
             padding-right: 0;
           }
 
@@ -174,7 +174,6 @@
             text-wrap: nowrap;
             white-space: nowrap;
             font-size: 16px;
-            color: #999;
             text-align: right;
             padding: 0 10px;
             z-index: 50;
@@ -196,7 +195,6 @@
             text-wrap: nowrap;
             white-space: nowrap;
             font-size: 16px;
-            color: #999;
             text-align: right;
             padding: 0 10px;
             z-index: 50;
@@ -218,7 +216,6 @@
             text-wrap: nowrap;
             white-space: nowrap;
             font-size: 16px;
-            color: #999;
             text-align: right;
             padding: 0 10px;
             z-index: 50;

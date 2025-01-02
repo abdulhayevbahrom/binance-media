@@ -4331,7 +4331,7 @@
     </div>
     <footer class="footer">
       <div class="footer-copyright">
-        <span>Binance© 2024</span>
+        <span>Binance© 2025</span>
         <button class="footer-cookies">Cookie Settings</button>
       </div>
 
@@ -4366,15 +4366,30 @@
     const currencyOptions = currencySelect.querySelector(".select__list");
     const currencyOptionList = currencyOptions.querySelectorAll(".select__option");
 
+    /*************  ✨ Codeium Command 🌟  *************/
+    /**
+     * Updates the selected currency option in the dropdown.
+     * Removes the "selected" and "highlight" classes from all options,
+     * then adds these classes to the option that matches the given value.
+     *
+     * @param {string} value - The value of the currency option to select.
+     */
     function updateSelectedCurrencyOption(value) {
+      // Iterate over each currency option in the list
       currencyOptionList.forEach(opt => {
+        // Remove "selected" and "highlight" classes from each option
         opt.classList.remove("selected", "highlight");
+
+        // Check if the current option's data-value matches the given value
         if (opt.getAttribute("data-value") === value) {
+          // Add "selected" and "highlight" classes to the matching option
           opt.classList.add("selected", "highlight");
+          // Update the label to display the selected option's text
           currencySelectLabelSpan.textContent = opt.textContent;
         }
       });
     }
+    /******  0b9894be-faad-4830-acee-f50e9cf72b12  *******/
 
     if (selectedValue) {
       updateSelectedCurrencyOption(selectedValue);
@@ -4473,8 +4488,6 @@
     const filterButtonsContainer = document.querySelector('.chart-filter-buttons');
     const filterButtons = document.querySelectorAll('.chart-filter-button');
 
-    console.log(expandButton);
-
 
     const previewLineChartContainer = document.querySelector(".wallet-balance-preview-chart-container");
     let chartPeriod = 7;
@@ -4485,7 +4498,23 @@
       previewLineChartContainer.classList.toggle('hidden');
       filterButtonsContainer.classList.toggle('show')
     });
+    // Ekran kengligini tekshiruvchi funksiya
+    function updateFilterButtonState() {
+      if (window.innerWidth <= 750) {
+        filterButtonsContainer.classList.add('show');
+        previewLineChartContainer.classList.toggle('hidden');
+        balanceSection.classList.toggle('expanded');
+      } else {
+        // previewLineChartContainer.classList.toggle('hidden');
+        filterButtonsContainer.classList.remove('show');
+        balanceSection.classList.remove('expanded');
+        previewLineChartContainer.classList.remove('hidden');
+      }
+    }
 
+    // Oyna yuklanganda va o'lchami o'zgarganda funksiyani chaqirish
+    window.addEventListener('resize', updateFilterButtonState);
+    window.addEventListener('load', updateFilterButtonState);
     expandButton.addEventListener('click', () => {
       expandButton.classList.toggle('active');
       balanceSection.classList.toggle('expanded');

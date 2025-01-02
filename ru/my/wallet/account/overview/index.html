@@ -3958,7 +3958,7 @@
     </div>
     <footer class="footer">
       <div class="footer-copyright">
-        <span>Binance© 2024</span>
+        <span>Binance© 2025</span>
         <button class="footer-cookies">Настройки cookie</button>
       </div>
     </footer>
@@ -3974,10 +3974,6 @@
   <script src="../../../../../assets/search-service.js"></script>
 
   <script>
-
-
-    // mobileSelectedButton.onclick = toggleSidebar;
-
     function handleResize() {
       const balanceDiv = document.querySelector('.balance');
       if (window.innerWidth < 768) {
@@ -4111,6 +4107,23 @@
       previewLineChartContainer.classList.toggle('hidden');
       filterButtonsContainer.classList.toggle('show')
     });
+    // Ekran kengligini tekshiruvchi funksiya
+    function updateFilterButtonState() {
+      if (window.innerWidth <= 750) {
+        filterButtonsContainer.classList.add('show');
+        previewLineChartContainer.classList.toggle('hidden');
+        balanceSection.classList.toggle('expanded');
+      } else {
+        // previewLineChartContainer.classList.toggle('hidden');
+        filterButtonsContainer.classList.remove('show');
+        balanceSection.classList.remove('expanded');
+        previewLineChartContainer.classList.remove('hidden');
+      }
+    }
+
+    // Oyna yuklanganda va o'lchami o'zgarganda funksiyani chaqirish
+    window.addEventListener('resize', updateFilterButtonState);
+    window.addEventListener('load', updateFilterButtonState);
 
     expandButton.addEventListener('click', () => {
       expandButton.classList.toggle('active');

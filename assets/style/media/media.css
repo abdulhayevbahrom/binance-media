@@ -145,14 +145,18 @@
   .futures-holdings__table tbody {
     display: block;
     width: 100%;
+    gap: 0;
   }
 
   .futures-holdings__table tbody tr {
     display: block;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     border-radius: 8px;
     padding: 8px 0;
+    padding: 0;
     width: 100%;
+    padding-bottom: 0;
+    position: relative;
   }
 
   .futures-holdings__table tbody tr td {
@@ -162,6 +166,28 @@
     padding: 8px 0;
     /* width: 100%; */
     text-wrap: nowrap;
+  }
+
+  .futures-holdings__table tbody tr::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #3b3a3a;
+    margin-top: 8px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    z-index: -1;
+  }
+  .futures-holdings__table tbody tr td:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    padding: 0;
+  }
+  .futures-holdings__table td:last-child {
+    padding-bottom: 0;
   }
 
   .futures-holdings__table tbody tr td::before {
@@ -183,7 +209,7 @@
     font-size: 16px;
     color: white;
     color: #eaecef;
-    position: relative;
+    /* position: relative; */
   }
 
   #unrealized-pnl,
@@ -222,6 +248,7 @@
   #usdc-margin-value,
   #usdc-transferable,
   #usdc-equivalent,
+  #usdc-margin-values,
   #usdc-action {
     display: flex;
     justify-content: space-between !important;
@@ -247,8 +274,10 @@
     width: 100px;
     height: 200px;
     position: absolute;
-    right: -730%;
-    top: -1260%;
+    /* right: -730%;
+    top: -1260%; */
+    top: 0;
+    right: 0;
     z-index: 200;
     display: flex;
     justify-content: end;
@@ -388,6 +417,7 @@
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #88888879 #e0e0e000;
+    z-index: 400;
   }
 
   /* Chrome, Edge va Safari uchun scrollbar stili */
@@ -528,7 +558,8 @@
   }
 
   .transaction-body_title {
-    color: #ffffff !important;
-    fill: #fff;
+    color: #eaecef !important;
+    fill: #eaecef !important;
+    font-size: 14px;
   }
 }

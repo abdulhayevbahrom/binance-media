@@ -9,7 +9,7 @@
   width: 120px;
 }
 
-.selectDates>p {
+.selectDates > p {
   display: none;
 }
 
@@ -43,7 +43,7 @@
     line-height: 35px;
   }
 
-  .wrapper_header span>span {
+  .wrapper_header span > span {
     line-height: 20px;
   }
 
@@ -104,7 +104,7 @@
     padding: 7px 0;
   }
 
-  .usd_coin_container_item>div {
+  .usd_coin_container_item > div {
     display: flex;
     flex-direction: column;
     /* O‘ng tarafda ustma-ust joylashish */
@@ -145,7 +145,7 @@
     font-family: "Binance PLEX";
   }
 
-  .selectDates>i {
+  .selectDates > i {
     display: none;
   }
 
@@ -154,7 +154,7 @@
     width: 20px;
   }
 
-  .selectDates>p {
+  .selectDates > p {
     display: block;
     font-size: 14px;
   }
@@ -286,7 +286,6 @@
     margin-bottom: 15px;
   }
 
-
   #assetOverviewChart {
     display: flex;
     width: 100%;
@@ -294,7 +293,7 @@
     /* justify-content: center; */
   }
 
-  #assetOverviewChart>div {
+  #assetOverviewChart > div {
     width: 60%;
     height: 265px;
     position: relative;
@@ -320,7 +319,7 @@
     max-width: 100%;
   }
 
-  .container-table-istory>h3 {
+  .container-table-istory > h3 {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 25px;
@@ -430,8 +429,6 @@
     font-weight: 300;
   }
 
-
-
   .container-table-istory table td.red {
     color: #ff4d4d;
   }
@@ -464,7 +461,7 @@
     display: block;
   }
 
-  #ticker_analysis_table_body>tr {
+  #ticker_analysis_table_body > tr {
     border-bottom: 0.5px solid #80808048;
     margin-bottom: 10px;
   }
@@ -545,7 +542,7 @@
     margin-top: 20px;
   }
 
-  .usd_coin_container_item>p {
+  .usd_coin_container_item > p {
     padding: 0;
     margin: 0;
     margin-top: 2px;
@@ -588,12 +585,12 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-  #pnlChartr_box>.title {
+  #pnlChartr_box > .title {
     display: flex;
     align-items: center;
   }
 
-  #pnlChartr_box>.title p {
+  #pnlChartr_box > .title p {
     padding: 0;
     margin: 0;
     background: #000;
@@ -627,7 +624,7 @@
     font-family: "Binance PLEX";
   }
 
-  .tab-content>p {
+  .tab-content > p {
     line-height: 20px !important;
   }
 
@@ -678,7 +675,7 @@
     justify-content: space-between;
   }
 
-  .box-commission>p {
+  .box-commission > p {
     line-height: 20px;
   }
 }
@@ -753,11 +750,11 @@
     background: transparent;
   }
 
-  .selectDates>p {
+  .selectDates > p {
     color: #848e9c;
   }
 
-  .selectDates>p:hover {
+  .selectDates > p:hover {
     color: #ffffff;
   }
 
@@ -787,11 +784,11 @@
     gap: 30px;
   }
 
-  .tabs>button {
+  .tabs > button {
     white-space: nowrap;
   }
 
-  .tabs>button {
+  .tabs > button {
     text-wrap: nowrap;
   }
 
@@ -854,8 +851,10 @@
   .share-modal__pnl-title {
     color: #848e9c;
     font-size: 11px;
+    width: 50%;
     line-height: 12px;
     font-weight: 500;
+    text-wrap: wrap;
   }
 
   .share-modal__more-info {
@@ -875,7 +874,7 @@
     background: #1f2229;
   }
 
-  .share-modal_header>p {
+  .share-modal_header > p {
     display: block;
     font-size: 14px;
     color: #8f90a3;
@@ -1012,7 +1011,7 @@
     /* Uchinchi nuqta rang */
   }
 
-  .analysis-item>.values>p:first-child {
+  .analysis-item > .values > p:first-child {
     border-bottom: 1px dashed #55555500;
     margin-bottom: 10px;
     color: #848e9c;
@@ -1170,7 +1169,7 @@
 }
 
 @media (max-width: 380px) {
-  #assetOverviewChart>div {
+  #assetOverviewChart > div {
     width: 60%;
     height: 265px;
     position: relative;

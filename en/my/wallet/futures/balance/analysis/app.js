@@ -226,9 +226,9 @@ const profitAndLoss = async (
   pnl.innerHTML = (data?.pnl || 0) + " USD";
   total_amount.innerHTML = (data?.total_amount || 0) + " USD";
   profitability_ratio.innerHTML = (data?.profitability_ratio || 0) + " %";
-  profit_days.innerHTML = (data?.profit_days || 0) + " Дней";
-  loss_days.innerHTML = (data?.loss_days || 0) + " Дней";
-  breakeven_days.innerHTML = (data?.breakeven_days || 0) + " Дней";
+  profit_days.innerHTML = (data?.profit_days || 0) + " Day";
+  loss_days.innerHTML = (data?.loss_days || 0) + " Day";
+  breakeven_days.innerHTML = (data?.breakeven_days || 0) + " Day";
   average_profit.innerHTML = (data?.average_profit || 0) + " USD";
   average_loss.innerHTML = (data?.average_loss || 0) + " USD";
   profit_loss_ratio.innerHTML = data?.profit_loss_ratio || 0;
@@ -569,7 +569,7 @@ async function showData(start_date, end_date) {
         labels: keys, // Metkalar (x o'qi uchun)
         datasets: [
           {
-            label: "PNL по дням",
+            label: "PNL by Days",
             data: values, // Ma'lumotlar
             backgroundColor: function (context) {
               const value = context.dataset.data[context.dataIndex];
@@ -612,7 +612,7 @@ async function showData(start_date, end_date) {
             bodyColor: "#fff",
             callbacks: {
               label: function (context) {
-                return `PNL по дням: ${context.raw} USD`;
+                return `PNL by Days: ${context.raw} USD`;
               },
             },
           },
@@ -754,7 +754,7 @@ async function showData(start_date, end_date) {
 
             modal.innerHTML = `
               <p style="margin-bottom:7px;">${currentDate}</p>
-              <p>Дневной PNL: <span style="color: ${
+              <p>Daily PNL : <span style="color: ${
                 datas?.dayli_pnl > 0
                   ? "#2ebd85"
                   : datas?.dayli_pnl < 0
@@ -763,7 +763,7 @@ async function showData(start_date, end_date) {
               };">${
               (datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
             } USD</span></p>
-              <p>Суммарный PNL: <span style="color: ${
+              <p>Total PNL: <span style="color: ${
                 datas?.summ_pnl > 0
                   ? "#2ebd85"
                   : datas?.summ_pnl < 0
@@ -772,7 +772,7 @@ async function showData(start_date, end_date) {
               };">${
               (datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
             } USD</span></p>
-              <p>Суммарный PNL %: <span style="color: ${
+              <p>Total PNL %: <span style="color: ${
                 datas?.summ_pnl_proc > 0
                   ? "#2ebd85"
                   : datas?.summ_pnl_proc < 0
@@ -781,14 +781,14 @@ async function showData(start_date, end_date) {
               };">${
               (datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
             } %</span></p>
-              <p>Суммарные переводы, нетто: <span style="color: ${
+              <p>Total Transfers, Net: <span style="color: ${
                 datas?.summ_translations > 0
                   ? "#2ebd85"
                   : datas?.summ_translations < 0
                   ? "#e1545e"
                   : "#222"
               };">${datas?.summ_translations}</span></p>
-              <p>Объем торгов: <span>${datas?.trading_volume}</span></p>
+              <p>Trading Volume: <span>${datas?.trading_volume}</span></p>
             `;
 
             const rect = dayDiv.getBoundingClientRect();
@@ -934,7 +934,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
             yAlign: "bottom", // Tooltipni tepa qismida ko'rsatadi
             callbacks: {
               label: function (context) {
-                return `Совокупный PNL: ${context.raw} USD`;
+                return `Aggregate PNL: ${context.raw} USD`;
               },
             },
           },
@@ -1021,7 +1021,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       labels, // Sanalar (X o'qi uchun)
       datasets: [
         {
-          label: "Совокупный PNL %",
+          label: "Aggregate PNL %",
           data: pnl_values, // PNL ma'lumotlari
           borderColor: "#f3b60f", // PNL uchun sariq chiziq
           backgroundColor: "transparent",
@@ -1042,7 +1042,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Совокупная цена маркировки BTCUSDT PERP, %",
+          label: "Aggregate Mark Price BTCUSDT PERP, %",
           data: btc_values,
           borderColor: "#005eda",
           backgroundColor: "transparent",
@@ -1062,7 +1062,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Совокупная цена маркировки BNBUSDT PERP, %",
+          label: "Aggregate Mark Price BNBUSDT PERP, %",
           data: bnb_values,
           borderColor: "#ff7700",
           backgroundColor: "transparent",
@@ -1212,7 +1212,7 @@ async function showData_active_values(start_date, end_date) {
           labels: keys, // Sana (labels)
           datasets: [
             {
-              label: "Значение BTC",
+              label: "BTC Value",
               data: values, // BTC qiymatlari
               borderColor: "#f3b60f", // PNL uchun sariq chiziq
               backgroundColor: "transparent", // Zamin rangi
@@ -1271,7 +1271,7 @@ async function showData_active_values(start_date, end_date) {
               caretSize: 6, // Tooltipning uchining kattaligi
               callbacks: {
                 label: function (context) {
-                  return `Стоимость: ${context.raw} USD`;
+                  return `Cost or Price: ${context.raw} USD`;
                 },
               },
             },
@@ -1576,7 +1576,7 @@ async function showData_daily_comission(start_date, end_date) {
               bodyColor: "#fff", // Tooltip matn rangi
               callbacks: {
                 label: function (context) {
-                  return `Значение: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
+                  return `Value: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
                 },
               },
             },

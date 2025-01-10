@@ -16,9 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
-  <link rel="stylesheet" href="../../../../../assets/style/media/tradeHistoryMedia.css">
+  <link rel="stylesheet" href="../../../../../assets/style/media/tradeHistoryMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/footer_media.css" />
-
+  <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
 </head>
 
 <body>
@@ -3466,12 +3466,12 @@
       <div class="sidebar-wrap">
         <div class="sidebar">
           <div onclick="toggleSidebar()" class="sidebar__menu-item sidebar-selected sidebar__menu-item--active">
-            <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <!-- <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
                 fill="currentColor"></path>
-            </svg>
-            <span class="sidebar__menu-item-title">История торговли</span>
+            </svg> -->
+            <span class="sidebar__menu-item-title  ">Фьючерсный ордер</span>
             <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -3667,7 +3667,8 @@
         </div>
       </div>
       <!--END Сайдбар-->
-      <main class="main">
+      <main class="main_tradehistory">
+
         <div class="tab-nav no-padding">
           <a href="/ru/my/orders/futures" class="tab-btn">Открытые ордера</ф>
             <a href="/ru/my/orders/futures/orderhistory" onclick="return false;" class="tab-btn">История ордеров</a>

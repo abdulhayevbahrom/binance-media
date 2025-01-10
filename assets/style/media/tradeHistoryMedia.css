@@ -9,6 +9,13 @@
   }
 }
 
+.main_tradehistory {
+  width: 100%;
+  padding: 30px 40px;
+  min-height: 470px;
+
+}
+
 @media screen and (max-width: 1276px) {
   .tradehistory-table {
     td {
@@ -22,6 +29,7 @@
     width: 75% !important;
     padding: 40px 10px !important;
   }
+
   .tradehistory-table {
     td {
       padding: 10px 5px;
@@ -34,6 +42,7 @@
     width: 79% !important;
     padding: 40px 10px !important;
   }
+
   .tradehistory-table {
     td {
       padding: 10px 5px;
@@ -45,6 +54,15 @@
   .main {
     padding-right: 0 !important;
   }
+
+  .flatpickr-next-month svg {
+    opacity: 0;
+  }
+
+  .flatpickr-prev-month svg {
+    opacity: 0;
+  }
+
   .tradehistory-table {
     width: 100% !important;
 
@@ -52,7 +70,7 @@
       width: 100% !important;
 
       tr {
-        border-bottom: 1px solid #999;
+        /* border-bottom: 1px solid #999; */
         width: 77vw !important;
         display: block;
         margin-bottom: 10px;
@@ -109,9 +127,11 @@
 @media screen and (max-width: 915px) {
   .tradehistory-table {
     display: block;
+
     tbody {
       display: block;
       width: 90% !important;
+
       tr {
         width: 100% !important;
         padding: 0 3%;
@@ -123,9 +143,11 @@
 @media screen and (max-width: 810px) {
   .tradehistory-table {
     display: block;
+
     tbody {
       display: block;
       width: 86% !important;
+
       tr {
         width: 100% !important;
         padding: 0 3%;
@@ -135,9 +157,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .main_tradehistory {
+    width: 100%;
+    padding: 8px;
+    margin-top: 19px;
+  }
+
   .main {
     width: 96% !important;
   }
+
   .tradehistory-table {
     display: block;
     width: 100% !important;
@@ -145,6 +174,7 @@
     tbody {
       display: block;
       width: 100% !important;
+
       tr {
         width: 100% !important;
         padding: 0;
@@ -158,6 +188,7 @@
     tbody {
       display: block;
       width: 100% !important;
+
       tr {
         width: 100% !important;
         padding-right: 5%;

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../../assets/style/media/media.css" />
   <link rel="stylesheet" href="../../../../../../assets/style/media/footer_media.css" />
+  <link rel="stylesheet" href="../../../../../../assets/style/media/sidebar_media.css" />
 
   <link rel="shortcut icon" href="/analysis/assets/Binance_Logo.png" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -3300,7 +3301,7 @@
                 d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
                 fill="currentColor"></path>
             </svg>
-            <span class="sidebar__menu-item-title">Фьючерсы</span>
+            <span class="sidebar__menu-item-title"></span>
             <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -3494,7 +3495,7 @@
         </div>
       </div>
       <!-- SIDEBAR END -->
-      <div class="main" id="main_4454">
+      <div class="main_analysis" id="main_4454">
 
         <div class="back-btn">
           <a href="#">
@@ -3535,7 +3536,7 @@
 
             <div class="usd_coin">
               <div class="use_coun_tab">
-                <button class="active">USDU&oS;-M</button>
+                <button class="active">USD&oS;-M</button>
                 <button>COIN-M</button>
               </div>
               <div class="usd_coin_container">
@@ -4077,13 +4078,14 @@
   <script src="../../../../../../assets/search-service.js"></script>
   <script src="../../../../../../assets/sidebar-service.js"></script>
   <script src="./analysis/app.js"></script>
-  <script src="./app.js"></script>
+  <script src="./main.js"></script>
 
   <!---------Tooltip----------->
   <!-- CDN -->
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
-  <script src="../../../../../assets/js/lang.js"></script>
+  <script src="../../../../../../assets/js/lang.js"></script>
+
   <script>
 
 
@@ -4093,6 +4095,7 @@
         menuList.style.display = menuList.style.display === 'block' ? 'none' : 'block';
       });
     });
+
 
     function toggleAccordion(element) {
       const arrowIcon = element.querySelector('.sidebar__menu-item-arrow-icon');
@@ -4116,9 +4119,6 @@
 
       button.classList.toggle("active");
     });
-
-
-
 
   </script>
 </body>

@@ -194,8 +194,10 @@ canvas {
   background-color: transparent;
   cursor: pointer;
   position: relative;
-  color: #848e9c;
+  color: #eaecef;
   font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .usd_coin .use_coun_tab button.active {
@@ -228,6 +230,7 @@ canvas {
   margin-bottom: 10px;
   color: #fff;
   font-family: "Binance PLEX";
+  font-weight: bold !important;
 }
 
 .usd_coin_container_item_percent {
@@ -612,6 +615,12 @@ canvas {
   transform: rotate(45deg);
 }
 
+@media (max-width: 768px) {
+  .modalDay::before {
+    left: 30px;
+  }
+}
+
 .cumulative-box {
   width: 100%;
   height: 80px !important;
@@ -710,6 +719,8 @@ canvas {
   transition: background-color 0.3s ease;
   border-bottom: 2px solid transparent;
   font-family: Arial;
+  font-size: 16px;
+  line-height: 24px;
   position: relative;
 }
 
@@ -719,7 +730,7 @@ canvas {
 
 .tablink.active {
   font-weight: bold;
-  color: #fff;
+  color: #eaecef;
 }
 
 .icon.active svg {
@@ -889,9 +900,6 @@ canvas {
   transition: fill 0.3s ease, transform 0.3s ease;
 }
 
-
-
-
 .calendar-container {
   width: 90%;
   /* max-width: 600px; */
@@ -916,6 +924,15 @@ canvas {
   border-radius: 5px;
   outline: none;
 }
+
+@media (max-width: 768px) {
+  #month-selector option {
+    color: white;
+    background-color: #232323;
+    border: 0;
+  }
+}
+
 
 .calendar {
   display: flex;
@@ -1397,7 +1414,7 @@ canvas {
 }
 
 .tooltips:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;

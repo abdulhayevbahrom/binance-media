@@ -1,4 +1,24 @@
+.main_overview {
+
+  width: 100%;
+  padding: 30px 55px;
+}
+
 @media screen and (max-width: 768px) {
+
+
+  .main_overview {
+    width: 100%;
+    padding: 0 17px;
+  }
+
+  .hide-balance-button {
+    width: 16px;
+    height: 16px;
+    margin-top: 0px;
+    margin-left: 2px;
+  }
+
   .balance {
     margin-top: 24px;
     height: 390px;
@@ -42,12 +62,23 @@
       position: absolute !important;
       top: 200px;
       width: 100% !important;
+      height: 160px !important;
     }
 
     .wallet-balance-chart__labels {
       top: 120px !important;
     }
+
+
   }
+
+  .tab-nav {
+    padding-left: 0px;
+    background: #565446;
+    background: #181a1f;
+  }
+
+
 
   .chart-filter-buttons {
     left: 0;

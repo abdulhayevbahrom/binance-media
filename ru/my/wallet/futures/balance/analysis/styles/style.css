@@ -17,6 +17,11 @@ body {
   padding-right: 0 !important;
 }
 
+.main_analysis {
+  width: calc(100% - 305px);
+  padding: 0px 30px 0 60px;
+}
+
 .toggle-eye {
   color: #848e9c;
   font-size: 20px;
@@ -228,6 +233,7 @@ canvas {
   margin-bottom: 10px;
   color: #fff;
   font-family: "Binance PLEX";
+  font-weight: bold !important;
 }
 
 .usd_coin_container_item_percent {
@@ -612,6 +618,19 @@ canvas {
   transform: rotate(45deg);
 }
 
+@media screen and (max-width: 500px) {
+  .modalDay::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(150deg, #fffffff0 0 40%, transparent 40% 100%);
+    transform: rotate(45deg);
+  }
+}
+
 .cumulative-box {
   width: 100%;
   height: 80px !important;
@@ -888,9 +907,6 @@ canvas {
   fill: #676767;
   transition: fill 0.3s ease, transform 0.3s ease;
 }
-
-
-
 
 .calendar-container {
   width: 90%;
@@ -1397,7 +1413,7 @@ canvas {
 }
 
 .tooltips:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;

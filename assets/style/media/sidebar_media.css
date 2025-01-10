@@ -1,0 +1,14 @@
+.sidebar-selected .sidebar__menu-item-icon {
+  display: none !important;
+}
+
+.sidebar-selected span {
+  padding-left: 17px;
+}
+
+@media (max-width: 768px) {
+  .sidebar-selected {
+    display: flex !important;
+    background-color: #181a20;
+  }
+}

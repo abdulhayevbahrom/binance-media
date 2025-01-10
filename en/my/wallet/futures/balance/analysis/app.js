@@ -473,9 +473,9 @@ async function getModalData(start_date, end_date) {
   referral_code.innerHTML = data?.ref_code;
 
   pnl_percentage.style.color =
-    data?.total_pnl_percent < 0 ? "#d00a32" : "#14b783";
-  pnl_perTwo.style.color = data?.total_pnl_percent < 0 ? "#d00a32" : "#14b783";
-  pnl_perOne.style.color = data?.total_pnl_percent < 0 ? "#d00a32" : "#14b783";
+    data?.total_pnl_percent < 0 ? "#f6465d" : "#0ecb81";
+  pnl_perTwo.style.color = data?.total_pnl_percent < 0 ? "#f6465d" : "#0ecb81";
+  pnl_perOne.style.color = data?.total_pnl_percent < 0 ? "#f6465d" : "#0ecb81";
 }
 
 // OPEN SHARE MODAL
@@ -633,7 +633,11 @@ async function showData(start_date, end_date) {
 
     // Extract unique months from server data
     const uniqueMonths = Array.from(
-      new Set(Object.keys(serverData).map((date) => date.slice(0, 7)))
+      new Set(
+        Object.keys(serverData)
+          ?.reverse()
+          ?.map((date) => date.slice(0, 7))
+      )
     );
 
     // Clear existing options in the selector to avoid duplicates
@@ -934,7 +938,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
             yAlign: "bottom", // Tooltipni tepa qismida ko'rsatadi
             callbacks: {
               label: function (context) {
-                return `Aggregate PNL: ${context.raw} USD`;
+                return `Cumulative PNL: ${context.raw} USD`;
               },
             },
           },
@@ -1021,7 +1025,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       labels, // Sanalar (X o'qi uchun)
       datasets: [
         {
-          label: "Aggregate PNL %",
+          label: "Cumulative PNL %",
           data: pnl_values, // PNL ma'lumotlari
           borderColor: "#f3b60f", // PNL uchun sariq chiziq
           backgroundColor: "transparent",
@@ -1042,7 +1046,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Aggregate Mark Price BTCUSDT PERP, %",
+          label: "Cum. BTCUSDT PERP, Mark Price %",
           data: btc_values,
           borderColor: "#005eda",
           backgroundColor: "transparent",
@@ -1062,7 +1066,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           shadowOffsetY: 4, // Vertical offset for the shadow
         },
         {
-          label: "Aggregate Mark Price BNBUSDT PERP, %",
+          label: "Cum. BNBUSDT PERP, Mark Price %",
           data: bnb_values,
           borderColor: "#ff7700",
           backgroundColor: "transparent",
@@ -1375,10 +1379,10 @@ async function showData_details(page) {
       let tr = document.createElement("tr");
       tr.innerHTML = `
     <td class="dayOf_details">${item.date}</td>
-    <td data-label="Daily PNL (USD)">${item.dayli_pnl} USD</td>
-    <td data-label="Cumulative PNL (USD)">${item.summ_pnl} USD</td>
+    <td data-label="Daily PNL">${item.dayli_pnl} USD</td>
+    <td data-label="Cumulative PNL">${item.summ_pnl} USD</td>
     <td data-label="Cumulative PNL %">${item.summ_pnl_proc}</td>
-    <td data-label="Net Transfer Amount (USD)">${item.summ_translations} USD</td>
+    <td data-label="Net Transfer">${item.summ_translations} USD</td>
     <td data-label="Trading Volume">${item.trading_volume}</td>
   `;
       details_table_body.appendChild(tr);
@@ -1776,20 +1780,20 @@ async function showData_analis_tiker(start_date, end_date) {
       datalab.forEach((item) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-        <td>
-            <div style="display: flex;align-items:center; gap: 5px;">
-                <img width="25" src="${item.image}" alt="">
-                ${item.ticker}
-            </div>
-        </td>
-        <td>${item.total_pnl}</td>
-        <td>${item.profit}</td>
-        <td>${item.loss}</td>
-        <td>${item.total_purchases}</td>
-        <td>${item.total_sales}</td>
-        <td>${item.average_purchase_price}</td>
-        <td>${item.average_selling_price}</td>
-    `;
+  <td>
+    <div style="display: flex; align-items: center; gap: 5px;">
+      <img width="25" src="${item.image}" alt="">
+      ${item.ticker}
+    </div>
+  </td>
+  <td data-label="Total Realized PnL">${item.total_pnl} USDT</td>
+  <td data-label="Total Realized Profit">${item.profit} USDT</td>
+  <td data-label="Total Realized Loss">${item.loss} USDT</td>
+  <td data-label="Total Buy">${item.total_purchases} USDT</td>
+  <td data-label="Total Sell">${item.total_sales} USDT</td>
+  <td data-label="Average Buy Price">${item.average_purchase_price} USDT</td>
+  <td data-label="Average Sell Price">${item.average_selling_price} USDT</td>
+`;
         tbody.appendChild(row);
       });
     }

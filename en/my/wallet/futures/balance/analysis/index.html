@@ -10,11 +10,19 @@
     <link rel="stylesheet" href="../../../../../../assets/style/style.css" />
     <link
       rel="stylesheet"
+      href="../../../../../../assets/style/media/footer_media.css"
+    />
+    <link
+      rel="stylesheet"
       href="../../../../../../assets/style/media/headerMedia.css"
     />
     <link
       rel="stylesheet"
       href="../../../../../../assets/style/media/media.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../../../../../assets/style/media/sidebar_media.css"
     />
 
     <link
@@ -4785,7 +4793,7 @@
                   href="../../../../../../assets/img/icons/sprite.svg#refill"
                 ></use>
               </svg>
-              <span>Top-Up</span>
+              <span>Deposit</span>
             </button>
             <!--Пользователь-->
             <div class="stad media_none">
@@ -5458,7 +5466,7 @@
             </div>
             <!--Выбор языка-->
             <div class="stad">
-              <button class="btn-icon">
+              <button class="btn-icon" id="btn-lang">
                 <svg
                   class="header-icon header-lang"
                   width="21"
@@ -5471,7 +5479,10 @@
                 </svg>
                 <p>Russian</p>
               </button>
-              <div class="staddrop">
+              <div class="staddrop staddrop-long">
+                <a href="#" class="logo-link-long">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
                 <div class="half">
                   <div class="half-item">
                     <span>Language</span>
@@ -5755,7 +5766,7 @@
                 href="../../../../../../assets/img/icons/sprite.svg#refill"
               ></use>
             </svg>
-            <span>Top-up</span>
+            <span>Deposit</span>
           </button>
           <!-- User -->
           <div class="stad-mobile-user">
@@ -5986,7 +5997,7 @@
                   fill="currentColor"
                 ></path>
               </svg>
-              <span class="sidebar__menu-item-title">Toolbar</span>
+              <span class="sidebar__menu-item-title"></span>
               <svg
                 size="20"
                 class="sidebar__menu-item-arrow-icon"
@@ -6395,8 +6406,9 @@
             </div>
           </div>
         </div>
+
         <!-- SIDEBAR END -->
-        <div class="main" id="main_4454">
+        <div class="main_analysis" id="main_4454">
           <div class="back-btn">
             <a href="#">
               <span onclick="goBack()" class="back-btn-icon">
@@ -6412,7 +6424,7 @@
                     fill="currentColor"
                   ></path>
                 </svg>
-                <p>Back</p>
+                <p>Previous</p>
               </span>
             </a>
           </div>
@@ -6422,10 +6434,13 @@
               <div class="wrapper_header">
                 <h1 class="tooltip-nav">
                   <span
-                    style="border-bottom: 1px #555 dashed; padding-bottom: 3px"
+                    style="
+                      border-bottom: 1px #eaecef dashed;
+                      padding-bottom: 0px;
+                    "
                     class="main-subtitle"
                   >
-                    Data on Profits and Losses in the Futures Account
+                    Futures Account Profit and Loss Details
                     <span class="tooltip-text">
                       Trading costs (such as commission, funding fees, and
                       liquidation fees) are not included in the PnL calculation.
@@ -6444,7 +6459,7 @@
                   ></i>
                 </h1>
                 <button id="openModal">
-                  <i class="fa-solid fa-share-nodes"></i> Share PnL
+                  <i class="fa-solid fa-share-nodes"></i> Share My PnL
                 </button>
               </div>
 
@@ -6455,7 +6470,7 @@
                 </div>
                 <div class="usd_coin_container">
                   <div class="usd_coin_container_item">
-                    <p class="usd_coin_container_item_title">PnL for Today</p>
+                    <p class="usd_coin_container_item_title">Today's PNL</p>
                     <div>
                       <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
                       <p
@@ -6467,7 +6482,7 @@
                     </div>
                   </div>
                   <div class="usd_coin_container_item">
-                    <p class="usd_coin_container_item_title">PnL for 7 Days</p>
+                    <p class="usd_coin_container_item_title">7D PNL</p>
                     <div>
                       <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
                       <p
@@ -6479,7 +6494,7 @@
                     </div>
                   </div>
                   <div class="usd_coin_container_item">
-                    <p class="usd_coin_container_item_title">PnL for 30 Days</p>
+                    <p class="usd_coin_container_item_title">30D PNL</p>
                     <div>
                       <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
                       <p
@@ -6496,7 +6511,7 @@
                       data-tooltip="Net profit/loss since the account was created. Note: Data is available starting from August 2020."
                       class="usd_coin_container_item_title tooltip-main tooltip-main_bottom_en"
                     >
-                      PnL for All Time
+                      Lifetime PNL
                     </p>
                     <div>
                       <p class="eyeO-N usd_coin_container_item_percent">0 %</p>
@@ -6517,17 +6532,15 @@
                       id="profit_loss_weekly_btn"
                       class="active"
                     >
-                      7 Days
+                      7D
                     </button>
                     <button tabindex="0" id="profit_loss_monthly_btn">
-                      1 Month
+                      1M
                     </button>
                     <button tabindex="0" id="profit_loss_threeMonth_btn">
-                      3 Months
+                      3M
                     </button>
-                    <button tabindex="0" id="profit_loss_yearly_btn">
-                      1 Year
-                    </button>
+                    <button tabindex="0" id="profit_loss_yearly_btn">1Y</button>
 
                     <label for="dateRange" class="selectDates">
                       <input
@@ -6536,7 +6549,7 @@
                         id="dateRange"
                       />
                       <i class="fa fa-calendar"></i>
-                      <p>Setting</p>
+                      <p>Customize</p>
                     </label>
                   </div>
 
@@ -6569,7 +6582,7 @@
                           class="tooltip-trigger tooltip-main tooltip-main_15"
                           data-tooltip="= Total Profit - Total Loss"
                         >
-                          Net Profit/Net Loss
+                          Net Profit/Loss
                         </p>
                         <p class="eyeO-N">00 USD</p>
                       </div>
@@ -6675,10 +6688,10 @@
                       class="tablink"
                       onclick="openTab(event, 'TickerAnalysis')"
                     >
-                      Ticker Analysis
+                      Symbol Analysis
                     </button>
                     <button class="tablink" onclick="openTab(event, 'Fees')">
-                      Funding and Transaction Fees
+                      Funding & Transaction
                     </button>
                   </div>
                   <!-- <br> -->
@@ -6760,9 +6773,9 @@
                             id="multiLineChart"
                           ></canvas>
                           <div class="multiLineChart_legend">
-                            <p>Aggregate PNL %</p>
-                            <p>Aggregate Mark Price BTCUSDT PERP, %</p>
-                            <p>Aggregate Mark Price BNBUSDT PERP, %</p>
+                            <p>Cumulative PNL %</p>
+                            <p>Cum. BTCUSDT PERP, Mark Price %</p>
+                            <p>Cum. BNBUSDT PERP, Mark Price %</p>
                           </div>
                         </div>
                       </div>
@@ -6788,15 +6801,15 @@
 
                   <div id="Details" class="tab-content">
                     <div class="container-table-istory">
-                      <h3>Profit and Loss History</h3>
+                      <h3>Historical Profit and Loss 6</h3>
                       <table>
                         <thead>
                           <tr>
                             <th>Date</th>
-                            <th>Daily PNL (USD)</th>
-                            <th>Cumulative PNL (USD)</th>
+                            <th>Daily PNL</th>
+                            <th>Cumulative PNL</th>
                             <th>Cumulative PNL %</th>
-                            <th>Net Transfer Amount (USD)</th>
+                            <th>Net Transfer</th>
                             <th>Trading Volume</th>
                           </tr>
                         </thead>
@@ -6805,12 +6818,10 @@
                             <td class="dayOf_details" id="day-day">
                               01.01.2024
                             </td>
-                            <td data-label="Daily PNL (USD)">0.000 USD</td>
-                            <td data-label="Cumulative PNL (USD)">0.000 USD</td>
+                            <td data-label="Daily PNL">0.000 USD</td>
+                            <td data-label="Cumulative PNL">0.000 USD</td>
                             <td data-label="Cumulative PNL %">0.000 %</td>
-                            <td data-label="Net Transfer Amount (USD)">
-                              0.000 USD
-                            </td>
+                            <td data-label="Net Transfer">0.000 USD</td>
                             <td data-label="Trading Volume">0.000</td>
                           </tr>
 
@@ -6818,12 +6829,10 @@
                             <td class="dayOf_details" id="day-day">
                               01.01.2024
                             </td>
-                            <td data-label="Daily PNL (USD)">0.000 USD</td>
-                            <td data-label="Cumulative PNL (USD)">0.000 USD</td>
+                            <td data-label="Daily PNL">0.000 USD</td>
+                            <td data-label="Cumulative PNL">0.000 USD</td>
                             <td data-label="Cumulative PNL %">0.000 %</td>
-                            <td data-label="Net Transfer Amount (USD)">
-                              0.000 USD
-                            </td>
+                            <td data-label="Net Transfer">0.000 USD</td>
                             <td data-label="Trading Volume">0.000</td>
                           </tr>
 
@@ -6831,12 +6840,10 @@
                             <td class="dayOf_details" id="day-day">
                               01.01.2024
                             </td>
-                            <td data-label="Daily PNL (USD)">0.000 USD</td>
-                            <td data-label="Cumulative PNL (USD)">0.000 USD</td>
+                            <td data-label="Daily PNL">0.000 USD</td>
+                            <td data-label="Cumulative PNL">0.000 USD</td>
                             <td data-label="Cumulative PNL %">0.000 %</td>
-                            <td data-label="Net Transfer Amount (USD)">
-                              0.000 USD
-                            </td>
+                            <td data-label="Net Transfer">0.000 USD</td>
                             <td data-label="Trading Volume">0.000</td>
                           </tr>
                         </tbody>
@@ -6959,7 +6966,7 @@
               <div class="share-modal show">
                 <!-- close icon -->
                 <div class="share-modal_header">
-                  <p>Share PnL</p>
+                  <p>Share My PnL</p>
                   <i class="fa-solid fa-xmark share_modal_close"></i>
                 </div>
 
@@ -6983,13 +6990,15 @@
                       </div>
                     </div>
                     <div class="share-modal__title">
-                      Check out my PnL on Binance Futures Contracts
+                      Check out my Futures PnL on Binance
                     </div>
-                    <p class="share-modal__period">
+                    <p class="share-modal__period share-modal__period_enf">
                       Period: <span id="from"></span> - <span id="to"></span>
                     </p>
                     <div class="share-modal__pnl-box">
-                      <span class="share-modal__pnl-title"
+                      <span
+                        style="text-wrap: nowrap"
+                        class="share-modal__pnl-title"
                         >Cumulative PNL %</span
                       >
                       <span
@@ -7003,7 +7012,9 @@
                         class="share-modal__more-info-item"
                         id="share-pnl-box"
                       >
-                        <span class="share-modal__pnl-title"
+                        <span
+                          style="text-wrap: nowrap"
+                          class="share-modal__pnl-title"
                           >Cumulative PNL (USD)</span
                         >
                         <span
@@ -7016,8 +7027,10 @@
                         class="share-modal__more-info-item"
                         id="profitability-ratio-box"
                       >
-                        <span class="share-modal__pnl-title"
-                          >Profitability Ratio %</span
+                        <span
+                          style="text-wrap: nowrap"
+                          class="share-modal__pnl-title"
+                          >Win Rate%</span
                         >
                         <span
                           class="share-modal__more-info-data pnl-perTwo"
@@ -7063,20 +7076,20 @@
                       margin-bottom: 12px;
                       font-weight: 500;
                     "
-                    >Share Additional Information</span
+                    >Optional information to share</span
                   >
 
                   <div class="share-modal__checkbox-box">
                     <div class="custom_checkbox" id="pnl-checkbox">
                       <input type="checkbox" id="freei" />
                       <label for="freei"></label>
-                      <p>Total PNL (USD)</p>
+                      <p>Cumulative PNL (USD)</p>
                     </div>
 
                     <div class="custom_checkbox">
                       <input type="checkbox" id="post" />
                       <label for="post"></label>
-                      <p>Profitability Ratio (%)</p>
+                      <p>Win Rate%</p>
                     </div>
                   </div>
 
@@ -7141,14 +7154,13 @@
     <script src="../../../../../../assets/style/media/media.js"></script>
     <script src="../../../../../../assets/search-service.js"></script>
     <script src="../../../../../../assets/sidebar-service.js"></script>
-    <script src="./analysis/app.js"></script>
     <script src="./app.js"></script>
 
     <!---------Tooltip----------->
     <!-- CDN -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script src="../../../../../assets/js/lang.js"></script>
+    <script src="../../../../../../assets/js/lang.js"></script>
     <script>
       document
         .querySelectorAll(".sidebar__menu-item--accordion")

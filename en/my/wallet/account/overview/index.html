@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../../../../../assets/style/media/overviewMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -2923,7 +2925,7 @@
             <svg class="btn-web__icon" width="20" height="24" viewBox="0 0 24 24">
               <use href="../../../../../../assets/img/icons/sprite.svg#refill"></use>
             </svg>
-            <span>Top-Up</span>
+            <span>Deposit</span>
           </button>
           <!--Пользователь-->
           <div class="stad  media_none">
@@ -3524,7 +3526,7 @@
           <svg class="btn-web__icon" width="20" height="24" viewBox="0 0 24 24">
             <use href="../../../../../../assets/img/icons/sprite.svg#refill"></use>
           </svg>
-          <span>Top-up</span>
+          <span>Deposit</span>
         </button>
         <!-- User -->
         <div class="stad-mobile-user">
@@ -3662,7 +3664,7 @@
                 d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
                 fill="currentColor"></path>
             </svg>
-            <span class="sidebar__menu-item-title">Overview</span>
+            <span class="sidebar__menu-item-title  ">Overview</span>
             <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -3860,7 +3862,7 @@
         </div>
       </div>
       <!--END Сайдбар-->
-      <main class="main">
+      <main class="main_overview">
         <div class="section balance">
           <div class="balance__left">
             <div class="balance__head">
@@ -3897,7 +3899,7 @@
               </div>
               <span class="balance__equivalent balance-equivalent"></span>
               <div class="balance__pnl-wrapper">
-                <span>PnL today</span>
+                <span>Today's PnL</span>
                 <i class="balance__pnl-tooltip">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3958,8 +3960,8 @@
 
             <div class="tab" id="tab-1">
               <div class="tab-nav">
-                <button type="button" class="tab-btn tab-btn-active" data-target-id="0">Coins</button>
-                <button type="button" class="tab-btn" data-target-id="1">Wallets</button>
+                <button type="button" class="tab-btn tab-btn-active" data-target-id="0">Coin Coins</button>
+                <button type="button" class="tab-btn" data-target-id="1">Account View</button>
               </div>
 
               <div class="holdings__controls">
@@ -4537,7 +4539,8 @@
     const lineChart = document.getElementById("wallet-balance-chart").getContext("2d");
     const previewLineChart = document.getElementById("wallet-balance-preview-chart").getContext("2d");
 
-    const gradient = lineChart.createLinearGradient(0, 0, 0, 400);
+    const gradientHeight = window.innerWidth <= 500 ? 130 : 400;
+    const gradient = lineChart.createLinearGradient(0, 0, 0, gradientHeight);
     gradient.addColorStop(0, "#565446");
     gradient.addColorStop(1, "#181a1f");
 
@@ -4778,7 +4781,7 @@
             element.textContent = (+data.priceChangePercent > 0 ? '+' : '') + changePercent + "%";
 
             if (+data.priceChangePercent > 0) {
-              div.style.color = '#0ECB81';
+              div.style.color = '#Oecb81'
             } else {
               div.style.color = 'red';
             }

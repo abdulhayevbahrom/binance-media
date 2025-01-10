@@ -145,7 +145,8 @@ const pnl_month = async () => {
 
 // PNL FOR ALL DATE
 const pnl_all = async () => {
-  let year_start = moment().startOf("year");
+  // let year_start = moment().startOf("year");
+  let year_start = moment("2023-01-01");
 
   // let data = await getData(pnl_endpoint, year_start, today_start);
 

@@ -978,8 +978,11 @@ async function showData_usdt_btc_eth(start_date, end_date) {
   let btc_percentage_changes = data?.btc_percentage_changes || {};
   let bnb_percentage_changes = data?.bnb_percentage_changes || {};
 
-  let labels = Object.keys(pnl_percentage_changes)?.map((value) =>
+  let labels_x = Object.keys(pnl_percentage_changes)?.map((value) =>
     moment(value).format("MM-DD")
+  );
+  let labels = Object.keys(pnl_percentage_changes)?.map((value) =>
+    moment(value).format("YYYY-MM-DD")
   );
 
   let pnl_values = Object.values(pnl_percentage_changes);
@@ -1023,7 +1026,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
   multiLineChartInstance = new Chart(multiLineCtx, {
     type: "line",
     data: {
-      labels, // Sanalar (X o'qi uchun)
+      labels: labels_x, // Sanalar (X o'qi uchun)
       datasets: [
         {
           label: "Cumulative PNL %",
@@ -1124,7 +1127,14 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           titleColor: "#444",
           bodyColor: "#444",
           callbacks: {
+            title(tooltipItems) {
+              let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+              let fullDate = labels[dateIndex]; // To'liq sanani oling (labels dan)
+              return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+            },
             label(context) {
+              console.log(context);
+
               let label = context.dataset.label || "";
               let value = context.raw || 0;
               return `${label}: ${Math.floor(value)}%`;

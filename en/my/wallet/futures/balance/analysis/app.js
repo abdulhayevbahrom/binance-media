@@ -966,12 +966,18 @@ async function showData_usdt_btc_eth(start_date, end_date) {
   let bnb_percentage_changes = data?.bnb_percentage_changes || {};
 
   let labels = Object.keys(pnl_percentage_changes)?.map((value) =>
-    moment(value).format("MM-DD")
+    moment(value).format("YYYY-MM-DD")
   );
 
   let pnl_values = Object.values(pnl_percentage_changes);
   let btc_values = Object.values(btc_percentage_changes);
   let bnb_values = Object.values(bnb_percentage_changes);
+  const formatDate = (dateString) => {
+    // Kelgan sanani 'YYYY-MM-DD' formatidan ajratib olamiz
+    const [year, month, day] = dateString?.split("-");
+    // Faqat 'MM-DD' formatini qaytaramiz
+    return `${month}-${day}`;
+  };
 
   const multiLineCtx = document
     .getElementById("multiLineChart")
@@ -1093,8 +1099,20 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           },
           ticks: {
             color: "#999",
+            // callback: function (value, inx) {
+            //   return value;
+            // },
           },
         },
+        // x: {
+        //   beginAtZero: false,
+        //   grid: {
+        //     color: "#191a1f",
+        //   },
+        //   ticks: {
+        //     color: "#999",
+        //   },
+        // },
       },
       plugins: {
         legend: {
@@ -1114,7 +1132,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
             label(context) {
               let label = context.dataset.label || "";
               let value = context.raw || 0;
-              return `${label}: ${Math.floor(value)}%`;
+              return `${label}: ${value.toFixed(2)}%`;
             },
           },
         },

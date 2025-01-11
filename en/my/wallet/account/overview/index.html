@@ -4460,7 +4460,7 @@
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
-
+      
         // Determine if the transaction is a deposit or withdrawal
         // const isDeposit = transaction?.amount > 0;
         const isDeposit = transaction?.type_name === "Withdrawal";

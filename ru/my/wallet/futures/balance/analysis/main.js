@@ -56,17 +56,16 @@ const pnl_today = async () => {
   let [title, qiymatlar] = today.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -92,17 +91,16 @@ const pnl_seven = async () => {
   let [title, qiymatlar] = seven.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -128,17 +126,16 @@ const pnl_month = async () => {
   let [title, qiymatlar] = month.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -165,17 +162,16 @@ const pnl_all = async () => {
 
   let [title, qiymatlar] = all.children;
   let [percent, usd] = qiymatlar.children;
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
-    data?.percentage || 0
-  } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
+    } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-      ? "#2ebd85"
-      : "#fff";
+        ? "#2ebd85"
+        : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -608,9 +604,9 @@ async function showData(start_date, end_date) {
             display: false,
           },
           tooltip: {
-            backgroundColor: "#333",
-            titleColor: "#fff",
-            bodyColor: "#fff",
+            backgroundColor: window.innerWidth <= 600 ? "#ffffffe3" : "#333",
+            titleColor: window.innerWidth <= 600 ? "#333" : "#fff",
+            bodyColor: window.innerWidth <= 600 ? "#333" : "#fff",
             callbacks: {
               label: function (context) {
                 return `PNL по дням: ${context.raw} USD`;
@@ -688,11 +684,9 @@ async function showData(start_date, end_date) {
 
       // Get today's date for comparison
       const today = new Date();
-      const todayDateString = `${today.getFullYear()}-${
-        today.getMonth() + 1 < 10 ? "0" : ""
-      }${today.getMonth() + 1}-${
-        today.getDate() < 10 ? "0" : ""
-      }${today.getDate()}`;
+      const todayDateString = `${today.getFullYear()}-${today.getMonth() + 1 < 10 ? "0" : ""
+        }${today.getMonth() + 1}-${today.getDate() < 10 ? "0" : ""
+        }${today.getDate()}`;
 
       // Create empty days before the first day
       for (let i = 0; i < firstDayIndex; i++) {
@@ -707,9 +701,8 @@ async function showData(start_date, end_date) {
         dayDiv.classList.add("day");
         dayDiv.innerText = day;
 
-        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${
-          day < 10 ? "0" : ""
-        }${day}`;
+        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${day < 10 ? "0" : ""
+          }${day}`;
 
         // Check if today's or a past date
         const isPastOrToday = new Date(currentDate) <= today;
@@ -759,37 +752,30 @@ async function showData(start_date, end_date) {
 
             modal.innerHTML = `
               <p style="margin-bottom:7px;">${currentDate}</p>
-              <p>Дневной PNL: <span style="color: ${
-                datas?.dayli_pnl > 0
-                  ? "#2ebd85"
-                  : datas?.dayli_pnl < 0
+              <p>Дневной PNL: <span style="color: ${datas?.dayli_pnl > 0
+                ? "#2ebd85"
+                : datas?.dayli_pnl < 0
                   ? "#e1545e"
                   : "#222"
-              };">${
-              (datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
-            } USD</span></p>
-              <p>Суммарный PNL: <span style="color: ${
-                datas?.summ_pnl > 0
-                  ? "#2ebd85"
-                  : datas?.summ_pnl < 0
+              };">${(datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
+              } USD</span></p>
+              <p>Суммарный PNL: <span style="color: ${datas?.summ_pnl > 0
+                ? "#2ebd85"
+                : datas?.summ_pnl < 0
                   ? "#e1545e"
                   : "#222"
-              };">${
-              (datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
-            } USD</span></p>
-              <p>Суммарный PNL %: <span style="color: ${
-                datas?.summ_pnl_proc > 0
-                  ? "#2ebd85"
-                  : datas?.summ_pnl_proc < 0
+              };">${(datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
+              } USD</span></p>
+              <p>Суммарный PNL %: <span style="color: ${datas?.summ_pnl_proc > 0
+                ? "#2ebd85"
+                : datas?.summ_pnl_proc < 0
                   ? "#e1545e"
                   : "#222"
-              };">${
-              (datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
-            } %</span></p>
-              <p>Суммарные переводы, нетто: <span style="color: ${
-                datas?.summ_translations > 0
-                  ? "#2ebd85"
-                  : datas?.summ_translations < 0
+              };">${(datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
+              } %</span></p>
+              <p>Суммарные переводы, нетто: <span style="color: ${datas?.summ_translations > 0
+                ? "#2ebd85"
+                : datas?.summ_translations < 0
                   ? "#e1545e"
                   : "#222"
               };">${datas?.summ_translations}</span></p>
@@ -1576,9 +1562,9 @@ async function showData_daily_comission(start_date, end_date) {
               display: false, // Legendni ko'rsatmaslik
             },
             tooltip: {
-              backgroundColor: "#333", // Tooltip zamin rangi
-              titleColor: "#fff", // Tooltip sarlavha rangi
-              bodyColor: "#fff", // Tooltip matn rangi
+              backgroundColor: window.innerWidth <= 600 ? "#ffffffe3" : "#333",
+              titleColor: window.innerWidth <= 600 ? "#333" : "#fff",
+              bodyColor: window.innerWidth <= 600 ? "#333" : "#fff",
               callbacks: {
                 label: function (context) {
                   return `Значение: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
@@ -1787,25 +1773,19 @@ async function showData_analis_tiker(start_date, end_date) {
                         ${item.ticker}
                       </div>
                     </td>
-                    <td data-label="Общий реализованный PnL">${
-                      (item.total_pnl > 0 ? "+" : "") + item.total_pnl
-                    } USDT</td>
-                    <td data-label="Общая реализованная прибыль">${
-                      (item.profit > 0 ? "+" : "") + item.profit
-                    } USDT</td>
-                    <td data-label="Общий реализованный убыток">${
-                      (item.loss > 0 ? "+" : "") + item.loss
-                    } USDT</td>
-                    <td data-label="Всего покупок">${
-                      item.total_purchases
-                    } USDT</td>
+                    <td data-label="Общий реализованный PnL">${(item.total_pnl > 0 ? "+" : "") + item.total_pnl
+          } USDT</td>
+                    <td data-label="Общая реализованная прибыль">${(item.profit > 0 ? "+" : "") + item.profit
+          } USDT</td>
+                    <td data-label="Общий реализованный убыток">${(item.loss > 0 ? "+" : "") + item.loss
+          } USDT</td>
+                    <td data-label="Всего покупок">${item.total_purchases
+          } USDT</td>
                     <td data-label="Всего продаж">${item.total_sales} USDT</td>
-                    <td data-label="Средняя цена покупки">${
-                      item.average_purchase_price
-                    } USDT</td>
-                    <td data-label="Средняя цена продажи">${
-                      item.average_selling_price
-                    } USDT</td>
+                    <td data-label="Средняя цена покупки">${item.average_purchase_price
+          } USDT</td>
+                    <td data-label="Средняя цена продажи">${item.average_selling_price
+          } USDT</td>
                 `;
         tbody.appendChild(row);
       });
@@ -1848,9 +1828,9 @@ async function showData_transaction(start_date, end_date) {
 }
 
 all_sum_komiccy_for_transaction_checkbox.onclick = (e) =>
-  (all_sum_komiccy_for_transaction.style.display = e.target.checked
-    ? "block"
-    : "none");
+(all_sum_komiccy_for_transaction.style.display = e.target.checked
+  ? "block"
+  : "none");
 
 // SHOW CHECKBOX TRANSAKTION
 let checkbox_transaktion_api = "/accounts/financing-and-transaction-fees";

@@ -3800,7 +3800,52 @@
 
                 <div id="Details" class="tab-content">
                   <div class="container-table-istory">
-                    <h3>История прибыли и убытка</h3>
+                    <h3>История прибыли и убытка
+                      <svg id="openModalBtn" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M12 21a9 9 0 100-18 9 9 0 000 18zM10.75 8.5V6h2.5v2.5h-2.5zm0 9.5v-7h2.5v7h-2.5z"></path>
+                      </svg>
+
+                      <div id="modalOver" class="modal-overlay">
+                        <div class="modalOver">
+                          <div class="modalOver_box">
+                            <button id="closeModalBtn" class="close-btn">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path
+                                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                              </svg>
+                            </button>
+                            <h2>Анализ прибыли и убытков</h2>
+                          </div>
+                          <p>
+                            Торговые издержки (например, комиссии, финансирование и сборы за ликвидацию) вычитаются из
+                            расчета прибыли и
+                            убытков.
+                            Анализ прибыли и убытков на уровне аккаунта включает транзакционную прибыль и убытки, сборы,
+                            а также
+                            нереализованную
+                            прибыль и убытки от обменного курса при хранении активов, все оценивается в долларах США.
+                          </p>
+                          <p>
+                            Из-за сложности данных и колебаний обменного курса возможна погрешность или задержка.
+                            Все данные предоставляются исключительно для справки. Мы извиняемся за возможные неудобства.
+                          </p>
+                          <p><strong>Ежедневная PNL</strong><br> Общая прибыль и убытки за день.</p>
+                          <p><strong>Накопленная PNL</strong><br> Сумма ежедневной прибыли и убытков с
+                            первого дня до текущего дня.
+                          </p>
+                          <p>
+                            <strong>Накопленной PNL %</strong><br>
+                            = Накопленная прибыль и убытки / (начальный баланс кошелька на первый день + средний
+                            ежедневный накопленный
+                            чистый перевод с первого дня до текущего дня). Результат может быть N/A в некоторых
+                            экстремальных сценариях.
+                          </p>
+                          <p><strong>Чистый перевод</strong></p>
+                        </div>
+                      </div>
+
+                    </h3>
                     <table>
                       <thead>
                         <tr>
@@ -4118,6 +4163,50 @@
       });
 
       button.classList.toggle("active");
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Elementlarni olish
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('modalOver');
+    const wrapper = document.querySelector('body'); // Make sure this targets the correct wrapper
+
+    // Modalni ochish funksiyasi
+    openModalBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      wrapper.style.overflow = 'hidden';  // Disable scrolling
+    });
+
+    // Modalni yopish funksiyasi
+    closeModalBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      wrapper.style.overflow = 'auto';  // Enable scrolling again
+    });
+
+    // Modalni tashqi qismiga bosilganda yopish
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        wrapper.style.overflow = 'auto';  // Enable scrolling again
+      }
     });
 
   </script>

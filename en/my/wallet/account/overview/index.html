@@ -4460,9 +4460,11 @@
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
-
+      
         // Determine if the transaction is a deposit or withdrawal
-        const isDeposit = transaction?.amount > 0;
+        // const isDeposit = transaction?.amount > 0;
+        const isDeposit = transaction?.type_name === "Withdrawal";
+
         const icon = isDeposit ?
           `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>

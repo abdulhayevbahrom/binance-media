@@ -2059,7 +2059,7 @@ button {
 .futures-balance__head-option {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 10px;
   font-weight: 400;
   font-size: 16px;
@@ -2145,13 +2145,13 @@ button {
 .futures-balance__pnl-tooltip:hover .futures-balance__pnl-tooltip-text,
 .futures-balance__pnl-tooltip:hover .futures-balance__pnl-tooltip-text--arrow {
   display: none;
-  z-index: -1;
+  z-index: 5;
   opacity: 0;
 }
 
 .futures-balance__pnl-tooltip-text {
   position: relative;
-  z-index: -1;
+  z-index: 10 !important;
   transition-duration: 250ms;
   transition-property: opacity, visibility;
   transition-timing-function: ease-in-out;
@@ -5420,6 +5420,7 @@ button {
   font-size: 12px;
   line-height: 16px;
   cursor: pointer;
+  color: #848e9c;
 }
 
 .select__option:hover {
@@ -5427,7 +5428,7 @@ button {
 }
 
 .select__option.selected {
-  color: var(--color-textBrand);
+  color: #fff;
 }
 
 .order-select {

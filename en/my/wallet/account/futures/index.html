@@ -6564,11 +6564,11 @@
         );
         const selectedValue = localStorage.getItem("selected_currency");
 
-         if (selectedValue) {
-        updateSelectedCurrencyOption(selectedValue);
-      } else {
-        updateSelectedCurrencyOption("usdt");
-      }
+        if (selectedValue) {
+          updateSelectedCurrencyOption(selectedValue);
+        } else {
+          updateSelectedCurrencyOption("usdt");
+        }
 
         let margin_b = convertBalance(selectedValue, marginBalance)?.balance;
         let balance_v = convertBalance(selectedValue, balance)?.balance;
@@ -7069,7 +7069,11 @@
                   }
 
                   if (context.tooltip.body) {
-                    tooltipEl.innerHTML = `<div>2024-${context.tooltip.dataPoints[0].label}</div> <div>Value: ${context.tooltip.body[0].lines[0]} USD</div>`;
+                    tooltipEl.innerHTML = `<div>${new Date().getFullYear()}-${
+                      context.tooltip.dataPoints[0].label
+                    }</div> <div>Value: ${
+                      context.tooltip.body[0].lines[0]
+                    } USD</div>`;
                   }
 
                   const position = context.chart.canvas.getBoundingClientRect();

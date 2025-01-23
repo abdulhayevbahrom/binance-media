@@ -61,8 +61,67 @@ body {
   margin: 10px 0;
 }
 
+.multiLineChart_legend div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+  .multiLineChart_legend div {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    user-select: none;
+  }
+}
+
 .multiLineChart_legend {
-  display: none;
+  width: 300px;
+  margin: 0 auto;
+  user-select: none;
+  /* width: 400px; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 67%;
+}
+
+.multiLineChart_legend p {
+  position: relative;
+  padding-left: 20px;
+  font-size: 12px;
+  color: #848e9c;
+}
+
+.multiLineChart_legend p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 12px;
+  height: 2px;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 50px;
+}
+
+.multiLineChart_legend div p:nth-child(1)::before {
+  background-color: #f3b60f;
+  /* Birinchi nuqta rang */
+}
+
+.multiLineChart_legend div p:nth-child(2)::before {
+  background-color: #005eda;
+  /* Ikkinchi nuqta rang */
+}
+
+.multiLineChart_legend>p::before {
+  background-color: #ff7700;
+  /* Uchinchi nuqta rang */
 }
 
 .chart-container {
@@ -175,12 +234,16 @@ canvas {
 }
 
 .wrapper_header button {
-  padding: 10px 20px;
+  padding: 8px 13px;
   border-radius: 10px;
   border: none;
   background-color: #283239;
   cursor: pointer;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 
 .usd_coin {

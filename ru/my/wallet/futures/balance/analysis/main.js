@@ -893,7 +893,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
             backgroundColor: "transparent",
             pointBackgroundColor: "yellow",
             pointBorderColor: "yellow",
-            fill: false,
+            fill: true, // Grafika to'ldirish
             tension: 0,
             pointRadius: 7, // Nuqtalar olib tashlanadi
             pointHoverRadius: 7, // Faqat hover qilinganda ko'rsatiladi
@@ -940,14 +940,14 @@ async function showData_total_pnl_by_days(start_date, end_date) {
 
         plugins: {
           legend: {
+            display: false,  // Legenda ko'rsatilmaydi
             labels: {
-              display: true, // Legenda ko'rsatilmaydi
               usePointStyle: true, // Doira shaklidagi rangli belgilar
               pointStyle: "line", // Chiziqli doira shakli
               padding: 30, // Har bir element orasidagi bo'shliq
               color: "#fff",
             },
-            position: "bottom", //
+            position: "bottom",
 
           },
 
@@ -989,6 +989,9 @@ async function showData_total_pnl_by_days(start_date, end_date) {
         },
       },
     });
+
+
+
   }
 }
 
@@ -1161,7 +1164,8 @@ async function showData_usdt_btc_eth(start_date, end_date) {
 
       plugins: {
         legend: {
-          display: window.innerWidth > 550, // Media query asosida
+          // display: window.innerWidth > 550, // Media query asosida
+          display: false, // Media query asosida
           labels: {
             color: "#fff",
             usePointStyle: true,
@@ -1203,11 +1207,6 @@ async function showData_usdt_btc_eth(start_date, end_date) {
         intersect: false,
       },
     },
-  });
-  window.addEventListener("resize", () => {
-    multiLineChartInstance.options.plugins.legend.display =
-      window.innerWidth > 550;
-    multiLineChartInstance.update();
   });
 }
 

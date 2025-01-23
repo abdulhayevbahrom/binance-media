@@ -942,6 +942,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
 
         plugins: {
           legend: {
+            display: false, // Legenda ko'rsatilmaydi
             labels: {
               display: true, // Legenda ko'rsatilmaydi
               usePointStyle: true, // Doira shaklidagi rangli belgilar
@@ -1163,7 +1164,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       },
       plugins: {
         legend: {
-          display: window.innerWidth > 550, // Media query asosida
+          display: false, // Media query asosida
           labels: {
             color: "#fff",
             usePointStyle: true,
@@ -1207,11 +1208,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       },
     },
   });
-  window.addEventListener("resize", () => {
-    multiLineChartInstance.options.plugins.legend.display =
-      window.innerWidth > 550;
-    multiLineChartInstance.update();
-  });
+
 }
 
 // --------------------------------------
@@ -1697,7 +1694,7 @@ async function showData_daily_comission(start_date, end_date) {
                   return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
                 },
                 label: function (context) {
-                  return `Value: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
+                  return `Funding Fee: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
                 },
               },
             },

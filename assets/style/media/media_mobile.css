@@ -1,12 +1,12 @@
 /* media */
 .tooltip-main_bottom {
-  border-bottom: 1px dashed #555;
-  width: 136px;
+  border-bottom: 1.5px dashed #dbdbdb;
+  width: 130px;
 }
 
 .tooltip-main_bottom_en {
-  border-bottom: 1px dashed #555;
-  width: 120px;
+  border-bottom: 1.5px dashed #dbdbdb;
+  width: 92px;
 }
 
 .selectDates>p {

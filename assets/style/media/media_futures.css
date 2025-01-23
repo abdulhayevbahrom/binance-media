@@ -25,6 +25,29 @@
     box-sizing: border-box;
   }
 
+  .order-tab {
+    padding: 0px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+  }
+
+  .order-tab button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    padding: 4px;
+    height: 28px;
+    min-width: 70px;
+    border-radius: 8px;
+    color: var(--color-textThird);
+    transition: all 0.25s;
+  }
+
   .order-filters-mobile_fu {
     display: block;
     display: flex;
@@ -99,9 +122,9 @@
   }
 
   .position__detail .label {
-    font-size: 16px !important;
+    font-size: 14px !important;
     color: #bcbdc1;
-    line-height: 17.6px;
+    line-height: 22px;
     font-weight: normal;
   }
 

@@ -3498,7 +3498,7 @@
       <div class="main_analysis" id="main_4454">
 
         <div class="back-btn">
-          <a href="#">
+          <a href="/ru/my/wallet/account/futures">
             <span onclick="goBack()" class="back-btn-icon">
               <svg class="back-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3815,7 +3815,7 @@
                                   d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
                               </svg>
                             </button>
-                            <h2>Анализ прибыли и убытков</h2>
+                            <h2>Анализ прибыли и убытка</h2>
                           </div>
                           <p>
                             Торговые издержки (например, комиссии, финансирование и сборы за ликвидацию) вычитаются из
@@ -3830,8 +3830,8 @@
                             Из-за сложности данных и колебаний обменного курса возможна погрешность или задержка.
                             Все данные предоставляются исключительно для справки. Мы извиняемся за возможные неудобства.
                           </p>
-                          <p><strong>Ежедневная PNL</strong><br> Общая прибыль и убытки за день.</p>
-                          <p><strong>Накопленная PNL</strong><br> Сумма ежедневной прибыли и убытков с
+                          <p><strong>PNL по дням(USD)</strong><br> Общая прибыль и убытки за день.</p>
+                          <p><strong>Совокупный PNL(USD)</strong><br> Сумма ежедневной прибыли и убытков с
                             первого дня до текущего дня.
                           </p>
                           <p>
@@ -3849,12 +3849,37 @@
                     <table>
                       <thead>
                         <tr>
-                          <th>Дата</th>
-                          <th>PNL по дням(USD)</th>
-                          <th>Совокупный PNL(USD)</th>
-                          <th>Совокупный PNL %</th>
-                          <th>Сумма переводов, нетто(USD)</th>
-                          <th>Объем торгов</th>
+                          <th class="container-table-istory_table_th">
+                            <p>Дата</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">Общая PNL за день.</span>
+                            <p>PNL по дням(USD)</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">
+                              Сумма прибыли и убытков за каждый день с
+                              1-го до N-го дня.
+                            </span>
+                            <p>Совокупный PNL(USD)</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">= Совокупный PnL / (начальный баланс кошелька в 1-й день + средний
+                              объем чистого перевода средств за день с 1-го дня по
+                              №-й день). В некоторых экстремальных сценариях результат может быть N/A.</span>
+                            <p>Совокупный PNL %</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">= Совокупная сумма пополнения
+                              фьючерсного кошелька в течение дня Совокупная сумма выведенных средств с -
+                              фьючерсного кошелька в течение дня</span>
+                            <p>Сумма переводов, нетто(USD)</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">Чистый перевод</span>
+                            <p>Объем торгов</p>
+
+                          </th>
                         </tr>
                       </thead>
                       <tbody id="details_table_body">
@@ -4122,7 +4147,6 @@
   <script src="../../../../../../assets/style/media/media.js"></script>
   <script src="../../../../../../assets/search-service.js"></script>
   <script src="../../../../../../assets/sidebar-service.js"></script>
-  <script src="./analysis/app.js"></script>
   <script src="./main.js"></script>
 
   <!---------Tooltip----------->

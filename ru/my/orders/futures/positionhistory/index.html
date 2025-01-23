@@ -3508,9 +3508,10 @@
 
 
           <button>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+            <svg width="24" height="24" viewBox="0 0 24 25" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z" />
+                d="M19 4.5H5C4.44772 4.5 4 4.94772 4 5.5V7.08579C4 7.351 4.10536 7.60536 4.29289 7.79289L9.70711 13.2071C9.89464 13.3946 10 13.649 10 13.9142V19.882C10 20.6253 10.7823 21.1088 11.4472 20.7764L13.4472 19.7764C13.786 19.607 14 19.2607 14 18.882V13.9142C14 13.649 14.1054 13.3946 14.2929 13.2071L19.7071 7.79289C19.8946 7.60536 20 7.351 20 7.08579V5.5C20 4.94772 19.5523 4.5 19 4.5Z"
+                fill="#707A8A" />
             </svg>
           </button>
 
@@ -3709,22 +3710,22 @@
 
         if (transaction.party.toLowerCase().endsWith('шорт')) {
           row.classList.add('position--short');
-          party = 'шорт'
+          party = 'Шорт'
         } else if (transaction.party.toLowerCase().endsWith('лонг')) {
-          party = 'лонг'
+          party = 'Лонг'
           row.classList.add('position--long');
         }
 
-         function formatTimestamp(timestamp) {
-            const date = new Date(timestamp);
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, "0");
-            const day = String(date.getDate()).padStart(2, "0");
-            const hours = String(date.getHours()).padStart(2, "0");
-            const minutes = String(date.getMinutes()).padStart(2, "0");
-            const seconds = String(date.getSeconds()).padStart(2, "0");
-            return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
-          }
+        function formatTimestamp(timestamp) {
+          const date = new Date(timestamp);
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, "0");
+          const day = String(date.getDate()).padStart(2, "0");
+          const hours = String(date.getHours()).padStart(2, "0");
+          const minutes = String(date.getMinutes()).padStart(2, "0");
+          const seconds = String(date.getSeconds()).padStart(2, "0");
+          return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+        }
 
 
         row.innerHTML = `
@@ -3733,7 +3734,7 @@
                       <img src="../../../../../assets/img/currencies/bitcoin.svg" alt="Bitcoin" class="position__icon">
                       <span class="position__pair">${transaction.ticker}</span>
                   </div>
-                  <div class="position__type">Изолированная <span class="${transaction.party.toLowerCase().endsWith('шорт') ? 'position__type--short' : 'position__type--long'}">${party}</span></div>
+                  <div class="position__type">Изолированная <span class="${transaction.party.toLowerCase().endsWith('орт') ? 'position__type--short' : 'position__type--long'}">${party}</span></div>
                   <span class="position__status">Закрыто</span>
               </div>
               <div class="position__details">
@@ -3757,10 +3758,10 @@
                     <span class="label">Цена входа</span> ${formatter.format(transaction.open_price)} USDT
                   </div>
                 
-                  <div class="position__detail">
-                    <p class="position__detail-tooltip-text">Прибыль или убыток по позиции.</p>
+                <div class="position__detail">
+                    <p class="position__detail-tooltip-text">Средняя цена, по которой была закрыта позиция</p>
                     <div class="position__detail-tooltip-text--arrow"></div>
-                    <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">${(+transaction.pnl).toFixed(2)} USDT</span>
+                    <span class="label">Сред. цена закрытия</span> ${formatter.format(transaction.close_price)} USDT
                   </div>
                 </div>
                  
@@ -3770,17 +3771,19 @@
                     <div class="position__detail-tooltip-text--arrow"></div>
                     <span class="label">Макс. сумма открытых позиций</span> ${transaction.open_btc_amount} BTC
                   </div>
-                  <div class="position__detail">
-                    <p class="position__detail-tooltip-text">Средняя цена, по которой была закрыта позиция</p>
-                    <div class="position__detail-tooltip-text--arrow"></div>
-                    <span class="label">Сред. цена закрытия</span> ${formatter.format(transaction.close_price)} USDT
-                  </div>
-                </div>
-                <div>  
-                  <div class="position__detail">
+                  
+                   <div class="position__detail">
                     <p class="position__detail-tooltip-text">Общий объем закрытых позиций за время жизни позиции.</p>
                     <div class="position__detail-tooltip-text--arrow"></div>
                     <span class="label">Объем после закрытия позиций</span> ${transaction.close_btc_amount} BTC
+                  </div>
+                </div>
+                <div>  
+                 
+                     <div class="position__detail">
+                    <p class="position__detail-tooltip-text">Прибыль или убыток по позиции.</p>
+                    <div class="position__detail-tooltip-text--arrow"></div>
+                    <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">${(+transaction.pnl).toFixed(2)} USDT</span>
                   </div>
                 <div id="position__detail-closed">
                   <div class="position__detail">

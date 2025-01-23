@@ -14,9 +14,10 @@
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/media/footer_media.css " />
 
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -3906,9 +3907,10 @@
                       d="M12 21a9 9 0 100-18 9 9 0 000 18zM10.75 8.5V6h2.5v2.5h-2.5zm0 9.5v-7h2.5v7h-2.5z"
                       fill="currentColor"></path>
                   </svg>
-                  <p class="balance__pnl-tooltip-text">PnL today = current total assets - initial total assets for today
-                    - net deposits and transfers. This information is for reference only. Absolute accuracy of the data
-                    is not guaranteed.</p>
+                  <p class="balance__pnl-tooltip-text">"Today's PnL = Current asset total - Today's initial asset total
+                    -
+                    Today's not transfer and deposit. The date is only for your reference, there is no guarantee that
+                    the date is absolutely accurate."</p>
                   <div class="balance__pnl-tooltip-text--arrow"></div>
                 </i>
                 <span class="balance__pnl balance-pnl"></span>
@@ -4008,6 +4010,10 @@
                           </div>
                         </td>
                         <td>
+                          <!-- <div class="text">
+                            <span class="balance-value"></span>
+                            <span class="subname balance-equivalent--not-equally"></span>
+                          </div> -->
                           <div class="text">
                             <span class="balance-value"></span>
                             <span class="subname balance-equivalent--not-equally"></span>
@@ -4050,6 +4056,8 @@
                             <span class="holdings--mobile__title balance-value"></span>
                             <span class="holdings--mobile__subtitle balance-equivalent--not-equally"></span>
                           </div>
+
+
 
                           <div class="action">
                             <button>
@@ -4099,9 +4107,13 @@
                           USDⓈ-M Futures
                         </td>
                         <td>
-                          <div class="text">
+                          <!-- <div class="text">sssss
                             <span class="balance-value">101.01</span>
                             <span class="subname balance-equivalent--not-equally">$102.0201</span>
+                          </div> -->
+                          <div class="text">
+                            <span class="balance-value"></span>
+                            <span class="subname balance-equivalent--not-equally"></span>
                           </div>
                         </td>
                         <td>100.00%</td>
@@ -4172,8 +4184,8 @@
                         </div>
                         <div class="holdings--mobile__right">
                           <div class="holdings--mobile__text">
-                            <span class="holdings--mobile__title">101.01</span>
-                            <span class="holdings--mobile__subtitle">$102.0201</span>
+                            <span class="balance-value"></span>
+                            <span class="subname balance-equivalent--not-equally"></span>
                           </div>
                           <div class="action">
                             <button>
@@ -4460,32 +4472,31 @@
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
-      
-        // Determine if the transaction is a deposit or withdrawal
-        // const isDeposit = transaction?.amount > 0;
-        const isDeposit = transaction?.type_name === "Withdrawal";
 
-        const icon = isDeposit ?
-          `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>
-          </svg>
-          ` :
-          `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"  fill="#fff"></path>
-       </svg>`;
+        // Determine if the transaction is a deposit or withdrawal
+        const isDeposit = transaction?.type_name === "Replenishment"; // "Replenishment" is a deposit
+
+        const icon = isDeposit
+          ? `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>
+             </svg>`
+          : `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z" fill="#fff"></path>
+             </svg>`;
 
         row.innerHTML = `
-      <td class="transaction-body_title">
-        ${icon} ${isDeposit ? 'Deposit' : 'Withdraw'} USDT
-      </td>
-      <td>${isDeposit ? '+' : ''}${transaction?.amount.toFixed(2)}</td>
-      <td>${formatTimestamp(transaction?.timestamp)}</td>
-      <td>Completed</td>
-    `;
+          <td class="transaction-body_title">
+            ${icon} ${isDeposit ? 'Deposit' : 'Withdrawal'} USDT
+          </td>
+          <td>${isDeposit ? '+' : '-'}${transaction?.amount.toFixed(2)}</td>
+          <td>${formatTimestamp(transaction?.timestamp)}</td>
+          <td>Completed</td>
+        `;
 
         tbody.appendChild(row);
       });
     }
+
 
     const expandButton = document.querySelector('.balance__expand-button');
     const balanceSection = document.querySelector('.balance');

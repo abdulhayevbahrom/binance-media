@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -3576,7 +3576,7 @@
             </div>
           </div>
           <div class="chart-filter-buttons">
-            <button class="chart-filter-button active" data-period="7">1W</button>
+            <button class="chart-filter-button active" data-period="7">1Д</button>
             <button class="chart-filter-button" data-period="30">1M</button>
             <button class="chart-filter-button" data-period="90">3M</button>
             <button class="chart-filter-button" data-period="180">6M</button>
@@ -3595,7 +3595,7 @@
             <div class="tab" id="tab-1">
               <div class="tab-nav">
                 <button type="button" class="tab-btn tab-btn-active" data-target-id="0">Монеты</button>
-                <button type="button" class="tab-btn" data-target-id="1">Кошельки</button>
+                <button type="button" class="tab-btn" data-target-id="1">Просмотр учетной записи</button>
               </div>
               <div class="holdings__controls">
                 <div class="holdings__search">
@@ -3801,8 +3801,8 @@
                         </div>
                         <div class="holdings--mobile__right">
                           <div class="holdings--mobile__text">
-                            <span class="holdings--mobile__title">101,01</span>
-                            <span class="holdings--mobile__subtitle">$102.0201</span>
+                            <span class="balance-value"></span>
+                            <span class="subname balance-equivalent--not-equally"></span>
                           </div>
                           <div class="action">
                             <button>
@@ -4062,39 +4062,71 @@
     } catch (error) {
       console.error(error);
     }
+    // function populateTable(transactions) {
+    //   const tbody = document.querySelector('#transaction-body');
+    //   // Clear the table body before adding new rows
+    //   tbody.innerHTML = '';
+
+    //   transactions?.forEach(transaction => {
+    //     const row = document.createElement('tr');
+
+    //     // Determine if the transaction is a deposit or withdrawal
+    //     // const isDeposit = transaction?.amount > 0;
+    //     const isDeposit = transaction?.type_name === "Withdrawal";
+    //     const icon = isDeposit ?
+    //       `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
+    //       <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>
+    //       </svg>
+    //       ` :
+    //       `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    //      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"  fill="#fff"></path>
+    //    </svg>`;
+
+    //     row.innerHTML = `
+    //   <td class="transaction-body_title">
+    //     ${icon} ${isDeposit ? 'Ввод' : 'Вывод'} USDT
+    //   </td>
+    //   <td>${isDeposit ? '+' : ''}${transaction?.amount.toFixed(2)}</td>
+    //   <td>${formatTimestamp(transaction?.timestamp)}</td>
+    //   </td><td>Завершено</td>
+    // `;
+
+    //     tbody.appendChild(row);
+    //   });
+    // }
+
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
-      // Clear the table body before adding new rows
+      // Очистка тела таблицы перед добавлением новых строк
       tbody.innerHTML = '';
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
 
-        // Determine if the transaction is a deposit or withdrawal
-        // const isDeposit = transaction?.amount > 0;
-        const isDeposit = transaction?.type_name === "Withdrawal";
-        const icon = isDeposit ?
-          `<svg viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>
-          </svg>
-          ` :
-          `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z"  fill="#fff"></path>
-       </svg>`;
+        // Определяем тип транзакции
+        const isDeposit = transaction?.type_name === "Replenishment"; // Проверка на тип "Replenishment" для Ввода
+        const icon = isDeposit
+          ? `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 3.5H10.5V10.45L10.197 10.447L6.038 10.487L12.013 16.463L17.988 10.488L13.812 10.478L13.5 10.476V3.5ZM3.5 14.5H6.5V18.5H17.5V14.5H20.5V21.5H3.5V14.5Z" fill="#fff"/>
+             </svg>`
+          : `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 15.963h3V8.987l.312-.003 4.176-.01L12.013 3 6.038 8.975l4.159.04.303-.002v6.95zM6.5 14h-3v7h17v-7h-3v4h-11v-4z" fill="#fff"></path>
+             </svg>`;
 
+        // Заполнение строки таблицы
         row.innerHTML = `
-      <td class="transaction-body_title">
-        ${icon} ${isDeposit ? 'Ввод' : 'Вывод'} USDT
-      </td>
-      <td>${isDeposit ? '+' : ''}${transaction?.amount.toFixed(2)}</td>
-      <td>${formatTimestamp(transaction?.timestamp)}</td>
-      </td><td>Завершено</td>
-    `;
+          <td class="transaction-body_title">
+            ${icon} ${isDeposit ? 'Ввод' : 'Вывод'} USDT
+          </td>
+          <td>${isDeposit ? '+' : '-'}${transaction?.amount.toFixed(2)}</td>
+          <td>${formatTimestamp(transaction?.timestamp)}</td>
+          <td>Завершено</td>
+        `;
 
+        // Добавляем строку в тело таблицы
         tbody.appendChild(row);
       });
     }
-
     const expandButton = document.querySelector('.balance__expand-button');
     const balanceSection = document.querySelector('.balance');
     const filterButtonsContainer = document.querySelector('.chart-filter-buttons');
@@ -4149,7 +4181,8 @@
     const lineChart = document.getElementById("wallet-balance-chart").getContext("2d");
     const previewLineChart = document.getElementById("wallet-balance-preview-chart").getContext("2d");
 
-    const gradient = lineChart.createLinearGradient(0, 0, 0, 400);
+    const gradientHeight = window.innerWidth <= 500 ? 130 : 400;
+    const gradient = lineChart.createLinearGradient(0, 0, 0, gradientHeight);
     gradient.addColorStop(0, "#565446");
     gradient.addColorStop(1, "#181a1f");
 

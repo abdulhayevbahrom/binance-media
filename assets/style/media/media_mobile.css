@@ -279,8 +279,10 @@
   }
 
   .tabs button.active {
-    font-weight: bold;
-    color: #fff;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: 500;
+    color: #eaecef;
   }
 
   .tabs button.active::before {
@@ -351,10 +353,12 @@
 
   .container-table-istory>h3 {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 540;
     margin-bottom: 25px;
+
     line-height: 24px;
-    font-size: 16;
+    font-size: 16px;
+    color: #eaecef;
   }
 
   /* ============================= */
@@ -437,11 +441,13 @@
     text-align: right;
     width: 100%;
     position: relative;
-    font-size: 14px;
-    font-weight: 300;
+    font-weight: 560;
     padding: 6px;
     border: none;
-    color: #ffffffe6;
+
+    font-size: 16px !important;
+    line-height: 24px !important;
+    color: #eaecef !important;
   }
 
   .dayOf_details {
@@ -449,6 +455,7 @@
     margin-left: -5px;
     line-height: 24px;
     font-size: 16px;
+    font-weight: 550;
     color: #eaecef;
   }
 
@@ -528,12 +535,12 @@
     position: absolute;
     left: 5px;
     top: auto;
-    font-weight: bold;
     color: #848e9c;
     white-space: nowrap;
     z-index: 10;
     font-size: 14px;
     font-weight: 300;
+    line-height: 22px;
   }
 
   .summary-commission {
@@ -765,7 +772,8 @@
   }
 
   .day-value {
-    font-size: 11px !important;
+    font-size: 10px !important;
+    line-height: 16px;
   }
 
   .tabs {
@@ -776,10 +784,12 @@
   .tabs::-webkit-scrollbar {
     display: block;
     height: 0px;
+    width: 0;
   }
 
+
   .tabs::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #88888800;
     border-radius: 4px;
   }
 

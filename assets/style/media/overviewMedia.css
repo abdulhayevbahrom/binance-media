@@ -66,7 +66,7 @@
     }
 
     .wallet-balance-chart__labels {
-      top: 120px !important;
+      top: 137px !important;
     }
 
 
@@ -92,7 +92,7 @@
   }
 
   .wallet-balance-chart__labels {
-    top: 124px !important;
+    top: 134px !important;
     bottom: auto !important;
     width: 97% !important;
   }

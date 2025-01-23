@@ -81,7 +81,7 @@
         td {
           display: block;
           text-align: right;
-          /* padding-left: 50%; */
+          line-height: 22px !important;
           position: relative;
 
           * {
@@ -90,11 +90,12 @@
           }
 
           &::before {
-            color: #999;
-
+            color: #b7bdc6;
+            font-size: 14px;
             content: attr(data-label);
             position: absolute;
             left: 0;
+            line-height: 22px !important;
             width: 50%;
             padding-left: 10px;
             text-align: left;
@@ -180,10 +181,14 @@
 
         td {
           padding: 7px 5px;
+
         }
 
         td:nth-child(2) {
-          font-weight: 900;
+          font-weight: 500;
+          color: #eaecef;
+          font-size: 16px;
+          line-height: 24px;
         }
       }
     }

@@ -6,9 +6,6 @@
   display: none;
 }
 
-.futures-balance__head-list_mobile {
-  display: none;
-}
 
 /* media */
 @media screen and (max-width: 950px) {
@@ -88,9 +85,9 @@
 
 
   .futures-balance__head>h3 {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 24px;
+    font-size: 18px;
+
+    line-height: 26px;
   }
 
   .futures-balance__items {
@@ -463,6 +460,7 @@
   }
 }
 
+
 @media screen and (max-width: 650px) {
 
   /* Futures Balance Styles */
@@ -563,13 +561,6 @@
     /* background-color: rgb(41, 32, 30); */
   }
 
-  .futures-balance__head-list {
-    display: none;
-  }
-
-  .futures-balance__head-list_mobile {
-    display: block;
-  }
 
   .futures-balance__head-more-button {
     box-sizing: border-box;

@@ -3875,7 +3875,7 @@
       <!-- SIDEBAR END -->
       <div class="main_analysis" id="main_4454">
         <div class="back-btn">
-          <a href="#">
+          <a href="/en/my/wallet/account/futures">
             <span onclick="goBack()" class="back-btn-icon">
               <svg class="back-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3950,7 +3950,7 @@
                 </div>
 
                 <div class="usd_coin_container_item">
-                  <p data-tooltip="Net profit/loss since the account was created. Note: Data is available starting from August 2020."
+                  <p data-tooltip="Net profit/loss since the account was created. Note: Only data from 2020 Aug onwards is available."
                     class="usd_coin_container_item_title tooltip-main tooltip-main_bottom_en">
                     Lifetime PNL
                   </p>
@@ -4205,7 +4205,7 @@
                             delay. All data is for
                             reference only. We are sorry for any inconvenience caused.
                           </p>
-                          <p><strong>Daily PNL</strong> <br> Total profit and loss within the day.</p>
+                          <p><strong>Daily PNL</strong> <br>Total profit and loss within the day.</p>
                           <p><strong>Cumulative PNL</strong><br> The sum of Daily Profit and Loss from Day 1 to Day N.
                           </p>
                           <p>
@@ -4223,13 +4223,37 @@
                     </h3>
                     <table>
                       <thead>
+
                         <tr>
-                          <th>Date</th>
-                          <th>Daily PNL</th>
-                          <th>Cumulative PNL</th>
-                          <th>Cumulative PNL %</th>
-                          <th>Net Transfer</th>
-                          <th>Trading Volume</th>
+                          <th class="container-table-istory_table_th">
+                            <p>Date</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">Total Daily PNL.</span>
+                            <p>Daily PNL</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">
+                              The total profit and loss amount for each day from Day 1 to Day N.
+                            </span>
+                            <p>Cumulative PNL</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">= Cumulative PNL / (initial wallet balance on Day 1 + average daily
+                              net transfer volume from
+                              Day 1 to Day N). In some extreme scenarios, the result may be N/A.</span>
+                            <p>Cumulative PNL %</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">= Total amount of deposit into the futures wallet during the day
+                              minus the total amount
+                              withdrawn from the futures wallet during the day</span>
+                            <p>Net Transfer Amount (USD)</p>
+                          </th>
+                          <th class="container-table-istory_table_th">
+                            <span class="title_th">Net Transfer</span>
+                            <p>Trading Volume</p>
+                          </th>
                         </tr>
                       </thead>
                       <tbody id="details_table_body">

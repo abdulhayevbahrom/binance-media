@@ -551,6 +551,9 @@ async function showData(start_date, end_date) {
     let keys = Object.keys(data?.daily_pnl).map((value) =>
       moment(value).format("MM-DD")
     );
+    let keys_x = Object.keys(data?.daily_pnl).map((value) =>
+      moment(value).format("YYYY-MM-DD")
+    );
 
     const ctx = document.getElementById("pnlChart").getContext("2d");
 
@@ -578,25 +581,32 @@ async function showData(start_date, end_date) {
         ],
       },
       options: {
+
         scales: {
           y: {
             beginAtZero: false,
             grid: {
-              color: "#444",
+              color: "#181e25", // Цвет сетки для оси Y
             },
             ticks: {
-              color: "#999",
+              color: "#848e9c", // Цвет меток оси Y
+              font: {
+                size: 13, // Размер шрифта меток оси Y
+                family: "BinancePlex", // Y o'qi uchun shrift turi
+              },
             },
           },
           x: {
             grid: {
-              color: "#191a1f",
+              color: "transparent", // Унаследовать или установить прозрачный цвет для сетки оси X
             },
             ticks: {
-              color: "#999",
+              color: "#848e9c", // Цвет меток оси X
+              font: {
+                size: 13, // Размер шрифта меток оси X
+                family: "BinancePlex", // Y o'qi uchun shrift turi
+              },
             },
-            barPercentage: 0.7, // Ustun kengligi
-            categoryPercentage: 0.5, // Kategoriya bo'shlig'i
           },
         },
         plugins: {
@@ -604,10 +614,26 @@ async function showData(start_date, end_date) {
             display: false,
           },
           tooltip: {
-            backgroundColor: window.innerWidth <= 600 ? "#ffffffe3" : "#333",
-            titleColor: window.innerWidth <= 600 ? "#333" : "#fff",
-            bodyColor: window.innerWidth <= 600 ? "#333" : "#fff",
+            backgroundColor: "#ffffffe3",
+            titleColor: "#333",
+            bodyColor: "#333",
+            caretSize: 0, // Tooltip uchburchagini yashirish
+            cornerRadius: 10, // Tooltipning burchaklariga radius berish
+            displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
+            titleFont: {
+              size: 14, // Sarlavha shrift o‘lchami 
+              weight: "400", // Sarlavha shrift qalinligi (normal) 
+              family: "BinancePlex",
+            },
+            bodyFont: {
+              family: "BinancePlex",
+            },
             callbacks: {
+              title(tooltipItems) {
+                let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+                let fullDate = keys_x[dateIndex]; // To'liq sanani oling (labels dan)
+                return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+              },
               label: function (context) {
                 return `Daily PNL: ${context.raw} USD`;
               },
@@ -753,28 +779,28 @@ async function showData(start_date, end_date) {
 
             modal.innerHTML = `
               <p style="margin-bottom:7px;">${currentDate}</p>
-              <p>Daily PNL : <span style="color: ${datas?.dayli_pnl > 0
+              <p>Daily PNL: <span style="color: ${datas?.dayli_pnl > 0
                 ? "#2ebd85"
                 : datas?.dayli_pnl < 0
                   ? "#e1545e"
                   : "#222"
               };">${(datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
               } USD</span></p>
-              <p>Total PNL: <span style="color: ${datas?.summ_pnl > 0
+              <p>Cumulative PNL: <span style="color: ${datas?.summ_pnl > 0
                 ? "#2ebd85"
                 : datas?.summ_pnl < 0
                   ? "#e1545e"
                   : "#222"
               };">${(datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
               } USD</span></p>
-              <p>Total PNL %: <span style="color: ${datas?.summ_pnl_proc > 0
+              <p>Cumulative PNL %: <span style="color: ${datas?.summ_pnl_proc > 0
                 ? "#2ebd85"
                 : datas?.summ_pnl_proc < 0
                   ? "#e1545e"
                   : "#222"
               };">${(datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
               } %</span></p>
-              <p>Total Transfers, Net: <span style="color: ${datas?.summ_translations > 0
+              <p>Net Transfer: <span style="color: ${datas?.summ_translations > 0
                 ? "#2ebd85"
                 : datas?.summ_translations < 0
                   ? "#e1545e"
@@ -822,6 +848,8 @@ async function showData_total_pnl_by_days(start_date, end_date) {
   if (data) {
     let values = Object.values(data);
     let keys = Object.keys(data).map((value) => moment(value).format("MM-DD"));
+    let keys_x = Object.keys(data).map((value) => moment(value).format("YYYY-MM-DD"));
+
 
     const usdtCtx = document.getElementById("usdtChart").getContext("2d");
     // Agar eski diagramma mavjud bo'lsa, uni yo'q qilamiz
@@ -888,21 +916,30 @@ async function showData_total_pnl_by_days(start_date, end_date) {
           y: {
             beginAtZero: false,
             grid: {
-              color: "#444", // Y o'qi uchun grid rangi
+              color: "#181e25", // Цвет сетки для оси Y
             },
             ticks: {
-              color: "#999", // Y o'qi metkalarining rangi
+              color: "#848e9c", // Цвет меток оси Y
+              font: {
+                size: 13, // Размер шрифта меток оси Y
+                family: "BinancePlex",
+              },
             },
           },
           x: {
             grid: {
-              color: "#191a1f", // X o'qi uchun grid rangi
+              color: "transparent", // Унаследовать или установить прозрачный цвет для сетки оси X
             },
             ticks: {
-              color: "#999", // X o'qi metkalarining rangi
+              color: "#848e9c", // Цвет меток оси X
+              font: {
+                size: 13, // Размер шрифта меток оси X
+                family: "BinancePlex",
+              },
             },
           },
         },
+
         plugins: {
           legend: {
             labels: {
@@ -918,13 +955,25 @@ async function showData_total_pnl_by_days(start_date, end_date) {
           tooltip: {
             enabled: true,
             backgroundColor: "#fff",
-            titleColor: "#000",
-            bodyColor: "#000",
-            borderColor: "#ccc",
-            borderWidth: 1,
-            position: "average", // Tooltip pozitsiyasini eng yaqin nuqtaga joylashtiradi
-            yAlign: "bottom", // Tooltipni tepa qismida ko'rsatadi
+            titleColor: "#444",
+            bodyColor: "#444",
+            caretSize: 0, // Tooltip uchburchagini yashirish
+            cornerRadius: 10, // Tooltipning burchaklariga radius berish
+            displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
+            titleFont: {
+              size: 14, // Sarlavha shrift o‘lchami 
+              family: "BinancePlex",
+              weight: "400",
+            },
+            bodyFont: {
+              family: "BinancePlex",
+            },
             callbacks: {
+              title(tooltipItems) {
+                let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+                let fullDate = keys_x[dateIndex]; // To'liq sanani oling (labels dan)
+                return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+              },
               label: function (context) {
                 return `Cumulative PNL: ${context.raw} USD`;
               },
@@ -965,6 +1014,9 @@ async function showData_usdt_btc_eth(start_date, end_date) {
   let btc_percentage_changes = data?.btc_percentage_changes || {};
   let bnb_percentage_changes = data?.bnb_percentage_changes || {};
 
+  let labels_x = Object.keys(pnl_percentage_changes)?.map((value) =>
+    moment(value).format("MM-DD")
+  );
   let labels = Object.keys(pnl_percentage_changes)?.map((value) =>
     moment(value).format("YYYY-MM-DD")
   );
@@ -1016,7 +1068,7 @@ async function showData_usdt_btc_eth(start_date, end_date) {
   multiLineChartInstance = new Chart(multiLineCtx, {
     type: "line",
     data: {
-      labels, // Sanalar (X o'qi uchun)
+      labels: labels_x, // Sanalar (X o'qi uchun)
       datasets: [
         {
           label: "Cumulative PNL %",
@@ -1086,33 +1138,28 @@ async function showData_usdt_btc_eth(start_date, end_date) {
         y: {
           beginAtZero: false,
           grid: {
-            color: "#444",
+            color: "#181e25", // Цвет сетки для оси Y
           },
           ticks: {
-            color: "#999",
+            color: "#848e9c", // Цвет меток оси Y
+            font: {
+              size: 13, // Размер шрифта меток оси Y
+              family: "BinancePlex",
+            },
           },
         },
         x: {
-          beginAtZero: false,
           grid: {
-            color: "#191a1f",
+            color: "transparent", // Унаследовать или установить прозрачный цвет для сетки оси X
           },
           ticks: {
-            color: "#999",
-            // callback: function (value, inx) {
-            //   return value;
-            // },
+            color: "#848e9c", // Цвет меток оси X
+            font: {
+              size: 13, // Размер шрифта меток оси X
+              family: "BinancePlex",
+            },
           },
         },
-        // x: {
-        //   beginAtZero: false,
-        //   grid: {
-        //     color: "#191a1f",
-        //   },
-        //   ticks: {
-        //     color: "#999",
-        //   },
-        // },
       },
       plugins: {
         legend: {
@@ -1128,7 +1175,24 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           backgroundColor: "#fff",
           titleColor: "#444",
           bodyColor: "#444",
+          caretSize: 0, // Tooltip uchburchagini yashirish
+          cornerRadius: 10, // Tooltipning burchaklariga radius berish
+          displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
+          titleFont: {
+            size: 14, // Sarlavha shrift o‘lchami 
+            weight: "400", // Sarlavha shrift qalinligi (normal)
+            family: "BinancePlex",
+
+          },
+          bodyFont: {
+            family: "BinancePlex",
+          },
           callbacks: {
+            title(tooltipItems) {
+              let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+              let fullDate = labels[dateIndex]; // To'liq sanani oling (labels dan)
+              return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+            },
             label(context) {
               let label = context.dataset.label || "";
               let value = context.raw || 0;
@@ -1176,6 +1240,10 @@ async function showData_active_values(start_date, end_date) {
 
     let keys = Object.keys(data || {})?.map((value) =>
       moment(value).format("MM-DD")
+    );
+
+    let keys_x = Object.keys(data || {})?.map((value) =>
+      moment(value).format("YYYY-MM-DD")
     );
     let values = Object.values(data || {});
 
@@ -1247,18 +1315,26 @@ async function showData_active_values(start_date, end_date) {
             y: {
               beginAtZero: false,
               grid: {
-                color: "#444", // O'q grid rangini o'rnatish
+                color: "#181e25", // Цвет сетки для оси Y
               },
               ticks: {
-                color: "#999", // O'q belgilari rangini o'rnatish
+                color: "#848e9c", // Цвет меток оси Y
+                font: {
+                  size: 13, // Размер шрифта меток оси Y
+                  family: "BinancePlex",
+                },
               },
             },
             x: {
               grid: {
-                color: "#191a1f", // X o'qidagi grid rangini o'rnatish
+                color: "transparent", // Унаследовать или установить прозрачный цвет для сетки оси X
               },
               ticks: {
-                color: "#999", // X o'q belgilari rangini o'rnatish
+                color: "#848e9c", // Цвет меток оси X
+                font: {
+                  size: 13, // Размер шрифта меток оси X
+                  family: "BinancePlex",
+                },
               },
             },
           },
@@ -1272,14 +1348,23 @@ async function showData_active_values(start_date, end_date) {
               titleColor: "#000",
               bodyColor: "#000",
               borderColor: "#ccc",
-              borderWidth: 1,
-              position: "average", // Tooltip pozitsiyasini eng yaqin nuqtaga joylashtiradi
-              yAlign: "bottom", // Tooltipni tepa qismida ko'rsatadi
-              xPadding: 10, // Tooltipning gorizontal paddingi
-              yPadding: 10, // Tooltipning vertikal paddingi
-              caretPadding: 10, // Tooltip va nuqta orasidagi masofa
-              caretSize: 6, // Tooltipning uchining kattaligi
+              displayColors: false,
+              caretSize: 0, // Tooltip uchburchagini yashirish
+              titleFont: {
+                size: 14, // Sarlavha shrift o‘lchami 
+                weight: "400", // Sarlavha shrift qalinligi (normal) 
+                family: "BinancePlex",
+              },
+              bodyFont: {
+                family: "BinancePlex",
+              },
+
               callbacks: {
+                title(tooltipItems) {
+                  let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+                  let fullDate = keys_x[dateIndex]; // To'liq sanani oling (labels dan)
+                  return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+                },
                 label: function (context) {
                   return `Value: ${context.raw} USD`;
                 },
@@ -1519,6 +1604,9 @@ async function showData_daily_comission(start_date, end_date) {
     let keys = Object.keys(data || {})?.map((value) =>
       moment(value).format("MM-DD")
     );
+    let keys_x = Object.keys(data || {})?.map((value) =>
+      moment(value).format("YYYY-MM-DD")
+    );
     let values = Object.values(data || {});
 
     if (keys?.length) {
@@ -1543,7 +1631,10 @@ async function showData_daily_comission(start_date, end_date) {
                 return value < 0 ? "#e74c3c" : "#11CB80"; // Красный для отрицательных, зеленый для положительных
               },
               borderWidth: 0,
-              // hoverBackgroundColor: "#3498db", // Цвет фона при наведении
+              hoverBackgroundColor: function (context) {
+                const value = context?.dataset?.data[context?.dataIndex];
+                return value < 0 ? "#e74c3c" : "#11CB80"; // Красный для отрицательных, зеленый для положительных
+              }, // Цвет фона при наведении
               bodyFont: {
                 family: "Binance PLEX", // Y o'qi uchun shrift
               },
@@ -1553,44 +1644,65 @@ async function showData_daily_comission(start_date, end_date) {
         options: {
           scales: {
             y: {
-              beginAtZero: false, // Y o'q nol bo'lmasligi kerak
+              beginAtZero: false,
               grid: {
-                color: "#444", // Grid chiziqlari rangi
+                color: "#181e25", // Цвет сетки для оси Y
               },
               ticks: {
-                color: "#999", // O'qdagi belgilarning rangi
+                color: "#848e9c", // Цвет меток оси Y
                 font: {
-                  family: "Binance PLEX", // Y o'qi uchun shrift
+                  size: 13, // Размер шрифта меток оси Y
+                  family: "BinancePlex",
                 },
               },
             },
             x: {
               grid: {
-                color: "#191a1f", // X o'q grid chiziqlari rangi
+                color: "transparent", // Унаследовать или установить прозрачный цвет для сетки оси X
               },
               ticks: {
-                color: "#999", // X o'qdagi belgilarning rangi
+                color: "#848e9c", // Цвет меток оси X
+                font: {
+                  size: 13, // Размер шрифта меток оси X
+                  family: "BinancePlex",
+                },
               },
-              // Ustunlar orasidagi bo'shliqni to'g'irlash:
-              barPercentage: 0.6, // Ustun kengligi
-              categoryPercentage: 0.8, // Kategoriya bo'shlig'i
             },
           },
+
+
           plugins: {
             legend: {
               display: false, // Legendni ko'rsatmaslik
             },
             tooltip: {
-              backgroundColor: window.innerWidth <= 600 ? "#ffffffe3" : "#333",
-              titleColor: window.innerWidth <= 600 ? "#333" : "#fff",
-              bodyColor: window.innerWidth <= 600 ? "#333" : "#fff",
+              backgroundColor: "#2e3139",
+              titleColor: "#ffffffe3",
+              bodyColor: "#ffffffe3",
+              cornerRadius: 6, // Tooltipning burchaklariga radius berish
+              displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
+              caretSize: 0, // Tooltip uchburchagini yashirish
+              titleFont: {
+                size: 14, // Sarlavha shrift o‘lchami 
+                weight: "400", // Sarlavha shrift qalinligi (normal) 
+                family: "BinancePlex",
+              },
+              bodyFont: {
+                family: "BinancePlex",
+              },
               callbacks: {
+                title(tooltipItems) {
+                  let dateIndex = tooltipItems[0].dataIndex; // Ma'lumot indeksini oling
+                  let fullDate = keys_x[dateIndex]; // To'liq sanani oling (labels dan)
+                  return fullDate; // Tooltipning sarlavhasi sifatida to'liq sanani ko'rsating
+                },
                 label: function (context) {
                   return `Value: ${context.raw} USD`; // Tooltip matnida ko'rsatiladigan qiymat
                 },
               },
             },
           },
+
         },
       });
     }

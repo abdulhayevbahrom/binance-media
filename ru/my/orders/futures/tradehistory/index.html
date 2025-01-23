@@ -3783,10 +3783,13 @@
           </div>
 
           <button>
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+
+            <svg width="24" height="24" viewBox="0 0 24 25" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
               <path
-                d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z" />
+                d="M19 4.5H5C4.44772 4.5 4 4.94772 4 5.5V7.08579C4 7.351 4.10536 7.60536 4.29289 7.79289L9.70711 13.2071C9.89464 13.3946 10 13.649 10 13.9142V19.882C10 20.6253 10.7823 21.1088 11.4472 20.7764L13.4472 19.7764C13.786 19.607 14 19.2607 14 18.882V13.9142C14 13.649 14.1054 13.3946 14.2929 13.2071L19.7071 7.79289C19.8946 7.60536 20 7.351 20 7.08579V5.5C20 4.94772 19.5523 4.5 19 4.5Z"
+                fill="#707A8A" />
             </svg>
+
           </button>
 
           <div class="order-filters_modal">
@@ -4145,7 +4148,20 @@
         row.innerHTML = `
             <td data-label="Время">${formatTimestamp(transaction.time)}</td>
             <td>${transaction.ticker}</td>
-            <td class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
+           <td
+            class=${transaction.party === "Закрыть лонг" || transaction.party === "Close Long" || transaction.party === "Открыть шорт"
+            ? "red"
+            : transaction.party === "Открыть лонг" || transaction.party === "Закрыть шорт"
+              ? "green"
+              : ""
+          }>
+            ${transaction.party === "Закрыть лонг" || transaction.party === "Открыть шорт"
+            ? "Продать"
+            : transaction.party === "Открыть лонг" || transaction.party === "Закрыть шорт"
+              ? "Покупка"
+              : transaction.party
+          }
+        </td>
             <td data-label="Цена">${formatter.format(transaction.price)}</td>
             <td data-label="Количество">${(+transaction.quantity).toFixed(1)} USDT</td>
             <td data-label="Комиссия">${transaction.commission} USDT</td>

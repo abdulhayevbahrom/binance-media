@@ -7327,8 +7327,6 @@
       }
 
       const convertBalance = (currency, value) => {
-        console.log(">#####", value);
-
         if (!currency || currency === "usdt") {
           return {
             balance: value,
@@ -7374,11 +7372,11 @@
         );
         const selectedValue = localStorage.getItem("selected_currency");
 
-         if (selectedValue) {
-        updateSelectedCurrencyOption(selectedValue);
-      } else {
-        updateSelectedCurrencyOption("usdt");
-      }
+        if (selectedValue) {
+          updateSelectedCurrencyOption(selectedValue);
+        } else {
+          updateSelectedCurrencyOption("usdt");
+        }
 
         let margin_b = convertBalance(selectedValue, marginBalance)?.balance;
         let balance_v = convertBalance(selectedValue, balance)?.balance;
@@ -7615,46 +7613,49 @@
       const updateOptionTexts = () => {
         filterButtons?.forEach((option) => {
           const period = option.dataset.period;
-          if (window.innerWidth <= 600) {
-            switch (period) {
-              case "7":
-                option.textContent = "7Д";
-                break;
-              case "30":
-                option.textContent = "1М";
-                break;
-              case "90":
-                option.textContent = "3М";
-                break;
-              case "180":
-                option.textContent = "6М";
-                break;
-              default:
-                break;
-            }
-          } else {
-            switch (period) {
-              case "7":
-                option.textContent = "7 дн.";
-                break;
-              case "30":
-                option.textContent = "1 мес";
-                break;
-              case "90":
-                option.textContent = "3 мес";
-                break;
-              case "180":
-                option.textContent = "6 мес";
-                break;
-              default:
-                break;
-            }
+          // if (window.innerWidth <= 600) {
+          //   switch (period) {
+          //     case "7":
+          //       option.textContent = "7Д";
+          //       break;
+          //     case "30":
+          //       option.textContent = "1М";
+          //       break;
+          //     case "90":
+          //       option.textContent = "3М";
+          //       break;
+          //     case "180":
+          //       option.textContent = "6М";
+          //       break;
+          //     default:
+          //       break;
+          //   }
+          // } else {
+          switch (period) {
+            case "7":
+              option.textContent = "7 дн.";
+              break;
+            case "30":
+              option.textContent = "1 мес";
+              break;
+            case "90":
+              option.textContent = "3 мес";
+              break;
+            case "180":
+              // option.textContent = "6 мес";
+              option.textContent = "6М";
+
+              break;
+            default:
+              break;
           }
+          // }
         });
       };
 
       if (filterButtons) {
-        moreButtonSpan.textContent = window.innerWidth <= 600 ? "7Д" : "7 дн.";
+        // moreButtonSpan.textContent = window.innerWidth <= 600 ? "7Д" : "7 дн.";
+        moreButtonSpan.textContent = "7 дн.";
       }
       updateOptionTexts();
       window.addEventListener("resize", updateOptionTexts);
@@ -7811,7 +7812,11 @@
                   }
 
                   if (context.tooltip.body) {
-                    tooltipEl.innerHTML = `<div>2024-${context.tooltip.dataPoints[0].label}</div> <div>Стоимость: ${context.tooltip.body[0].lines[0]} USD</div>`;
+                    tooltipEl.innerHTML = `<div>${new Date().getFullYear()}-${
+                      context.tooltip.dataPoints[0].label
+                    }</div> <div>Стоимость: ${
+                      context.tooltip.body[0].lines[0]
+                    } USD</div>`;
                   }
 
                   const position = context.chart.canvas.getBoundingClientRect();

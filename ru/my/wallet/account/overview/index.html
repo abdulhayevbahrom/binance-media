@@ -3585,6 +3585,29 @@
             <canvas id="wallet-balance-preview-chart"></canvas>
           </div>
         </div>
+
+        <div class="section_usdt">
+          <svg width="16" height="20" viewBox="0 0 20 24">
+            <use href="../../../../../../assets/img/icons/sprite.svg#messages"></use>
+          </svg>
+          <span class="btn-icon__mark"></span>
+
+          <div>
+            <p>Вывод</p>
+            <p>USDT</p>
+            <p>Завершен</p>
+          </div>
+          <p>17 мин. назад</p>
+
+          <svg width="16" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.288 12l-3.89 3.89 1.768 1.767L15.823 12l-1.768-1.768-3.889-3.889-1.768 1.768 3.89 3.89z"
+              fill="#EAECEF">
+            </path>
+          </svg>
+
+        </div>
+
         <section class="section holdings">
           <div class="holdings__head">
             <h2>Мои активы</h2>
@@ -4222,7 +4245,7 @@
     async function updateChartInfo(data) {
 
       const dates = [];
-      const values = [];      
+      const values = [];
 
       for (const date in data) {
         if (data.hasOwnProperty(date)) {

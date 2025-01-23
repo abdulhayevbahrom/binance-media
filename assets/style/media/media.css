@@ -1,8 +1,32 @@
+/* ------------------------------ */
+
+.section_usdt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: red;
+  height: 50px;
+}
+
+.section_usdt div {
+  display: flex;
+  align-items: center;
+}
+
+
+/* ------------------------------ */
+
+
+
 .futures-head__buttons-mobile {
   display: none;
 }
 
 .media_mobile {
+  display: none;
+}
+
+.modal_hidden {
   display: none;
 }
 
@@ -52,11 +76,11 @@
     /* justify-content: space-between; */
   }
 
-  .futures-balance__pnl-wrapper > span {
+  .futures-balance__pnl-wrapper>span {
     text-wrap: nowrap;
   }
 
-  .futures-balance__pnl-wrapper > a {
+  .futures-balance__pnl-wrapper>a {
     text-wrap: nowrap;
   }
 
@@ -68,7 +92,7 @@
     width: 100%;
   }
 
-  .futures-head__buttons > button {
+  .futures-head__buttons>button {
     padding: 0 8px;
     width: 30%;
     text-wrap: nowrap;
@@ -83,7 +107,7 @@
     margin-top: 0px;
   }
 
-  .futures-balance__head > h3 {
+  .futures-balance__head>h3 {
     font-size: 18px;
 
     line-height: 26px;
@@ -279,15 +303,44 @@
 
   .media_mobile {
     display: block;
-    fill: gray;
+    fill: #a9a9a9;
     padding: 0;
     display: flex;
     justify-content: end;
     align-items: flex-start;
     margin-right: -12px;
+    z-index: 20 !important;
+    position: relative;
   }
 
-  #btc-action > div {
+  .modal_hidden {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: #ffffff;
+    padding: 15px 0px 20px 20px;
+    z-index: 1000;
+    display: none;
+  }
+
+  .modal_hidden>p {
+    border-radius: 8px;
+    box-shadow: 0px 0px 12px #00000073;
+    background-color: #1e2028;
+    padding: 13px 0;
+    border: 1px solid #343843;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    text-indent: 15px;
+  }
+
+  .media_mobile:hover .modal_hidden {
+    display: block;
+    /* Hover qilinganda modal ko'rinadi */
+  }
+
+  #btc-action>div {
     width: 100px;
     height: 200px;
     position: absolute;
@@ -345,7 +398,7 @@
     background-color: #f0f0f000;
   }
 
-  .page-with-sidebar .stad > .btn-icon {
+  .page-with-sidebar .stad>.btn-icon {
     height: auto;
     width: auto;
     border-radius: 10px;
@@ -380,11 +433,14 @@
     min-width: 43px;
     /* background-color: yellow; */
   }
+
+
 }
 
 /* Media Queries */
 
 @media screen and (max-width: 950px) {
+
   /* Futures Balance Styles */
   .futures-balance {
     display: flex;
@@ -416,7 +472,7 @@
     width: 100%;
   }
 
-  .futures-head__buttons > button {
+  .futures-head__buttons>button {
     padding: 0 8px;
     width: 30%;
     text-wrap: nowrap;
@@ -460,6 +516,7 @@
 }
 
 @media screen and (max-width: 650px) {
+
   /* Futures Balance Styles */
   .futures-balance__head-more {
     /* width: 60px !important; */
@@ -491,6 +548,7 @@
 }
 
 @media screen and (max-width: 605px) {
+
   /* Futures Balance Styles */
   .futures-balance__items:last-child {
     margin-top: 30px;
@@ -503,7 +561,7 @@
     display: flex;
   }
 
-  .futures-balance__item > div {
+  .futures-balance__item>div {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -708,7 +766,7 @@
     display: flex;
   }
 
-  .futures-balance__item > div {
+  .futures-balance__item>div {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -785,7 +843,7 @@
     line-height: 16px;
   }
 
-  .btn-web > span {
+  .btn-web>span {
     text-wrap: nowrap;
   }
 

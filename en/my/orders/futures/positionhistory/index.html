@@ -43,6 +43,7 @@
       rel="stylesheet"
       href="../../../../../assets/style/media/sidebar_media.css"
     />
+    <link rel="stylesheet" href="../tradehistory/picker.css" />
   </head>
 
   <body>
@@ -5847,9 +5848,85 @@
                 </svg>
               </button>
               <p>Date</p>
-              <div class="calendar">
-                <div class="calendar__preview" id="dateRangePicker"></div>
+
+              <!-- ================================================= -->
+              <div class="box-po">
+                <p id="btn_picker_old" class="btn_pic">YYYY-MM-DD</p>
+                <p>по</p>
+                <p id="btn_picker_new" class="btn_pic">YYYY-MM-DD</p>
               </div>
+
+              <div class="picker">
+                <div class="line-picer"></div>
+                <div class="picker-column" id="year-column">
+                  <div class="empty-item"></div>
+                  <script>
+                    const currentYear = new Date().getFullYear(); // Hozirgi yilni olish
+                    const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
+                    const years = Array.from(
+                      { length: currentYear - startYear + 1 },
+                      (_, i) => startYear + i
+                    );
+                    document.write(
+                      years
+                        .map(
+                          (year) =>
+                            `<div class='itemPicker ${
+                              year === currentYear ? "years" : ""
+                            }' data-day="${year}">${year}</div>`
+                        )
+                        .join("")
+                    );
+                  </script>
+                  <div class="empty-item"></div>
+                </div>
+
+                <div class="picker-column" id="month-column">
+                  <div class="empty-item"></div>
+                  <script>
+                    const todays = new Date().getMonth() + 1; // Bugungi oy (1-12)
+                    const months = Array.from({ length: 12 }, (_, i) => i + 1);
+                    document.write(
+                      months
+                        .map(
+                          (month) =>
+                            `<div class='itemPicker ${
+                              month === todays ? "today" : ""
+                            }' data-day="${String(month).padStart(2, "0")}">
+                                            ${String(month).padStart(2, "0")}
+                                        </div>`
+                        )
+                        .join("")
+                    );
+                  </script>
+                  <div class="empty-item"></div>
+                </div>
+
+                <div class="picker-column" id="day-column">
+                  <div class="empty-item"></div>
+                  <script>
+                    const days = Array.from({ length: 31 }, (_, i) => i + 1);
+                    const currentDay = new Date().getDate(); // Bugungi kunni aniqlash
+                    document.write(
+                      days
+                        .map((day) => {
+                          const dayStr = String(day).padStart(2, "0");
+                          const isSelected =
+                            day === currentDay ? " selected" : ""; // Tanlangan kun uchun class
+                          return `<div class='itemPicker${isSelected}' data-day="${dayStr}">${dayStr}</div>`;
+                        })
+                        .join("")
+                    );
+                    resetToDefault();
+                  </script>
+                  <div class="empty-item"></div>
+                </div>
+              </div>
+
+              <!-- <div class="calendar">
+                <div class="calendar__preview" id="dateRangePicker"></div>
+              </div> -->
+              <!-- ================================================= -->
 
               <p>
                 * Up to 10,000 transaction records are supported. Max search
@@ -5892,8 +5969,12 @@
               </div>
 
               <div class="order-search-box">
-                <button class="reset-selects">Reset</button>
-                <button class="order-search-button">Search</button>
+                <button id="reset-selects-picer" class="reset-selects">
+                  Reset
+                </button>
+                <button id="search-selects-picer" class="order-search-button">
+                  Search
+                </button>
               </div>
             </div>
           </div>
@@ -5930,6 +6011,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../../../../../assets/js/lang.js"></script>
     <script src="../../../../../assets/style/media/media.js"></script>
+    <script src="../tradehistory/picker.js"></script>
+
     <script src="../service.js"></script>
 
     <script>

@@ -14,6 +14,8 @@ toggleButtons.forEach((button) => {
       modal.style.display = "block";
       modal.classList.add("active");
       modal.classList.remove("closing");
+      resetToDefault();
+      document.body.style.overflow = 'hidden';
     });
   }
 });
@@ -22,7 +24,7 @@ toggleButtons.forEach((button) => {
 function closeModal() {
   modal.classList.remove("active");
   modal.classList.add("closing");
-
+  document.body.style.overflow = 'auto';
   // Animatsiya tugagandan so'ng modalni yashirish
   modal.addEventListener(
     "animationend",

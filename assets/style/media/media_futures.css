@@ -207,14 +207,11 @@
   .order-search-box {
     position: absolute;
     bottom: 30px;
-    left: 0;
-    right: 0;
-    width: 90%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6px;
-    margin: 0 auto;
   }
 
   .order-select-str {

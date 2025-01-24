@@ -156,20 +156,5 @@
     margin: 20px 0;
     position: absolute;
     bottom: 0;
-    width: 92%;
-}
-
-.order-search-box button:last-child {
-    background: #ffbf1c;
-    color: #29313e;
-}
-
-.order-search-box button {
-    border: 1px solid #007bff00;
-    background: #29313e;
-    border-radius: 6px;
-    font-size: 16px;
-    color: #e0e0e0;
-    padding: 10px;
-    width: 50%;
+    width: 90%;
 }

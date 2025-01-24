@@ -14,6 +14,7 @@ toggleButtons.forEach((button) => {
       modal.style.display = "block";
       modal.classList.add("active");
       modal.classList.remove("closing");
+      resetToDefault();
     });
   }
 });

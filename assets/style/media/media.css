@@ -3,14 +3,70 @@
 .section_usdt {
   display: flex;
   align-items: center;
-  gap: 5px;
-  background: red;
-  height: 50px;
+  height: 60px;
+  padding: 0 23px;
 }
 
-.section_usdt div {
+.section_box {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+
+
+.section_usdt>svg {
+  margin-top: 2px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.section_box_items>span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 4px;
+}
+
+.section_box_items>span>p {
+  color: #848e9c;
+  font-size: 14px;
+  fill: #848e9c;
+  display: flex;
+  align-items: center;
+}
+
+.section_box_items>div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.section_box_items>div>p {
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.section_usdt>p>svg {
+  margin-top: 3px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.section_usdt svg:hover {
+  fill: #fff;
+}
+
+.section_usdt svg {
+  fill: #848e9c;
+}
+
+.section_usdt>div>div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 
@@ -435,6 +491,84 @@
   }
 
 
+
+  /* ====================== */
+  .section_usdt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 15px;
+    border: 1px solid rgba(128, 128, 128, 0.201);
+    border-radius: 8px;
+  }
+
+  .section_box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section_box_items {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .section_usdt>svg {
+    margin-top: 2px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .section_box_items>span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 0px;
+  }
+
+  .section_box_items>span>p {
+    color: #848e9c;
+    font-size: 13px;
+    fill: #848e9c;
+    display: flex;
+    align-items: center;
+  }
+
+  .section_box_items>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .section_box_items>div>p {
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .section_usdt>p>svg {
+    margin-top: 3px;
+    margin-left: 2px;
+    cursor: pointer;
+  }
+
+  .section_usdt svg:hover {
+    fill: #fff;
+  }
+
+  .section_usdt svg {
+    fill: #848e9c;
+  }
+
+  .section_usdt>div>div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 }
 
 /* Media Queries */

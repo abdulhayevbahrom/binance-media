@@ -156,9 +156,9 @@ button {
   border: 1px solid var(--color-Line);
 }
 
-.section:not(:first-child) {
+/* .section:not(:first-child) {
   margin-top: 24px;
-}
+} */
 
 @media (min-width: 769px) {
   .section h2 {

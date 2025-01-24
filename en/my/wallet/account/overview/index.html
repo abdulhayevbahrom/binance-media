@@ -3952,6 +3952,34 @@
             <canvas id="wallet-balance-preview-chart"></canvas>
           </div>
         </div>
+
+
+        <div class="section_usdt">
+          <div class="section_box">
+            <svg width="16" height="14" viewBox="0 0 20 24">
+              <use href="../../../../../../assets/img/icons/sprite.svg#messages"></use>
+            </svg>
+            <div class="section_box_items">
+              <div>
+                <p>USDT</p>
+                <p>Вывод</p>
+                <p>завершен</p>
+              </div>
+              <span>
+                <p class="time">17</p>
+                <p class="unit">ч.</p>
+                <p>ago</p>
+              </span>
+            </div>
+          </div>
+          <svg width="16" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.288 12l-3.89 3.89 1.768 1.767L15.823 12l-1.768-1.768-3.889-3.889-1.768 1.768 3.89 3.89z">
+            </path>
+          </svg>
+        </div>
+
+
         <section class="section holdings">
           <div class="holdings__head">
             <h2>My Assets</h2>
@@ -4809,6 +4837,42 @@
     updateTickerInfo();
   </script>
 
+
+
+  <script>
+    let hours = 24; // Boshlang'ich soat
+    let minutes = 0; // Boshlang'ich minut
+
+    const timeElement = document.querySelector('.time');
+    const unitElement = document.querySelector('.unit');
+
+    function updateTime() {
+      // Soatni kamaytirish
+      if (hours > 0 && minutes === 0) {
+        hours--;
+        minutes = 59; // Minutlarni qayta boshlash
+      } else if (hours === 0 && minutes > 0) {
+        // Agar soat 0 bo'lsa, faqat minutlarni kamaytirish
+        minutes--;
+      }
+
+      // Ko'rsatishni yangilash
+      if (hours > 0) {
+        timeElement.textContent = hours.toString(); // Faqat soatni ko'rsatish
+        unitElement.textContent = "h.";
+      } else if (hours === 0 && minutes > 0) {
+        timeElement.textContent = minutes.toString(); // Faqat minutni ko'rsatish
+        unitElement.textContent = "min.";
+      } else {
+        timeElement.textContent = "Tugadi"; // Vaqt tugagach
+        unitElement.textContent = "";
+      }
+    }
+
+    // Har bir minutda yangilash
+    setInterval(updateTime, 60000);
+    updateTime(); // Darhol chaqiriladi
+  </script>
 </body>
 
 </html>

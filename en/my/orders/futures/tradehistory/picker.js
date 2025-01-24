@@ -52,7 +52,6 @@ function updateSelectedDate() {
 
 // Silliq skroll funksiyasi
 function smoothScrollTo(column, targetValue) {
-    console.log(column, targetValue);
     const targetItem = Array.from(column.children).find(child => child.getAttribute('data-day') === targetValue);
     if (targetItem) {
         const pickerHeight = column.clientHeight; // Konteyner balandligi

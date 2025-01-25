@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../../../../../assets/style/media/footer_media.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/picker.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/position_h.css" />
 </head>
 
 <body>
@@ -3365,7 +3366,7 @@
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
                   <span class="sidebar__menu-item-title">
-                      Маржинальный ордер
+                    Маржинальный ордер
                   </span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
@@ -3377,7 +3378,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/wallet/history/deposit-crypto" onclick="return false;">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
-                 <a class="sidebar__menu-item" href="/" onclick="return false;">
+                <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">
                     Фиатный ордер
                   </span>
@@ -3475,6 +3476,16 @@
             <a href="/ru/my/orders/futures/positionhistory" class="tab-btn tab-btn-active">История позиций</a>
             <a href="/ru/my/orders/futures/fundingfeehistory" onclick="return false;" class="tab-btn">Комиссия за
               финансирование</a>
+
+
+            <div class="option-buttons">
+              <button class="option-button" id="analysis-button">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M15 3H5v18h14V7l-4-4zm-4.5 5.752h3v3.997H16l-4 4-4-4h2.5V8.752z" fill="white"></path>
+                </svg>
+              </button>
+            </div>
         </div>
 
         <div class="order-filters">
@@ -3540,78 +3551,76 @@
             </button>
             <p>Дата</p>
 
-             <div class="box-po">
-                <p id="btn_picker_old" class="btn_pic">YYYY-MM-DD</p>
-                <p>по</p>
-                <p id="btn_picker_new" class="btn_pic">YYYY-MM-DD</p>
+            <div class="box-po">
+              <p id="btn_picker_old" class="btn_pic">YYYY-MM-DD</p>
+              <p>по</p>
+              <p id="btn_picker_new" class="btn_pic">YYYY-MM-DD</p>
+            </div>
+
+            <div class="picker">
+              <div class="line-picer"></div>
+              <div class="picker-column" id="year-column">
+                <div class="empty-item"></div>
+                <script>
+                  const currentYear = new Date().getFullYear(); // Hozirgi yilni olish
+                  const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
+                  const years = Array.from(
+                    { length: currentYear - startYear + 1 },
+                    (_, i) => startYear + i
+                  );
+                  document.write(
+                    years
+                      .map(
+                        (year) =>
+                          `<div class='itemPicker ${year === currentYear ? "years" : ""
+                          }' data-day="${year}">${year}</div>`
+                      )
+                      .join("")
+                  );
+                </script>
+                <div class="empty-item"></div>
               </div>
 
-              <div class="picker">
-                <div class="line-picer"></div>
-                <div class="picker-column" id="year-column">
-                  <div class="empty-item"></div>
-                  <script>
-                    const currentYear = new Date().getFullYear(); // Hozirgi yilni olish
-                    const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
-                    const years = Array.from(
-                      { length: currentYear - startYear + 1 },
-                      (_, i) => startYear + i
-                    );
-                    document.write(
-                      years
-                        .map(
-                          (year) =>
-                            `<div class='itemPicker ${
-                              year === currentYear ? "years" : ""
-                            }' data-day="${year}">${year}</div>`
-                        )
-                        .join("")
-                    );
-                  </script>
-                  <div class="empty-item"></div>
-                </div>
-
-                <div class="picker-column" id="month-column">
-                  <div class="empty-item"></div>
-                  <script>
-                    const todays = new Date().getMonth() + 1; // Bugungi oy (1-12)
-                    const months = Array.from({ length: 12 }, (_, i) => i + 1);
-                    document.write(
-                      months
-                        .map(
-                          (month) =>
-                            `<div class='itemPicker ${
-                              month === todays ? "today" : ""
-                            }' data-day="${String(month).padStart(2, "0")}">
+              <div class="picker-column" id="month-column">
+                <div class="empty-item"></div>
+                <script>
+                  const todays = new Date().getMonth() + 1; // Bugungi oy (1-12)
+                  const months = Array.from({ length: 12 }, (_, i) => i + 1);
+                  document.write(
+                    months
+                      .map(
+                        (month) =>
+                          `<div class='itemPicker ${month === todays ? "today" : ""
+                          }' data-day="${String(month).padStart(2, "0")}">
                                             ${String(month).padStart(2, "0")}
                                         </div>`
-                        )
-                        .join("")
-                    );
-                  </script>
-                  <div class="empty-item"></div>
-                </div>
-
-                <div class="picker-column" id="day-column">
-                  <div class="empty-item"></div>
-                  <script>
-                    const days = Array.from({ length: 31 }, (_, i) => i + 1);
-                    const currentDay = new Date().getDate(); // Bugungi kunni aniqlash
-                    document.write(
-                      days
-                        .map((day) => {
-                          const dayStr = String(day).padStart(2, "0");
-                          const isSelected =
-                            day === currentDay ? " selected" : ""; // Tanlangan kun uchun class
-                          return `<div class='itemPicker${isSelected}' data-day="${dayStr}">${dayStr}</div>`;
-                        })
-                        .join("")
-                    );
-                    resetToDefault();
-                  </script>
-                  <div class="empty-item"></div>
-                </div>
+                      )
+                      .join("")
+                  );
+                </script>
+                <div class="empty-item"></div>
               </div>
+
+              <div class="picker-column" id="day-column">
+                <div class="empty-item"></div>
+                <script>
+                  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+                  const currentDay = new Date().getDate(); // Bugungi kunni aniqlash
+                  document.write(
+                    days
+                      .map((day) => {
+                        const dayStr = String(day).padStart(2, "0");
+                        const isSelected =
+                          day === currentDay ? " selected" : ""; // Tanlangan kun uchun class
+                        return `<div class='itemPicker${isSelected}' data-day="${dayStr}">${dayStr}</div>`;
+                      })
+                      .join("")
+                  );
+                  resetToDefault();
+                </script>
+                <div class="empty-item"></div>
+              </div>
+            </div>
 
             <!-- <div class="calendar">
               <div class="calendar__preview" id="dateRangePicker"></div>
@@ -3674,6 +3683,127 @@
         <button class="footer-cookies">Настройки cookie</button>
       </div>
     </footer>
+  </div>
+
+
+  <div class="backdrop"></div>
+  <div class="analysis-modal_pasition">
+    <div class="analysis-modal__head">
+      <h5 class="analysis-modal__title">Экспорт истории позиций</h5>
+      <button class="analysis-modal__close-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+            fill="#5e6673"></path>
+        </svg>
+      </button>
+    </div>
+
+    <p class="time-period">Тикер</p>
+    <div class="order-select" id="modal-ticker-select">
+      <span class="order-select__label">
+        <div>
+          <span>ВСЕ</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </span>
+      <div class="order-select__list-wrapper">
+        <div class="order-select__search">
+          <button class="order-select__search-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                fill="currentColor"></path>
+            </svg>
+          </button>
+          <input class="order-select__search-input" placeholder="Search for symbol" />
+        </div>
+        <div class="order-select__list">
+          <span class="order-select__option selected highlight" data-value="all">
+            BNBUSDT
+          </span>
+          <span class="order-select__option" data-value="bnb-btc">
+            ATOMUSDT
+          </span>
+          <span class="order-select__option" data-value="nuls-btc">
+            ONTUSDT
+          </span>
+          <span class="order-select__option" data-value="neo-btc">
+            IOTAUSDT
+          </span>
+          <span class="order-select__option" data-value="link-btc">
+            BATUSDT
+          </span>
+          <span class="order-select__option" data-value="iota-btc">
+            VETUSDT
+          </span>
+          <span class="order-select__option" data-value="etc-btc">
+            NEOUSDT
+          </span>
+          <span class="order-select__option" data-value="etc-btc">
+            QTUMUSDT
+          </span>
+          <span class="order-select__option" data-value="etc-btc">
+            IOSTUSDT
+          </span>
+          <span class="order-select__option" data-value="etc-btc">
+            THETAUSDT
+          </span>
+        </div>
+      </div>
+    </div>
+    <p class="time-period">Выберите период</p>
+    <div class="time-buttons">
+      <button type="button">1 неделя</button>
+      <button type="button">1 месяц</button>
+      <button type="button">3 мес.</button>
+      <button type="button">6 мес.</button>
+    </div>
+    <div class="calendar">
+      <div class="calendar__preview" id="dateRangePickerAnalysis"></div>
+    </div>
+
+
+    <p class="time_picer_m">* Настройка даты возможна в течение периода в 180 дней.
+      История отображается в часовом поясе UTC-0.</p>
+
+    <button type="button" class="generate-button">
+      Экспорт (19/20)
+    </button>
+
+    <p class="time_picer_m">
+      * Из-за ограниченной мощности сервера каждый пользователь может
+      генерировать выписку не более <span>20 раз в месяц.</span> Для формирования
+      документа необходимо время.
+    </p>
+
+
+
+
+    <p class="time-period">Детали экспорта</p>
+
+    <div class="analysis-modal_pasition-table_box">
+      <table class="analysis-modal_pasition-table">
+        <thead class="analysis-modal_pasition-thead_th">
+          <tr>
+            <td>Время отправки</td>
+            <td>Период выписки</td>
+            <td>Статус</td>
+          </tr>
+        </thead>
+        <tbody class="analysis-modal_pasition-thead_td">
+          <tr>
+            <td>2025-01-24 22:15:35</td>
+            <td>2025-01-17 - 2025-01-24</td>
+            <td class="analysis-modal_pasition-tr"> <img src="./check.png" alt=""> Готово</span> <a
+                href="#">Загрузить</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
   <script src="../../../../../assets/js/config.js"></script>
@@ -3944,5 +4074,151 @@
 
 
   </script>
-</body>
 
+
+  <script>
+    const backdrop = document.querySelector(".backdrop");
+    const analysisModal = document.querySelector(".analysis-modal_pasition");
+    const exportModal = document.querySelector(".export-modal");
+
+    document
+      .querySelector("#analysis-button")
+      .addEventListener("click", () => {
+        analysisModal.classList.add("show");
+        backdrop.classList.add("show");
+        document.body.style.overflow = "hidden";
+      });
+
+
+    document
+      .querySelector("#analysis-button")
+      .addEventListener("click", () => {
+        analysisModal.classList.add("show");
+        backdrop.classList.add("show");
+        document.body.style.overflow = "hidden";
+      });
+
+    backdrop.addEventListener("click", () => {
+      analysisModal.classList.remove("show");
+      backdrop.classList.remove("show");
+      document.body.style.overflow = "";
+    });
+
+    document
+      .querySelector(".analysis-modal__close-button")
+      .addEventListener("click", () => {
+        analysisModal.classList.remove("show");
+        backdrop.classList.remove("show");
+        document.body.style.overflow = "";
+      });
+
+
+
+    flatpickr("#dateRangePickerAnalysis", {
+      mode: "range",
+      dateFormat: "Y-m-d",
+      defaultDate: [startDate, endDate],
+      locale: {
+        firstDayOfWeek: 7,
+        rangeSeparator: ' <span class="range-icon"></span> ',
+        weekdays: {
+          shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+          longhand: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+        },
+      },
+      showMonths: 2,
+      shorthandCurrentMonth: true,
+      onValueUpdate: updateAnalysisDateDisplay,
+      onReady: function (selectedDates, dateStr, instance) {
+        instance.jumpToDate(new Date());
+        updateAnalysisDateDisplay(selectedDates, dateStr, instance);
+        const nextMonthButton = instance.calendarContainer.querySelector(
+          ".flatpickr-next-month"
+        );
+        const prevMonthButton = instance.calendarContainer.querySelector(
+          ".flatpickr-prev-month"
+        );
+        if (nextMonthButton && prevMonthButton) {
+          const svgNextIcon = nextMonthButton.querySelector("svg");
+          const svgPrevIcon = prevMonthButton.querySelector("svg");
+          if (svgNextIcon && svgPrevIcon) {
+            svgNextIcon.remove();
+            svgPrevIcon.remove();
+          }
+        }
+      },
+    });
+    function updateAnalysisDateDisplay(selectedDates, dateStr, instance) {
+      if (selectedDates.length === 2) {
+        const formattedDates = selectedDates.map((date) =>
+          instance.formatDate(date, "Y-m-d")
+        );
+
+        startDate = formattedDates[0];
+        endDate = formattedDates[1];
+
+        setTimeout(() => {
+          instance.input.value =
+            formattedDates[0] +
+            " " +
+            '<span class="range-icon"></span>' +
+            " " +
+            formattedDates[1] +
+            " " +
+            '<span class="calendar-icon"></span>';
+          instance.input.innerHTML = instance.input.value;
+        }, 0);
+
+        sendAnalysisRequestWithDates(startDate, endDate);
+      }
+    }
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.getElementById('modal-ticker-select');
+      const listWrapper = select.querySelector('.order-select__list-wrapper');
+      const searchInput = select.querySelector('.order-select__search-input');
+      const options = select.querySelectorAll('.order-select__option');
+      const label = select.querySelector('.order-select__label > div');
+
+      // Click event to toggle dropdown visibility
+      label.addEventListener('click', () => {
+        listWrapper.classList.toggle('visible');
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', () => {
+        const searchValue = searchInput.value.toLowerCase();
+        options.forEach(option => {
+          const text = option.textContent.toLowerCase();
+          if (text.includes(searchValue)) {
+            option.style.display = '';
+          } else {
+            option.style.display = 'none';
+          }
+        });
+      });
+
+      // Option click event to select a value
+      options.forEach(option => {
+        option.addEventListener('click', () => {
+          label.querySelector('span').textContent = option.textContent;
+          listWrapper.classList.remove('visible');
+          searchInput.value = ''; // Clear search input after selection
+          options.forEach(opt => (opt.style.display = '')); // Reset all options visibility
+        });
+      });
+    });
+
+  </script>
+</body>

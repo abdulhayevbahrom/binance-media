@@ -1,0 +1,258 @@
+.analysis-modal_pasition {
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 560px;
+    min-height: 400px;
+    border-radius: 6px;
+    box-shadow: rgba(20, 21, 26, 0.16) 0px 8px 16px, rgba(71, 77, 87, 0.16) 0px 16px 32px, rgba(20, 21, 26, 0.1) 0px 0px 1px;
+    background-color: #1e2329;
+    z-index: 70;
+    padding: 20px 24px;
+}
+
+.analysis-modal_pasition.show {
+    display: block;
+}
+
+.order-select__list::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+.order-select__list-wrapper {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    max-height: 270px;
+    overflow-y: auto;
+}
+
+.order-select__list-wrapper::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+.order-select__list-wrapper.visible {
+    display: block;
+}
+
+.order-select__option {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.order-select__option:hover {
+    background-color: #f0f0f00c;
+}
+
+.time-buttons {
+    display: flex;
+    margin-bottom: 10px;
+    width: 100%;
+    gap: 10px;
+}
+
+.time-buttons button {
+    background-color: transparent;
+    border: 1px solid #474d57;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 25%;
+}
+
+.time-buttons button:hover {
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.generate-button {
+    background-color: #ffc411;
+    border: none;
+    color: #000;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.generate-button:hover {
+    background-color: #e0a800;
+}
+
+.analysis-modal_pasition .calendar__preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #474d57;
+    background-color: transparent;
+    border-radius: 8px;
+    outline: none;
+    color: var(--color-textPrimary);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 0px 12px 0 100px;
+}
+
+.time_picer_m {
+    color: #7f8794;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.time_picer_m span {
+    color: goldenrod;
+}
+
+.time-period {
+    margin-top: 20px;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.order-select__label {
+    width: 100%;
+}
+
+.order-select__label div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-select#modal-ticker-select {
+    width: 100%;
+}
+
+.order-select__label span {
+    color: var(--color-textPrimary);
+    line-height: 22px;
+    white-space: nowrap;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+
+
+.analysis-modal_pasition-table_box {
+    border: 1px solid #474d57;
+    border-radius: 7px !important;
+
+}
+
+.analysis-modal_pasition-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.analysis-modal_pasitionthead tr {
+    background-color: #f4f4f4;
+}
+
+.analysis-modal_pasition-thead_th td {
+    text-align: left;
+    padding: 12px 8px;
+    color: #7f8794;
+    font-size: 13px;
+    border-bottom: 1px solid #474d57;
+}
+
+.analysis-modal_pasition-thead_td td {
+    text-align: left;
+    padding: 12px 8px;
+    color: #ffffff;
+    font-size: 13px;
+    /* border-bottom: 1px solid #474d57; */
+}
+
+.analysis-modal_pasition-tr {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.analysis-modal_pasition-tr>img {
+    width: 14px;
+    margin-top: 3px;
+}
+
+.analysis-modal_pasition-thead_td a {
+    color: goldenrod;
+}
+
+/* media */
+@media (max-width: 600px) {
+    .analysis-modal_pasition {
+        box-sizing: border-box;
+        display: none;
+        position: fixed;
+        top: auto;
+        left: 0;
+        bottom: 0 !important;
+        transform: translate(0%, 0%);
+        width: 100%;
+        min-height: 300px;
+        height: 85vh;
+        border-radius: 6px;
+        box-shadow: rgba(20, 21, 26, 0.16) 0px 8px 16px, rgba(71, 77, 87, 0.16) 0px 16px 32px, rgba(20, 21, 26, 0.1) 0px 0px 1px;
+        background-color: #1e2329;
+        z-index: 70;
+        padding: 20px 8px;
+        overflow: hidden;
+    }
+
+    .analysis-modal_pasition .calendar__preview {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+        height: 40px;
+        border: 1px solid #474d57;
+        background-color: transparent;
+        border-radius: 8px;
+        outline: none;
+        color: var(--color-textPrimary);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+        padding: 0px 12px 0 12px;
+    }
+
+    .time_picer_m {
+        color: #7f8794;
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+
+    .time-period {
+        margin-top: 30px;
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+
+    .backdrop {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4392156863);
+        z-index: 60;
+    }
+}

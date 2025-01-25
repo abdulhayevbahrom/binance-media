@@ -3966,12 +3966,12 @@
             <div class="section_box_items">
               <div>
                 <p>USDT</p>
-                <p>Вывод</p>
-                <p>завершен</p>
+                <p id="withdrawal">withdrawal</p>
+                <p>complete</p>
               </div>
               <span>
                 <p class="time">17</p>
-                <p class="unit">ч.</p>
+                <p class="unit">h.</p>
                 <p>ago</p>
               </span>
             </div>
@@ -4499,12 +4499,13 @@
 
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
+      const withdrawal = document.getElementById('withdrawal');
       // Clear the table body before adding new rows
       tbody.innerHTML = '';
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
-
+        withdrawal.innerHTML = transaction?.type_name === "Replenishment" ? 'Deposit' : 'Withdrawal'
         // Determine if the transaction is a deposit or withdrawal
         const isDeposit = transaction?.type_name === "Replenishment"; // "Replenishment" is a deposit
 

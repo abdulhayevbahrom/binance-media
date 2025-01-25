@@ -3318,6 +3318,7 @@
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
             <div style="display: flex; flex-direction: column">
+              <!-- class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open"> -->
               <div
                 class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -3333,7 +3334,7 @@
                     fill="currentColor"></path>
                 </svg>
               </div>
-              <div class="sidebar__menu-list">
+              <div class="sidebar__menu-list" style="display:none ;">
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/overview">
                   <span class="sidebar__menu-item-title">Обзор</span>
                 </a>
@@ -3482,6 +3483,12 @@
                   fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Субаккаунты</span>
+              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                    fill="currentColor"></path>
+                </svg>
             </a>
             <a class="sidebar__menu-item" href="/ru/my/settings/preference" onclick="return false;">
               <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

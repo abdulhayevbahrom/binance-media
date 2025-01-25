@@ -4520,15 +4520,20 @@
           <td class="transaction-body_title">
             ${icon} ${isDeposit ? 'Deposit' : 'Withdrawal'} USDT
           </td>
-          <td>${isDeposit ? '+' : '-'}${transaction?.amount.toFixed(2)}</td>
+          <td>
+            ${isDeposit ? '+' : '-'}${(transaction?.amount || 0)
+              .toFixed(2) // 2 kasr sonni saqlash
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} 
+          </td>
           <td>${formatTimestamp(transaction?.timestamp)}</td>
           <td>Completed</td>
-        `;
-
-        tbody.appendChild(row);
-      });
+          `;
+          
+          tbody.appendChild(row);
+        });
     }
-
+    
+    // <td>${isDeposit ? '+' : '-'}${transaction?.amount.toFixed(2)}</td>
 
     const expandButton = document.querySelector('.balance__expand-button');
     const balanceSection = document.querySelector('.balance');

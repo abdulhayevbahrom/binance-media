@@ -4148,11 +4148,15 @@
           <td class="transaction-body_title">
             ${icon} ${isDeposit ? 'Ввод' : 'Вывод'} USDT
           </td>
-          <td>${isDeposit ? '+' : '-'}${transaction?.amount.toFixed(2)}</td>
+         <td>
+            ${isDeposit ? '+' : '-'}${(transaction?.amount || 0)
+              .toFixed(2) // 2 kasr sonni saqlash
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} 
+          </td>
           <td>${formatTimestamp(transaction?.timestamp)}</td>
           <td>Завершено</td>
         `;
-
+// <td>${isDeposit ? '+' : '-'}${transaction?.amount?.toFixed(2)}</td>
         // Добавляем строку в тело таблицы
         tbody.appendChild(row);
       });

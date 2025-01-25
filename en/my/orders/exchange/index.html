@@ -3081,8 +3081,7 @@
 
             </div>
             <div style="display: flex; flex-direction: column">
-              <div
-                class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--open sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3097,62 +3096,37 @@
                 </svg>
               </div>
               <div class="sidebar__menu-list">
-                  <a class="sidebar__menu-item" href="/en/my/orders/exchange">
-                    <span class="sidebar__menu-item-title">Spot Order</span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item sidebar__menu-item--active"
-                    href="/en/my/orders/futures"
-                  >
-                    <span class="sidebar__menu-item-title">Futures Order</span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/orders/p2p"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">
-                      <!-- Маржинальный ордер -->
-                      Margin Order
-                    </span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/en/my/orders/p2p"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">P2P Order</span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/orders/p2p"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">
-                      <!-- Ордер торгового бота -->
-                      Trading Bot Order
-                    </span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/en/my/wallet/history/deposit-crypto"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title"
-                      >Transaction History</span
-                    >
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">
-                      <!-- Фиатный ордер -->
-                      Fiat Order
-                    </span>
-                  </a>
-                  <!-- <a
+                <a class="sidebar__menu-item" href="/en/my/orders/exchange">
+                  <span class="sidebar__menu-item-title">Spot Order</span>
+                </a>
+                <a class="sidebar__menu-item sidebar__menu-item--active" href="/en/my/orders/futures">
+                  <span class="sidebar__menu-item-title">Futures Order</span>
+                </a>
+                <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
+                  <span class="sidebar__menu-item-title">
+                    <!-- Маржинальный ордер -->
+                    Margin Order
+                  </span>
+                </a>
+                <a class="sidebar__menu-item" href="/en/my/orders/p2p" onclick="return false;">
+                  <span class="sidebar__menu-item-title">P2P Order</span>
+                </a>
+                <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
+                  <span class="sidebar__menu-item-title">
+                    <!-- Ордер торгового бота -->
+                    Trading Bot Order
+                  </span>
+                </a>
+                <a class="sidebar__menu-item" href="/en/my/wallet/history/deposit-crypto" onclick="return false;">
+                  <span class="sidebar__menu-item-title">Transaction History</span>
+                </a>
+                <a class="sidebar__menu-item" href="/" onclick="return false;">
+                  <span class="sidebar__menu-item-title">
+                    <!-- Фиатный ордер -->
+                    Fiat Order
+                  </span>
+                </a>
+                <!-- <a
                     class="sidebar__menu-item"
                     href="/en/my/earn/history"
                     onclick="return false;"
@@ -3161,25 +3135,13 @@
                       >Earn Transaction History</span
                     >
                   </a> -->
-                  <a
-                    class="sidebar__menu-item"
-                    href="/en/my/orders/convert/history"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title"
-                      >Conversion History</span
-                    >
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/en/my/orders/payment"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title"
-                      >Payment History</span
-                    >
-                  </a>
-                </div>
+                <a class="sidebar__menu-item" href="/en/my/orders/convert/history" onclick="return false;">
+                  <span class="sidebar__menu-item-title">Conversion History</span>
+                </a>
+                <a class="sidebar__menu-item" href="/en/my/orders/payment" onclick="return false;">
+                  <span class="sidebar__menu-item-title">Payment History</span>
+                </a>
+              </div>
 
             </div>
             <a class="sidebar__menu-item" href="/en/rewards-hub" onclick="return false;">

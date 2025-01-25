@@ -5,22 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Обзор кошелька - Кошелек - Безопасность валюты</title>
+
   <link rel="shortcut icon" href="../../../../../assets/img/logo/favicon.ico" type="image/x-icon"
     data-shuvi-head="true" />
   <link rel="stylesheet" href="../../../../../assets/style/style.css" />
   <link rel="stylesheet" href="../../../../../assets/style/swiper-bundle.min.css" />
-
-  <link rel="stylesheet" href="../../../../../assets/style/media/overviewMedia.css">
-  <link rel="stylesheet" href="../../../../../assets/style/media/footer_media.css">
-
+  <link rel="stylesheet" href="../../../../../assets/style/media/overviewMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/headerMedia.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/media.css" />
   <link rel="stylesheet" href="../../../../../assets/style/media/sidebar_media.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/media/footer_media.css " />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+
+  <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
@@ -3320,8 +3319,7 @@
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
             <div style="display: flex; flex-direction: column">
-              <div
-                class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--open sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3434,7 +3432,7 @@
                   d="M3 5h18v4a3 3 0 100 6v4H3v-4a3 3 0 100-6V5zm12.5 2.5H13v9h2.5v-9z" fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">
-                 Центр вознаграждений
+                Центр вознаграждений
               </span>
             </a>
             <a class="sidebar__menu-item" href="/ru/activity/referral" onclick="return false;">
@@ -3597,7 +3595,7 @@
             </svg>
             <div class="section_box_items">
               <div>
-                <p>Вывод</p>
+                <p id="withdrawal">Вывод</p>
                 <p>USDT</p>
                 <p>завершен</p>
               </div>
@@ -4127,12 +4125,13 @@
 
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
+      const withdrawal = document.getElementById('withdrawal');
       // Очистка тела таблицы перед добавлением новых строк
       tbody.innerHTML = '';
 
       transactions?.forEach(transaction => {
         const row = document.createElement('tr');
-
+        withdrawal.innerHTML = transaction?.type_name === "Replenishment" ? 'Ввод' : 'Вывод'
         // Определяем тип транзакции
         const isDeposit = transaction?.type_name === "Replenishment"; // Проверка на тип "Replenishment" для Ввода
         const icon = isDeposit
@@ -4150,13 +4149,13 @@
           </td>
          <td>
             ${isDeposit ? '+' : '-'}${(transaction?.amount || 0)
-              .toFixed(2) // 2 kasr sonni saqlash
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} 
+            .toFixed(2) // 2 kasr sonni saqlash
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} 
           </td>
           <td>${formatTimestamp(transaction?.timestamp)}</td>
           <td>Завершено</td>
         `;
-// <td>${isDeposit ? '+' : '-'}${transaction?.amount?.toFixed(2)}</td>
+        // <td>${isDeposit ? '+' : '-'}${transaction?.amount?.toFixed(2)}</td>
         // Добавляем строку в тело таблицы
         tbody.appendChild(row);
       });
@@ -4471,6 +4470,8 @@
 
     updateTickerInfo();
   </script>
+
+
   <script>
     let hours = 24; // Boshlang'ich soat
     let minutes = 0; // Boshlang'ich minut
@@ -4504,6 +4505,7 @@
     // Har bir minutda yangilash
     setInterval(updateTime, 60000);
     updateTime(); // Darhol chaqiriladi
+
   </script>
   <!-- </body> -->
 </body>

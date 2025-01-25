@@ -72,7 +72,7 @@
                         d="M15 4C13.7969 3.99967 12.6269 4.39383 11.6692 5.12209C10.7116 5.85036 10.0191 6.87254 9.698 8.032C11.4386 8.19458 13.0677 8.96007 14.3038 10.1962C15.5399 11.4323 16.3054 13.0614 16.468 14.802C17.7485 14.4451 18.8565 13.6367 19.5872 12.5262C20.3178 11.4157 20.6218 10.0783 20.4428 8.76108C20.2637 7.44388 19.6139 6.23603 18.6134 5.36081C17.6129 4.4856 16.3293 4.00221 15 4ZM14.5 15.5C14.5 14.0413 13.9205 12.6424 12.8891 11.6109C11.8576 10.5795 10.4587 10 9 10C7.54131 10 6.14236 10.5795 5.11091 11.6109C4.07946 12.6424 3.5 14.0413 3.5 15.5C3.5 16.9587 4.07946 18.3576 5.11091 19.3891C6.14236 20.4205 7.54131 21 9 21C10.4587 21 11.8576 20.4205 12.8891 19.3891C13.9205 18.3576 14.5 16.9587 14.5 15.5ZM6.5 15.5L9 18L11.5 15.5L9 13L6.5 15.5Z" />
                     </g>
                   </svg>
-                  Trading
+                  Trade
                   <svg class="header-item__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -3318,7 +3318,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
                   <span class="sidebar__menu-item-title">
                     <!-- Ордер торгового бота -->
-                    Trading Bot Order
+                    Trading Bots Order
                   </span>
                 </a>
                 <a class="sidebar__menu-item" href="/en/my/wallet/history/deposit-crypto" onclick="return false;">
@@ -3352,7 +3352,8 @@
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M3 5h18v4a3 3 0 100 6v4H3v-4a3 3 0 100-6V5zm12.5 2.5H13v9h2.5v-9z" fill="currentColor"></path>
               </svg>
-              <span class="sidebar__menu-item-title">Bonus Center</span>
+              <!-- <span class="sidebar__menu-item-title">Bonus Center</span> -->
+              <span class="sidebar__menu-item-title">Rewards Hub</span>
             </a>
             <a class="sidebar__menu-item" href="/en/activity/referral" onclick="return false;">
               <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -3360,7 +3361,7 @@
                   d="M11 8.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zM2 17a3 3 0 013-3h5a3 3 0 013 3v3H2v-3zm14.5-1v-3h-3v-3h3V7h3v3h3v3h-3v3h-3z"
                   fill="currentColor"></path>
               </svg>
-              <span class="sidebar__menu-item-title">Referral Program</span>
+              <span class="sidebar__menu-item-title">Referral</span>
             </a>
             <div style="display: flex; flex-direction: column">
               <div class="sidebar__menu-item sidebar__menu-item--accordion">
@@ -3404,7 +3405,13 @@
                   d="M12 8.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zM3 17a3 3 0 013-3h5a3 3 0 013 3v3H3v-3zM21 5h-5v3h5V5zm0 5.002h-5v3h5v-3zm-5 5.002h5v3h-5v-3z"
                   fill="currentColor"></path>
               </svg>
-              <span class="sidebar__menu-item-title">Subaccounts</span>
+              <span class="sidebar__menu-item-title">Sub Accounts</span>
+              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                    fill="currentColor"></path>
+                </svg>
             </a>
             <a class="sidebar__menu-item" href="/en/my/settings/preference" onclick="return false;">
               <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4014,7 +4021,7 @@
             ? "position__pnl--positive"
             : "position__pnl--negative"
           }">
-                  ${(+transaction.pnl).toFixed(2)} USDT
+                  +${(+transaction.pnl).toFixed(2)} USDT
                 </span>
               </div>
             </div>

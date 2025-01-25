@@ -3452,6 +3452,12 @@
                   fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Субаккаунты</span>
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                    fill="currentColor"></path>
+                </svg>
             </a>
             <a class="sidebar__menu-item" href="/ru/my/settings/preference" onclick="return false;">
               <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4002,7 +4008,7 @@
                      <div class="position__detail">
                     <p class="position__detail-tooltip-text">Прибыль или убыток по позиции.</p>
                     <div class="position__detail-tooltip-text--arrow"></div>
-                    <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">${(+transaction.pnl).toFixed(2)} USDT</span>
+                    <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">+${(+transaction.pnl).toFixed(2)} USDT</span>
                   </div>
                 <div id="position__detail-closed">
                   <div class="position__detail">

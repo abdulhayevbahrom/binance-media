@@ -3734,10 +3734,10 @@
                               <path
                                 d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
                             </svg>
+                            <div class="media_mobile_modal">
+                              <div>Transfer</div>
+                            </div>
                           </button>
-                          <div class="media_mobile_modal">
-                            Transfer
-                          </div>
                         </div>
                       </td>
                     </tr>
@@ -3769,6 +3769,9 @@
                               <path
                                 d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
                             </svg>
+                            <div class="media_mobile_modal">
+                              <div>Transfer</div>
+                            </div>
                           </button>
                         </div>
                       </td>
@@ -3801,6 +3804,9 @@
                               <path
                                 d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
                             </svg>
+                            <div class="media_mobile_modal">
+                              <div>Transfer</div>
+                            </div>
                           </button>
                         </div>
                       </td>
@@ -3833,6 +3839,9 @@
                               <path
                                 d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
                             </svg>
+                            <div class="media_mobile_modal">
+                              <div>Transfer</div>
+                            </div>
                           </button>
                         </div>
                       </td>
@@ -3865,6 +3874,9 @@
                               <path
                                 d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
                             </svg>
+                            <div class="media_mobile_modal">
+                              <div>Transfer</div>
+                            </div>
                           </button>
                         </div>
                       </td>
@@ -4675,34 +4687,7 @@
   </script>
 
   <script src="../../../../../assets/js/script.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const mobileButton = document.querySelector(".media_mobile");
-      const modal = document.querySelector(".media_mobile_modal");
 
-      // Modalni ochish yoki yopish
-      mobileButton.addEventListener("click", function (event) {
-        event.stopPropagation(); // Hodisani boshqa elementlarga uzatishni to'xtatish
-        modal.classList.toggle("active");
-        positionModal(mobileButton, modal);
-      });
-
-      // Modal tashqarisiga bosilganda yopish
-      document.addEventListener("click", function () {
-        if (modal.classList.contains("active")) {
-          modal.classList.remove("active");
-        }
-      });
-
-      // Modal pozitsiyasini hisoblash
-      function positionModal(button, modal) {
-        const buttonRect = button.getBoundingClientRect();
-        modal.style.top = `${buttonRect.bottom + window.scrollY}px`;
-        modal.style.left = `${buttonRect.left + window.scrollX}px`;
-      }
-    });
-    s
-  </script>
 </body>
 
 </html>

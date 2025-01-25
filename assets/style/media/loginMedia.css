@@ -4,6 +4,7 @@
     align-items: flex-start;
     gap: 0;
   }
+
   .auth-card {
     width: 100%;
     min-height: auto;
@@ -14,6 +15,7 @@
       margin-left: 0;
     }
   }
+
   .auth-card__qr-button {
     display: none;
   }
@@ -36,7 +38,26 @@
 
 @media screen and (max-width: 445px) {
   .login-footer {
-    flex-wrap: wrap;
-    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 95%;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .login-footer span,
+  .login-footer button,
+  .login-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #b7bdc6;
+    margin: 0 2px;
+    font-family: "BinancePlex";
+    font-size: 14px;
+    cursor: pointer;
   }
 }

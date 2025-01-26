@@ -5370,6 +5370,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
+  margin-top: 4px;
 }
 
 .select__label svg {

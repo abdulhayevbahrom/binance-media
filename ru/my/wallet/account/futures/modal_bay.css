@@ -1,9 +1,3 @@
-.media_mobile {
-    position: relative;
-    /* Tugma joylashuvini o'zgartirish uchun kerak */
-    display: inline-block;
-}
-
 .media_mobile_modal {
     display: none;
     position: absolute;

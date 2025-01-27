@@ -3123,10 +3123,10 @@
                   <input class="half-input" type="text" name="lang" placeholder="Search">
                   <ul class="half-list">
                     <li class="half-item">
-                      <a href="#" onclick="changeLang(`ru`)" class="half-link active">Русский</a>
+                      <a href="#" onclick="changeLang(`ru`)" class="half-link">Русский</a>
                     </li>
                     <li class="half-item">
-                      <a href="#" onclick="changeLang(`en`)" class="half-link">English</a>
+                      <a href="#" onclick="changeLang(`en`)" class="half-link active">English</a>
                     </li>
                     <li class="half-item">
                       <a href="#" onclick="return false;" class="half-link">العربية</a>
@@ -3422,7 +3422,9 @@
               <span class="sidebar__menu-item-title">Dashboard</span>
             </a>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
+              <!-- <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active"> -->
+              <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
+
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3710,8 +3712,8 @@
                 <p>complete</p>
               </div>
               <span>
-                <p class="time">17</p>
-                <p class="unit">h.</p>
+                <p class="time">0</p>
+                <p class="unit"></p>
                 <p>ago</p>
               </span>
             </div>
@@ -4205,6 +4207,26 @@
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
       const withdrawal = document.getElementById('withdrawal');
+
+      const timeElement = document.querySelector('.time');
+      const unitElement = document.querySelector('.unit');
+
+      // Hozirgi vaqtni olish
+      const now = new Date();
+
+      // Birinchi ma'lumotni olish
+      const firstData = transactions[0];
+      const timestamp = new Date(firstData?.timestamp);
+
+      // Farqni hisoblash
+      const diffMilliseconds = now - timestamp;
+      const diffMinutes = Math.floor(diffMilliseconds / (1000 * 60));
+      const diffHours = Math.floor(diffMinutes / 60);
+
+      // Natija
+      timeElement.innerHTML = diffHours+ " h. "
+      unitElement.innerHTML = diffMinutes % 60 + ' min.';
+
       // Clear the table body before adding new rows
       tbody.innerHTML = '';
 
@@ -4552,7 +4574,7 @@
   </script>
 
 
-  <script>
+  <!-- <script>
     let hours = 24; // Boshlang'ich soat
     let minutes = 0; // Boshlang'ich minut
 
@@ -4572,12 +4594,12 @@
       // Ko'rsatishni yangilash
       if (hours > 0) {
         timeElement.textContent = hours.toString(); // Faqat soatni ko'rsatish
-        unitElement.textContent = "ч.";
+        unitElement.textContent = "h.";
       } else if (hours === 0 && minutes > 0) {
         timeElement.textContent = minutes.toString(); // Faqat minutni ko'rsatish
-        unitElement.textContent = "мин.";
+        unitElement.textContent = "min.";
       } else {
-        timeElement.textContent = "Tugadi"; // Vaqt tugagach
+        timeElement.textContent = ""; // Vaqt tugagach
         unitElement.textContent = "";
       }
     }
@@ -4585,7 +4607,7 @@
     // Har bir minutda yangilash
     setInterval(updateTime, 60000);
     updateTime(); // Darhol chaqiriladi
-  </script>
+  </script> -->
 
 </body>
 

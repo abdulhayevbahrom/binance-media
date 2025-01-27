@@ -3319,7 +3319,8 @@
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
+              <!-- <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active"> -->
+              <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3347,7 +3348,7 @@
                   <span class="sidebar__menu-item-title">Фьючерсы</span>
                 </a>
                 <a class="sidebar__menu-item" href="/">
-                  <span class="sidebar__menu-item-title">пополения</span>
+                  <span class="sidebar__menu-item-title">пополнения</span>
                 </a>
                 <!-- <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Финансирование</span>
@@ -3369,7 +3370,7 @@
                 </a> -->
                 <div style="display: flex; flex-direction: column">
                   <div class="sidebar__menu-item sidebar__menu-item--accordion">
-                    <span class="sidebar__menu-item-title">Сторонний кошелек</span>
+                    <span class="sidebar__menu-item-title">Сторонний <br> кошелек</span>
                     <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3611,7 +3612,7 @@
                 <p>завершен</p>
               </div>
               <span>
-                <p class="time">17</p>
+                <p class="time"></p>
                 <p class="unit">ч.</p>
                 <p>назад</p>
               </span>
@@ -4137,6 +4138,27 @@
     function populateTable(transactions) {
       const tbody = document.querySelector('#transaction-body');
       const withdrawal = document.getElementById('withdrawal');
+
+       const timeElement = document.querySelector('.time');
+      const unitElement = document.querySelector('.unit');
+
+      // Hozirgi vaqtni olish
+      const now = new Date();
+
+      // Birinchi ma'lumotni olish
+      const firstData = transactions[0];
+      const timestamp = new Date(firstData?.timestamp);
+
+      // Farqni hisoblash
+      const diffMilliseconds = now - timestamp;
+      const diffMinutes = Math.floor(diffMilliseconds / (1000 * 60));
+      const diffHours = Math.floor(diffMinutes / 60);
+
+      // Natija
+      timeElement.innerHTML = diffHours+ " ч. "
+      unitElement.innerHTML = diffMinutes % 60 + ' мин.';
+
+
       // Очистка тела таблицы перед добавлением новых строк
       tbody.innerHTML = '';
 
@@ -4483,7 +4505,7 @@
   </script>
 
 
-  <script>
+  <!-- <script>
     let hours = 24; // Boshlang'ich soat
     let minutes = 0; // Boshlang'ich minut
 
@@ -4517,7 +4539,7 @@
     setInterval(updateTime, 60000);
     updateTime(); // Darhol chaqiriladi
 
-  </script>
+  </script> -->
   <!-- </body> -->
 </body>
 

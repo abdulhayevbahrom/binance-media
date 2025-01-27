@@ -4008,8 +4008,12 @@
                      <div class="position__detail">
                     <p class="position__detail-tooltip-text">Прибыль или убыток по позиции.</p>
                     <div class="position__detail-tooltip-text--arrow"></div>
-                    <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">+${(+transaction.pnl).toFixed(2)} USDT</span>
-                  </div>
+                    
+                    <span class="label">PnL после закрытия позиций</span> 
+                    <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">
+                      ${(transaction.pnl > 0 ? '+' : '') + (+transaction.pnl).toFixed(2)} USDT
+                    </span>
+                    </div>
                 <div id="position__detail-closed">
                   <div class="position__detail">
                     <span class="label">Статус</span> Закрыто
@@ -4018,7 +4022,8 @@
                 </div>
               </div>
             </div>
-        `;
+            `;
+            // <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">+${(+transaction.pnl).toFixed(2)} USDT</span>
 
         tbody.appendChild(row);
       });

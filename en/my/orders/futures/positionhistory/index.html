@@ -2456,7 +2456,7 @@
             <svg class="btn-web__icon" width="20" height="24" viewBox="0 0 24 24">
               <use href="../../../../../assets/img/icons/sprite.svg#refill"></use>
             </svg>
-            <span>Replenish</span>
+            <span>Deposit</span>
           </button>
 
           <!--User-->
@@ -3245,10 +3245,10 @@
                   <span class="sidebar__menu-item-title">Futures</span>
                 </a>
                 <a class="sidebar__menu-item" href="/en/my/wallet/account/eoptions" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Options</span>
+                  <span class="sidebar__menu-item-title">Funding</span>
                 </a>
-                <a class="sidebar__menu-item" href="/en/my/wallet/account/trading-bots" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Trading Bots</span>
+                <!-- <a class="sidebar__menu-item" href="/en/my/wallet/account/trading-bots" onclick="return false;">
+                  <span class="sidebar__menu-item-title">Trading Bots2</span>
                 </a>
                 <a class="sidebar__menu-item" href="/en/my/wallet/account/earn" onclick="return false;">
                   <span class="sidebar__menu-item-title">Earn</span>
@@ -3258,11 +3258,10 @@
                 </a>
                 <a class="sidebar__menu-item" href="/en/my/wallet/account/copy-trader/futures" onclick="return false;">
                   <span class="sidebar__menu-item-title">Copy Trading</span>
-                </a>
+                </a> -->
                 <div style="display: flex; flex-direction: column">
                   <div class="sidebar__menu-item sidebar__menu-item--accordion">
-                    <span class="sidebar__menu-item-title">External <br />
-                      Wallet</span>
+                    <span class="sidebar__menu-item-title">Third-Party Wallet</span>
                     <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3755,7 +3754,7 @@
     <p class="time_picer_m">* We only support the customized dates within 180 days. History is displayed in UTC+0 time
       zone.</p>
 
-    <button type="button" class="generate-button">
+    <button onclick="getExcelData()" type="button" class="generate-button">
       Generate (19/20)
     </button>
 
@@ -4196,7 +4195,8 @@
             '<span class="calendar-icon"></span>';
           instance.input.innerHTML = instance.input.value;
         }, 0);
-
+        
+        
         sendAnalysisRequestWithDates(startDate, endDate);
       }
     }
@@ -4241,6 +4241,105 @@
     });
 
   </script>
+
+  <script>
+
+  async function getExcelData() {
+    flatpickr("#dateRangePickerAnalysis", {
+      mode: "range",
+      dateFormat: "Y-m-d",
+      defaultDate: [startDate, endDate],
+      locale: {
+        firstDayOfWeek: 7,
+        rangeSeparator: ' <span class="range-icon"></span> ',
+        weekdays: {
+          shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+          longhand: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+        },
+      },
+      showMonths: 2,
+      shorthandCurrentMonth: true,
+      onValueUpdate: updateAnalysisDateDisplay,
+      onReady: function (selectedDates, dateStr, instance) {
+        instance.jumpToDate(new Date());
+        updateAnalysisDateDisplay(selectedDates, dateStr, instance);
+        const nextMonthButton = instance.calendarContainer.querySelector(
+          ".flatpickr-next-month"
+        );
+        const prevMonthButton = instance.calendarContainer.querySelector(
+          ".flatpickr-prev-month"
+        );
+        if (nextMonthButton && prevMonthButton) {
+          const svgNextIcon = nextMonthButton.querySelector("svg");
+          const svgPrevIcon = prevMonthButton.querySelector("svg");
+          if (svgNextIcon && svgPrevIcon) {
+            svgNextIcon.remove();
+            svgPrevIcon.remove();
+          }
+        }
+      },
+    });
+
+    
+    try {
+      const user = JSON.parse(localStorage.getItem("user")) || {};
+
+      if (!user.user_id) {
+        console.error("Foydalanuvchi ma'lumotlari topilmadi.");
+        return;
+      }
+
+      const response = await fetch(
+        `${SERVER_URL}/report/exporting-position-history-excel`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user: {
+              user_id: user.user_id,
+            },
+            start_date: startDate,
+            end_date: endDate,
+          }),
+        }
+      );
+       let ss = await response.blob();
+      console.log(ss);
+      
+
+      // if (response.ok) {
+      //   // Faylni yuklab olish
+      //   const blob = await response.blob();
+      //   const url = window.URL.createObjectURL(blob);
+      //   const a = document.createElement("a");
+      //   a.style.display = "none";
+      //   a.href = url;
+      //   a.download = "report.xlsx";
+      //   document.body.appendChild(a);
+      //   a.click();
+      //   window.URL.revokeObjectURL(url);
+      //   console.log("Excel fayli muvaffaqiyatli yuklandi.");
+      // } else {
+      //   console.error("Xatolik yuz berdi:", response.statusText);
+      // }
+    } catch (error) {
+      console.error("Xato:", error);
+    }
+  }
+
+  // Funksiyani chaqirish
+</script>
+
 </body>
 
 </html>

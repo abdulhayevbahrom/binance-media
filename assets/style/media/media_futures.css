@@ -1,4 +1,4 @@
-.main>.orders-reload {
+.main > .orders-reload {
   display: none;
 }
 
@@ -16,6 +16,10 @@
 
 #position__detail-closed {
   display: none;
+}
+
+.order-select__list_excel {
+  height: 400px important;
 }
 
 @media (max-width: 768px) {
@@ -62,7 +66,7 @@
     align-items: center;
   }
 
-  .main>.orders-reload {
+  .main > .orders-reload {
     display: block;
     display: flex;
     justify-content: center;
@@ -87,7 +91,7 @@
     margin: 24px 0;
   }
 
-  .order-filters_modal>.close-modal {
+  .order-filters_modal > .close-modal {
     width: 100%;
     height: 45px;
     display: flex;
@@ -164,11 +168,13 @@
     transition-timing-function: ease-in-out;
     opacity: 0;
     z-index: -1;
-    background: linear-gradient(-45deg,
-        transparent 0,
-        transparent 50%,
-        var(--color-textPrimary) 50%,
-        var(--color-textPrimary) 100%);
+    background: linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 50%,
+      var(--color-textPrimary) 50%,
+      var(--color-textPrimary) 100%
+    );
     transform: translateX(-50%) rotate(-115deg);
     bottom: 27px;
     left: 100px !important;
@@ -196,7 +202,7 @@
     width: 2px;
   }
 
-  .order-filters_modal>.close-modal p {
+  .order-filters_modal > .close-modal p {
     font-size: 17px;
   }
 
@@ -221,7 +227,7 @@
     gap: 6px;
   }
 
-  .order-select-str>button {
+  .order-select-str > button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,7 +268,7 @@
     }
   }
 
-  .order-filters_modal>p {
+  .order-filters_modal > p {
     font-size: 13px;
     color: #bfc5cc;
     margin-top: 17px;
@@ -313,8 +319,6 @@
     box-shadow: 0px 0px 14px #00000022;
   }
 
-  .order-select__option {}
-
   .order-select__label {
     box-sizing: border-box;
     display: inline-flex;
@@ -352,7 +356,7 @@
     line-height: 22px;
   }
 
-  .order-select__label>div {
+  .order-select__label > div {
     width: 100% !important;
     display: flex;
     justify-content: end;
@@ -361,10 +365,10 @@
   .order-select__list {
     display: flex;
     flex-direction: column;
-    max-height: 228px;
     overflow-y: hidden;
     padding: 4px 10px 4px 0;
     left: 0;
+    height: 100%;
   }
 
   .order-filters_modal {
@@ -538,7 +542,7 @@
     gap: 15px;
   }
 
-  .analysis-modal__info-column>div {
+  .analysis-modal__info-column > div {
     display: flex;
     flex-direction: column;
     width: 100%;

@@ -27,7 +27,6 @@
   display: none;
   position: absolute;
   z-index: 10;
-  max-height: 270px;
   overflow-y: auto;
 }
 
@@ -37,6 +36,18 @@
 
 .order-select__list-wrapper.visible {
   display: block;
+  height: 400px;
+}
+
+.big_wrapper_box {
+  .order-select__search {
+    position: sticky;
+    top: 7px;
+    left: 0;
+    z-index: 10;
+    background-color: #1e2329;
+    box-shadow: 0 -8px 0 8px #1e2329;
+  }
 }
 
 .order-select__option {
@@ -63,6 +74,10 @@
   border-radius: 8px;
   cursor: pointer;
   width: 25%;
+
+  &:first-child {
+    border: 1px solid rgb(255, 255, 255);
+  }
 }
 
 .time-buttons button:hover {

@@ -3709,13 +3709,13 @@
     <div class="order-select" id="modal-ticker-select">
       <span class="order-select__label">
         <div>
-          <span>ВСЕ</span>
+          <span id="selected_item_on_symbol">ВСЕ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
             <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
           </svg>
         </div>
       </span>
-      <div class="order-select__list-wrapper">
+      <div class="order-select__list-wrapper big_wrapper_box">
         <div class="order-select__search">
           <button class="order-select__search-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
@@ -3724,48 +3724,21 @@
                 fill="currentColor"></path>
             </svg>
           </button>
-          <input class="order-select__search-input" placeholder="Search for symbol" />
+          <input class="order-select__search-input order-select__search-input_exel" placeholder="Поиск символа" />
         </div>
-        <div class="order-select__list">
-          <span class="order-select__option selected highlight" data-value="all">
+        <div class="order-select__list order-select__list_excel">
+          <!-- <span class="order-select__option selected highlight" data-value="all">
             BNBUSDT
-          </span>
-          <span class="order-select__option" data-value="bnb-btc">
-            ATOMUSDT
-          </span>
-          <span class="order-select__option" data-value="nuls-btc">
-            ONTUSDT
-          </span>
-          <span class="order-select__option" data-value="neo-btc">
-            IOTAUSDT
-          </span>
-          <span class="order-select__option" data-value="link-btc">
-            BATUSDT
-          </span>
-          <span class="order-select__option" data-value="iota-btc">
-            VETUSDT
-          </span>
-          <span class="order-select__option" data-value="etc-btc">
-            NEOUSDT
-          </span>
-          <span class="order-select__option" data-value="etc-btc">
-            QTUMUSDT
-          </span>
-          <span class="order-select__option" data-value="etc-btc">
-            IOSTUSDT
-          </span>
-          <span class="order-select__option" data-value="etc-btc">
-            THETAUSDT
-          </span>
+          </span> -->
         </div>
       </div>
     </div>
     <p class="time-period">Выберите период</p>
     <div class="time-buttons">
-      <button type="button">1 неделя</button>
-      <button type="button">1 месяц</button>
-      <button type="button">3 мес.</button>
-      <button type="button">6 мес.</button>
+      <button id="time_button_item" onclick="changeDate2(1)" type="button">1 неделя</button>
+      <button id="time_button_item" onclick="changeDate2(2)" type="button">1 месяц</button>
+      <button id="time_button_item" onclick="changeDate2(3)" type="button">3 мес.</button>
+      <button id="time_button_item" onclick="changeDate2(4)" type="button">6 мес.</button>
     </div>
     <div class="calendar">
       <div class="calendar__preview" id="dateRangePickerAnalysis"></div>
@@ -3775,7 +3748,7 @@
     <p class="time_picer_m">* Настройка даты возможна в течение периода в 180 дней.
       История отображается в часовом поясе UTC-0.</p>
 
-    <button type="button" class="generate-button">
+    <button onclick="getExcelData()" type="button" class="generate-button">
       Экспорт (19/20)
     </button>
 
@@ -3800,12 +3773,12 @@
           </tr>
         </thead>
         <tbody class="analysis-modal_pasition-thead_td">
-          <tr>
+          <!-- <tr>
             <td>2025-01-24 22:15:35</td>
             <td>2025-01-17 - 2025-01-24</td>
             <td class="analysis-modal_pasition-tr"> <img src="./check.png" alt=""> Готово</span> <a
                 href="#">Загрузить</a></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
@@ -4232,4 +4205,287 @@
     });
 
   </script>
+
+
+<script>
+      // ========== get symbols =========
+      async function getSymbols() {
+        try {
+          let response = await fetch(
+            `https://www.binance.com/fapi/v1/exchangeInfo?showall=true`
+          );
+          if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+          let data = await response.json();
+          let selectItems = data?.symbols || [];
+
+          let select = document.querySelector(".order-select__list_excel");
+          select.innerHTML = ""; // Eski ma'lumotlarni tozalash
+
+          selectItems.forEach((item) => {
+            let option = document.createElement("span");
+            option.className = "order-select__option";
+            option.classList.add("symbol_select_option_item");
+            option.textContent = item.symbol;
+            select.appendChild(option);
+          });
+        } catch (error) {
+          console.error("Xatolik yuz berdi:", error);
+        }
+      }
+      getSymbols();
+      // ------------------------------------------------------------
+
+      setTimeout(() => {
+        const searchInput = document.querySelector(
+          ".order-select__search-input_exel"
+        );
+        const options = document.querySelectorAll(".symbol_select_option_item");
+        const listWrapper = document.querySelector(".big_wrapper_box");
+        const label = document.querySelector("#selected_item_on_symbol");
+        // Search functionality
+        searchInput.addEventListener("input", () => {
+          const searchValue = searchInput.value.toLowerCase();
+          options.forEach((option) => {
+            const text = option.textContent.toLowerCase();
+            if (text.includes(searchValue)) {
+              option.style.display = "";
+            } else {
+              option.style.display = "none";
+            }
+          });
+        });
+
+        options.forEach((option) => {
+          option.addEventListener("click", () => {
+            label.textContent = option.textContent;
+            listWrapper.classList.remove("visible");
+            searchInput.value = ""; // Clear search input after selection
+            options.forEach((opt) => (opt.style.display = "")); // Reset all options visibility
+          });
+        });
+      }, 3000);
+
+      // document getTableData
+
+      async function getTableData() {
+        const user = JSON.parse(localStorage.getItem("user")) || {};
+        const tbody = document.querySelector(
+          ".analysis-modal_pasition-thead_td"
+        );
+
+        const params = new URLSearchParams({
+          user_id: user.user_id,
+        });
+
+        try {
+          let res = await fetch(
+            `${SERVER_URL}/accounts/export-position-history?${params.toString()}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          if (!res.ok) {
+            throw new Error(`Error: ${res.status} ${res.statusText}`);
+          }
+
+          let tableData = await res.json();
+          tableData = tableData.slice(0, 6);
+          if (tableData.length) {
+            tableData.forEach((item) => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+        <td>${item?.dispatch_time || "-"}</td>
+        <td>${item?.discharge_period || "-"}</td>
+        <td class="analysis-modal_pasition-tr"> 
+          <img src="./check.png" alt="Check"> Generated 
+          <a href="#" onclick="getDocumentById(${item?.id})">Download</a>
+        </td>
+        `;
+              tbody.appendChild(tr);
+            });
+          }
+
+          let generateBtn = document.querySelector(".generate-button");
+          generateBtn.innerHTML = `Экспорт (${20 - tableData.length}/20)`;
+        } catch (error) {
+          console.error("Xato:", error);
+        }
+      }
+
+      getTableData();
+      // -------------------------------------------------------
+      let end_date = new Date();
+      let start_date = new Date();
+      start_date.setDate(end_date.getDate() - 7);
+
+      let time_button_items = document.querySelectorAll("#time_button_item");
+
+      // Tugmani bosganda sanani o'zgartirish
+      const changeDate2 = (index) => {
+        time_button_items.forEach(
+          (item) => (item.style.border = "1px solid #474d57")
+        );
+
+        switch (index) {
+          case 1:
+            start_date = new Date(end_date);
+            start_date.setDate(end_date.getDate() - 7); // So'nggi 7 kun
+            end_date = new Date();
+            time_button_items[0].style.border = "1px solid #fff";
+            break;
+          case 2:
+            start_date = new Date(end_date);
+            start_date.setMonth(end_date.getMonth() - 1); // So'nggi oy
+            end_date = new Date();
+            time_button_items[1].style.border = "1px solid #fff";
+            break;
+          case 3:
+            start_date = new Date(end_date);
+            start_date.setMonth(end_date.getMonth() - 3); // So'nggi 3 oy
+            end_date = new Date();
+            time_button_items[2].style.border = "1px solid #fff";
+            break;
+          case 4:
+            start_date = new Date(end_date);
+            start_date.setMonth(end_date.getMonth() - 6); // So'nggi 6 oy
+            end_date = new Date();
+            time_button_items[3].style.border = "1px solid #fff";
+            break;
+          default:
+            return;
+        }
+        displayDates();
+      };
+
+      // const formatDate = (date) => date.toISOString().split("T")[0];
+      const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0"); // getMonth 0'dan boshlanadi, shuning uchun 1 qo'shamiz
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
+
+      flatpickr("#dateRangePickerAnalysis", {
+        mode: "range",
+        dateFormat: "Y-m-d",
+        defaultDate: [formatDate(start_date), formatDate(end_date)],
+        locale: {
+          firstDayOfWeek: 7,
+          rangeSeparator: ' <span class="range-icon"></span> ',
+          weekdays: {
+            shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+            longhand: [
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
+          },
+        },
+        showMonths: 2,
+        shorthandCurrentMonth: true,
+        onValueUpdate: (selectedDates) => {
+          if (selectedDates.length === 2) {
+            start_date = selectedDates[0];
+            end_date = selectedDates[1];
+            displayDates();
+          }
+        },
+        onReady: function (selectedDates, dateStr, instance) {
+          instance.jumpToDate(new Date());
+        },
+      });
+
+      const displayDates = () => {
+        document.getElementById("dateRangePickerAnalysis").innerHTML = `
+          ${formatDate(start_date)}
+          <span class='range-icon'></span>
+          ${formatDate(end_date)}
+          <span class='calendar-icon'></span>
+        `;
+      };
+
+      async function getExcelData() {
+        try {
+          const tbody = document.querySelector(
+            ".analysis-modal_pasition-thead_td"
+          );
+          const user = JSON.parse(localStorage.getItem("user")) || {};
+
+          const response = await fetch(
+            `${SERVER_URL}/accounts/export-position-history`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                user: { user_id: user.user_id },
+                start_date: formatDate(start_date),
+                end_date: formatDate(end_date),
+              }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Ma'lumot olishda xato yuz berdi");
+          }
+
+          const innerData = await response.json();
+          // Jadvalga yangi qator qo'shish
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+              <td>${innerData?.dispatch_time || "-"}</td>
+              <td>${innerData?.discharge_period || "-"}</td>
+              <td class="analysis-modal_pasition-tr"> 
+                <img src="./check.png" alt="Check"> Generated 
+                <a href="#" onclick="getDocumentById(${
+                  innerData?.eph_id
+                })">Download</a>
+              </td>
+            `;
+          tbody.appendChild(tr);
+          getTableData();
+        } catch (error) {
+          console.error("Xato:", error);
+        }
+      }
+
+      // get document by id
+      async function getDocumentById(id) {
+        try {
+          const user = JSON.parse(localStorage.getItem("user")) || {};
+          const response = await fetch(
+            `${SERVER_URL}/accounts/document-export-position-history/?eph_id=${id}`
+          );
+
+          if (response.ok) {
+            // Faylni yuklab olish
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.style.display = "none";
+            a.href = url;
+            a.download = "report.xlsx";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            console.log("Excel fayli muvaffaqiyatli yuklandi.");
+          } else {
+            console.error("Xatolik yuz berdi:", response.statusText);
+          }
+        } catch (error) {
+          console.error("Xato:", error);
+        }
+      }
+    </script>
+
 </body>

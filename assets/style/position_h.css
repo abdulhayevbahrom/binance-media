@@ -1,7 +1,7 @@
 .analysis-modal_pasition {
   box-sizing: border-box;
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -204,12 +204,46 @@
   border-bottom: 1px solid #474d57;
 }
 
+.analysis-modal_pasition-table tbody {
+  display: block;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.analysis-modal_pasition-table tbody::-webkit-scrollbar {
+  width: 3px;
+}
+
+.analysis-modal_pasition-table tbody::-webkit-scrollbar-track {
+  background: #f1f1f100;
+  border-radius: 4px;
+}
+
+.analysis-modal_pasition-table tbody::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.analysis-modal_pasition-table tbody::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.analysis-modal_pasition-table thead,
+.analysis-modal_pasition-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.analysis-modal_pasition-table tbody tr {
+  border-bottom: 1px solid #474d57;
+}
+
 .analysis-modal_pasition-thead_td td {
   text-align: left;
   padding: 12px 8px;
   color: #ffffff;
   font-size: 13px;
-  /* border-bottom: 1px solid #474d57; */
 }
 
 .analysis-modal_pasition-tr {
@@ -218,7 +252,7 @@
   gap: 5px;
 }
 
-.analysis-modal_pasition-tr > img {
+.analysis-modal_pasition-tr>img {
   width: 14px;
   margin-top: 3px;
 }
@@ -282,7 +316,7 @@
 
   .backdrop {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

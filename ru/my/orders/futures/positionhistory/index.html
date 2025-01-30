@@ -3342,8 +3342,7 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div
-                class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3452,12 +3451,12 @@
                   fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Субаккаунты</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
-                    fill="currentColor"></path>
-                </svg>
+              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                  fill="currentColor"></path>
+              </svg>
             </a>
             <a class="sidebar__menu-item" href="/ru/my/settings/preference" onclick="return false;">
               <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -3996,7 +3995,7 @@
               </div>
             </div>
             `;
-            // <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">+${(+transaction.pnl).toFixed(2)} USDT</span>
+        // <span class="label">PnL после закрытия позиций</span> <span class="position__pnl ${(+transaction.pnl) > 0 ? 'position__pnl--positive' : 'position__pnl--negative'}">+${(+transaction.pnl).toFixed(2)} USDT</span>
 
         tbody.appendChild(row);
       });
@@ -4207,285 +4206,284 @@
   </script>
 
 
-<script>
-      // ========== get symbols =========
-      async function getSymbols() {
-        try {
-          let response = await fetch(
-            `https://www.binance.com/fapi/v1/exchangeInfo?showall=true`
-          );
-          if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+  <script>
+    // ========== get symbols =========
+    async function getSymbols() {
+      try {
+        let response = await fetch(
+          `https://www.binance.com/fapi/v1/exchangeInfo?showall=true`
+        );
+        if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
 
-          let data = await response.json();
-          let selectItems = data?.symbols || [];
+        let data = await response.json();
+        let selectItems = data?.symbols || [];
 
-          let select = document.querySelector(".order-select__list_excel");
-          select.innerHTML = ""; // Eski ma'lumotlarni tozalash
+        let select = document.querySelector(".order-select__list_excel");
+        select.innerHTML = ""; // Eski ma'lumotlarni tozalash
 
-          selectItems.forEach((item) => {
-            let option = document.createElement("span");
-            option.className = "order-select__option";
-            option.classList.add("symbol_select_option_item");
-            option.textContent = item.symbol;
-            select.appendChild(option);
-          });
-        } catch (error) {
-          console.error("Xatolik yuz berdi:", error);
-        }
+        selectItems.forEach((item) => {
+          let option = document.createElement("span");
+          option.className = "order-select__option";
+          option.classList.add("symbol_select_option_item");
+          option.textContent = item.symbol;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error("Xatolik yuz berdi:", error);
       }
-      getSymbols();
-      // ------------------------------------------------------------
+    }
+    getSymbols();
+    // ------------------------------------------------------------
 
-      setTimeout(() => {
-        const searchInput = document.querySelector(
-          ".order-select__search-input_exel"
-        );
-        const options = document.querySelectorAll(".symbol_select_option_item");
-        const listWrapper = document.querySelector(".big_wrapper_box");
-        const label = document.querySelector("#selected_item_on_symbol");
-        // Search functionality
-        searchInput.addEventListener("input", () => {
-          const searchValue = searchInput.value.toLowerCase();
-          options.forEach((option) => {
-            const text = option.textContent.toLowerCase();
-            if (text.includes(searchValue)) {
-              option.style.display = "";
-            } else {
-              option.style.display = "none";
-            }
-          });
-        });
-
+    setTimeout(() => {
+      const searchInput = document.querySelector(
+        ".order-select__search-input_exel"
+      );
+      const options = document.querySelectorAll(".symbol_select_option_item");
+      const listWrapper = document.querySelector(".big_wrapper_box");
+      const label = document.querySelector("#selected_item_on_symbol");
+      // Search functionality
+      searchInput.addEventListener("input", () => {
+        const searchValue = searchInput.value.toLowerCase();
         options.forEach((option) => {
-          option.addEventListener("click", () => {
-            label.textContent = option.textContent;
-            listWrapper.classList.remove("visible");
-            searchInput.value = ""; // Clear search input after selection
-            options.forEach((opt) => (opt.style.display = "")); // Reset all options visibility
-          });
+          const text = option.textContent.toLowerCase();
+          if (text.includes(searchValue)) {
+            option.style.display = "";
+          } else {
+            option.style.display = "none";
+          }
         });
-      }, 3000);
+      });
 
-      // document getTableData
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          label.textContent = option.textContent;
+          listWrapper.classList.remove("visible");
+          searchInput.value = ""; // Clear search input after selection
+          options.forEach((opt) => (opt.style.display = "")); // Reset all options visibility
+        });
+      });
+    }, 3000);
 
-      async function getTableData() {
-        const user = JSON.parse(localStorage.getItem("user")) || {};
-        const tbody = document.querySelector(
-          ".analysis-modal_pasition-thead_td"
+    // document getTableData
+
+    async function getTableData() {
+      const user = JSON.parse(localStorage.getItem("user")) || {};
+      const tbody = document.querySelector(
+        ".analysis-modal_pasition-thead_td"
+      );
+
+      const params = new URLSearchParams({
+        user_id: user.user_id,
+      });
+
+      try {
+        let res = await fetch(
+          `${SERVER_URL}/accounts/export-position-history?${params.toString()}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
-        const params = new URLSearchParams({
-          user_id: user.user_id,
-        });
+        if (!res.ok) {
+          throw new Error(`Error: ${res.status} ${res.statusText}`);
+        }
 
-        try {
-          let res = await fetch(
-            `${SERVER_URL}/accounts/export-position-history?${params.toString()}`,
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
-
-          if (!res.ok) {
-            throw new Error(`Error: ${res.status} ${res.statusText}`);
-          }
-
-          let tableData = await res.json();
-          tableData = tableData.slice(0, 6);
-          if (tableData.length) {
-            tableData.forEach((item) => {
-              const tr = document.createElement("tr");
-              tr.innerHTML = `
+        let tableData = await res.json();
+        tableData = tableData.slice(0, 6);
+        if (tableData.length) {
+          tableData.forEach((item) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
         <td>${item?.dispatch_time || "-"}</td>
         <td>${item?.discharge_period || "-"}</td>
         <td class="analysis-modal_pasition-tr"> 
-          <img src="./check.png" alt="Check"> Generated 
+          <img src="../../../../../assets/img/check.png" alt="Check"> Generated 
           <a href="#" onclick="getDocumentById(${item?.id})">Download</a>
         </td>
         `;
-              tbody.appendChild(tr);
-            });
-          }
-
-          let generateBtn = document.querySelector(".generate-button");
-          generateBtn.innerHTML = `Экспорт (${20 - tableData.length}/20)`;
-        } catch (error) {
-          console.error("Xato:", error);
+            tbody.appendChild(tr);
+          });
         }
+
+        let generateBtn = document.querySelector(".generate-button");
+        generateBtn.innerHTML = `Экспорт (${20 - tableData.length}/20)`;
+      } catch (error) {
+        console.error("Xato:", error);
       }
+    }
 
-      getTableData();
-      // -------------------------------------------------------
-      let end_date = new Date();
-      let start_date = new Date();
-      start_date.setDate(end_date.getDate() - 7);
+    getTableData();
+    // -------------------------------------------------------
+    let end_date = new Date();
+    let start_date = new Date();
+    start_date.setDate(end_date.getDate() - 7);
 
-      let time_button_items = document.querySelectorAll("#time_button_item");
+    let time_button_items = document.querySelectorAll("#time_button_item");
 
-      // Tugmani bosganda sanani o'zgartirish
-      const changeDate2 = (index) => {
-        time_button_items.forEach(
-          (item) => (item.style.border = "1px solid #474d57")
-        );
+    // Tugmani bosganda sanani o'zgartirish
+    const changeDate2 = (index) => {
+      time_button_items.forEach(
+        (item) => (item.style.border = "1px solid #474d57")
+      );
 
-        switch (index) {
-          case 1:
-            start_date = new Date(end_date);
-            start_date.setDate(end_date.getDate() - 7); // So'nggi 7 kun
-            end_date = new Date();
-            time_button_items[0].style.border = "1px solid #fff";
-            break;
-          case 2:
-            start_date = new Date(end_date);
-            start_date.setMonth(end_date.getMonth() - 1); // So'nggi oy
-            end_date = new Date();
-            time_button_items[1].style.border = "1px solid #fff";
-            break;
-          case 3:
-            start_date = new Date(end_date);
-            start_date.setMonth(end_date.getMonth() - 3); // So'nggi 3 oy
-            end_date = new Date();
-            time_button_items[2].style.border = "1px solid #fff";
-            break;
-          case 4:
-            start_date = new Date(end_date);
-            start_date.setMonth(end_date.getMonth() - 6); // So'nggi 6 oy
-            end_date = new Date();
-            time_button_items[3].style.border = "1px solid #fff";
-            break;
-          default:
-            return;
+      switch (index) {
+        case 1:
+          start_date = new Date(end_date);
+          start_date.setDate(end_date.getDate() - 7); // So'nggi 7 kun
+          end_date = new Date();
+          time_button_items[0].style.border = "1px solid #fff";
+          break;
+        case 2:
+          start_date = new Date(end_date);
+          start_date.setMonth(end_date.getMonth() - 1); // So'nggi oy
+          end_date = new Date();
+          time_button_items[1].style.border = "1px solid #fff";
+          break;
+        case 3:
+          start_date = new Date(end_date);
+          start_date.setMonth(end_date.getMonth() - 3); // So'nggi 3 oy
+          end_date = new Date();
+          time_button_items[2].style.border = "1px solid #fff";
+          break;
+        case 4:
+          start_date = new Date(end_date);
+          start_date.setMonth(end_date.getMonth() - 6); // So'nggi 6 oy
+          end_date = new Date();
+          time_button_items[3].style.border = "1px solid #fff";
+          break;
+        default:
+          return;
+      }
+      displayDates();
+    };
+
+    // const formatDate = (date) => date.toISOString().split("T")[0];
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0"); // getMonth 0'dan boshlanadi, shuning uchun 1 qo'shamiz
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    };
+
+    flatpickr("#dateRangePickerAnalysis", {
+      mode: "range",
+      dateFormat: "Y-m-d",
+      defaultDate: [formatDate(start_date), formatDate(end_date)],
+      locale: {
+        firstDayOfWeek: 7,
+        rangeSeparator: ' <span class="range-icon"></span> ',
+        weekdays: {
+          shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+          longhand: [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+        },
+      },
+      showMonths: 2,
+      shorthandCurrentMonth: true,
+      onValueUpdate: (selectedDates) => {
+        if (selectedDates.length === 2) {
+          start_date = selectedDates[0];
+          end_date = selectedDates[1];
+          displayDates();
         }
-        displayDates();
-      };
+      },
+      onReady: function (selectedDates, dateStr, instance) {
+        instance.jumpToDate(new Date());
+      },
+    });
 
-      // const formatDate = (date) => date.toISOString().split("T")[0];
-      const formatDate = (date) => {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0"); // getMonth 0'dan boshlanadi, shuning uchun 1 qo'shamiz
-        const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
-      };
-
-      flatpickr("#dateRangePickerAnalysis", {
-        mode: "range",
-        dateFormat: "Y-m-d",
-        defaultDate: [formatDate(start_date), formatDate(end_date)],
-        locale: {
-          firstDayOfWeek: 7,
-          rangeSeparator: ' <span class="range-icon"></span> ',
-          weekdays: {
-            shorthand: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-            longhand: [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-            ],
-          },
-        },
-        showMonths: 2,
-        shorthandCurrentMonth: true,
-        onValueUpdate: (selectedDates) => {
-          if (selectedDates.length === 2) {
-            start_date = selectedDates[0];
-            end_date = selectedDates[1];
-            displayDates();
-          }
-        },
-        onReady: function (selectedDates, dateStr, instance) {
-          instance.jumpToDate(new Date());
-        },
-      });
-
-      const displayDates = () => {
-        document.getElementById("dateRangePickerAnalysis").innerHTML = `
+    const displayDates = () => {
+      document.getElementById("dateRangePickerAnalysis").innerHTML = `
           ${formatDate(start_date)}
           <span class='range-icon'></span>
           ${formatDate(end_date)}
           <span class='calendar-icon'></span>
         `;
-      };
+    };
 
-      async function getExcelData() {
-        try {
-          const tbody = document.querySelector(
-            ".analysis-modal_pasition-thead_td"
-          );
-          const user = JSON.parse(localStorage.getItem("user")) || {};
+    async function getExcelData() {
+      try {
+        const tbody = document.querySelector(
+          ".analysis-modal_pasition-thead_td"
+        );
+        const user = JSON.parse(localStorage.getItem("user")) || {};
 
-          const response = await fetch(
-            `${SERVER_URL}/accounts/export-position-history`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                user: { user_id: user.user_id },
-                start_date: formatDate(start_date),
-                end_date: formatDate(end_date),
-              }),
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Ma'lumot olishda xato yuz berdi");
+        const response = await fetch(
+          `${SERVER_URL}/accounts/export-position-history`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user: { user_id: user.user_id },
+              start_date: formatDate(start_date),
+              end_date: formatDate(end_date),
+            }),
           }
+        );
 
-          const innerData = await response.json();
-          // Jadvalga yangi qator qo'shish
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
+        if (!response.ok) {
+          throw new Error("Ma'lumot olishda xato yuz berdi");
+        }
+
+        const innerData = await response.json();
+        // Jadvalga yangi qator qo'shish
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
               <td>${innerData?.dispatch_time || "-"}</td>
               <td>${innerData?.discharge_period || "-"}</td>
               <td class="analysis-modal_pasition-tr"> 
-                <img src="./check.png" alt="Check"> Generated 
-                <a href="#" onclick="getDocumentById(${
-                  innerData?.eph_id
-                })">Download</a>
+                <img src="../../../../../assets/img/check.png" alt="Check"> Generated 
+                <a href="#" onclick="getDocumentById(${innerData?.eph_id
+          })">Download</a>
               </td>
             `;
-          tbody.appendChild(tr);
-          getTableData();
-        } catch (error) {
-          console.error("Xato:", error);
-        }
+        tbody.appendChild(tr);
+        getTableData();
+      } catch (error) {
+        console.error("Xato:", error);
       }
+    }
 
-      // get document by id
-      async function getDocumentById(id) {
-        try {
-          const user = JSON.parse(localStorage.getItem("user")) || {};
-          const response = await fetch(
-            `${SERVER_URL}/accounts/document-export-position-history/?eph_id=${id}`
-          );
+    // get document by id
+    async function getDocumentById(id) {
+      try {
+        const user = JSON.parse(localStorage.getItem("user")) || {};
+        const response = await fetch(
+          `${SERVER_URL}/accounts/document-export-position-history/?eph_id=${id}`
+        );
 
-          if (response.ok) {
-            // Faylni yuklab olish
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.style.display = "none";
-            a.href = url;
-            a.download = "report.xlsx";
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            console.log("Excel fayli muvaffaqiyatli yuklandi.");
-          } else {
-            console.error("Xatolik yuz berdi:", response.statusText);
-          }
-        } catch (error) {
-          console.error("Xato:", error);
+        if (response.ok) {
+          // Faylni yuklab olish
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.style.display = "none";
+          a.href = url;
+          a.download = "report.xlsx";
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
+          console.log("Excel fayli muvaffaqiyatli yuklandi.");
+        } else {
+          console.error("Xatolik yuz berdi:", response.statusText);
         }
+      } catch (error) {
+        console.error("Xato:", error);
       }
-    </script>
+    }
+  </script>
 
 </body>

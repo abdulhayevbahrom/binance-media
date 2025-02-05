@@ -57,7 +57,7 @@
     <div class="backdrop"></div>
     <div class="analysis-modal">
       <div class="analysis-modal__head">
-        <h5 class="analysis-modal__title">Анализ торговли</h5>
+        <h5 class="analysis-modal__title">Trade Analysis</h5>
         <button class="analysis-modal__close-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@
       </div>
       <div class="analysis-modal__main">
         <span class="analysis-modal__text"
-          >Выберите дату за последние 30 дней (UTC+0)</span
+          >Please select date within 30 days (UTC+0)</span
         >
         <div class="analysis-modal__filters">
           <div class="calendar">
@@ -81,7 +81,7 @@
           </div>
           <div class="order-select" id="modal-ticker-select">
             <span class="order-select__label">
-              Тикер
+              Symbol
               <div>
                 <span> BTCUSDT Perpetual </span>
                 <svg
@@ -147,7 +147,7 @@
           </div>
           <div class="order-select" id="modal-value-select">
             <span class="order-select__label">
-              Единица
+              Unit
               <div>
                 <span> BTC </span>
                 <svg
@@ -176,19 +176,23 @@
               </div>
             </div>
           </div>
+          <!-- </div> -->
+          <div class="analysis-modal__buttons">
+            <button
+              class="analysis-modal__button analysis-modal__search-button"
+            >
+              Search
+            </button>
+            <button class="analysis-modal__button analysis-modal__clear-button">
+              Reset
+            </button>
+          </div>
         </div>
-        <div class="analysis-modal__buttons">
-          <button class="analysis-modal__button analysis-modal__search-button">
-            Поиск
-          </button>
-          <button class="analysis-modal__button analysis-modal__clear-button">
-            Сброс
-          </button>
-        </div>
+
         <div class="analysis-modal__info">
           <div class="analysis-modal__info-title">
             <span class="analysis-modal__info-label"
-              >Общий реализованный PnL (без учета комиссии)</span
+              >Total Realized PnL (excluding fee)</span
             >
             <span class="analysis-modal__info-value" id="analysis-total-pnl"
               >0.0000 USDT</span
@@ -198,7 +202,7 @@
             <div class="analysis-modal__info-column">
               <div>
                 <span class="analysis-modal__info-label"
-                  >Общая реализованная прибыль</span
+                  >Total Realized Profit</span
                 >
                 <span
                   class="analysis-modal__info-value"
@@ -208,7 +212,7 @@
               </div>
               <div>
                 <span class="analysis-modal__info-label"
-                  >Общий реализованный убыток</span
+                  >Total Realized Loss</span
                 >
                 <span
                   class="analysis-modal__info-value"
@@ -219,7 +223,7 @@
             </div>
             <div class="analysis-modal__info-column">
               <div>
-                <span class="analysis-modal__info-label">Всего покупок</span>
+                <span class="analysis-modal__info-label">Total Buv</span>
                 <span
                   class="analysis-modal__info-value"
                   id="analysis-total-purchases"
@@ -227,7 +231,7 @@
                 >
               </div>
               <div>
-                <span class="analysis-modal__info-label">Всего продаж</span>
+                <span class="analysis-modal__info-label">Total Sell</span>
                 <span
                   class="analysis-modal__info-value"
                   id="analysis-total-sales"
@@ -238,7 +242,7 @@
             <div class="analysis-modal__info-column">
               <div>
                 <span class="analysis-modal__info-label"
-                  >Средняя цена покупки</span
+                  >Average Buy Price</span
                 >
                 <span
                   class="analysis-modal__info-value"
@@ -248,7 +252,7 @@
               </div>
               <div>
                 <span class="analysis-modal__info-label"
-                  >Средняя цена продажи</span
+                  >Average Sell Price</span
                 >
                 <span
                   class="analysis-modal__info-value"
@@ -260,8 +264,8 @@
           </div>
         </div>
         <span class="analysis-modal__text"
-          >История сделок за последние несколько минут может не отражаться в
-          анализе из-за задержки данных.</span
+          >The trade history in the past few minutes might not be reflected in
+          the analysis due to data delay.</span
         >
       </div>
     </div>
@@ -5746,8 +5750,9 @@
                 </div>
               </div>
               <div style="display: flex; flex-direction: column">
+                <!-- <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active"> -->
                 <div
-                  class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active"
+                  class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open"
                 >
                   <svg
                     size="24"
@@ -6465,7 +6470,7 @@
     <script src="../../../../../assets/js/picker.js"></script>
     <!-- <script src="../../../../../assets/js/style.js"></script> -->
 
-    <script src="../service.js"></script>
+    <script src="../../../../../assets/js/service.js"></script>
     <script>
       function getDefaultDates() {
         const today = new Date();

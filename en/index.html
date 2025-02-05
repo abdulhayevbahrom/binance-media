@@ -419,7 +419,7 @@
                   <path
                     d="M666-440 440-666l226-226 226 226-226 226Zm-546-80v-320h320v320H120Zm400 400v-320h320v320H520Zm-400 0v-320h320v320H120Zm80-480h160v-160H200v160Zm467 48 113-113-113-113-113 113 113 113Zm-67 352h160v-160H600v160Zm-400 0h160v-160H200v160Zm160-400Zm194-65ZM360-360Zm240 0Z" />
                 </svg>
-                Learn more
+                More
                 <svg class="header-item__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
@@ -4067,6 +4067,7 @@
   <script src="../assets/js/main-page.js"></script>
   <script src="../assets/js/lang.js"></script>
   <script src="../assets/style/media/media.js"></script>
+  <script src="../assets/js/config.js" ></script>
   <script>
     const showLinks1 = () => {
       document.getElementById("showLinks1").classList.toggle("showLinks1");
@@ -4174,9 +4175,10 @@
     const newsContainer = document.querySelector(".b-first__news");
 
     function getBinanceNews() {
-      fetch(`${SERVER_URL}/other-data/binance-news`)
+      fetch(`${SERVER_URL}/other-data/binance-news-en`)
         .then((response) => response.json())
         .then((data) => {
+          
           data.forEach((item) => {
             const newsElement = document.createElement("li");
 

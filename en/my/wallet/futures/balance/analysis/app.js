@@ -56,16 +56,17 @@ const pnl_today = async () => {
   let [title, qiymatlar] = today.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
-    } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
+    data?.percentage || 0
+  } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-        ? "#2ebd85"
-        : "#fff";
+      ? "#2ebd85"
+      : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -91,16 +92,17 @@ const pnl_seven = async () => {
   let [title, qiymatlar] = seven.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
-    } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
+    data?.percentage || 0
+  } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#f64460"
       : data?.percentage > 0
-        ? "#2ebd85"
-        : "#fff";
+      ? "#2ebd85"
+      : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#f64460" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -126,16 +128,17 @@ const pnl_month = async () => {
   let [title, qiymatlar] = month.children;
   let [percent, usd] = qiymatlar.children;
 
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
-    } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
+    data?.percentage || 0
+  } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-        ? "#2ebd85"
-        : "#fff";
+      ? "#2ebd85"
+      : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -162,16 +165,17 @@ const pnl_all = async () => {
 
   let [title, qiymatlar] = all.children;
   let [percent, usd] = qiymatlar.children;
-  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${data?.percentage || 0
-    } %`;
+  percent.innerHTML = `${data?.percentage > 0 ? "+" : ""}${
+    data?.percentage || 0
+  } %`;
   usd.innerHTML = `${data?.pnl > 0 ? "+" : ""}${data?.pnl || 0} USD`;
 
   percent.style.color =
     data?.percentage < 0
       ? "#de5468"
       : data?.percentage > 0
-        ? "#2ebd85"
-        : "#fff";
+      ? "#2ebd85"
+      : "#fff";
   usd.style.color =
     data?.pnl < 0 ? "#de5468" : data?.pnl > 0 ? "#2ebd85" : "#fff";
 };
@@ -221,7 +225,7 @@ const profitAndLoss = async (
   profit.innerHTML = (data?.profit || 0) + " USD";
   total_loss.innerHTML = (data?.loss || 0) + " USD";
   pnl.innerHTML = (data?.pnl || 0) + " USD";
-  total_amount.innerHTML = (data?.total_amount || 0);
+  total_amount.innerHTML = data?.total_amount || 0;
   profitability_ratio.innerHTML = (data?.profitability_ratio || 0) + " %";
   profit_days.innerHTML = (data?.profit_days || 0) + " Days";
   loss_days.innerHTML = (data?.loss_days || 0) + " Days";
@@ -581,7 +585,6 @@ async function showData(start_date, end_date) {
         ],
       },
       options: {
-
         scales: {
           y: {
             beginAtZero: false,
@@ -621,8 +624,8 @@ async function showData(start_date, end_date) {
             cornerRadius: 10, // Tooltipning burchaklariga radius berish
             displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
             titleFont: {
-              size: 14, // Sarlavha shrift o‘lchami 
-              weight: "400", // Sarlavha shrift qalinligi (normal) 
+              size: 14, // Sarlavha shrift o‘lchami
+              weight: "400", // Sarlavha shrift qalinligi (normal)
               family: "BinancePlex",
             },
             bodyFont: {
@@ -637,7 +640,6 @@ async function showData(start_date, end_date) {
               label: function (context) {
                 return `Daily PNL: ${context.raw} USD`;
               },
-
             },
           },
         },
@@ -711,9 +713,11 @@ async function showData(start_date, end_date) {
 
       // Get today's date for comparison
       const today = new Date();
-      const todayDateString = `${today.getFullYear()}-${today.getMonth() + 1 < 10 ? "0" : ""
-        }${today.getMonth() + 1}-${today.getDate() < 10 ? "0" : ""
-        }${today.getDate()}`;
+      const todayDateString = `${today.getFullYear()}-${
+        today.getMonth() + 1 < 10 ? "0" : ""
+      }${today.getMonth() + 1}-${
+        today.getDate() < 10 ? "0" : ""
+      }${today.getDate()}`;
 
       // Create empty days before the first day
       for (let i = 0; i < firstDayIndex; i++) {
@@ -728,8 +732,9 @@ async function showData(start_date, end_date) {
         dayDiv.classList.add("day");
         dayDiv.innerText = day;
 
-        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${day < 10 ? "0" : ""
-          }${day}`;
+        const currentDate = `${year}-${month + 1 < 10 ? "0" : ""}${month + 1}-${
+          day < 10 ? "0" : ""
+        }${day}`;
 
         // Check if today's or a past date
         const isPastOrToday = new Date(currentDate) <= today;
@@ -779,39 +784,76 @@ async function showData(start_date, end_date) {
 
             modal.innerHTML = `
               <p style="margin-bottom:7px;">${currentDate}</p>
-              <p>Daily PNL: <span style="color: ${datas?.dayli_pnl > 0
-                ? "#2ebd85"
-                : datas?.dayli_pnl < 0
+              <p>Daily PNL: <span style="color: ${
+                datas?.dayli_pnl > 0
+                  ? "#2ebd85"
+                  : datas?.dayli_pnl < 0
                   ? "#e1545e"
                   : "#222"
-              };">${(datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
-              } USD</span></p>
-              <p>Cumulative PNL: <span style="color: ${datas?.summ_pnl > 0
-                ? "#2ebd85"
-                : datas?.summ_pnl < 0
+              };">${
+              (datas?.dayli_pnl > 0 ? "+" : "") + datas?.dayli_pnl
+            } USD</span></p>
+              <p>Cumulative PNL: <span style="color: ${
+                datas?.summ_pnl > 0
+                  ? "#2ebd85"
+                  : datas?.summ_pnl < 0
                   ? "#e1545e"
                   : "#222"
-              };">${(datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
-              } USD</span></p>
-              <p>Cumulative PNL %: <span style="color: ${datas?.summ_pnl_proc > 0
-                ? "#2ebd85"
-                : datas?.summ_pnl_proc < 0
+              };">${
+              (datas?.summ_pnl > 0 ? "+" : "") + datas?.summ_pnl
+            } USD</span></p>
+              <p>Cumulative PNL %: <span style="color: ${
+                datas?.summ_pnl_proc > 0
+                  ? "#2ebd85"
+                  : datas?.summ_pnl_proc < 0
                   ? "#e1545e"
                   : "#222"
-              };">${(datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
-              } %</span></p>
-              <p>Net Transfer: <span style="color: ${datas?.summ_translations > 0
-                ? "#2ebd85"
-                : datas?.summ_translations < 0
+              };">${
+              (datas?.summ_pnl_proc > 0 ? "+" : "") + datas?.summ_pnl_proc
+            } %</span></p>
+              <p>Net Transfer: <span style="color: ${
+                datas?.summ_translations > 0
+                  ? "#2ebd85"
+                  : datas?.summ_translations < 0
                   ? "#e1545e"
                   : "#222"
               };">${datas?.summ_translations}</span></p>
               <p>Trading Volume: <span>${datas?.trading_volume}</span></p>
             `;
 
+            // const rect = dayDiv.getBoundingClientRect();
+            // modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
+            // modal.style.left = `${rect.left}px`;
+            modal.style.width = `300px`;
+
             const rect = dayDiv.getBoundingClientRect();
+
             modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
             modal.style.left = `${rect.left}px`;
+            console.log(rect);
+
+            if (window.innerWidth < 500) {
+              modal.style.left = `${rect.left - 250}px`;
+              modal.classList.add("right-modall-2");
+              if (rect.left - 300 < 0) {
+                modal.style.left = `${rect.left}px`;
+              }
+
+              if (rect.right > 200 && rect.right < 250) {
+                modal.style.left = `auto`;
+                // modal.style.left = `${rect.left - 250}px`;
+                modal.style.left = `${10}%`;
+                modal.classList.add("right-modall");
+              }
+
+              if (rect.right < 242 && rect.right > 239) {
+                modal.style.left = `20%`;
+              }
+              if (rect.right > 300) {
+                console.log(rect.right);
+                modal.classList.add("right_modall_2");
+              }
+            }
             document.body.appendChild(modal);
 
             dayDiv.addEventListener("mouseout", () => modal.remove());
@@ -848,8 +890,9 @@ async function showData_total_pnl_by_days(start_date, end_date) {
   if (data) {
     let values = Object.values(data);
     let keys = Object.keys(data).map((value) => moment(value).format("MM-DD"));
-    let keys_x = Object.keys(data).map((value) => moment(value).format("YYYY-MM-DD"));
-
+    let keys_x = Object.keys(data).map((value) =>
+      moment(value).format("YYYY-MM-DD")
+    );
 
     const usdtCtx = document.getElementById("usdtChart").getContext("2d");
     // Agar eski diagramma mavjud bo'lsa, uni yo'q qilamiz
@@ -962,7 +1005,7 @@ async function showData_total_pnl_by_days(start_date, end_date) {
             cornerRadius: 10, // Tooltipning burchaklariga radius berish
             displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
             titleFont: {
-              size: 14, // Sarlavha shrift o‘lchami 
+              size: 14, // Sarlavha shrift o‘lchami
               family: "BinancePlex",
               weight: "400",
             },
@@ -1180,10 +1223,9 @@ async function showData_usdt_btc_eth(start_date, end_date) {
           cornerRadius: 10, // Tooltipning burchaklariga radius berish
           displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
           titleFont: {
-            size: 14, // Sarlavha shrift o‘lchami 
+            size: 14, // Sarlavha shrift o‘lchami
             weight: "400", // Sarlavha shrift qalinligi (normal)
             family: "BinancePlex",
-
           },
           bodyFont: {
             family: "BinancePlex",
@@ -1208,7 +1250,6 @@ async function showData_usdt_btc_eth(start_date, end_date) {
       },
     },
   });
-
 }
 
 // --------------------------------------
@@ -1348,8 +1389,8 @@ async function showData_active_values(start_date, end_date) {
               displayColors: false,
               caretSize: 0, // Tooltip uchburchagini yashirish
               titleFont: {
-                size: 14, // Sarlavha shrift o‘lchami 
-                weight: "400", // Sarlavha shrift qalinligi (normal) 
+                size: 14, // Sarlavha shrift o‘lchami
+                weight: "400", // Sarlavha shrift qalinligi (normal)
                 family: "BinancePlex",
               },
               bodyFont: {
@@ -1667,7 +1708,6 @@ async function showData_daily_comission(start_date, end_date) {
             },
           },
 
-
           plugins: {
             legend: {
               display: false, // Legendni ko'rsatmaslik
@@ -1680,8 +1720,8 @@ async function showData_daily_comission(start_date, end_date) {
               displayColors: false, // Tooltipda rangli burchaklarni olib tashlash
               caretSize: 0, // Tooltip uchburchagini yashirish
               titleFont: {
-                size: 14, // Sarlavha shrift o‘lchami 
-                weight: "400", // Sarlavha shrift qalinligi (normal) 
+                size: 14, // Sarlavha shrift o‘lchami
+                weight: "400", // Sarlavha shrift qalinligi (normal)
                 family: "BinancePlex",
               },
               bodyFont: {
@@ -1699,7 +1739,6 @@ async function showData_daily_comission(start_date, end_date) {
               },
             },
           },
-
         },
       });
     }
@@ -1950,9 +1989,9 @@ async function showData_transaction(start_date, end_date) {
 }
 
 all_sum_komiccy_for_transaction_checkbox.onclick = (e) =>
-(all_sum_komiccy_for_transaction.style.display = e.target.checked
-  ? "block"
-  : "none");
+  (all_sum_komiccy_for_transaction.style.display = e.target.checked
+    ? "block"
+    : "none");
 
 // SHOW CHECKBOX TRANSAKTION
 let checkbox_transaktion_api = "/accounts/financing-and-transaction-fees";

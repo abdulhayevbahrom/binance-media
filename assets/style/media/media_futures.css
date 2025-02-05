@@ -397,6 +397,18 @@
     animation: slideDown 0.3s ease forwards;
   }
 
+  .order-filters_modal .time-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 7px;
+    margin-top: 8px;
+
+    button {
+      flex: 1;
+    }
+  }
+
   .order-select {
     width: 100%;
     display: flex;

@@ -3406,26 +3406,32 @@
                     fill="currentColor"></path>
                 </svg>
               </div>
-              <div class="sidebar__menu-list">
+              <div class="sidebar__menu-list hide-order-item">
                 <a class="sidebar__menu-item" href="/ru/my/orders/exchange">
                   <span class="sidebar__menu-item-title">Спотовый ордер</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/futures">
                   <span class="sidebar__menu-item-title">Фьючерсный ордер</span>
                 </a>
+                <a class="sidebar__menu-item" href="/ru/my/orders/margin">
+                  <span class="sidebar__menu-item-title">Маржинальный ордер</span>
+                </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/p2p" onclick="return false;">
                   <span class="sidebar__menu-item-title">P2P-ордер</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/wallet/history/deposit-crypto" onclick="return false;">
-                  <span class="sidebar__menu-item-title">История транзакций</span>
+                  <span class="sidebar__menu-item-title">Ордер торгового бота</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/earn/history" onclick="return false;">
-                  <span class="sidebar__menu-item-title">История сделок Earn</span>
+                  <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/convert/history" onclick="return false;">
-                  <span class="sidebar__menu-item-title">История конвертаций</span>
+                  <span class="sidebar__menu-item-title">Фиатный ордер</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/orders/payment" onclick="return false;">
+                <a class="sidebar__menu-item hiden-item" href="/ru/my/orders/convert" onclick="return false;">
+                  <span class="sidebar__menu-item-title">История конвертаций</span>
+                </a>  
+                <a class="sidebar__menu-item hiden-item" href="/ru/my/orders/payment" onclick="return false;">
                   <span class="sidebar__menu-item-title">История платежей</span>
                 </a>
               </div>
@@ -3590,7 +3596,7 @@
             </div>
           </div>
           <div class="chart-filter-buttons">
-            <button class="chart-filter-button active" data-period="7">1Д</button>
+            <button class="chart-filter-button active" data-period="7">1W</button>
             <button class="chart-filter-button" data-period="30">1M</button>
             <button class="chart-filter-button" data-period="90">3M</button>
             <button class="chart-filter-button" data-period="180">6M</button>

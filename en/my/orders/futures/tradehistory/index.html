@@ -272,7 +272,7 @@
 
     <div class="export-modal">
       <div class="export-modal__head">
-        <h5 class="export-modal__title">Экспорт истории сделок</h5>
+        <h5 class="export-modal__title">Export Trade History</h5>
         <button class="export-modal__close-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -287,7 +287,7 @@
         </button>
       </div>
       <div class="export-modal__main">
-        <span>Выберите период</span>
+        <span>Select a period</span>
         <div class="export-modal__checkmark-box">
           <span class="export-modal__checkmark-title">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -298,7 +298,8 @@
                 fill="#848e9c"
               ></path>
             </svg>
-            Если ваши торговые данные превышают 10,000, выберите «Более 90 дн».
+            If your trading data exceeds 10,000 records, select «More than 90
+            days».
           </span>
           <div class="export-modal__checkmarks">
             <label class="export-modal__checkmark">
@@ -307,7 +308,7 @@
                 <circle cx="8" cy="8" r="7.5" stroke="#5e6673"></circle>
                 <circle cx="8" cy="8" r="4" fill="#1e2329"></circle>
               </svg>
-              Последние 7 дней
+              Last 7 days
             </label>
             <label class="export-modal__checkmark">
               <input type="radio" name="export-option" value="30" />
@@ -315,7 +316,7 @@
                 <circle cx="8" cy="8" r="7.5" stroke="#5e6673"></circle>
                 <circle cx="8" cy="8" r="4" fill="#1e2329"></circle>
               </svg>
-              Последние 30 дней
+              Last 30 days
             </label>
             <label class="export-modal__checkmark">
               <input type="radio" name="export-option" value="90" />
@@ -323,7 +324,7 @@
                 <circle cx="8" cy="8" r="7.5" stroke="#5e6673"></circle>
                 <circle cx="8" cy="8" r="4" fill="#1e2329"></circle>
               </svg>
-              Последние 90 дней
+              Last 90 days
             </label>
             <label class="export-modal__checkmark">
               <input type="radio" name="export-option" value="customize" />
@@ -331,7 +332,7 @@
                 <circle cx="8" cy="8" r="7.5" stroke="#5e6673"></circle>
                 <circle cx="8" cy="8" r="4" fill="#1e2329"></circle>
               </svg>
-              В течение 90 дн. – Настраиваемый
+              Within 90 days – Customizable
             </label>
             <label class="export-modal__checkmark">
               <input type="radio" name="export-option" value="customize" />
@@ -339,21 +340,21 @@
                 <circle cx="8" cy="8" r="7.5" stroke="#5e6673"></circle>
                 <circle cx="8" cy="8" r="4" fill="#1e2329"></circle>
               </svg>
-              Более 90 дн.
+              More than 90 days.
             </label>
           </div>
           <div class="calendar">
             <div class="calendar__preview" id="dateRangePickerExport"></div>
           </div>
           <span style="font-size: 12px; color: #848e9c; margin-top: 4px"
-            >За один раз можно создать до 10 000 записей данных.</span
+            >You can generate up to 10,000 records at a time.</span
           >
           <div class="export-modal__buttons">
             <button class="export-modal__button export-modal__back-button">
-              Отмена
+              Cancel
             </button>
             <button class="export-modal__button export-modal__export-button">
-              Экспорт
+              Export
             </button>
           </div>
         </div>
@@ -5631,7 +5632,7 @@
                       fill="currentColor"
                     ></path>
                   </svg>
-                  <span class="sidebar__menu-item-title">Actives</span>
+                  <span class="sidebar__menu-item-title">Assets</span>
                   <svg
                     size="20"
                     class="sidebar__menu-item-arrow-icon"
@@ -5673,14 +5674,14 @@
                   >
                     <span class="sidebar__menu-item-title">Futures</span>
                   </a>
-                  <a
+                  <!-- <a
                     class="sidebar__menu-item"
                     href="/en/my/wallet/account/eoptions"
                     onclick="return false;"
                   >
                     <span class="sidebar__menu-item-title">Options</span>
-                  </a>
-                  <a
+                  </a> -->
+                  <!-- <a
                     class="sidebar__menu-item"
                     href="/en/my/wallet/account/trading-bots"
                     onclick="return false;"
@@ -5695,26 +5696,26 @@
                     <span class="sidebar__menu-item-title">Earn</span>
                   </a>
                   <a
-                    class="sidebar__menu-item"
-                    href="/en/my/wallet/funding"
-                    onclick="return false;"
+                  class="sidebar__menu-item"
+                  href="/en/my/wallet/funding"
+                  onclick="return false;"
                   >
-                    <span class="sidebar__menu-item-title">Replenish</span>
+                  <span class="sidebar__menu-item-title">Replenish</span>
                   </a>
+                  -->
                   <a
                     class="sidebar__menu-item"
                     href="/en/my/wallet/account/copy-trader/futures"
                     onclick="return false;"
                   >
-                    <span class="sidebar__menu-item-title">Copy Trading</span>
+                    <span class="sidebar__menu-item-title">Funding</span>
                   </a>
                   <div style="display: flex; flex-direction: column">
                     <div
                       class="sidebar__menu-item sidebar__menu-item--accordion"
                     >
                       <span class="sidebar__menu-item-title"
-                        >External <br />
-                        Wallet</span
+                        >Third-Party Wallet</span
                       >
                       <svg
                         size="20"
@@ -5884,7 +5885,7 @@
                     fill="currentColor"
                   ></path>
                 </svg>
-                <span class="sidebar__menu-item-title">Bonus Center</span>
+                <span class="sidebar__menu-item-title">Rewards Hub</span>
               </a>
               <a
                 class="sidebar__menu-item"
@@ -5903,7 +5904,7 @@
                     fill="currentColor"
                   ></path>
                 </svg>
-                <span class="sidebar__menu-item-title">Referral Program</span>
+                <span class="sidebar__menu-item-title">Referral</span>
               </a>
               <div style="display: flex; flex-direction: column">
                 <div class="sidebar__menu-item sidebar__menu-item--accordion">
@@ -5998,7 +5999,7 @@
                     fill="currentColor"
                   ></path>
                 </svg>
-                <span class="sidebar__menu-item-title">Subaccounts</span>
+                <span class="sidebar__menu-item-title">Sub accounts</span>
               </a>
               <a
                 class="sidebar__menu-item"
@@ -6242,7 +6243,8 @@
                   <div class="empty-item"></div>
                   <script>
                     const currentYear = new Date().getFullYear(); // Hozirgi yilni olish
-                    const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
+                    // const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
+                    const startYear = 2023; // Hozirgi yildan 20 yil oldingi yilni olish
                     const years = Array.from(
                       { length: currentYear - startYear + 1 },
                       (_, i) => startYear + i

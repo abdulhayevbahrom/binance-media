@@ -712,7 +712,18 @@ canvas {
     content: "";
     position: absolute;
     top: -4px;
-    left: 250px;
+    left: 310px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(150deg, #fffffff0 0 40%, transparent 40% 100%);
+    transform: rotate(45deg);
+  }
+
+  .right_modall_3::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 110px;
     width: 15px;
     height: 15px;
     background: linear-gradient(150deg, #fffffff0 0 40%, transparent 40% 100%);

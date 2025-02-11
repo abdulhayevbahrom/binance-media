@@ -6143,7 +6143,8 @@
         displayed in UTC+0 time zone.
       </p>
 
-      <button onclick="getExcelData()" type="button" class="generate-button">
+      <!-- onclick="getExcelData()" -->
+      <button disabled="ture" type="button" class="generate-button">
         Generate (19/20)
       </button>
 
@@ -6720,8 +6721,8 @@
               tr.innerHTML = `
                 <td>${item?.dispatch_time || "-"}</td>
                 <td>${item?.discharge_period || "-"}</td>
-                <td class="analysis-modal_pasition-tr"> 
-                  <img src="../../../../../assets/img/check.png" alt="Check"> Generated 
+                <td class="analysis-modal_pasition-tr">
+                  <img src="../../../../../assets/img/check.png" alt="Check"> Generated
                   <a href="#" onclick="getDocumentById(${
                     item?.id
                   })">Download</a>
@@ -6886,8 +6887,8 @@
           tr.innerHTML = `
               <td>${innerData?.dispatch_time || "-"}</td>
               <td>${innerData?.discharge_period || "-"}</td>
-              <td class="analysis-modal_pasition-tr"> 
-                <img src="./check.png" alt="Check"> Generated 
+              <td class="analysis-modal_pasition-tr">
+                <img src="./check.png" alt="Check"> Generated
                 <a href="#" onclick="getDocumentById(${
                   innerData?.eph_id
                 })">Download</a>
@@ -6927,6 +6928,40 @@
           console.error("Xato:", error);
         }
       }
+      const button = document.querySelector(".generate-button");
+
+      const STORAGE_KEY = "buttonClicks";
+      const MAX_CLICKS = 20;
+      function updateButtonStyle() {
+
+        const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+          count: 0,
+          month: new Date().getMonth() + 1,
+        };
+
+        const currentMonth = new Date().getMonth() + 1;
+
+        if (storedData.month !== currentMonth) {
+          storedData.count = -1;
+          storedData.month = currentMonth;
+        }
+
+        if (storedData.count < MAX_CLICKS) {
+          storedData.count += 1;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(storedData));
+        }
+
+        button.disabled = storedData.count >= MAX_CLICKS;
+      }
+
+      button.addEventListener("click", updateButtonStyle);
+      const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+        count: 0,
+        month: new Date().getMonth() + 1,
+      };
+      console.log(storedData);
+      
+      button.disabled = storedData.count >= MAX_CLICKS;
     </script>
   </body>
 </html>

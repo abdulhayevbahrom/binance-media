@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Binance PLEX";
-  src: url(../fonts/Binance\ PLEX.ttf);
+  /* src: url(../fonts/Binance\ PLEX.ttf); */
+  src: url(../../fonts/Binance\ PLEX.ttf);
 }
 
 .share_modal_wrapper * {
@@ -49,7 +50,8 @@
   margin: 20px 20px 22px 20px;
   min-height: 480px;
   padding: 40px 30px 30px;
-  background-image: url("../assets/rek.jpg");
+  /* background-image: url("../assets/rek.jpg"); */
+  background-image: url("../../img/assets_ru/rek.jpg");
 }
 
 .share-modal__mode {
@@ -264,7 +266,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.custom_checkbox input:checked+label::after {
+.custom_checkbox input:checked + label::after {
   content: "";
   display: block;
   position: absolute;
@@ -277,7 +279,7 @@
   transform: rotate(40deg);
 }
 
-.custom_checkbox input:checked+label::before {
+.custom_checkbox input:checked + label::before {
   content: "";
   background-color: #f0b90b;
   border-color: #f0b90b;

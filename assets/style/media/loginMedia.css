@@ -40,12 +40,14 @@
   .login-footer {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: center;
     width: 95%;
     position: fixed;
     bottom: 0;
     margin: 0 auto;
     padding: 0 10px;
+    gap: 30px;
+    gap: 25px;
   }
 
   .login-footer span,

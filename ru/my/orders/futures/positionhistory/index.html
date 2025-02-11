@@ -3302,7 +3302,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/futures">
                   <span class="sidebar__menu-item-title">Фьючерсы</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/eoptions" onclick="return false;">
+                <!-- <a class="sidebar__menu-item" href="/ru/my/wallet/account/eoptions" onclick="return false;">
                   <span class="sidebar__menu-item-title">Опционы</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/trading-bots" onclick="return false;">
@@ -3310,13 +3310,13 @@
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/earn" onclick="return false;">
                   <span class="sidebar__menu-item-title">Earn</span>
-                </a>
+                </a> -->
                 <a class="sidebar__menu-item" href="/ru/my/wallet/funding" onclick="return false;">
                   <span class="sidebar__menu-item-title">Пополнение</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/copy-trader/futures" onclick="return false;">
+                <!-- <a class="sidebar__menu-item" href="/ru/my/wallet/account/copy-trader/futures" onclick="return false;">
                   <span class="sidebar__menu-item-title">Копи-трейдинг</span>
-                </a>
+                </a> -->
                 <div style="display: flex; flex-direction: column">
                   <div class="sidebar__menu-item sidebar__menu-item--accordion">
                     <span class="sidebar__menu-item-title">Сторонний <br />
@@ -3386,10 +3386,10 @@
                 <!-- <a class="sidebar__menu-item" href="/ru/my/earn/history" onclick="return false;">
                   <span class="sidebar__menu-item-title">История сделок Earn</span>
                 </a> -->
-                <a class="sidebar__menu-item" href="/ru/my/orders/convert/history" onclick="return false;">
+                <a class="sidebar__menu-item hiden-item" href="/ru/my/orders/convert/history" onclick="return false;">
                   <span class="sidebar__menu-item-title">История конвертаций</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/orders/payment" onclick="return false;">
+                <a class="sidebar__menu-item hiden-item" href="/ru/my/orders/payment" onclick="return false;">
                   <span class="sidebar__menu-item-title">История платежей</span>
                 </a>
               </div>
@@ -4512,6 +4512,42 @@
         console.error("Xato:", error);
       }
     }
+
+
+     const button = document.querySelector(".generate-button");
+
+      const STORAGE_KEY = "buttonClicks";
+      const MAX_CLICKS = 20;
+      function updateButtonStyle() {
+
+        const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+          count: 0,
+          month: new Date().getMonth() + 1,
+        };
+
+        const currentMonth = new Date().getMonth() + 1;
+
+        if (storedData.month !== currentMonth) {
+          storedData.count = -1;
+          storedData.month = currentMonth;
+        }
+
+        if (storedData.count < MAX_CLICKS) {
+          storedData.count += 1;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(storedData));
+        }
+
+        button.disabled = storedData.count >= MAX_CLICKS;
+      }
+
+      button.addEventListener("click", updateButtonStyle);
+      const storedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+        count: 0,
+        month: new Date().getMonth() + 1,
+      };
+      console.log(storedData);
+      
+      button.disabled = storedData.count >= MAX_CLICKS;
   </script>
 
 </body>

@@ -1680,6 +1680,9 @@ button {
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
+  color: #848e9c;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .auth-card__input-box#password-input .auth-card__clear-button {

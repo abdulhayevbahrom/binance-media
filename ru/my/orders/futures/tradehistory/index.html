@@ -520,15 +520,20 @@
               </li>
 
               <li class="header-item  header-item-flex">
-
+                <a href="#" onclick="return false;"></a>
                 <svg id="icon_mobile-bar" width="26" height="26" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_3_79)">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M12.014 1.5C11.1455 1.49981 10.2924 1.72991 9.54182 2.16684C8.7912 2.60377 8.16986 3.23191 7.74112 3.98723C7.31238 4.74256 7.09158 5.59806 7.10122 6.46652C7.11086 7.33499 7.3506 8.18538 7.796 8.931C6.66734 9.42372 5.69632 10.218 4.9896 11.2265C4.28289 12.2351 3.86782 13.4189 3.79 14.648H2V16.434H3.915C4.26543 18.1223 5.25326 19.6105 6.673 20.589L5.025 22.237L6.287 23.5L8.357 21.43C9.04005 21.657 9.75521 21.7725 10.475 21.772H15.779L17.371 23.364L18.633 22.101L17.293 20.761L21.643 16.411V13.724H19.709C19.5137 12.6443 19.0307 11.6372 18.311 10.809L20.746 8.374H16.518C16.8437 7.62645 16.9782 6.80958 16.9093 5.99708C16.8404 5.18458 16.5704 4.402 16.1235 3.71995C15.6766 3.0379 15.0669 2.47783 14.3495 2.09028C13.632 1.70272 12.8294 1.49986 12.014 1.5ZM8.888 6.412C8.88057 5.99685 8.95593 5.58438 9.10967 5.19867C9.2634 4.81296 9.49244 4.46175 9.78341 4.16553C10.0744 3.86932 10.4214 3.63403 10.8043 3.47342C11.1872 3.31281 11.5983 3.23009 12.0135 3.23009C12.4287 3.23009 12.8398 3.31281 13.2227 3.47342C13.6056 3.63403 13.9526 3.86932 14.2436 4.16553C14.5346 4.46175 14.7636 4.81296 14.9173 5.19867C15.0711 5.58438 15.1464 5.99685 15.139 6.412C15.1243 7.23125 14.7886 8.012 14.2041 8.58619C13.6195 9.16037 12.8329 9.48209 12.0135 9.48209C11.1941 9.48209 10.4075 9.16037 9.82294 8.58619C9.23839 8.012 8.90265 7.23125 8.888 6.412ZM10.674 6.412L12.014 5.072L13.354 6.412L12.014 7.752L10.674 6.412ZM9.748 13.734H14.278V11.948H9.748V13.734Z" />
                   </g>
                 </svg>
-
-                <a href="#" onclick="return false;">Earn</a>
+                Earn
+                <svg class="header-item__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                    fill="currentColor"></path>
+                </svg>
+                </a>
               </li>
 
               <li class="header-item" data-modal="modal3">
@@ -2938,7 +2943,7 @@
                   </a>
                 </li>
                 <li class="staddrop-item">
-                  <a href="#" onclick="return false;" class="staddrop-link">
+                  <a href="/ru/my/wallet/account/statement" onclick="return false;" class="staddrop-link">
                     <div class="staddrop-link__img">
                       <svg class="staddrop-icon" width="18" height="18" viewBox="0 0 24 25">
                         <use href="../../../../../assets/img/icons/sprite.svg#w-extract"></use>
@@ -3531,7 +3536,7 @@
                 -->
                 <a class="sidebar__menu-item" href="/ru/my/wallet/funding" onclick="return false;">
                   <span class="sidebar__menu-item-title">Пополнение</span>
-                </a> 
+                </a>
                 <!-- <a class="sidebar__menu-item" href="/ru/my/wallet/account/copy-trader/futures" onclick="return false;">
                   <span class="sidebar__menu-item-title">Копи-трейдинг</span>
                 </a> -->
@@ -3562,7 +3567,7 @@
             <div style="display: flex; flex-direction: column">
               <!-- class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--active"> -->
               <div
-              class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
+                class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3602,6 +3607,7 @@
                     Фиатный ордер
                   </span>
                 </a>
+
                 <!-- <a class="sidebar__menu-item" href="/ru/my/earn/history" onclick="return false;">
                   <span class="sidebar__menu-item-title">История сделок Earn</span>
                 </a> -->
@@ -3833,10 +3839,20 @@
                 <div class='empty-item'></div>
                 <script>
                   const currentYear = new Date().getFullYear(); // Hozirgi yilni olish
-                  const startYear = currentYear - 20; // Hozirgi yildan 20 yil oldingi yilni olish
-                  const years = Array.from({ length: currentYear - startYear + 1 }, (_, i) => startYear + i);
-                  document.write(years.map(year => `<div class='itemPicker ${year === currentYear ? "years" : ""
-                    }' data-day="${year}">${year}</div>`).join(''));
+                  const startYear = 2024; // Hozirgi yildan 20 yil oldingi yilni olish
+                  const years = Array.from(
+                    { length: currentYear - startYear + 1 },
+                    (_, i) => startYear + i
+                  );
+                  document.write(
+                    years
+                      .map(
+                        (year) =>
+                          `<div class='itemPicker ${year === currentYear ? "years" : ""
+                          }' data-day="${year}">${year}</div>`
+                      )
+                      .join("")
+                  );
                 </script>
                 <div class='empty-item'></div>
               </div>
@@ -3851,8 +3867,8 @@
                       .map(
                         (month) =>
                           `<div class='itemPicker ${month === todays ? "today" : ""
-                          }' data-day="${String(month).padStart(2, '0')}">
-                                                            ${String(month).padStart(2, '0')}
+                          }' data-day="${String(month).padStart(2, "0")}">
+                                                            ${String(month).padStart(2, "0")}
                                                         </div>`
                       )
                       .join("")

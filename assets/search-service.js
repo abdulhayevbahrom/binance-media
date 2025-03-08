@@ -52,3 +52,6 @@ function closeSearchBlockByButton() {
 if (searchCancelButton) {
     searchCancelButton.onclick = closeSearchBlockByButton;
 }
+
+
+

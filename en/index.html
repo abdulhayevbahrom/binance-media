@@ -303,12 +303,17 @@
 
             <li class="header-item  header-item-flex">
               <a href="#" onclick="return false;">
-                <svg id="icon_mobile-bar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                  width="24px">
-                  <path
-                    d="M640-520q17 0 28.5-11.5T680-560q0-17-11.5-28.5T640-600q-17 0-28.5 11.5T600-560q0 17 11.5 28.5T640-520Zm-320-80h200v-80H320v80ZM180-120q-34-114-67-227.5T80-580q0-92 64-156t156-64h200q29-38 70.5-59t89.5-21q25 0 42.5 17.5T720-820q0 6-1.5 12t-3.5 11q-4 11-7.5 22.5T702-751l91 91h87v279l-113 37-67 224H480v-80h-80v80H180Zm60-80h80v-80h240v80h80l62-206 98-33v-141h-40L620-720q0-20 2.5-38.5T630-796q-29 8-51 27.5T547-720H300q-58 0-99 41t-41 99q0 98 27 191.5T240-200Zm240-298Z" />
+                <svg id="icon_mobile-bar" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.9391 4.65544C12.9785 4.76286 13 4.87892 13 5V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V5C11 4.87892 11.0215 4.76286 11.0609 4.65544C9.82185 4.18328 8.49816 3.96114 7.16672 4.00556C5.52518 4.06033 3.9224 4.51858 2.5 5.33984C2.34798 5.4276 2.22175 5.55384 2.13398 5.70585C2.04621 5.85786 2 6.0303 2 6.20584V19.2058L2.002 19.2738L2.006 19.3228L2.016 19.3838L2.042 19.4938L2.058 19.5428L2.102 19.6458L2.134 19.7058L2.156 19.7418L2.22 19.8308L2.293 19.9128L2.353 19.9688L2.442 20.0358L2.537 20.0918L2.663 20.1478L2.771 20.1798L2.848 20.1938L2.958 20.2058H3L3.117 20.1998L3.178 20.1898L3.288 20.1638L3.337 20.1478L3.44 20.1038L3.767 19.9238C4.96337 19.2928 6.30021 18.9753 7.65257 19.0012C9.00494 19.0271 10.3287 19.3954 11.5 20.0718C11.652 20.1596 11.8245 20.2058 12 20.2058C12.1755 20.2058 12.348 20.1596 12.5 20.0718C13.7162 19.3697 15.0957 19 16.5 19C17.9043 19 19.2838 19.3697 20.5 20.0718C20.652 20.1596 20.8245 20.2058 21 20.2058C21.1755 20.2058 21.348 20.1596 21.5 20.0718C21.652 19.9841 21.7782 19.8578 21.866 19.7058C21.9538 19.5538 22 19.3814 22 19.2058V6.20584L21.993 6.08784C21.9746 5.93341 21.9205 5.78539 21.8349 5.65554C21.7494 5.52569 21.6347 5.4176 21.5 5.33984C20.0776 4.51858 18.4748 4.06033 16.8333 4.00556C15.5018 3.96114 14.1781 4.18328 12.9391 4.65544Z" />
                 </svg>
-                Earn</a>
+                Earn
+                <svg class="header-item__svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
+                    fill="currentColor"></path>
+                </svg>
+              </a>
             </li>
             <li class="header-item" data-modal="modal3">
               <a href="#" onclick="return false;">
@@ -2851,8 +2856,8 @@
         </div>
         <!--END Поиск-->
         <div class="header-authentication">
-          <a href="/en/login" class="btn-web gray">Login</a>
-          <a href="/en/login" class="btn-web yellow">Register</a>
+          <a href="/en/login" class="btn-web gray">Log In</a>
+          <a href="/en/login" class="btn-web yellow">Sign Up</a>
         </div>
         <!--Зайти с помощью qr-->
         <div class="stad">
@@ -4067,7 +4072,7 @@
   <script src="../assets/js/main-page.js"></script>
   <script src="../assets/js/lang.js"></script>
   <script src="../assets/style/media/media.js"></script>
-  <script src="../assets/js/config.js" ></script>
+  <script src="../assets/js/config.js"></script>
   <script>
     const showLinks1 = () => {
       document.getElementById("showLinks1").classList.toggle("showLinks1");
@@ -4178,7 +4183,7 @@
       fetch(`${SERVER_URL}/other-data/binance-news-en`)
         .then((response) => response.json())
         .then((data) => {
-          
+
           data.forEach((item) => {
             const newsElement = document.createElement("li");
 

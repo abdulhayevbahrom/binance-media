@@ -5883,7 +5883,7 @@ button {
 }
 
 .footer .half-list::-webkit-scrollbar {
-  width: 7px;
+  width: 4px;
 }
 
 .footer .half-list::-webkit-scrollbar-track {

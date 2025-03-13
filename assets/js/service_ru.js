@@ -22,16 +22,16 @@ toggleButtons.forEach((button) => {
 
 // Modalni yopish funksiyasi
 function closeModal() {
-  modal.classList.remove("active");
-  modal.classList.add("closing");
+  modal?.classList.remove("active");
+  modal?.classList.add("closing");
   document.body.style.overflow = "auto";
 
   // Animatsiya tugagandan so'ng modalni yashirish
   modal.addEventListener(
     "animationend",
     () => {
-      modal.classList.remove("closing");
-      modal.style.display = "none";
+      modal?.classList.remove("closing");
+      modal?.style.display = "none";
     },
     { once: true }
   );
@@ -44,9 +44,9 @@ if (closeModalButton) {
 
 // Modal tashqarisiga bosganda modalni yopish
 document.addEventListener("click", (event) => {
-  const isClickInsideModal = modal.contains(event.target);
+  const isClickInsideModal = modal?.contains(event.target);
   const isClickOnToggleButton = toggleButtons.some(
-    (button) => button && button.contains(event.target)
+    (button) => button && button?.contains(event.target)
   );
 
   if (!isClickInsideModal && !isClickOnToggleButton) {

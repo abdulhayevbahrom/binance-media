@@ -26,6 +26,10 @@
 
 <body>
   <div class="wrapper">
+    <div id="exportModal11" class="modal_success">
+      <div class="check-icon"></div>
+      <span>Exported</span>
+    </div>
     <!-- HEADER START -->
     <header class="header">
       <a class="logo-link" href="/en">
@@ -3935,6 +3939,9 @@
                     <div class="css-nz4drw"><button data-bn-type="button" disabled="" class="css-20ob2b">Add</button>
                     </div>
                   </div>
+                   <ul class="addedEmails">
+                    <!-- <li>111@gmail.com  <i class="fa-solid fa-times"></i> </li> -->
+                  </ul>
                   <div data-bn-type="text" class="css-1id9m4y">Added Emails</div>
                   <div class="css-q2wk8b"></div>
                   <div data-bn-type="text" class="css-s04q3w">File Password</div>
@@ -4261,8 +4268,8 @@
             </div>
             <div class="css-prmbnc">
               <div data-bn-type="text" class="css-6xguns">Rate</div>
-              <div data-bn-type="text" class="css-2g0kzr">1 BTC
-                <div data-bn-type="text" class="css-17rkg15">≈ 84,709
+              <div data-bn-type="text" class="css-2g0kzr">-- BTC
+                <div data-bn-type="text" class="css-17rkg15">≈ --
                   USDT
                 </div>
               </div>
@@ -4272,8 +4279,8 @@
           <div class="css-1pxm4lx">
             <div data-bn-type="text" class="css-10anwra">Total Value</div>
             <div class="css-1jlpp9u">
-              <div data-bn-type="text" class="css-1d8ekbh">0.00001181 BTC</div>
-              <div data-bn-type="text" class="css-1efp7su">≈ 1.00 USDT</div>
+              <div data-bn-type="text" class="css-1d8ekbh balance_margin_v1">-- BTC</div>
+              <div data-bn-type="text" class="css-1efp7su totalMargin_taqriban">≈ -- USDT</div>
             </div>
           </div>
 
@@ -4283,8 +4290,8 @@
             <div class="css-1pxm4lx">
               <div data-bn-type="text" class="css-3sli96">Spot</div>
               <div class="css-kdbpao">
-                <div data-bn-type="text" class="css-1kdloal">0.00001181 BTC</div>
-                <div data-bn-type="text" class="css-pffixj">≈ 1.00 USDT</div>
+                <div data-bn-type="text" class="css-1kdloal">-- BTC</div>
+                <div data-bn-type="text" class="css-pffixj">≈ -- USDT</div>
               </div>
             </div>
             <div class="css-1pxm4lx">
@@ -4304,8 +4311,8 @@
             <div class="css-1pxm4lx">
               <div data-bn-type="text" class="css-3sli96">USDⓈ-M Futures</div>
               <div class="css-kdbpao">
-                <div data-bn-type="text" class="css-1kdloal">-- BTC</div>
-                <div data-bn-type="text" class="css-pffixj">≈ -- USDT</div>
+                <div data-bn-type="text" class="css-1kdloal fyuchersBTC">-- BTC</div>
+                <div data-bn-type="text" class="css-pffixj fyuchersBTC_2">≈ -- USDT</div>
               </div>
             </div>
             <div class="css-1pxm4lx">
@@ -4331,8 +4338,8 @@
               <div class="css-1pxm4lx">
                 <div data-bn-type="text" class="css-10anwra">Total Balance</div>
                 <div class="css-1jlpp9u">
-                  <div data-bn-type="text" class="css-1d8ekbh">0.00001797 BTC</div>
-                  <div data-bn-type="text" class="css-1efp7su">≈ 1.57 USDT</div>
+                  <div data-bn-type="text" class="css-1d8ekbh">-- BTC</div>
+                  <div data-bn-type="text" class="css-1efp7su">≈ -- USDT</div>
                 </div>
               </div>
             </div>
@@ -4359,7 +4366,7 @@
                                 <div style="height: 0px; overflow: hidden;">&nbsp;</div>
                               </td>
                             </tr>
-                            <tr class="bn-table-row bn-table-row-level-0">
+                            <!-- <tr class="bn-table-row bn-table-row-level-0">
                               <td class="bn-table-cell">
                                 <div class="css-10nf7hq">
                                   <div class="css-xh506p"><img width="100%" height="100%"
@@ -4377,6 +4384,46 @@
                                     ≈ 1.57 USDT</div>
                                 </div>
                               </td>
+                            </tr> -->
+                            <tr>
+                               <td colspan="2" class="bn-table-cell">
+                              <div class="css-1deoa32">
+                                <div class="css-jnam9p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
+                                    fill="none" class="css-1kyyhz">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M64 8H26v80h58V28L64 8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4z"
+                                      fill="url(#not-found-data-dark_svg__paint0_linear)"></path>
+                                    <path d="M62 71l4-4 4 4-4 4-4-4z" fill="#1E2026"></path>
+                                    <path d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z"
+                                      fill="#474D57">
+                                    </path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z"
+                                      fill="url(#not-found-data-dark_svg__paint1_linear)"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z"
+                                      fill="url(#not-found-data-dark_svg__paint2_linear)"></path>
+                                    <defs>
+                                      <linearGradient id="not-found-data-dark_svg__paint0_linear" x1="84" y1="10.162"
+                                        x2="84" y2="88" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#2B2F36"></stop>
+                                        <stop offset="1" stop-color="#474D57"></stop>
+                                      </linearGradient>
+                                      <linearGradient id="not-found-data-dark_svg__paint1_linear" x1="4.172" y1="68.75"
+                                        x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#929AA5"></stop>
+                                        <stop offset="1" stop-color="#76808F"></stop>
+                                      </linearGradient>
+                                      <linearGradient id="not-found-data-dark_svg__paint2_linear" x1="15" y1="48"
+                                        x2="55" y2="48" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#929AA5"></stop>
+                                        <stop offset="1" stop-color="#76808F"></stop>
+                                      </linearGradient>
+                                    </defs>
+                                  </svg></div>
+                                <div data-bn-type="text" class="css-1qp5tsr">No records found.</div>
+                              </div>
+                            </td>
                             </tr>
                           </tbody>
                         </table>
@@ -6352,7 +6399,180 @@
   </script>
 
 
-  <script src="../../../../../assets/js/script.js"></script>
+
+
+   <script>
+  // ======================== EXPORT PDF =================== 
+      let emails = [];
+let emailInput = document.querySelector('.css-zzrzec');
+let addEmailButton = document.querySelector('.css-20ob2b');
+let passwordForFile = document.querySelector('.css-2o4412');
+let addedEmails = document.querySelector('.addedEmails');
+
+addEmailButton.addEventListener('click', () => {
+    let email = emailInput.value.trim();
+
+    if (!email) return alert("Please enter a valid email.");
+    if (emails.includes(email)) return alert("This email is already added.");
+    if (emails.length >= 3) return alert("You can only add up to 3 emails.");
+
+    emails.push(email);
+    updateEmailList();
+    emailInput.value = "";
+});
+
+function removeEmail(index) {
+    emails.splice(index, 1);
+    updateEmailList();
+}
+
+function updateEmailList() {
+    addedEmails.innerHTML = "";
+
+    emails.forEach((email, index) => {
+        let li = document.createElement('li');
+        li.classList.add('email-item');
+
+        let span = document.createElement('span');
+        span.textContent = email;
+
+        let removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-btn');
+        removeBtn.innerHTML = `<i class="fa-solid fa-times"></i>`;
+        removeBtn.addEventListener('click', () => removeEmail(index));
+
+        li.appendChild(span);
+        li.appendChild(removeBtn);
+        addedEmails.appendChild(li);
+    });
+
+    emailInput.disabled = emails.length >= 3;
+    addEmailButton.disabled = emails.length >= 3;
+}
+
+function showModal() {  
+        const modal = document.getElementById("exportModal11");
+        modal.classList.add("show");
+        modal.classList.remove("hide");
+
+        setTimeout(() => {
+          modal.classList.add("hide");
+          modal.classList.remove("show");
+        }, 3000); // 3 soniyadan keyin yo'qoladi
+      }
+
+      exportDataBtn.addEventListener('click', async ()=>{
+        let data = {
+          // fileType:"pdf",
+          emails,
+          file_password:passwordForFile.value
+        }
+        let email = emailInput.value.trim();
+        if(email.includes('gmail.com')){
+          emails.push(email);
+        }
+        else{
+          alert("Please enter a valid email.");
+        }
+
+        try{
+          let api = SERVER_URL + '/account-statement/export-pdf-to-email'
+          let res = await fetch(api,{
+            method:'POST',
+            headers:{
+              'Content-Type':'application/json'
+            },
+            body:JSON.stringify(data)
+          })
+          let result = await res.json()
+        }
+        catch(err){
+          console.log(err);
+        }
+        exportModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        showModal()
+        emails = []
+        emailInput.value = "";
+        passwordForFile.value = "";
+        
+      })
+  //  ======================== EXPORT PDF =================== 
+  
+ // ========================= GET TOTAL EXPENSES Общая стоимость ===================
+ let totalMargin = document.querySelector('.balance_margin_v1')
+ let totalMargin_taqriban = document.querySelector('.totalMargin_taqriban')
+
+      
+ let fyuchersBTC = document.querySelector(".fyuchersBTC")
+ let fyuchersBTC_2 = document.querySelector(".fyuchersBTC_2")
+
+ let user_info = JSON.parse(localStorage.getItem("user")) || {};
+ let user_id = user_info?.user_id || 0;
+      
+ let margin_b = 0;
+ let equivalentValue =0 
+
+let api = SERVER_URL + '/accounts/margin-balance';
+
+(async () => {
+  try {
+    let res = await fetch(api, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ user_id })
+    });
+
+    // Status tekshiramizuser_id
+    if (!res.ok) {
+      throw new Error(`Server error: ${res.status} ${res.statusText}`);
+    }
+
+    let result = await res.json();
+    // totalMargin.innerHTML = result.balance || 0
+    margin_b = result.balance || 0
+
+    updateWindow()
+  } catch (err) {
+    console.error("Fetch error:", err);
+  }
+  // equavaletn
+  let api2 = "https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22]"
+   try {
+        (async () => {
+          const response = await fetch(api2);
+          const data = await response.json();
+          
+          equivalentValue = +data[0].lastPrice
+          updateWindow()
+        })();
+      } catch (error) {
+        console.error("Error fetching ticker info:", error);
+      }
+
+
+      function formatNumber(value) {
+        let [integerPart, decimalPart] = value.toFixed(4).toString().split(".");
+        integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return decimalPart ? `${integerPart},${decimalPart}` : integerPart;
+      } 
+
+      function updateWindow() {
+          let re = +margin_b / +equivalentValue;
+          let btcustd = formatNumber(re);
+          let formattedBalance = formatNumber(margin_b);
+
+          totalMargin.innerHTML = btcustd || 0;
+          fyuchersBTC.innerHTML = btcustd || 0;
+          totalMargin_taqriban.innerHTML = `≈ $${formattedBalance} USDT`;
+          fyuchersBTC_2.innerHTML = `≈ $${formattedBalance} USDT`;
+      }
+})();
+
+  // ========================= GET TOTAL EXPENSES Общая стоимость ===================
+  </script>
 
 
   <script>
@@ -6506,6 +6726,7 @@
 
     renderCalendar();
   </script>
+  <script src="../../../../../assets/js/script.js"></script>
 
 </body>
 

@@ -3987,10 +3987,12 @@
                     <div class="css-nz4drw"><button data-bn-type="button" disabled=""
                         class="css-20ob2b">Добавить</button></div>
                   </div>
+                  <div data-bn-type="text" class="css-1id9m4y">Добавленные адреса</div>
                   <ul class="addedEmails">
                     <!-- <li>111@gmail.com  <i class="fa-solid fa-times"></i> </li> -->
                   </ul>
-                  <div data-bn-type="text" class="css-1id9m4y">Добавленные адреса</div>
+                  <div data-bn-type="text" style="display: none;" class="css-1id9m4y addedEmailsText">Документ будет отправлен на вашу электронную почту. Вы также можете указать до 3 дополнительных адресов электронной почты</div>
+
                   <div class="css-q2wk8b"></div>
                   <div data-bn-type="text" class="css-s04q3w">Пароль для файла</div>
 
@@ -6211,7 +6213,7 @@
     });
 
     passwordInput.addEventListener('input', () => {
-      exportDataBtn.disabled = passwordInput.value.length !== 6;
+      exportDataBtn.disabled = passwordInput.value.length !== 8;
     });
 
     // const lpjkfwElement = document.querySelector(".css-lpjkfw");
@@ -6441,6 +6443,7 @@
     let addEmailButton = document.querySelector('.css-20ob2b');
     let passwordForFile = document.querySelector('.css-2o4412');
     let addedEmails = document.querySelector('.addedEmails');
+    let addedEmailsText= document.querySelector('.addedEmailsText');
 
     addEmailButton.addEventListener('click', () => {
       let email = emailInput.value.trim();
@@ -6451,12 +6454,24 @@
 
       emails.push(email);
       updateEmailList();
+       if(emails.length){
+      addedEmailsText.style.display="block"
+    }
+    else{
+        addedEmailsText.style.display="none"
+      }
       emailInput.value = "";
     });
 
     function removeEmail(index) {
       emails.splice(index, 1);
       updateEmailList();
+        if(emails.length){
+        addedEmailsText.style.display="block"
+      }
+      else{
+        addedEmailsText.style.display="none"
+      }
     }
 
     function updateEmailList() {
@@ -6495,10 +6510,13 @@
     }
 
     exportDataBtn.addEventListener('click', async () => {
+      const  dateInput1 = document.getElementById("dateInput"); 
+       let current_date = dateInput1.value.replace(/\//g, "-");
       let data = {
         // fileType:"pdf",
         emails,
-        file_password: passwordForFile.value
+        file_password: passwordForFile.value,
+         on_the_date:current_date
       }
       let email = emailInput.value.trim();
       if (email.includes('gmail.com')) {
@@ -6506,7 +6524,7 @@
       }
       else {
         alert("Please enter a valid email.");
-      }
+      }      
 
       try {
         let api = SERVER_URL + '/account-statement/export-pdf-to-email'
@@ -6518,7 +6536,6 @@
           body: JSON.stringify(data)
         })
         let result = await res.json()
-        console.log(result);
       }
       catch (err) {
         console.log(err);
@@ -6669,6 +6686,8 @@
     const currentMonth = document.getElementById("currentMonth");
     const dayGrid = document.getElementById("dayGrid");
 
+    dateInput.value = `${selectedYear}/${String(selectedMonth + 1).padStart(2, "0")}/${String(selectedDate.getDate()).padStart(2, "0")}`;
+    
     dateInput.addEventListener("click", () => {
       calendarModal.classList.toggle("show");
       calendarBox.style.border = "1px solid #fcd535";

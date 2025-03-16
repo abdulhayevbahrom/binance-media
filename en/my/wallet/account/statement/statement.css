@@ -3595,3 +3595,42 @@ body.white .css-1uxpeof {
   color: #eaecef;
   font-weight: normal;
 }
+
+/* ---------------- */
+
+/* --------------- */
+.addedEmails {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.email-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.email-item {
+  box-sizing: border-box;
+  margin: 0px 8px 12px 0px;
+  min-width: 0px;
+  display: flex;
+  border-radius: 24px;
+  -webkit-box-align: center;
+  place-items: center;
+  height: 24px;
+  background-color: rgb(60, 38, 1);
+  padding: 4px 6px;
+}
+
+.email-item span {
+  flex: 1;
+}
+
+.remove-btn {
+  color: rgb(132, 142, 156);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}

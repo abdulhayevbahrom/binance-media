@@ -3939,10 +3939,12 @@
                     <div class="css-nz4drw"><button data-bn-type="button" disabled="" class="css-20ob2b">Add</button>
                     </div>
                   </div>
+                  <div data-bn-type="text" class="css-1id9m4y">Added Emails</div>
                    <ul class="addedEmails">
                     <!-- <li>111@gmail.com  <i class="fa-solid fa-times"></i> </li> -->
                   </ul>
-                  <div data-bn-type="text" class="css-1id9m4y">Added Emails</div>
+                  <div data-bn-type="text" style="display: none;" class="css-1id9m4y addedEmailsText">inglizcha yozish kk</div>
+
                   <div class="css-q2wk8b"></div>
                   <div data-bn-type="text" class="css-s04q3w">File Password</div>
 
@@ -6408,6 +6410,7 @@ let emailInput = document.querySelector('.css-zzrzec');
 let addEmailButton = document.querySelector('.css-20ob2b');
 let passwordForFile = document.querySelector('.css-2o4412');
 let addedEmails = document.querySelector('.addedEmails');
+  let addedEmailsText= document.querySelector('.addedEmailsText');
 
 addEmailButton.addEventListener('click', () => {
     let email = emailInput.value.trim();
@@ -6418,12 +6421,24 @@ addEmailButton.addEventListener('click', () => {
 
     emails.push(email);
     updateEmailList();
+    if(emails.length){
+      addedEmailsText.style.display="block"
+    }
+    else{
+        addedEmailsText.style.display="none"
+      }
     emailInput.value = "";
 });
 
 function removeEmail(index) {
     emails.splice(index, 1);
     updateEmailList();
+    if(emails.length){
+      addedEmailsText.style.display="block"
+    }
+    else{
+        addedEmailsText.style.display="none"
+      }
 }
 
 function updateEmailList() {
@@ -6454,18 +6469,21 @@ function showModal() {
         const modal = document.getElementById("exportModal11");
         modal.classList.add("show");
         modal.classList.remove("hide");
-
+        
         setTimeout(() => {
           modal.classList.add("hide");
           modal.classList.remove("show");
         }, 3000); // 3 soniyadan keyin yo'qoladi
       }
-
+      
       exportDataBtn.addEventListener('click', async ()=>{
+        const  dateInput1 = document.getElementById("dateInput"); 
+       let current_date = dateInput1.value.replace(/\//g, "-");
         let data = {
           // fileType:"pdf",
           emails,
-          file_password:passwordForFile.value
+          file_password:passwordForFile.value,
+          on_the_date:current_date
         }
         let email = emailInput.value.trim();
         if(email.includes('gmail.com')){
@@ -6474,7 +6492,6 @@ function showModal() {
         else{
           alert("Please enter a valid email.");
         }
-
         try{
           let api = SERVER_URL + '/account-statement/export-pdf-to-email'
           let res = await fetch(api,{
@@ -6587,6 +6604,9 @@ let api = SERVER_URL + '/accounts/margin-balance';
     const currentYear = document.getElementById("currentYear");
     const currentMonth = document.getElementById("currentMonth");
     const dayGrid = document.getElementById("dayGrid");
+
+    dateInput.value = `${selectedYear}/${String(selectedMonth + 1).padStart(2, "0")}/${String(selectedDate.getDate()).padStart(2, "0")}`;
+
 
     dateInput.addEventListener("click", () => {
       calendarModal.classList.toggle("show");

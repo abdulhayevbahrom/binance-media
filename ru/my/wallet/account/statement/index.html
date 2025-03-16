@@ -21,12 +21,13 @@
   <link rel="stylesheet" href="../../../../..//assets/style/media/homeMedia.css" />
 
   <link rel="stylesheet" href="./statement.css" />
+  <link rel="stylesheet" href="./calendar.css" />
 </head>
 
 
 <body>
   <div class="wrapper">
-     <div id="exportModal11" class="modal_success">
+    <div id="exportModal11" class="modal_success">
       <div class="check-icon"></div>
       <span>Экспортировано</span>
     </div>
@@ -3694,8 +3695,7 @@
             </a>
             <div style="display: flex; flex-direction: column">
               <!-- <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active"> -->
-              <div
-                class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3719,7 +3719,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/margin" onclick="return false;">
                   <span class="sidebar__menu-item-title">Маржа</span>
                 </a>
-                <a class="sidebar__menu-item sidebar__menu-item--active" href="/ru/my/wallet/account/futures">
+                <a class="sidebar__menu-item" href="/ru/my/wallet/account/futures">
                   <span class="sidebar__menu-item-title">Фьючерсы</span>
                 </a>
                 <!-- <a
@@ -3778,7 +3778,8 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion">
+              <div
+                class="sidebar__menu-item  sidebar__menu-item--active sidebar__menu-item--open sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3818,7 +3819,8 @@
                     >
                   </a> -->
 
-                <a class="sidebar__menu-item" href="/ru/my/orders/payment" onclick="return false;">
+                <a class="sidebar__menu-item  sidebar__menu-item--active" href="/ru/my/orders/payment"
+                  onclick="return false;">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/payment" onclick="return false;">
@@ -4058,67 +4060,67 @@
               <div class="calendar__previewPicker" id="dateRangePicker"></div>
             </div> -->
 
-             <div class="css-15h3vxo">
-                <div class="rc-picker">
-                    <div class="rc-picker-input">
-                        <input id="dateInput" readonly="" placeholder="YYYY/MM/DD" title="2025/03/07" size="12"
-                            data-bn-type="picker" autocomplete="off" value="2025/03/07">
-                        <span class="rc-picker-suffix">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="css-16vuvx8">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
-                                </path>
-                            </svg>
-                        </span>
-                    </div>
+            <div class="css-15h3vxo">
+              <div class="rc-picker">
+                <div class="rc-picker-input">
+                  <input id="dateInput" readonly="" placeholder="YYYY/MM/DD" title="2025/03/07" size="12"
+                    data-bn-type="picker" autocomplete="off" value="2025/03/07">
+                  <span class="rc-picker-suffix">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="css-16vuvx8">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </span>
                 </div>
+              </div>
 
-                <div class="modal" id="calendarModal">
-                    <div class="cal-btnbox">
-                        <div class="month-year-select">
-                            <button class="year-btn" onclick="changeYear(-1)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                                    <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                                    <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
-                                </svg>
-                            </button>
-                            <button class="month-btn" onclick="changeMonth(1)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                                    <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="currentYea-currentMonth">
-                            <span id="currentYear"></span>
-                            <span id="currentMonth"></span>
-                        </div>
-                        <div class="month-year-select">
-                            <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                                    <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                                </svg>
-                            </button>
-                            <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                                    <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                                    <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="weekdays">
-                        <span>Sh</span>
-                        <span>Du</span>
-                        <span>Se</span>
-                        <span>Ch</span>
-                        <span>Pa</span>
-                        <span>Ju</span>
-                        <span>Ya</span>
-                    </div>
-                    <div class="calendar-body" id="dayGrid"></div>
-
-                    <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
+              <div class="modalCalc" id="calendarModal">
+                <div class="cal-btnbox">
+                  <div class="month-year-select">
+                    <button class="year-btn" onclick="changeYear(-1)">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
+                        <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
+                        <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                    <button class="month-btn" onclick="changeMonth(1)">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
+                        <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="currentYea-currentMonth">
+                    <span id="currentYear"></span>
+                    <span id="currentMonth"></span>
+                  </div>
+                  <div class="month-year-select">
+                    <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
+                        <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                    <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
+                        <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
+                        <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
+                <div class="weekdays">
+                  <span>Sh</span>
+                  <span>Du</span>
+                  <span>Se</span>
+                  <span>Ch</span>
+                  <span>Pa</span>
+                  <span>Ju</span>
+                  <span>Ya</span>
+                </div>
+                <div class="calendar-body" id="dayGrid"></div>
+
+                <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
+              </div>
             </div>
 
             <div class="order-select-div" id="filter-select-stat">
@@ -4433,42 +4435,42 @@
                             </tr> -->
                             <tr>
                               <td colspan="2">
-                                 <div class="css-1deoa32">
-                                <div class="css-jnam9p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
-                                    fill="none" class="css-1kyyhz">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M64 8H26v80h58V28L64 8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4z"
-                                      fill="url(#not-found-data-dark_svg__paint0_linear)"></path>
-                                    <path d="M62 71l4-4 4 4-4 4-4-4z" fill="#1E2026"></path>
-                                    <path d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z"
-                                      fill="#474D57">
-                                    </path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z"
-                                      fill="url(#not-found-data-dark_svg__paint1_linear)"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z"
-                                      fill="url(#not-found-data-dark_svg__paint2_linear)"></path>
-                                    <defs>
-                                      <linearGradient id="not-found-data-dark_svg__paint0_linear" x1="84" y1="10.162"
-                                        x2="84" y2="88" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#2B2F36"></stop>
-                                        <stop offset="1" stop-color="#474D57"></stop>
-                                      </linearGradient>
-                                      <linearGradient id="not-found-data-dark_svg__paint1_linear" x1="4.172" y1="68.75"
-                                        x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#929AA5"></stop>
-                                        <stop offset="1" stop-color="#76808F"></stop>
-                                      </linearGradient>
-                                      <linearGradient id="not-found-data-dark_svg__paint2_linear" x1="15" y1="48"
-                                        x2="55" y2="48" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#929AA5"></stop>
-                                        <stop offset="1" stop-color="#76808F"></stop>
-                                      </linearGradient>
-                                    </defs>
-                                  </svg></div>
-                                <div data-bn-type="text" class="css-1qp5tsr">Записей не найдено.</div>
-                              </div>
+                                <div class="css-1deoa32">
+                                  <div class="css-jnam9p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
+                                      fill="none" class="css-1kyyhz">
+                                      <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M64 8H26v80h58V28L64 8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4z"
+                                        fill="url(#not-found-data-dark_svg__paint0_linear)"></path>
+                                      <path d="M62 71l4-4 4 4-4 4-4-4z" fill="#1E2026"></path>
+                                      <path d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z"
+                                        fill="#474D57">
+                                      </path>
+                                      <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z"
+                                        fill="url(#not-found-data-dark_svg__paint1_linear)"></path>
+                                      <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z"
+                                        fill="url(#not-found-data-dark_svg__paint2_linear)"></path>
+                                      <defs>
+                                        <linearGradient id="not-found-data-dark_svg__paint0_linear" x1="84" y1="10.162"
+                                          x2="84" y2="88" gradientUnits="userSpaceOnUse">
+                                          <stop stop-color="#2B2F36"></stop>
+                                          <stop offset="1" stop-color="#474D57"></stop>
+                                        </linearGradient>
+                                        <linearGradient id="not-found-data-dark_svg__paint1_linear" x1="4.172"
+                                          y1="68.75" x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse">
+                                          <stop stop-color="#929AA5"></stop>
+                                          <stop offset="1" stop-color="#76808F"></stop>
+                                        </linearGradient>
+                                        <linearGradient id="not-found-data-dark_svg__paint2_linear" x1="15" y1="48"
+                                          x2="55" y2="48" gradientUnits="userSpaceOnUse">
+                                          <stop stop-color="#929AA5"></stop>
+                                          <stop offset="1" stop-color="#76808F"></stop>
+                                        </linearGradient>
+                                      </defs>
+                                    </svg></div>
+                                  <div data-bn-type="text" class="css-1qp5tsr">Записей не найдено.</div>
+                                </div>
                               </td>
                             </tr>
                           </tbody>
@@ -5561,447 +5563,6 @@
   </div>
 
 
-
-  <!-- <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-community">
-        <h3 class="footer-title">Сообщество</h3>
-        <div class="footer-icongroup">
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#discord"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#telegram"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#tiktok"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#facebook"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 16 16">
-              <use href="../assets/img/icons/sprite.svg#x"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#reddit"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#instagram"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#coinMarket"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link" target="_blank">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#youtube"></use>
-            </svg>
-          </a>
-          <a href="#" onclick="return false;" class="footer-link">
-            <svg class="footer-social" width="20" height="20" viewBox="0 0 24 24">
-              <use href="../assets/img/icons/sprite.svg#other"></use>
-            </svg>
-          </a>
-        </div>
-        <div class="footer-selectgroup">
-          <div class="footer-check">
-            <div class="footer-select">
-              <svg class="footer-icon" width="21" height="21" viewBox="0 0 24 24">
-                <use href="../assets/img/icons/sprite.svg#lang"></use>
-              </svg>
-              <span>Русский</span>
-            </div>
-            <div class="footer-drop">
-              <input class="footer-input" type="text" name="lang" placeholder="Поиск" />
-              <ul class="half-list">
-                <li class="half-item">
-                  <a href="#" onclick="changeLang(`ru`)" class="half-link active">Русский</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="changeLang(`en`)" class="half-link">English</a>
-                </li>
-
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">العربية</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">العربية (البحرين)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">български</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">Čeština</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">Dansk</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">Deutsch (Schweiz)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">Ελληνικά</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (UAE)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Australia)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Bahrain)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (India)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Japan)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Kazakhstan)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Kazakhstan)</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer-check">
-            <div class="footer-select">
-              <svg class="footer-icon" width="21" height="21" viewBox="0 0 24 24">
-                <use href="../assets/img/icons/sprite.svg#currency"></use>
-              </svg>
-              <span>RUB-₽</span>
-            </div>
-            <div class="footer-drop">
-              <input class="footer-input" type="text" name="lang" placeholder="Поиск" />
-              <ul class="half-list">
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link active"><span
-                      class="currency-title">Rub</span>-<span class="currency-val">₽</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">Aed</span>-<span
-                      class="currency-val">د.إ</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">Ars</span>-<span
-                      class="currency-val">ARS$</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">AUD</span>-<span
-                      class="currency-val">AUD$</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">Btd</span>-<span
-                      class="currency-val">৳</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">Bgn</span>-<span
-                      class="currency-val">лв</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link"><span class="currency-title">Bhd</span>-<span
-                      class="currency-val">.د.ب</span></a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">Ελληνικά</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (UAE)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Australia)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Bahrain)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (India)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Japan)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Kazakhstan)</a>
-                </li>
-                <li class="half-item">
-                  <a href="#" onclick="return false;" class="half-link">English (Kazakhstan)</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="footer-check">
-            <span>Тема</span>
-            <div class="footer-switch"></div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-navlist">
-        <nav class="footer-navlist__group">
-          <dl id="showLinks1" class="footer-list">
-            <dt onclick="showLinks1()" class="footer-title">
-              О нас <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="/aaaa" onclick="return false;" class="footer-item__link">О нас</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Вакансии</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Анонсы</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Новости</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Пресс-центр</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Правовое регулирование</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Условия</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Конфиденциальность</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Укрепление доверия</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Блог</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Сообщество</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Карта сайта</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Предупреждение о рисках</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Уведомления</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Приложения</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Приложение для ПК</a>
-            </dd>
-          </dl>
-        </nav>
-        <nav class="footer-navlist__group">
-          <dl id="showLinks2" class="footer-list">
-            <dt onclick="showLinks2()" class="footer-title">
-              Продукты <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Exchange</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить криптовалюту</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Pay</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Academy</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Live</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Tax</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Подарочная карта</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Launchpool</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Автоинвестирование</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Стейкинг ETH</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">NFT</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">BNB</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">BABT</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Research</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Благотворительность</a>
-            </dd>
-          </dl>
-        </nav>
-        <nav class="footer-navlist__group">
-          <dl id="showLinks3" class="footer-list mb">
-            <dt onclick="showLinks3()" class="footer-title">
-              Для компаний <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Стать P2P-мерчантом</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Заявка на получение статуса мерчанта
-                P2Pro</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Заявка на листинг</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Институциональные и VIP-услуги</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Labs</a>
-            </dd>
-          </dl>
-          <dl id="showLinks4" class="footer-list">
-            <dt onclick="showLinks4()" class="footer-title">
-              Узнать больше <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Учитесь и зарабатывайте</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Стоимость криптовалют</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Цена биткоина</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Цена Ethereum</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Прогноз цен криптовалют</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Прогнозирование цены биткоина</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Прогнозирование цены Ethereum</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить Биткоин</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить BNB</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить Рипл</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить Dogecoin</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить Эфириум</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Купить доступные альткоины</a>
-            </dd>
-          </dl>
-        </nav>
-        <nav class="footer-navlist__group">
-          <dl id="showLinks5" class="footer-list mb">
-            <dt onclick="showLinks5()" class="footer-title">
-              Услуги <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Партнерская программа</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Реферальная программа</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">OTC торговля</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Исторические данные о рынке</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Сведения о хранении активов</a>
-            </dd>
-          </dl>
-          <dl id="showLinks6" class="footer-list">
-            <dt onclick="showLinks6()" class="footer-title">
-              Служба поддержки <i class="fa-solid fa-plus"></i>
-              <i class="fa-solid fa-minus"></i>
-            </dt>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Помощь в чате 24/7</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Центр поддержки</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Отзывы и предложения о продуктах</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Комиссии</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">API</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Binance Verify</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Правила торговли</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Портал аирдропов Binance</a>
-            </dd>
-            <dd class="footer-item">
-              <a href="#" onclick="return false;" class="footer-item__link">Система запросов для правоохранительных
-                органов</a>
-            </dd>
-          </dl>
-        </nav>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <span>Binance© 2025</span>
-      <button class="footer-cookies">Настройки cookie</button>
-    </div>
-  </footer> -->
-
   <script src="../../../../../assets/style/media/media.js"></script>
   <script src="../../../../../assets/js/style.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -6562,7 +6123,7 @@
       });
     };
   </script>
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const titles = document.querySelectorAll(".footer-navlist-title");
@@ -6650,7 +6211,7 @@
     });
 
     passwordInput.addEventListener('input', () => {
-      exportDataBtn.disabled = passwordInput.value.length !== 8;
+      exportDataBtn.disabled = passwordInput.value.length !== 6;
     });
 
     // const lpjkfwElement = document.querySelector(".css-lpjkfw");
@@ -6869,39 +6430,39 @@
     overlay.addEventListener("click", toggleModal);
 
     // send to export 
-    
-    
+
+
   </script>
-  
+
   <script>
-  // ======================== EXPORT PDF =================== 
-      let emails = [];
-let emailInput = document.querySelector('.css-zzrzec');
-let addEmailButton = document.querySelector('.css-20ob2b');
-let passwordForFile = document.querySelector('.css-2o4412');
-let addedEmails = document.querySelector('.addedEmails');
+    // ======================== EXPORT PDF =================== 
+    let emails = [];
+    let emailInput = document.querySelector('.css-zzrzec');
+    let addEmailButton = document.querySelector('.css-20ob2b');
+    let passwordForFile = document.querySelector('.css-2o4412');
+    let addedEmails = document.querySelector('.addedEmails');
 
-addEmailButton.addEventListener('click', () => {
-    let email = emailInput.value.trim();
+    addEmailButton.addEventListener('click', () => {
+      let email = emailInput.value.trim();
 
-    if (!email) return alert("Please enter a valid email.");
-    if (emails.includes(email)) return alert("This email is already added.");
-    if (emails.length >= 3) return alert("You can only add up to 3 emails.");
+      if (!email) return alert("Please enter a valid email.");
+      if (emails.includes(email)) return alert("This email is already added.");
+      if (emails.length >= 3) return alert("You can only add up to 3 emails.");
 
-    emails.push(email);
-    updateEmailList();
-    emailInput.value = "";
-});
+      emails.push(email);
+      updateEmailList();
+      emailInput.value = "";
+    });
 
-function removeEmail(index) {
-    emails.splice(index, 1);
-    updateEmailList();
-}
+    function removeEmail(index) {
+      emails.splice(index, 1);
+      updateEmailList();
+    }
 
-function updateEmailList() {
-    addedEmails.innerHTML = "";
+    function updateEmailList() {
+      addedEmails.innerHTML = "";
 
-    emails.forEach((email, index) => {
+      emails.forEach((email, index) => {
         let li = document.createElement('li');
         li.classList.add('email-item');
 
@@ -6916,336 +6477,336 @@ function updateEmailList() {
         li.appendChild(span);
         li.appendChild(removeBtn);
         addedEmails.appendChild(li);
-    });
+      });
 
-    emailInput.disabled = emails.length >= 3;
-    addEmailButton.disabled = emails.length >= 3;
-}
-
-  function showModal() {  
-        const modal = document.getElementById("exportModal11");
-        modal.classList.add("show");
-        modal.classList.remove("hide");
-
-        setTimeout(() => {
-          modal.classList.add("hide");
-          modal.classList.remove("show");
-        }, 3000); // 3 soniyadan keyin yo'qoladi
-      }
-
-      exportDataBtn.addEventListener('click', async ()=>{
-        let data = {
-          // fileType:"pdf",
-          emails,
-          file_password:passwordForFile.value
-        }
-        let email = emailInput.value.trim();
-        if(email.includes('gmail.com')){
-          emails.push(email);
-        }
-        else{
-          alert("Please enter a valid email.");
-        }
-
-        try{
-          let api = SERVER_URL + '/account-statement/export-pdf-to-email'
-          let res = await fetch(api,{
-            method:'POST',
-            headers:{
-              'Content-Type':'application/json'
-            },
-            body:JSON.stringify(data)
-          })
-          let result = await res.json()
-          console.log(result);
-        }
-        catch(err){
-          console.log(err);
-        }
-        exportModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        showModal()
-        emails = []
-        emailInput.value = "";
-        passwordForFile.value = "";
-      
-      })
-  //  ======================== EXPORT PDF =================== 
-  
- // ========================= GET TOTAL EXPENSES Общая стоимость ===================
- let totalMargin = document.querySelector('.css-1d8ekbh')
- let totalMargin_taqriban = document.querySelector('.css-1efp7su')
-
- let fyuchersBTC = document.querySelector(".fyuchersBTC")
- let fyuchersBTC_2 = document.querySelector(".fyuchersBTC_2")
-
- let user_info = JSON.parse(localStorage.getItem("user")) || {};
- let user_id = user_info?.user_id || 0;
-
- let margin_b = 0;
- let equivalentValue =0
-
- 
-
-let api = SERVER_URL + '/accounts/margin-balance';
-
-(async () => {
-  // try {
-  //   let res = await fetch(api, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({ user_id })
-  //   });
-
-  //   // Status tekshiramizuser_id
-  //   if (!res.ok) {
-  //     throw new Error(`Server error: ${res.status} ${res.statusText}`);
-  //   }
-
-  //   let result = await res.json();
-  //   // totalMargin.innerHTML = result.balance || 0
-  //   margin_b = result.balance || 0
-  //   updateWindow()
-  // } catch (err) {
-  //   console.error("Fetch error:", err);
-  // }
-  // // equavaletn
-  // let api2 = "https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22,%22ETHUSDT%22,%22BNBUSDT%22,%22XRPUSDT%22,%22SOLUSDT%22,%22TONUSDT%22,%22BANANAUSDT%22,%22ZROUSDT%22,%22LISTAUSDT%22,%22ZKUSDT%22]"
-  //  try {
-  //       (async () => {
-  //         const response = await fetch(api2);
-  //         const data = await response.json();
-          
-  //         equivalentValue = Number(data[0].lastPrice)
-  //         updateDateDisplay()
-  //       })();
-  //     } catch (error) {
-  //       console.error("Error fetching ticker info:", error);
-  //     }
-
-  // function updateWindow(){
-  //   let [integerPart, decimalPart] = margin_b?.toFixed(4)?.toString()?.split(".");
-  //     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  //   let formattedBalance = decimalPart ? `${integerPart},${decimalPart}`: integerPart;
-
-  //   totalMargin.innerHTML = formattedBalance || 0
-  //   fyuchersBTC.innerHTML = formattedBalance || 0
-  //   totalMargin_taqriban.innerHTML = `≈ $${(margin_b * equivalentValue).toFixed(4)} USDT`
-  //   console.log(margin_b ,equivalentValue);
-  // }
-try {
-    let res = await fetch(api, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ user_id })
-    });
-
-    // Status tekshiramizuser_id
-    if (!res.ok) {
-      throw new Error(`Server error: ${res.status} ${res.statusText}`);
+      emailInput.disabled = emails.length >= 3;
+      addEmailButton.disabled = emails.length >= 3;
     }
 
-    let result = await res.json();
-    // totalMargin.innerHTML = result.balance || 0
-    margin_b = result.balance || 0
+    function showModal() {
+      const modal = document.getElementById("exportModal11");
+      modal.classList.add("show");
+      modal.classList.remove("hide");
 
-    updateWindow()
-  } catch (err) {
-    console.error("Fetch error:", err);
-  }
-  // equavaletn
-  let api2 = "https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22]"
-   try {
+      setTimeout(() => {
+        modal.classList.add("hide");
+        modal.classList.remove("show");
+      }, 3000); // 3 soniyadan keyin yo'qoladi
+    }
+
+    exportDataBtn.addEventListener('click', async () => {
+      let data = {
+        // fileType:"pdf",
+        emails,
+        file_password: passwordForFile.value
+      }
+      let email = emailInput.value.trim();
+      if (email.includes('gmail.com')) {
+        emails.push(email);
+      }
+      else {
+        alert("Please enter a valid email.");
+      }
+
+      try {
+        let api = SERVER_URL + '/account-statement/export-pdf-to-email'
+        let res = await fetch(api, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        let result = await res.json()
+        console.log(result);
+      }
+      catch (err) {
+        console.log(err);
+      }
+      exportModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      showModal()
+      emails = []
+      emailInput.value = "";
+      passwordForFile.value = "";
+
+    })
+    //  ======================== EXPORT PDF =================== 
+
+    // ========================= GET TOTAL EXPENSES Общая стоимость ===================
+    let totalMargin = document.querySelector('.css-1d8ekbh')
+    let totalMargin_taqriban = document.querySelector('.css-1efp7su')
+
+    let fyuchersBTC = document.querySelector(".fyuchersBTC")
+    let fyuchersBTC_2 = document.querySelector(".fyuchersBTC_2")
+
+    let user_info = JSON.parse(localStorage.getItem("user")) || {};
+    let user_id = user_info?.user_id || 0;
+
+    let margin_b = 0;
+    let equivalentValue = 0
+
+
+
+    let api = SERVER_URL + '/accounts/margin-balance';
+
+    (async () => {
+      // try {
+      //   let res = await fetch(api, {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({ user_id })
+      //   });
+
+      //   // Status tekshiramizuser_id
+      //   if (!res.ok) {
+      //     throw new Error(`Server error: ${res.status} ${res.statusText}`);
+      //   }
+
+      //   let result = await res.json();
+      //   // totalMargin.innerHTML = result.balance || 0
+      //   margin_b = result.balance || 0
+      //   updateWindow()
+      // } catch (err) {
+      //   console.error("Fetch error:", err);
+      // }
+      // // equavaletn
+      // let api2 = "https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22,%22ETHUSDT%22,%22BNBUSDT%22,%22XRPUSDT%22,%22SOLUSDT%22,%22TONUSDT%22,%22BANANAUSDT%22,%22ZROUSDT%22,%22LISTAUSDT%22,%22ZKUSDT%22]"
+      //  try {
+      //       (async () => {
+      //         const response = await fetch(api2);
+      //         const data = await response.json();
+
+      //         equivalentValue = Number(data[0].lastPrice)
+      //         updateDateDisplay()
+      //       })();
+      //     } catch (error) {
+      //       console.error("Error fetching ticker info:", error);
+      //     }
+
+      // function updateWindow(){
+      //   let [integerPart, decimalPart] = margin_b?.toFixed(4)?.toString()?.split(".");
+      //     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      //   let formattedBalance = decimalPart ? `${integerPart},${decimalPart}`: integerPart;
+
+      //   totalMargin.innerHTML = formattedBalance || 0
+      //   fyuchersBTC.innerHTML = formattedBalance || 0
+      //   totalMargin_taqriban.innerHTML = `≈ $${(margin_b * equivalentValue).toFixed(4)} USDT`
+      //   console.log(margin_b ,equivalentValue);
+      // }
+      try {
+        let res = await fetch(api, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ user_id })
+        });
+
+        // Status tekshiramizuser_id
+        if (!res.ok) {
+          throw new Error(`Server error: ${res.status} ${res.statusText}`);
+        }
+
+        let result = await res.json();
+        // totalMargin.innerHTML = result.balance || 0
+        margin_b = result.balance || 0
+
+        updateWindow()
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+      // equavaletn
+      let api2 = "https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22]"
+      try {
         (async () => {
           const response = await fetch(api2);
           const data = await response.json();
-          
+
           equivalentValue = +data[0].lastPrice
           updateWindow()
         })();
       } catch (error) {
         console.error("Error fetching ticker info:", error);
       }
-  function formatNumber(value) {
+      function formatNumber(value) {
         let [integerPart, decimalPart] = value.toFixed(4).toString().split(".");
         integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         return decimalPart ? `${integerPart},${decimalPart}` : integerPart;
-      } 
-
-      function updateWindow() {
-          let re = +margin_b / +equivalentValue;
-          let btcustd = formatNumber(re);
-          let formattedBalance = formatNumber(margin_b);
-
-          totalMargin.innerHTML = btcustd || 0;
-          fyuchersBTC.innerHTML = btcustd || 0;
-          totalMargin_taqriban.innerHTML = `≈ $${formattedBalance} USDT`;
-          fyuchersBTC_2.innerHTML = `≈ $${formattedBalance} USDT`;
       }
 
-})();
+      function updateWindow() {
+        let re = +margin_b / +equivalentValue;
+        let btcustd = formatNumber(re);
+        let formattedBalance = formatNumber(margin_b);
+
+        totalMargin.innerHTML = btcustd || 0;
+        fyuchersBTC.innerHTML = btcustd || 0;
+        totalMargin_taqriban.innerHTML = `≈ $${formattedBalance} USDT`;
+        fyuchersBTC_2.innerHTML = `≈ $${formattedBalance} USDT`;
+      }
+
+    })();
 
 
 
-  // ========================= GET TOTAL EXPENSES Общая стоимость ===================
+    // ========================= GET TOTAL EXPENSES Общая стоимость ===================
   </script>
 
 
- <script>
-        const months = ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"];
-        let selectedDate = new Date();
-        let selectedYear = selectedDate.getFullYear();
-        let selectedMonth = selectedDate.getMonth();
+  <script>
+    const months = ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"];
+    let selectedDate = new Date();
+    let selectedYear = selectedDate.getFullYear();
+    let selectedMonth = selectedDate.getMonth();
 
-        const calendarBox = document.querySelector("css-15h3vxo");
-        const dateInput = document.getElementById("dateInput");
-        const calendarModal = document.getElementById("calendarModal");
-        const currentYear = document.getElementById("currentYear");
-        const currentMonth = document.getElementById("currentMonth");
-        const dayGrid = document.getElementById("dayGrid");
+    const calendarBox = document.querySelector("css-15h3vxo");
+    const dateInput = document.getElementById("dateInput");
+    const calendarModal = document.getElementById("calendarModal");
+    const currentYear = document.getElementById("currentYear");
+    const currentMonth = document.getElementById("currentMonth");
+    const dayGrid = document.getElementById("dayGrid");
 
-        dateInput.addEventListener("click", () => {
-            calendarModal.classList.toggle("show");
-            calendarBox.style.border = "1px solid #fcd535";
-            renderCalendar();
-        });
+    dateInput.addEventListener("click", () => {
+      calendarModal.classList.toggle("show");
+      calendarBox.style.border = "1px solid #fcd535";
+      renderCalendar();
+    });
 
-        function renderCalendar() {
-            currentYear.textContent = selectedYear;
-            currentMonth.textContent = months[selectedMonth];
-            dayGrid.innerHTML = "";
+    function renderCalendar() {
+      currentYear.textContent = selectedYear;
+      currentMonth.textContent = months[selectedMonth];
+      dayGrid.innerHTML = "";
 
-            let firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
+      let firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
 
-            // Adjusting to start the week from Saturday (Sh)
-            if (firstDay === 0) {
-                firstDay = 6; // Set Sunday to last day (Saturday should be first day of the week)
-            } else {
-                firstDay--; // Shift days by 1 to start from Saturday
-            }
+      // Adjusting to start the week from Saturday (Sh)
+      if (firstDay === 0) {
+        firstDay = 6; // Set Sunday to last day (Saturday should be first day of the week)
+      } else {
+        firstDay--; // Shift days by 1 to start from Saturday
+      }
 
-            let lastDate = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-            let totalDays = firstDay + lastDate;
+      let lastDate = new Date(selectedYear, selectedMonth + 1, 0).getDate();
+      let totalDays = firstDay + lastDate;
 
-            // Add empty divs for previous month's days if the current month starts from an earlier day
-            let prevMonthDays = [];
-            if (firstDay > 0) {
-                let prevMonth = selectedMonth === 0 ? 11 : selectedMonth - 1;
-                let prevMonthLastDate = new Date(selectedYear, prevMonth + 1, 0).getDate();
-                for (let i = prevMonthLastDate - firstDay + 1; i <= prevMonthLastDate; i++) {
-                    prevMonthDays.push(i);
-                }
-            }
+      // Add empty divs for previous month's days if the current month starts from an earlier day
+      let prevMonthDays = [];
+      if (firstDay > 0) {
+        let prevMonth = selectedMonth === 0 ? 11 : selectedMonth - 1;
+        let prevMonthLastDate = new Date(selectedYear, prevMonth + 1, 0).getDate();
+        for (let i = prevMonthLastDate - firstDay + 1; i <= prevMonthLastDate; i++) {
+          prevMonthDays.push(i);
+        }
+      }
 
-            // Add previous month's days first
-            prevMonthDays.reverse().forEach(day => {
-                let dayBtn = document.createElement("div");
-                dayBtn.classList.add("days");
-                dayBtn.textContent = day;
-                dayBtn.classList.add("prev-month");
-                dayGrid.appendChild(dayBtn);
-            });
+      // Add previous month's days first
+      prevMonthDays.reverse().forEach(day => {
+        let dayBtn = document.createElement("div");
+        dayBtn.classList.add("days");
+        dayBtn.textContent = day;
+        dayBtn.classList.add("prev-month");
+        dayGrid.appendChild(dayBtn);
+      });
 
-            // Add current month's days
-            const today = new Date();
-            for (let day = 1; day <= lastDate; day++) {
-                let dayBtn = document.createElement("div");
-                dayBtn.classList.add("days");
-                dayBtn.textContent = day;
+      // Add current month's days
+      const today = new Date();
+      for (let day = 1; day <= lastDate; day++) {
+        let dayBtn = document.createElement("div");
+        dayBtn.classList.add("days");
+        dayBtn.textContent = day;
 
-                // Check if the current day is today
-                if (selectedYear === today.getFullYear() && selectedMonth === today.getMonth() && day === today.getDate()) {
-                    dayBtn.classList.add("active");
-                }
-                // Bugundan oldingi sanalar disable
-                let currentDate = new Date(selectedYear, selectedMonth, day);
-                if (currentDate > today) {
-                    dayBtn.classList.add("disabled");
-                } else {
-                    dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-                }
-
-                if (currentDate < today) {
-                    dayBtn.classList.add("oldDeys");
-                } else {
-                    dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-                }
-
-                dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-                dayGrid.appendChild(dayBtn);
-            }
-
-            // Add next month's days if current month ends before the week's end
-            let remainingDays = 7 - (totalDays % 7);
-            let nextMonthDays = [];
-            if (remainingDays < 7) {
-                let nextMonth = selectedMonth === 11 ? 0 : selectedMonth + 1;
-                for (let i = 1; i <= remainingDays; i++) {
-                    nextMonthDays.push(i);
-                }
-            }
-
-            nextMonthDays.forEach(day => {
-                let dayBtn = document.createElement("div");
-                dayBtn.classList.add("days");
-                dayBtn.textContent = day;
-                dayBtn.classList.add("next-month");
-                dayGrid.appendChild(dayBtn);
-            });
+        // Check if the current day is today
+        if (selectedYear === today.getFullYear() && selectedMonth === today.getMonth() && day === today.getDate()) {
+          dayBtn.classList.add("active");
+        }
+        // Bugundan oldingi sanalar disable
+        let currentDate = new Date(selectedYear, selectedMonth, day);
+        if (currentDate > today) {
+          dayBtn.classList.add("disabled");
+        } else {
+          dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
         }
 
-        function changeMonth(direction) {
-            selectedMonth += direction;
-            if (selectedMonth < 0) {
-                selectedMonth = 11;
-                selectedYear--;
-            } else if (selectedMonth > 11) {
-                selectedMonth = 0;
-                selectedYear++;
-            }
-            renderCalendar();
+        if (currentDate < today) {
+          dayBtn.classList.add("oldDeys");
+        } else {
+          dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
         }
 
-        function changeYear(direction) {
-            selectedYear += direction;
-            renderCalendar();
+        dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
+        dayGrid.appendChild(dayBtn);
+      }
+
+      // Add next month's days if current month ends before the week's end
+      let remainingDays = 7 - (totalDays % 7);
+      let nextMonthDays = [];
+      if (remainingDays < 7) {
+        let nextMonth = selectedMonth === 11 ? 0 : selectedMonth + 1;
+        for (let i = 1; i <= remainingDays; i++) {
+          nextMonthDays.push(i);
         }
+      }
 
-        function selectDate(year, month, day) {
-            // Tanlangan sanani formatlash
-            const formattedDate = `${year}/${String(month).padStart(2, "0")}/${String(day).padStart(2, "0")}`;
-            dateInput.value = formattedDate;
+      nextMonthDays.forEach(day => {
+        let dayBtn = document.createElement("div");
+        dayBtn.classList.add("days");
+        dayBtn.textContent = day;
+        dayBtn.classList.add("next-month");
+        dayGrid.appendChild(dayBtn);
+      });
+    }
 
-            // Calendardagi barcha kunlarni tekshirib, tanlangan sanani alohida ajratib ko'rsatish
-            const allDays = document.querySelectorAll(".days");
-            allDays.forEach(dayBtn => {
-                dayBtn.classList.remove("selected");  // Avvalgi tanlangan sanani olib tashlash
-            });
+    function changeMonth(direction) {
+      selectedMonth += direction;
+      if (selectedMonth < 0) {
+        selectedMonth = 11;
+        selectedYear--;
+      } else if (selectedMonth > 11) {
+        selectedMonth = 0;
+        selectedYear++;
+      }
+      renderCalendar();
+    }
 
-            // Tanlangan sanani "selected" klassi bilan belgilash
-            const selectedDayBtn = [...allDays].find(dayBtn => dayBtn.textContent == day && !dayBtn.classList.contains("prev-month") && !dayBtn.classList.contains("next-month"));
-            if (selectedDayBtn) {
-                selectedDayBtn.classList.add("selected");
-            }
+    function changeYear(direction) {
+      selectedYear += direction;
+      renderCalendar();
+    }
 
-            calendarModal.classList.remove("show");
-        }
+    function selectDate(year, month, day) {
+      // Tanlangan sanani formatlash
+      const formattedDate = `${year}/${String(month).padStart(2, "0")}/${String(day).padStart(2, "0")}`;
+      dateInput.value = formattedDate;
+
+      // Calendardagi barcha kunlarni tekshirib, tanlangan sanani alohida ajratib ko'rsatish
+      const allDays = document.querySelectorAll(".days");
+      allDays.forEach(dayBtn => {
+        dayBtn.classList.remove("selected");  // Avvalgi tanlangan sanani olib tashlash
+      });
+
+      // Tanlangan sanani "selected" klassi bilan belgilash
+      const selectedDayBtn = [...allDays].find(dayBtn => dayBtn.textContent == day && !dayBtn.classList.contains("prev-month") && !dayBtn.classList.contains("next-month"));
+      if (selectedDayBtn) {
+        selectedDayBtn.classList.add("selected");
+      }
+
+      calendarModal.classList.remove("show");
+    }
 
 
-        // Prevent closing when clicking on buttons inside the modal
-        document.addEventListener("click", (event) => {
-            if (!document.querySelector(".rc-picker").contains(event.target) &&
-                !calendarModal.contains(event.target)) {
-                calendarModal.classList.remove("show");
-            }
-        });
+    // Prevent closing when clicking on buttons inside the modal
+    document.addEventListener("click", (event) => {
+      if (!document.querySelector(".rc-picker").contains(event.target) &&
+        !calendarModal.contains(event.target)) {
+        calendarModal.classList.remove("show");
+      }
+    });
 
-        renderCalendar();
-    </script>
+    renderCalendar();
+  </script>
 
   <script src="../../../../../assets/js/script.js"></script>
 </body>

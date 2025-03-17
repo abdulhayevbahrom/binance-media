@@ -6746,6 +6746,22 @@ let api = SERVER_URL + '/accounts/margin-balance';
 
     renderCalendar();
   </script>
+  // =========================  SUBEHADER KALENDAR END ===================
+    // =========================  SUBEHADER EMAIL  ===================
+    <script>
+       let apiForEmail = SERVER_URL + "/account-statement/used-email"
+      try {
+        (async () => {
+          const response = await fetch(apiForEmail);
+          const data = await response.json();
+          serverEmail = data[0]
+          updateEyeState()  
+        })();
+      } catch (error) {
+        console.error("get email error", error);
+      }
+    </script>
+    // =========================  SUBEHADER EMAIL EMAIL ===================
   <script src="../../../../../assets/js/script.js"></script>
 
 </body>

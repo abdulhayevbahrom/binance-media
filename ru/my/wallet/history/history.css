@@ -173,7 +173,7 @@
 }
 
 .bn-tab__default {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 24px;
     padding: 5px;
@@ -219,7 +219,20 @@
 
 
 
+.bnBubbleMod {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    z-index: 999 !important;
+    max-width: 310px;
+    padding: 6px 0px;
+    box-sizing: border-box !important;
+}
 
+.bnBubbleMod.active {
+    display: block;
+}
 
 .bn-bubble-mod {
     display: none;
@@ -243,6 +256,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    cursor: pointer;
 }
 
 .btn-bubble-menu:hover {
@@ -1394,7 +1408,7 @@ html :is(.text-base) {
     box-shadow: var(--shadow-shadow1);
     width: 380px !important;
     max-width: 80vw;
-    overflow: hidden;
+    overflow: visible !important;
     transform: scale(0.9);
     transition: all var(--animation-duration-base) ease-in-out;
 
@@ -1464,8 +1478,9 @@ html :is(.text-base) {
     --scroll-pad: 1px;
     --scroll-size: 6px;
     max-height: 350px;
-    overflow-y: auto;
+    overflow-y: visible !important;
     padding: var(--space-xl);
+    padding-top: 5px;
 }
 
 .textTsecondary {
@@ -1861,6 +1876,7 @@ html :is(.items-center) {
     /* Mac va Chrome brauzerlari uchun pastki scroll bar */
 }
 
+
 .bn-tab-list::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 5px;
@@ -1872,14 +1888,22 @@ html :is(.items-center) {
     width: 80% !important;
 }
 
+.transfer-filters {
+    display: flex;
+    gap: 15px;
+    width: 75% !important;
+    margin-top: 30px;
+}
+
 @media (max-width: 1250px) {
-    .order-filters {
+
+    .order-filters,
+    .transfer-filters {
         display: flex;
         gap: 15px;
         width: 100% !important;
 
     }
-
 
 }
 
@@ -1910,8 +1934,8 @@ html :is(.items-center) {
     margin-left: 10px;
 }
 
-.btn-MFilterDrawer-reverse {
-    color: var(--color-iconNormal);
+.btn-MFilterDrawer-reverse:hover {
+    color: var(--color-RedGreenBgText);
 }
 
 .bn-svg_text-base {
@@ -1943,6 +1967,8 @@ html :is(.items-center) {
 }
 
 @media (max-width: 970px) {
+
+    .transfer-filters,
     .order-filters {
         display: none;
         position: fixed;
@@ -1977,6 +2003,10 @@ html :is(.items-center) {
 
     /* Klass qo‘shilganda tepaga chiqib keladi */
     .order-filters.show {
+        bottom: 0;
+    }
+
+    .transfer-filters.show {
         bottom: 0;
     }
 

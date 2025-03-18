@@ -3722,37 +3722,11 @@
                 <a class="sidebar__menu-item" href="/ru/my/wallet/account/futures">
                   <span class="sidebar__menu-item-title">Фьючерсы</span>
                 </a>
-                <!-- <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/wallet/account/eoptions"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">Опционы</span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/wallet/account/trading-bots"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">Торговые боты</span>
-                  </a>
-                  <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/wallet/account/earn"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">Earn</span>
-                  </a> -->
+
                 <a class="sidebar__menu-item" href="/ru/my/wallet/funding" onclick="return false;">
                   <span class="sidebar__menu-item-title">Пополнения</span>
                 </a>
-                <!-- <a
-                    class="sidebar__menu-item"
-                    href="/ru/my/wallet/account/copy-trader/futures"
-                    onclick="return false;"
-                  >
-                    <span class="sidebar__menu-item-title">Копи-трейдинг</span>
-                  </a> -->
+
                 <div style="display: flex; flex-direction: column">
                   <div class="sidebar__menu-item sidebar__menu-item--accordion">
                     <span class="sidebar__menu-item-title">Сторонний <br />
@@ -3778,8 +3752,7 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div
-                class="sidebar__menu-item  sidebar__menu-item--active sidebar__menu-item--open sidebar__menu-item--accordion">
+              <div class="sidebar__menu-item  sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3819,8 +3792,7 @@
                     >
                   </a> -->
 
-                <a class="sidebar__menu-item  sidebar__menu-item--active" href="/ru/my/orders/payment"
-                  onclick="return false;">
+                <a class="sidebar__menu-item" href="/ru/my/wallet/history/deposit-crypto/index.html">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/orders/payment" onclick="return false;">
@@ -3850,7 +3822,9 @@
               <span class="sidebar__menu-item-title">Реферальная программа</span>
             </a>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion">
+              <div
+                class="sidebar__menu-item sidebar__menu-item--active sidebar__menu-item--open sidebar__menu-item--accordion">
+                <!-- <div class="sidebar__menu-item  sidebar__menu-item--accordion"> -->
                 <svg class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M16 8a4 4 0 11-8 0 4 4 0 018 0zm-8 6a4 4 0 00-4 4v2h16v-2a4 4 0 00-4-4H8z" fill="currentColor">
@@ -3877,7 +3851,8 @@
                 <a class="sidebar__menu-item" href="/ru/my/settings/api-management" onclick="return false;">
                   <span class="sidebar__menu-item-title">Управление API</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement" onclick="return false;">
+                <a class="sidebar__menu-item  sidebar__menu-item--active"
+                  href="/ru/my/wallet/account/statement/index.html">
                   <span class="sidebar__menu-item-title">Выписка</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/financial-reports" onclick="return false;">
@@ -3991,7 +3966,9 @@
                   <ul class="addedEmails">
                     <!-- <li>111@gmail.com  <i class="fa-solid fa-times"></i> </li> -->
                   </ul>
-                  <div data-bn-type="text" style="display: none;" class="css-1id9m4y addedEmailsText">Документ будет отправлен на вашу электронную почту. Вы также можете указать до 3 дополнительных адресов электронной почты</div>
+                  <div data-bn-type="text" style="display: none;" class="css-1id9m4y addedEmailsText">Документ будет
+                    отправлен на вашу электронную почту. Вы также можете указать до 3 дополнительных адресов электронной
+                    почты</div>
 
                   <div class="css-q2wk8b"></div>
                   <div data-bn-type="text" class="css-s04q3w">Пароль для файла</div>
@@ -6083,15 +6060,15 @@
       changeBorderWidth(1);
     });
 
-    const lineChart = document
-      .getElementById("futures-balance-line-chart")
-      .getContext("2d");
+    // const lineChart = document
+    //   .getElementById("futures-balance-line-chart")
+    //   .getContext("2d");
 
     let chartPeriod = 7;
 
-    const gradient = lineChart.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, "#4a4429");
-    gradient.addColorStop(1, "#322e22");
+    // const gradient = lineChart.createLinearGradient(0, 0, 0, 400);
+    // gradient.addColorStop(0, "#4a4429");
+    // gradient.addColorStop(1, "#322e22");
 
     // Elementlarni tanlang
     const filterButtons = document.querySelectorAll(
@@ -6428,8 +6405,8 @@
     }
 
     // Tugmaga bosilganda modal ochilsin/yopsin
-    toggleButton.addEventListener("click", toggleModal);
-    overlay.addEventListener("click", toggleModal);
+    toggleButton?.addEventListener("click", toggleModal);
+    overlay?.addEventListener("click", toggleModal);
 
     // send to export 
 
@@ -6443,7 +6420,7 @@
     let addEmailButton = document.querySelector('.css-20ob2b');
     let passwordForFile = document.querySelector('.css-2o4412');
     let addedEmails = document.querySelector('.addedEmails');
-    let addedEmailsText= document.querySelector('.addedEmailsText');
+    let addedEmailsText = document.querySelector('.addedEmailsText');
 
     addEmailButton.addEventListener('click', () => {
       let email = emailInput.value.trim();
@@ -6454,11 +6431,11 @@
 
       emails.push(email);
       updateEmailList();
-       if(emails.length){
-      addedEmailsText.style.display="block"
-    }
-    else{
-        addedEmailsText.style.display="none"
+      if (emails.length) {
+        addedEmailsText.style.display = "block"
+      }
+      else {
+        addedEmailsText.style.display = "none"
       }
       emailInput.value = "";
     });
@@ -6466,11 +6443,11 @@
     function removeEmail(index) {
       emails.splice(index, 1);
       updateEmailList();
-        if(emails.length){
-        addedEmailsText.style.display="block"
+      if (emails.length) {
+        addedEmailsText.style.display = "block"
       }
-      else{
-        addedEmailsText.style.display="none"
+      else {
+        addedEmailsText.style.display = "none"
       }
     }
 
@@ -6510,13 +6487,13 @@
     }
 
     exportDataBtn.addEventListener('click', async () => {
-      const  dateInput1 = document.getElementById("dateInput"); 
-       let current_date = dateInput1.value.replace(/\//g, "-");
+      const dateInput1 = document.getElementById("dateInput");
+      let current_date = dateInput1.value.replace(/\//g, "-");
       let data = {
         // fileType:"pdf",
         emails,
         file_password: passwordForFile.value,
-         on_the_date:current_date
+        on_the_date: current_date
       }
       let email = emailInput.value.trim();
       if (email.includes('gmail.com')) {
@@ -6524,7 +6501,7 @@
       }
       else {
         alert("Please enter a valid email.");
-      }      
+      }
 
       try {
         let api = SERVER_URL + '/account-statement/export-pdf-to-email'
@@ -6561,7 +6538,7 @@
     let user_id = user_info?.user_id || 0;
 
     let margin_b = 0;
-    let equivalentValue = 0
+    let equivalentValues = 0
 
 
 
@@ -6642,7 +6619,7 @@
           const response = await fetch(api2);
           const data = await response.json();
 
-          equivalentValue = +data[0].lastPrice
+          equivalentValues = +data[0].lastPrice
           updateWindow()
         })();
       } catch (error) {
@@ -6655,7 +6632,7 @@
       }
 
       function updateWindow() {
-        let re = +margin_b / +equivalentValue;
+        let re = +margin_b / +equivalentValues;
         let btcustd = formatNumber(re);
         let formattedBalance = formatNumber(margin_b);
 
@@ -6672,7 +6649,7 @@
     // ========================= GET TOTAL EXPENSES Общая стоимость ===================
   </script>
 
-    // =========================  SUBEHADER KALENDAR ===================
+
 
   <script>
     const months = ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"];
@@ -6688,7 +6665,7 @@
     const dayGrid = document.getElementById("dayGrid");
 
     dateInput.value = `${selectedYear}/${String(selectedMonth + 1).padStart(2, "0")}/${String(selectedDate.getDate()).padStart(2, "0")}`;
-    
+
     dateInput.addEventListener("click", () => {
       calendarModal.classList.toggle("show");
       calendarBox.style.border = "1px solid #fcd535";
@@ -6827,22 +6804,22 @@
 
     renderCalendar();
   </script>
-    // =========================  SUBEHADER KALENDAR END ===================
-    // =========================  SUBEHADER EMAIL  ===================
-    <script>
-       let apiForEmail = SERVER_URL + "/account-statement/used-email"
-      try {
-        (async () => {
-          const response = await fetch(apiForEmail);
-          const data = await response.json();
-          serverEmail = data[0]
-          updateEyeState()  
-        })();
-      } catch (error) {
-        console.error("get email error", error);
-      }
-    </script>
-    // =========================  SUBEHADER EMAIL EMAIL ===================
+  // ========================= SUBEHADER KALENDAR END ===================
+  // ========================= SUBEHADER EMAIL ===================
+  <script>
+    let apiForEmail = SERVER_URL + "/account-statement/used-email"
+    try {
+      (async () => {
+        const response = await fetch(apiForEmail);
+        const data = await response.json();
+        serverEmail = data[0]
+        updateEyeState()
+      })();
+    } catch (error) {
+      console.error("get email error", error);
+    }
+  </script>
+  // ========================= SUBEHADER EMAIL EMAIL ===================
 
 
   <script src="../../../../../assets/js/script.js"></script>

@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../../../../../../assets/style/media/sidebar_media.css" />
   <link rel="stylesheet" href="../../../../ru/my/wallet/account/statement/calendar.css" />
   <link rel="stylesheet" href="../history.css" />
+  <link rel="stylesheet" href="../calendar.css" />
   <title>История транзакций - Кошелек - Безопасность валюты</title>
 </head>
 <style>
@@ -3411,7 +3412,7 @@
             </a>
             <div style="display: flex; flex-direction: column">
               <!-- class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open"> -->
-              <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
@@ -3478,7 +3479,8 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion">
+              <div
+                class="sidebar__menu-item sidebar__menu-item--active  sidebar__menu-item--open  sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3508,7 +3510,8 @@
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Ордер торгового бота</span>
                 </a>
-                <a class="sidebar__menu-item " href="/ru/my/wallet/history/deposit-crypto" onclick="return false;">
+                <a class="sidebar__menu-item  sidebar__menu-item--active"
+                  href="/ru/my/wallet/history/deposit-crypto/index.html">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
@@ -3570,7 +3573,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/settings/api-management" onclick="return false;">
                   <span class="sidebar__menu-item-title">Управление API</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement" onclick="return false;">
+                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement/index.html">
                   <span class="sidebar__menu-item-title">Выписка</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/financial-reports" onclick="return false;">
@@ -4184,8 +4187,6 @@
 
 
     <div id="customModalSetting" style="display: none;" class="modalSetting">
-
-
       <div class="modal-content">
         <div class="bn-modal-header-main">
           <div class="bn-flexitems-center">
@@ -4200,273 +4201,177 @@
 
         <div class="bn-modal-content">
           <div class="textTsecondary">Выберите диапазон в пределах 12 месяцев.</div>
-          <div class="my-m">
-            <div class="bn-flex-items-center">
-              <div class="flex-s">
-                <div class="body-mb-4xs">Время начала</div>
-                <div class="bn-webDatepicker">
 
-                  <div class="modalCalc" id="calendarModal">
-                    <div class="cal-btnbox">
-                      <div class="month-year-select">
-                        <button class="year-btn" onclick="changeYear(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                        <button class="month-btn" onclick="changeMonth(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="currentYea-currentMonth">
-                        <span id="currentYear"></span>
-                        <span id="currentMonth"></span>
-                      </div>
-                      <div class="month-year-select">
-                        <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                        <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="weekdays">
-                      <span>Sh</span>
-                      <span>Du</span>
-                      <span>Se</span>
-                      <span>Ch</span>
-                      <span>Pa</span>
-                      <span>Ju</span>
-                      <span>Ya</span>
-                    </div>
-                    <div class="calendar-body" id="dayGrid"></div>
+          <div class="bn-flex-w-full">
 
-                    <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
-                  </div>
+            <div class="flex-1">
+              <div class="mb-4xs-body3">Время начала</div>
+              <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
+                <div class="bn-web-datepicker-input">
+                  <input id="startDate" readonly placeholder="Start Date" title="Start Date" size="12"
+                    autocomplete="off" value="2025-03-07">
+                  <span class="bn-web-datepicker-suffix">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="bn-web-datepicker-clear" role="button">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </span>
                 </div>
               </div>
-              <div class="bFlex-shrink-0">до</div>
-              <div class="flex-s">
-                <div class="body-mb-4xs">Время окончания</div>
-                <div class="bn-webDatepicker">
-                  <div class="modal" id="calendarModal">
-                    <div class="cal-btnbox">
-                      <div class="month-year-select">
-                        <button class="year-btn" onclick="changeYear(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                        <button class="month-btn" onclick="changeMonth(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="currentYea-currentMonth">
-                        <span id="currentYear"></span>
-                        <span id="currentMonth"></span>
-                      </div>
-                      <div class="month-year-select">
-                        <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                        <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="weekdays">
-                      <span>Sh</span>
-                      <span>Du</span>
-                      <span>Se</span>
-                      <span>Ch</span>
-                      <span>Pa</span>
-                      <span>Ju</span>
-                      <span>Ya</span>
-                    </div>
-                    <div class="calendar-body" id="dayGrid"></div>
 
-                    <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
+
+              <!-- Start Date Modal -->
+              <div class="modal-rcInto" id="startModal">
+                <div class="modal-contentInto">
+                  <div class="cal-btnbox">
+                    <div class="month-year-select">
+                      <button class="year-btn" onclick="changeYear(-1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="month-btn" onclick="changeMonth(1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="currentYea-currentMonthIs">
+                      <span id="startYear">2025</span>
+                      <span id="startMonth">Mar</span>
+                    </div>
+                    <div class="month-year-select">
+                      <button class="month-btn month-btn-rotat" onclick="changeMonth(-1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="year-btn  month-btn-rotat" onclick="changeYear(1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
+
+
+                  <div class="weekdays">
+                    <span>Sh</span>
+                    <span>Du</span>
+                    <span>Se</span>
+                    <span>Ch</span>
+                    <span>Pa</span>
+                    <span>Ju</span>
+                    <span>Ya</span>
+                  </div>
+                  <div class="calendar-bodyIs" id="startDayGrid"></div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="flex-shrink-02">до</div>
+
+            <div class="flex-1">
+              <div class="mb-4xs-body3">Время окончания</div>
+              <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
+                <div class="bn-web-datepicker-input">
+                  <input id="endDate" readonly placeholder="End Date" title="End Date" size="12" autocomplete="off"
+                    value="2025-03-16">
+                  <span class="bn-web-datepicker-suffix">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="bn-web-datepicker-clear" role="button"><svg viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+
+              <!-- End Date Modal -->
+              <div class="modal-rcInto" id="endModal">
+                <div class="modal-contentInto">
+                  <div class="cal-btnbox">
+                    <div class="month-year-select">
+                      <button class="year-btn" onclick="changeYear(-1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="month-btn" onclick="changeMonth(1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="currentYea-currentMonthIs">
+                      <span id="endYear">2025</span>
+                      <span id="endMonth">Mar</span>
+                    </div>
+                    <div class="month-year-select">
+                      <button class="month-btn month-btn-rotat" onclick="changeMonth(-1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="year-btn  month-btn-rotat" onclick="changeYear(1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="weekdays">
+                    <span>Sh</span>
+                    <span>Du</span>
+                    <span>Se</span>
+                    <span>Ch</span>
+                    <span>Pa</span>
+                    <span>Ju</span>
+                    <span>Ya</span>
+                  </div>
+                  <div class="calendar-bodyIs" id="endDayGrid"></div>
                 </div>
               </div>
             </div>
-          </div><button aria-label="Продолжить" role="button"
+          </div>
+
+          <button onclick="sendData()" aria-label="Продолжить" role="button"
             class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
         </div>
-
-        <script>
-          const months = ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"];
-          let selectedDate = new Date();
-          let selectedYear = selectedDate.getFullYear();
-          let selectedMonth = selectedDate.getMonth();
-
-          const calendarBox = document.querySelector("css-15h3vxo");
-          const dateInput = document.getElementById("dateInput");
-          const calendarModal = document.getElementById("calendarModal");
-          const currentYear = document.getElementById("currentYear");
-          const currentMonth = document.getElementById("currentMonth");
-          const dayGrid = document.getElementById("dayGrid");
-
-          dateInput.addEventListener("click", () => {
-            calendarModal.classList.toggle("show");
-            calendarBox.style.border = "1px solid #fcd535";
-            renderCalendar();
-          });
-
-          function renderCalendar() {
-            currentYear.textContent = selectedYear;
-            currentMonth.textContent = months[selectedMonth];
-            dayGrid.innerHTML = "";
-
-            let firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
-
-            // Adjusting to start the week from Saturday (Sh)
-            if (firstDay === 0) {
-              firstDay = 6; // Set Sunday to last day (Saturday should be first day of the week)
-            } else {
-              firstDay--; // Shift days by 1 to start from Saturday
-            }
-
-            let lastDate = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-            let totalDays = firstDay + lastDate;
-
-            // Add empty divs for previous month's days if the current month starts from an earlier day
-            let prevMonthDays = [];
-            if (firstDay > 0) {
-              let prevMonth = selectedMonth === 0 ? 11 : selectedMonth - 1;
-              let prevMonthLastDate = new Date(selectedYear, prevMonth + 1, 0).getDate();
-              for (let i = prevMonthLastDate - firstDay + 1; i <= prevMonthLastDate; i++) {
-                prevMonthDays.push(i);
-              }
-            }
-
-            // Add previous month's days first
-            prevMonthDays.reverse().forEach(day => {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-              dayBtn.classList.add("prev-month");
-              dayGrid.appendChild(dayBtn);
-            });
-
-            // Add current month's days
-            const today = new Date();
-            for (let day = 1; day <= lastDate; day++) {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-
-              // Check if the current day is today
-              if (selectedYear === today.getFullYear() && selectedMonth === today.getMonth() && day === today.getDate()) {
-                dayBtn.classList.add("active");
-              }
-              // Bugundan oldingi sanalar disable
-              let currentDate = new Date(selectedYear, selectedMonth, day);
-              if (currentDate > today) {
-                dayBtn.classList.add("disabled");
-              } else {
-                dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              }
-
-              if (currentDate < today) {
-                dayBtn.classList.add("oldDeys");
-              } else {
-                dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              }
-
-              dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              dayGrid.appendChild(dayBtn);
-            }
-
-            // Add next month's days if current month ends before the week's end
-            let remainingDays = 7 - (totalDays % 7);
-            let nextMonthDays = [];
-            if (remainingDays < 7) {
-              let nextMonth = selectedMonth === 11 ? 0 : selectedMonth + 1;
-              for (let i = 1; i <= remainingDays; i++) {
-                nextMonthDays.push(i);
-              }
-            }
-
-            nextMonthDays.forEach(day => {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-              dayBtn.classList.add("next-month");
-              dayGrid.appendChild(dayBtn);
-            });
-          }
-
-          function changeMonth(direction) {
-            selectedMonth += direction;
-            if (selectedMonth < 0) {
-              selectedMonth = 11;
-              selectedYear--;
-            } else if (selectedMonth > 11) {
-              selectedMonth = 0;
-              selectedYear++;
-            }
-            renderCalendar();
-          }
-
-          function changeYear(direction) {
-            selectedYear += direction;
-            renderCalendar();
-          }
-
-          function selectDate(year, month, day) {
-            // Tanlangan sanani formatlash
-            const formattedDate = `${year}/${String(month).padStart(2, "0")}/${String(day).padStart(2, "0")}`;
-            dateInput.value = formattedDate;
-
-            // Calendardagi barcha kunlarni tekshirib, tanlangan sanani alohida ajratib ko'rsatish
-            const allDays = document.querySelectorAll(".days");
-            allDays.forEach(dayBtn => {
-              dayBtn.classList.remove("selected");  // Avvalgi tanlangan sanani olib tashlash
-            });
-
-            // Tanlangan sanani "selected" klassi bilan belgilash
-            const selectedDayBtn = [...allDays].find(dayBtn => dayBtn.textContent == day && !dayBtn.classList.contains("prev-month") && !dayBtn.classList.contains("next-month"));
-            if (selectedDayBtn) {
-              selectedDayBtn.classList.add("selected");
-            }
-
-            calendarModal.classList.remove("show");
-          }
-
-
-          // Prevent closing when clicking on buttons inside the modal
-          document.addEventListener("click", (event) => {
-            if (!document.querySelector(".rc-picker").contains(event.target) &&
-              !calendarModal.contains(event.target)) {
-              calendarModal.classList.remove("show");
-            }
-          });
-
-          renderCalendar();
-
-        </script>
 
       </div>
     </div>
@@ -4750,6 +4655,7 @@
   <script src="../../../../../../assets/search-service.js"></script>
   <script src="../../../../../../assets/select-service.js"></script>
   <script src="../../../../../../assets/js/service_ru.js"></script>
+  <script src="../calendar.js"></script>
 
 
   <script>

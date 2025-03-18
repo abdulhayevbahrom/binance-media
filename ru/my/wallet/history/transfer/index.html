@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../../../../../../assets/style/media/sidebar_media.css" />
   <link rel="stylesheet" href="../../../../ru/my/wallet/account/statement/calendar.css" />
   <link rel="stylesheet" href="../history.css" />
+  <link rel="stylesheet" href="../calendar.css" />
   <title>История транзакций - Кошелек - Безопасность валюты</title>
 </head>
 <style>
@@ -114,6 +115,11 @@
     cursor: pointer;
     padding: 0;
     margin: 0;
+  }
+
+
+  .table-items td:last-child {
+    color: var(--color-PrimaryText) !important;
   }
 </style>
 
@@ -3403,23 +3409,21 @@
           <div class="sidebar__menu">
             <a class="sidebar__menu-item" href="/ru/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
-                  fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z" fill="currentColor">
                 </path>
               </svg>
               <span class="sidebar__menu-item-title">Панель инструментов</span>
             </a>
             <div style="display: flex; flex-direction: column">
               <!-- class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active sidebar__menu-item--open"> -->
-              <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Активы</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3439,20 +3443,20 @@
                   <span class="sidebar__menu-item-title">Фьючерсы</span>
                 </a>
                 <!-- <a class="sidebar__menu-item" href="/ru/my/wallet/account/eoptions" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Опционы</span>
-                </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/trading-bots" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Торговые боты</span>
-                </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/earn" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Earn</span>
-                </a> -->
+                      <span class="sidebar__menu-item-title">Опционы</span>
+                    </a>
+                    <a class="sidebar__menu-item" href="/ru/my/wallet/account/trading-bots" onclick="return false;">
+                      <span class="sidebar__menu-item-title">Торговые боты</span>
+                    </a>
+                    <a class="sidebar__menu-item" href="/ru/my/wallet/account/earn" onclick="return false;">
+                      <span class="sidebar__menu-item-title">Earn</span>
+                    </a> -->
                 <a class="sidebar__menu-item" href="/ru/my/wallet/funding" onclick="return false;">
                   <span class="sidebar__menu-item-title">Пополнения</span>
                 </a>
                 <!-- <a class="sidebar__menu-item" href="/ru/my/wallet/account/copy-trader/futures" onclick="return false;">
-                  <span class="sidebar__menu-item-title">Копи-трейдинг</span>
-                </a> -->
+                      <span class="sidebar__menu-item-title">Копи-трейдинг</span>
+                    </a> -->
                 <div style="display: flex; flex-direction: column">
                   <div class="sidebar__menu-item sidebar__menu-item--accordion">
                     <span class="sidebar__menu-item-title">Сторонний <br />
@@ -3478,15 +3482,15 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item sidebar__menu-item--accordion">
+              <div
+                class="sidebar__menu-item sidebar__menu-item--active  sidebar__menu-item--open  sidebar__menu-item--accordion">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Ордера</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3508,17 +3512,18 @@
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Ордер торгового бота</span>
                 </a>
-                <a class="sidebar__menu-item " href="/ru/my/wallet/history/deposit-crypto" onclick="return false;">
+                <a class="sidebar__menu-item  sidebar__menu-item--active"
+                  href="/ru/my/wallet/history/deposit-crypto/index.html">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Фиатный ордер</span>
                 </a>
                 <!--
-                <a class="sidebar__menu-item" href="/ru/my/earn/history" onclick="return false;">
-                  <span class="sidebar__menu-item-title">История сделок Earn</span>
-                </a>
-               -->
+                    <a class="sidebar__menu-item" href="/ru/my/earn/history" onclick="return false;">
+                      <span class="sidebar__menu-item-title">История сделок Earn</span>
+                    </a>
+                   -->
                 <a class="sidebar__menu-item hiden-item" href="/ru/my/orders/convert/history" onclick="return false;">
                   <span class="sidebar__menu-item-title">История конвертаций</span>
                 </a>
@@ -3550,8 +3555,7 @@
                   </path>
                 </svg>
                 <span class="sidebar__menu-item-title">Аккаунт</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3570,7 +3574,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/settings/api-management" onclick="return false;">
                   <span class="sidebar__menu-item-title">Управление API</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement" onclick="return false;">
+                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement/index.html">
                   <span class="sidebar__menu-item-title">Выписка</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/financial-reports" onclick="return false;">
@@ -3585,8 +3589,7 @@
                   fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Субаккаунты</span>
-              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
+              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                   fill="currentColor"></path>
@@ -3607,18 +3610,17 @@
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
-            <a href="../deposit-crypto/index.html" class="bn-tab bn-tab__default" data-target="crypto">Kриптовалюты
-            </a>
-            <a class="bn-tab bn-tab__default active" data-target="transfer">Перевод</a>
-            <a class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
-            <a class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
-            <a class="bn-tab bn-tab__default" data-target="loan">Заем</a>
-            <a class="bn-tab bn-tab__default" data-target="fundingWallet">Кошелек для пополнения</a>
-            <a class="bn-tab bn-tab__default" data-target="referral">Реферальная программа</a>
-
+            <a href="#" class="bn-tab bn-tab__default active" data-target="crypto">Kриптовалюты</a>
+            <a href="../transfer/index.html" class="bn-tab bn-tab__default" data-target="transfer">Перевод</a>
+            <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
+            <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
+            <a href="#" class="bn-tab bn-tab__default" data-target="loan">Заем</a>
+            <a href="#" class="bn-tab bn-tab__default" data-target="fundingWallet">Кошелек для пополнения</a>
+            <a href="#" class="bn-tab bn-tab__default" data-target="referral">Реферальная программа</a>
+    
           </div>
           <div class="export-history-export-button">
-
+    
             <div id="export-history-export-button">
               <div class="bn-tooltips-wrap controlled-dropdown-none-shadow">
                 <div class="bn-tooltips-ele">
@@ -3632,12 +3634,14 @@
                     <div id="btn-ExportButton-onExportTransactionRecords" class="btn-bubble-menu">
                       Экспортировать записи транзакций
                     </div>
-
+                    <div id="btn-ExportButton-ExportF-handleClick" class="btn-bubble-menu">
+                      Экспортировать историю ввода средств
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
+    
             <div id="btn-MFilterWrap-onOpenFilter" class="bn-tooltips-ele">
               <svg class="bn-svgs" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4H5v3.5l5 5V21l4-2.319V12.5l5-5V4z"
@@ -3645,10 +3649,10 @@
               </svg>
             </div>
           </div>
-
-
+    
+    
         </div>
-
+    
         <div class="order-filters">
           <div class="items-centerJustify-between">
             <div class="typography-headline4">Фильтр</div>
@@ -3659,33 +3663,29 @@
                 fill="currentColor"></path>
             </svg>
           </div>
-
-          <div class="captiontext-t-container">
-            <div>
-              <div class="captiontext-t-third">Тип</div>
-              <div class="order-select" id="orderType1"></div>
-            </div>
-
-            <div id="btn-MFilterDrawer-reverse" class="btn-MFilterDrawer-reverse">
-              <svg class="bn-svg_text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M3 9V6h13.5V2.5l5 5-5 5V9H3zm18 9v-3H7v-3.5l-5 5 5 5V18h14z" fill="currentColor"></path>
-              </svg>
-            </div>
-
-            <div>
-              <div class="captiontext-t-third">Время</div>
-              <div class="order-select" id="orderType2"></div>
-            </div>
-          </div>
-
+    
+          <div class="captiontext-t-third">Тип</div>
+          <div class="order-select" id="orderType1"></div>
+          <div class="captiontext-t-third">Время</div>
+          <div class="order-select" id="orderType2"></div>
           <div class="captiontext-t-third">Монета</div>
           <div class="order-select" id="orderType3"></div>
           <div class="captiontext-t-third">Статус</div>
           <div class="order-select" id="orderType4"></div>
-
+    
           <div class="captiontext-t-third">TxID</div>
-
+          <div class="search-boxonNav">
+            <div class="bn-textField-prefix">
+              <svg class="bn-svg-inInp" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+            <input id="input-history-crypto-select-txid" class="bn-textField-input" placeholder="Введите TxID"
+              spellcheck="false" autocomplete="" value="">
+          </div>
+    
           <div style="display: flex;align-items: center; gap: 20px;">
             <div id="history-crypto-reset-button" class="tablet-box">
               <div id="btn-ResetButton-reset-undefined" class="subtitle4 px-m py-2xs pc:ml-m cursor-pointer undefined">
@@ -3696,7 +3696,14 @@
               class="bn-button-bn-button__primary">Поиск</button>
           </div>
         </div>
-
+    
+    
+    
+        <div class="info-boxinNav my-xl min-h-[24px]"><a id="distribution_history_airdrop_link"
+            class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover undefined" href="#" target="_blank">Средства
+            не поступили?</a>
+        </div>
+    
         <section aria-labelledby="history-table-heading">
           <div class="transaction-history-table min-h-[663px] mt-xl">
             <div
@@ -3704,7 +3711,7 @@
               <div class="bn-web-table" id="history-crypto-table-list" aria-label="history-table-aria-label">
                 <div class="bn-web-table-container">
                   <div class="bn-web-table-content">
-
+    
                     <div class="tab-header-item">
                       <div class="tab-text-right">
                         <div class="subtitle3">USDT</div>
@@ -3713,34 +3720,35 @@
                     <table class="transactionTable" style="table-layout: auto;" id="transactionTable">
                       <thead>
                         <tr>
-                          <th>Дата</th>
+                          <th>Время</th>
+                          <th>Перевод</th>
+                          <th>Кошелек для ввода</th>
                           <th>Криптовалюта</th>
                           <th>Сумма</th>
-                          <th>Из</th>
-                          <th>B</th>
+                          <th>Адресат</th>
+                          <th>TxID</th>
+                          <th>Статус</th>
                         </tr>
                       </thead>
                       <tbody id="tableBody"></tbody>
                     </table>
-
                     <div id="transactionNoData"></div>
-
+    
                     <!-- Modal structure -->
                     <div id="transactionModal" class="modalInner" style="display: none;">
                       <div class="transaction-wrapper">
-
+    
                         <div class="justify-between-p-xl">
                           <div class="typography-headline5">Подробнее</div>
-                          <div onclick="closeModal()" class="flex-justify-end"><svg
-                              id="btn-ModalPcDrawerMobile-setOpen-pc" class="bn-svgH-xl" viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg">
+                          <div onclick="closeModal()" class="flex-justify-end"><svg id="btn-ModalPcDrawerMobile-setOpen-pc"
+                              class="bn-svgH-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path
                                 d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
                                 fill="currentColor"></path>
                             </svg>
                           </div>
                         </div>
-
+    
                         <div class="transaction-detail"><span>Статус</span><span class="transaction-status">
                             <div class="dot-status"></div> Завершено
                           </span></div>
@@ -3761,39 +3769,129 @@
                         </div>
                       </div>
                     </div>
-
-
+    
+    
                     <script>
                       const transactionss = [
+
                         {
-                          date: "2025-03-09 18:28",
-                          coin: "USDT",
-                          amount: 11,
-                          from: "Основной аккаунт",
-                          to: "Пополнения",
+                          time: "2025-03-09 18:28",
+                          transfer: "Ввод",
+                          wallet: "Спотовый кошелек",
+                          currency: "USDT",
+                          amount: "10",
+                          recipient: "TLHwgEVrU45Vei9kFLPc9DdnxdUseUgTUF",
+                          txid: "9242056884b3200ab26bababc93a63934e9953293aca7deb34164df7834b2ca7",
+                          status: "Завершено"
                         },
                         {
-                          date: "2025-04-09 18:28",
-                          coin: "USDT",
-                          amount: 21,
-                          from: "Основной аккаунт",
-                          to: "Пополнения",
-                        },
-                        {
-                          date: "2025-05-09 18:28",
-                          coin: "USDT",
-                          amount: 14,
-                          from: "Основной аккаунт",
-                          to: "Пополнения",
-                        },
+                          time: "2025-03-09 18:28",
+                          transfer: "Ввод",
+                          wallet: "Спотовый кошелек",
+                          currency: "USDT",
+                          amount: "10",
+                          recipient: "TLHwgEVrU45Vei9kFLPc9DdnxdUseUgTUF",
+                          txid: "9242056884b3200ab26bababc93a63934e9953293aca7deb34164df7834b2ca7",
+                          status: "Завершено"
+                        }
 
                       ];
 
 
+                      function openToolModal(transaction) {
+                        document.getElementById("modalTime").innerText = transaction.time;
+                        document.getElementById("modalTransfer").innerText = transaction.currency;
+                        document.getElementById("modalWallet").innerText = transaction.amount;
+
+                        const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-6)}`;
+                        const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-6)}`;
+
+                        document.getElementById("modalRecipient").innerHTML = `
+                              ${truncatedRecipient} 
+                                <div class="iconsvgCopy">
+                                  <span onclick=" openTronscan('${transaction.recipient}', event)">...</span>
+                                  <span onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">...</span>
+                                </div>
+                              `;
+
+                        document.getElementById("modalTxID").innerHTML = `
+                              ${truncatedTxid} 
+                                <div class="iconsvgCopy">
+                                  <span onclick=" openTronscan('${transaction.txid}', event)">...</span>
+                                  <span onclick="copyToClipboard('TxID: ${transaction.txid}', event)">...</span>
+                                </div>
+                              `;
+
+                        document.getElementById("transactionModal").style.display = "block";
+                      }
+
+                      function openModal(transaction) {
+                        document.getElementById("modalTime").innerText = transaction.time;
+                        document.getElementById("modalTransfer").innerText = transaction.currency;
+                        document.getElementById("modalWallet").innerText = transaction.amount;
+                        document.getElementById("modalAmount").innerText = transaction.network;
+                        // Olishuvchini va TXIDni kesib modalga qo'yish
+                        const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-6)}`;
+                        const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-6)}`;
+
+
+                        // document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <span class="transaction-copy-icon" onclick="copyToClipboard('${transaction.recipient}', event)">📋</span>`;
+                        document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <div class="iconsvgCopy">
+                                <span onclick=" openTronscan('${transaction.recipient}', event)">
+                                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                                  </svg>
+                                </span>
+                                <span onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">
+                                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                                  </svg>
+                                </span>
+                              </div>
+                            `;
+                        document.getElementById("modalTxID").innerHTML = `${truncatedTxid} <div class="iconsvgCopy">
+                                    <span onclick=" openTronscan('${transaction.txid}', event)">
+                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                                      </svg>
+                                    </span>
+                                    <span onclick="copyToClipboard('TxID: ${transaction.txid}', event)">
+                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                                      </svg>
+                                    </span>
+                                  </div>
+                                  `;
+                        document.getElementById("transactionModal").style.display = "block";
+                      }
 
 
                       function closeModal() {
                         document.getElementById("transactionModal").style.display = "none";
+                      }
+
+                      // Clipboardga nusxalash va modalni to‘xtatish
+                      function copyToClipboard(text, event) {
+                        event.stopPropagation(); // Modal ochilmasligi uchun
+                        navigator.clipboard.writeText(text);
+
+                        navigator.clipboard.writeText(text).then(() => {
+                          const iconSpan = event.target.closest("span");
+                          if (!iconSpan) return;
+
+                          const originalIcon = iconSpan.innerHTML;
+                          iconSpan.innerHTML = `
+                                <svg class="bn-svg-icon-small-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
+                                </svg>
+                              `;
+
+                          setTimeout(() => {
+                            iconSpan.innerHTML = originalIcon;
+                          }, 2000);
+                        }).catch(err => console.error("Nusxalashda xatolik:", err));
                       }
 
 
@@ -3806,31 +3904,71 @@
 
                         if (transactionss.length === 0) {
                           tableNoData.innerHTML = `
-                              <div class="flex_flex-col">
-                                <svg class="bn-svg text-[72px]" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-                                  <path opacity="0.5" d="M84 28H64V8l20 20z" fill="#AEB4BC"></path>
-                                  <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M24 8h40v20h20v60H24V8zm10 30h40v4H34v-4zm40 8H34v4h40v-4zm-40 8h40v4H34v-4z" fill="#AEB4BC"></path>
-                                  <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M22.137 64.105c7.828 5.781 18.916 5.127 26.005-1.963 7.81-7.81 7.81-20.474 0-28.284-7.81-7.81-20.474-7.81-28.284 0-7.09 7.09-7.744 18.177-1.964 26.005l-14.3 14.3 4.243 4.243 14.3-14.3zM43.9 57.9c-5.467 5.468-14.331 5.468-19.799 0-5.467-5.467-5.467-14.331 0-19.799 5.468-5.467 14.332-5.467 19.8 0 5.467 5.468 5.467 14.332 0 19.8z"
-                                    fill="#AEB4BC"></path>
-                                </svg>
-                                <div class="body3 mt-4xs pc:mt-2xs text-t-third">Нет записей.</div>
-                              </div>
-                          `;
+                                  <div class="flex_flex-col">
+                                    <svg class="bn-svg text-[72px]" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                                      <path opacity="0.5" d="M84 28H64V8l20 20z" fill="#AEB4BC"></path>
+                                      <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M24 8h40v20h20v60H24V8zm10 30h40v4H34v-4zm40 8H34v4h40v-4zm-40 8h40v4H34v-4z" fill="#AEB4BC"></path>
+                                      <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M22.137 64.105c7.828 5.781 18.916 5.127 26.005-1.963 7.81-7.81 7.81-20.474 0-28.284-7.81-7.81-20.474-7.81-28.284 0-7.09 7.09-7.744 18.177-1.964 26.005l-14.3 14.3 4.243 4.243 14.3-14.3zM43.9 57.9c-5.467 5.468-14.331 5.468-19.799 0-5.467-5.467-5.467-14.331 0-19.799 5.468-5.467 14.332-5.467 19.8 0 5.467 5.468 5.467 14.332 0 19.8z"
+                                        fill="#AEB4BC"></path>
+                                    </svg>
+                                    <div class="body3 mt-4xs pc:mt-2xs text-t-third">Нет записей.</div>
+                                  </div>
+                              `;
                         } else {
 
                           transactionss.forEach(transaction => {
                             const row = document.createElement("tr");
                             row.classList.add("table-items");
+                            const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-4)}`;
+                            const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-4)}`;
 
                             row.innerHTML = `
-                              <td data-label="Дата">${transaction.date}</td>
-                              <td data-label="Криптовалюта">${transaction.coin}</td>
-                              <td data-label="Сумма">${transaction.amount}</td>
-                              <td data-label="Из">${transaction.from}</td>
-                              <td data-label="B">${transaction.to}</td>
-                            `;
+                                  <td data-label="Время">${transaction.time}</td>
+                                  <td data-label="Перевод">${transaction.transfer}</td>
+                                  <td data-label="Кошелек для ввода">${transaction.wallet}</td>
+                                  <td data-label="Криптовалюта">${transaction.currency}</td>
+                                  <td data-label="Сумма">${transaction.amount}</td>
+                                  <td data-label="Адресат">
+                                    <p class="tooltip">
+                                      ${truncatedRecipient} 
+                                      <span class="tooltiptext">${transaction.recipient}</span>
+                                    </p>
+                                    <div>
+                                      <span class="icon" onclick="openTronscan('${transaction.recipient}', event)">
+                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                                        </svg>
+                                      </span>
+                                      <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">
+                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                                        </svg>
+                                      </span>
+                                    </div>
+                                  </td>
+                                  <td data-label="TxID">
+                                    <p class="tooltip">${truncatedTxid}
+                                      <span class="tooltiptext">${transaction.txid}</span>
+                                    </p>
+                                    <div>
+                                      <span class="icon" onclick="openTronscan('${transaction.txid}', event)">
+                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                                        </svg>
+                                      </span>
+                                      <span class="icon" onclick="copyToClipboard('TxID: ${transaction.txid}', event)">
+                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                                        </svg>
+                                      </span>
+                                    </div>
+                                  </td>
+                                  <td style="color: var(--color-Success)" data-label="Статус">${transaction.status}</td>
+                                `;
 
                             row.addEventListener("click", () => openModal(transaction));
 
@@ -3839,40 +3977,29 @@
                         }
                       }
 
-                      /*************  ✨ Codeium Command 🌟  *************/
-                      /**
-                       * Opens Tronscan transaction page in a new tab.
-                       *
-                       * @param {string} transactionId - Transaction ID.
-                       * @param {Event} event - Click event.
-                       */
                       function openTronscan(transactionId, event) {
-                        // Prevents the modal from closing when the link is clicked.
-                        event.stopPropagation();
-
                         event.stopPropagation(); // Modal ochilmasligini oldini oladi
                         const url = `https://tronscan.org/#/transaction/${transactionId}`;
                         window.open(url, "_blank"); // Yangi oynada ochish
                       }
-                      /******  a1701dbd-4a35-4323-9a0c-0ec1f5059ff4  *******/
                       loadTableData();
                     </script>
-
+    
                   </div>
                 </div>
               </div>
             </div>
-
+    
           </div>
         </section>
-
+    
+    
         <script>
           const orderTypes = [
-            { id: "orderType1", options: ["Фьючерсы COIN-M", "Опционы", "Вывод", "Фьючерсы USDⓈ-M", "Кросс-маржа", "Основной аккаунт"], label: "Из", defaultValue: "Основной аккаунт" },
-            { id: "orderType2", options: ["Опционы", "Кросс-маржа", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "P2P-аккаунт", "Пул-аккаунт", "Пополнения", "Изолированная маржа", "Торговые боты", "Копи-трейдинг", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon",], label: "В", defaultValue: "Кросс-маржа" },
-            { id: "orderType3", options: ["Последние 7 дней", "Последние 30 днейr", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 днейr" },
+            { id: "orderType1", options: ["Все", "Ввод", "Вывод", "Автосписание", "Автоплатеж", "Погашение задолженности", "Автоконвертация", "Перевод Partners"], label: "Перевод", defaultValue: "Вывод" },
+            { id: "orderType2", options: ["Последние 7 дней", "Последние 30 днейr", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 днейr" },
             {
-              id: "orderType4",
+              id: "orderType3",
               label: "Криптовалюта",
               defaultValue: "Все",
               options: [
@@ -3905,73 +4032,60 @@
                   image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png"
                 }
               ]
-            }
+            },
+
+            { id: "orderType4", options: ["Все", "Crypto", "Forex", "Stocks"], label: "Статус", defaultValue: "Все" }
           ];
-          document.getElementById("btn-MFilterDrawer-reverse").addEventListener("click", () => {
-            const orderType1 = orderTypes.find(item => item.id === "orderType1");
-            const orderType2 = orderTypes.find(item => item.id === "orderType2");
-
-            // Agar mavjud bo‘lsa, almashtiramiz
-            if (orderType1 && orderType2) {
-              [orderType1.options, orderType2.options] = [orderType2.options, orderType1.options];
-              [orderType1.defaultValue, orderType2.defaultValue] = [orderType2.defaultValue, orderType1.defaultValue];
-
-              // UI dagi select elementlarini yangilash
-              createSelect(orderType1.id, orderType1.options, orderType1.label, orderType1.defaultValue);
-              createSelect(orderType2.id, orderType2.options, orderType2.label, orderType2.defaultValue);
-            }
-          });
-
 
           function createSelect(id, options, labels, defaultValue) {
             const select = document.getElementById(id);
             const isSearchVisible = id === "orderType3";
 
             select.innerHTML = `
-              <div class="order-select__label">
-                <p>${labels}</p>
-                <div class="order-select_valueBox">
-                  <span class="order-select_value">${defaultValue || 'Все'}</span>
-                </div>
-                <div class="order-select_icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
-                  </svg>
-                </div>
-              </div>
-        
-              <div class="order-select__list-wrapper">
-                ${isSearchVisible ? ` 
-              
-                  <div class="search-boxInp">
-                    <div class="search-boxonNav">
-                      <div class="bn-textField-prefix">
-                        <svg fill="textDisabled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg-inInp"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
-                      </div>
-                      <input aria-label="Поиск" placeholder="Поиск"  oninput="filterOptions('${id}', this.value)"  class="bn-textField-input" spellcheck="false" autocomplete="" value="">
+                  <div class="order-select__label">
+                    <p>${labels}</p>
+                    <div class="order-select_valueBox">
+                      <span class="order-select_value">${defaultValue || 'Все'}</span>
+                    </div>
+                    <div class="order-select_icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                        <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                      </svg>
                     </div>
                   </div>
-
-                ` : ''}
-                <div class="order-select__list">
-                  ${options.map(opt => {
+            
+                  <div class="order-select__list-wrapper">
+                    ${isSearchVisible ? ` 
+                  
+                      <div class="search-boxInp">
+                        <div class="search-boxonNav">
+                          <div class="bn-textField-prefix">
+                            <svg fill="textDisabled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg-inInp"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
+                          </div>
+                          <input aria-label="Поиск" placeholder="Поиск"  oninput="filterOptions('${id}', this.value)"  class="bn-textField-input" spellcheck="false" autocomplete="" value="">
+                        </div>
+                      </div>
+    
+                    ` : ''}
+                    <div class="order-select__list">
+                      ${options.map(opt => {
 
               if (opt.image) {
                 return `
-                        <div class="order-select__option" data-value="${opt.label}">
-                          <img src="${opt.image}" alt="No" class="option-image" />
-                          <span>${opt.label}</span>
-                        </div>
-                      `;
+                            <div class="order-select__option" data-value="${opt.label}">
+                              <img src="${opt.image}" alt="No" class="option-image" />
+                              <span>${opt.label}</span>
+                            </div>
+                          `;
               } else {
                 return `
-                        <span class="order-select__option"  data-value="${opt}">${opt}</span>
-                      `;
+                            <span class="order-select__option"  data-value="${opt}">${opt}</span>
+                          `;
               }
             }).join('')}
-                </div>
-              </div>
-            `;
+                    </div>
+                  </div>
+                `;
 
 
             const label = select.querySelector(".order-select_value");
@@ -4035,6 +4149,7 @@
           document.addEventListener("DOMContentLoaded", () => {
             const modal = document.getElementById("customModalSetting");
             const closeModal = document.querySelector(".close-modal");
+            const applyButton = document.getElementById("applyDateRange");
 
             document.querySelector("#orderType2 .order-select__list").addEventListener("click", (event) => {
               if (event.target.textContent === "Настроить") {
@@ -4052,16 +4167,25 @@
               }
             });
 
+            applyButton.addEventListener("click", () => {
+              const startDate = document.getElementById("startDate").value;
+              const endDate = document.getElementById("endDate").value;
+
+              if (startDate && endDate) {
+                document.querySelector("#orderType2 .order-select_value").textContent = `${startDate} - ${endDate}`;
+                modal.style.display = "none";
+              } else {
+                alert("Пожалуйста, выберите обе даты.");
+              }
+            });
           });
         </script>
-
+    
       </div>
     </div>
 
 
     <div id="customModalSetting" style="display: none;" class="modalSetting">
-
-
       <div class="modal-content">
         <div class="bn-modal-header-main">
           <div class="bn-flexitems-center">
@@ -4076,258 +4200,180 @@
 
         <div class="bn-modal-content">
           <div class="textTsecondary">Выберите диапазон в пределах 12 месяцев.</div>
-          <div class="my-m">
-            <div class="bn-flex-items-center">
-              <div class="flex-s">
-                <div class="body-mb-4xs">Время начала</div>
-                <div class="bn-webDatepicker">
 
-                  <div class="modalCalc" id="calendarModal">
-                    <div class="cal-btnbox">
-                      <div class="month-year-select">
-                        <button class="year-btn" onclick="changeYear(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                        <button class="month-btn" onclick="changeMonth(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="currentYea-currentMonth">
-                        <span id="currentYear"></span>
-                        <span id="currentMonth"></span>
-                      </div>
-                      <div class="month-year-select">
-                        <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                        <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="weekdays">
-                      <span>Sh</span>
-                      <span>Du</span>
-                      <span>Se</span>
-                      <span>Ch</span>
-                      <span>Pa</span>
-                      <span>Ju</span>
-                      <span>Ya</span>
-                    </div>
-                    <div class="calendar-body" id="dayGrid"></div>
+          <div class="bn-flex-w-full">
 
-                    <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
-                  </div>
+            <div class="flex-1">
+              <div class="mb-4xs-body3">Время начала</div>
+              <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
+                <div class="bn-web-datepicker-input">
+                  <input id="startDate" readonly placeholder="Start Date" title="Start Date" size="12"
+                    autocomplete="off" value="2025-03-07">
+                  <span class="bn-web-datepicker-suffix">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="bn-web-datepicker-clear" role="button">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </span>
                 </div>
               </div>
-              <div class="bFlex-shrink-0">до</div>
-              <div class="flex-s">
-                <div class="body-mb-4xs">Время окончания</div>
-                <div class="bn-webDatepicker">
-                  <div class="modal" id="calendarModal">
-                    <div class="cal-btnbox">
-                      <div class="month-year-select">
-                        <button class="year-btn" onclick="changeYear(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                        <button class="month-btn" onclick="changeMonth(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="currentYea-currentMonth">
-                        <span id="currentYear"></span>
-                        <span id="currentMonth"></span>
-                      </div>
-                      <div class="month-year-select">
-                        <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
-                          </svg>
-                        </button>
-                        <button class="year-btn  month-btn-rotat" onclick="changeYear(1)">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
-                            <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor"></path>
-                            <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
-                            </path>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="weekdays">
-                      <span>Sh</span>
-                      <span>Du</span>
-                      <span>Se</span>
-                      <span>Ch</span>
-                      <span>Pa</span>
-                      <span>Ju</span>
-                      <span>Ya</span>
-                    </div>
-                    <div class="calendar-body" id="dayGrid"></div>
 
-                    <div class="css-16m52mr">Возможен просмотр данных только за последний год</div>
+
+              <!-- Start Date Modal -->
+              <div class="modal-rcInto" id="startModal">
+                <div class="modal-contentInto">
+                  <div class="cal-btnbox">
+                    <div class="month-year-select">
+                      <button class="year-btn" onclick="changeYear(-1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="month-btn" onclick="changeMonth(1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="currentYea-currentMonthIs">
+                      <span id="startYear">2025</span>
+                      <span id="startMonth">Mar</span>
+                    </div>
+                    <div class="month-year-select">
+                      <button class="month-btn month-btn-rotat" onclick="changeMonth(-1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="year-btn  month-btn-rotat" onclick="changeYear(1, 'start')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
                   </div>
+
+
+                  <div class="weekdays">
+                    <span>Sh</span>
+                    <span>Du</span>
+                    <span>Se</span>
+                    <span>Ch</span>
+                    <span>Pa</span>
+                    <span>Ju</span>
+                    <span>Ya</span>
+                  </div>
+                  <div class="calendar-bodyIs" id="startDayGrid"></div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="flex-shrink-02">до</div>
+
+            <div class="flex-1">
+              <div class="mb-4xs-body3">Время окончания</div>
+              <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
+                <div class="bn-web-datepicker-input">
+                  <input id="endDate" readonly placeholder="End Date" title="End Date" size="12" autocomplete="off"
+                    value="2025-03-16">
+                  <span class="bn-web-datepicker-suffix">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H7v2H4v3.5h16V6h-3V4h-3v2h-4V4zm10 8H4v7h16v-7z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </span>
+                  <span class="bn-web-datepicker-clear" role="button"><svg viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-7.233 0l3.006 3.005-1.768 1.768L12 13.767l-3.005 3.005-1.768-1.768 3.005-3.005-3.005-3.005 1.768-1.767L12 10.23l3.005-3.005 1.768 1.767L13.767 12z"
+                        fill="currentColor"></path>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+
+              <!-- End Date Modal -->
+              <div class="modal-rcInto" id="endModal">
+                <div class="modal-contentInto">
+                  <div class="cal-btnbox">
+                    <div class="month-year-select">
+                      <button class="year-btn" onclick="changeYear(-1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="month-btn" onclick="changeMonth(1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="currentYea-currentMonthIs">
+                      <span id="endYear">2025</span>
+                      <span id="endMonth">Mar</span>
+                    </div>
+                    <div class="month-year-select">
+                      <button class="month-btn month-btn-rotat" onclick="changeMonth(-1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                      <button class="year-btn  month-btn-rotat" onclick="changeYear(1, 'end')">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
+                          <path d="M10 3.05L5.125 8 10 12.95 8.95 14l-6-6 6-6L10 3.05z" fill="currentColor">
+                          </path>
+                          <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor">
+                          </path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="weekdays">
+                    <span>Sh</span>
+                    <span>Du</span>
+                    <span>Se</span>
+                    <span>Ch</span>
+                    <span>Pa</span>
+                    <span>Ju</span>
+                    <span>Ya</span>
+                  </div>
+                  <div class="calendar-bodyIs" id="endDayGrid"></div>
                 </div>
               </div>
             </div>
-          </div><button aria-label="Продолжить" role="button"
+          </div>
+
+          <button onclick="sendData()" aria-label="Продолжить" role="button"
             class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
         </div>
 
-        <script>
-          const months = ["Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"];
-          let selectedDate = new Date();
-          let selectedYear = selectedDate.getFullYear();
-          let selectedMonth = selectedDate.getMonth();
-
-          const calendarBox = document.querySelector("css-15h3vxo");
-          const calendarModal = document.getElementById("calendarModal");
-          const currentYear = document.getElementById("currentYear");
-          const currentMonth = document.getElementById("currentMonth");
-          const dayGrid = document.getElementById("dayGrid");
-
-          function renderCalendar() {
-            currentYear.textContent = selectedYear;
-            currentMonth.textContent = months[selectedMonth];
-            dayGrid.innerHTML = "";
-
-            let firstDay = new Date(selectedYear, selectedMonth, 1).getDay();
-
-            // Adjusting to start the week from Saturday (Sh)
-            if (firstDay === 0) {
-              firstDay = 6; // Set Sunday to last day (Saturday should be first day of the week)
-            } else {
-              firstDay--; // Shift days by 1 to start from Saturday
-            }
-
-            let lastDate = new Date(selectedYear, selectedMonth + 1, 0).getDate();
-            let totalDays = firstDay + lastDate;
-
-            // Add empty divs for previous month's days if the current month starts from an earlier day
-            let prevMonthDays = [];
-            if (firstDay > 0) {
-              let prevMonth = selectedMonth === 0 ? 11 : selectedMonth - 1;
-              let prevMonthLastDate = new Date(selectedYear, prevMonth + 1, 0).getDate();
-              for (let i = prevMonthLastDate - firstDay + 1; i <= prevMonthLastDate; i++) {
-                prevMonthDays.push(i);
-              }
-            }
-
-            // Add previous month's days first
-            prevMonthDays.reverse().forEach(day => {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-              dayBtn.classList.add("prev-month");
-              dayGrid.appendChild(dayBtn);
-            });
-
-            // Add current month's days
-            const today = new Date();
-            for (let day = 1; day <= lastDate; day++) {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-
-              // Check if the current day is today
-              if (selectedYear === today.getFullYear() && selectedMonth === today.getMonth() && day === today.getDate()) {
-                dayBtn.classList.add("active");
-              }
-              // Bugundan oldingi sanalar disable
-              let currentDate = new Date(selectedYear, selectedMonth, day);
-              if (currentDate > today) {
-                dayBtn.classList.add("disabled");
-              } else {
-                dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              }
-
-              if (currentDate < today) {
-                dayBtn.classList.add("oldDeys");
-              } else {
-                dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              }
-
-              dayBtn.onclick = () => selectDate(selectedYear, selectedMonth + 1, day);
-              dayGrid.appendChild(dayBtn);
-            }
-
-            // Add next month's days if current month ends before the week's end
-            let remainingDays = 7 - (totalDays % 7);
-            let nextMonthDays = [];
-            if (remainingDays < 7) {
-              let nextMonth = selectedMonth === 11 ? 0 : selectedMonth + 1;
-              for (let i = 1; i <= remainingDays; i++) {
-                nextMonthDays.push(i);
-              }
-            }
-
-            nextMonthDays.forEach(day => {
-              let dayBtn = document.createElement("div");
-              dayBtn.classList.add("days");
-              dayBtn.textContent = day;
-              dayBtn.classList.add("next-month");
-              dayGrid.appendChild(dayBtn);
-            });
-          }
-
-          function changeMonth(direction) {
-            selectedMonth += direction;
-            if (selectedMonth < 0) {
-              selectedMonth = 11;
-              selectedYear--;
-            } else if (selectedMonth > 11) {
-              selectedMonth = 0;
-              selectedYear++;
-            }
-            renderCalendar();
-          }
-
-          function changeYear(direction) {
-            selectedYear += direction;
-            renderCalendar();
-          }
-
-          function selectDate(year, month, day) {
-
-            // Calendardagi barcha kunlarni tekshirib, tanlangan sanani alohida ajratib ko'rsatish
-            const allDays = document.querySelectorAll(".days");
-            allDays.forEach(dayBtn => {
-              dayBtn.classList.remove("selected");  // Avvalgi tanlangan sanani olib tashlash
-            });
-
-            // Tanlangan sanani "selected" klassi bilan belgilash
-            const selectedDayBtn = [...allDays].find(dayBtn => dayBtn.textContent == day && !dayBtn.classList.contains("prev-month") && !dayBtn.classList.contains("next-month"));
-            if (selectedDayBtn) {
-              selectedDayBtn.classList.add("selected");
-            }
-
-            calendarModal.classList.remove("show");
-          }
-
-          renderCalendar();
-
-        </script>
-
       </div>
     </div>
-
 
 
     <!-- ////////////////////////////////////////////// -->
@@ -4526,11 +4572,12 @@
   <script src="../../../../../../assets/search-service.js"></script>
   <script src="../../../../../../assets/select-service.js"></script>
   <script src="../../../../../../assets/js/service_ru.js"></script>
+  <script src="../calendar.js"></script>
 
 
   <script>
     document.getElementById("btn-MFilterWrap-onOpenFilter").addEventListener("click", function () {
-      let filterBox = document.querySelector(".order-filters");
+      let filterBox = document.querySelector(".transfer-filters");
       filterBox.style.display = "block"; // Avval elementni ko‘rinadigan qilamiz
       // Skrollni butunlay o‘chirish
       setTimeout(() => {
@@ -4539,7 +4586,7 @@
       }, 10);
     });
     document.getElementById("btn-MDrawer-onClose").addEventListener("click", function () {
-      let filterBox = document.querySelector(".order-filters");
+      let filterBox = document.querySelector(".transfer-filters");
       filterBox.style.display = "none"; // Avval elementni ko‘rinadigan qilamiz
 
       setTimeout(() => {
@@ -4847,27 +4894,15 @@
     document.addEventListener("DOMContentLoaded", function () {
       let tabs = document.querySelectorAll(".bn-tab__default");
       let contentBoxes = document.querySelectorAll(".content-box");
-
-
-      const tooltipButton = document.querySelector(".bn-tooltips-ele");
-      const modal = document.getElementById("export-modal");
-
-      // Hover qilinganda modalni ochish
-      tooltipButton.addEventListener("mouseover", function () {
-        modal.classList.add("active");
-      });
-
-      // // Tugmadan yoki modalning o'zidan chiqib ketilganda yopish
-      tooltipButton.addEventListener("mouseleave", function (event) {
-        if (!modal.contains(event.relatedTarget)) {
-          modal.classList.remove("active");
-        }
-      });
-
+      const tooltipButton = document.getElementById("export-history-export-button");
+      let modal = document.getElementById("export-modal");
       modal.addEventListener("mouseleave", function () {
         modal.classList.remove("active");
       });
 
+      function isMobile() {
+        return window.matchMedia("(max-width: 768px)").matches;
+      }
       // ===========================================
       const btnOpenModal = document.querySelector("#btn-ExportButton-onExportTransactionRecords");
       const mainHistory = document.querySelector(".wrapper");
@@ -4899,7 +4934,73 @@
         mainModal.style.display = "none";
       });
 
+
+      // if (!isMobile()) {
+      //   // Desktop uchun: hover orqali ochiladi
+      //   tooltipButton.addEventListener("mouseover", openModal);
+      //   tooltipButton.addEventListener("mouseleave", function (event) {
+      //     if (!modal.contains(event.relatedTarget)) {
+      //       closeModal();
+      //     }
+      //   });
+
+      //   modal.addEventListener("mouseleave", closeModal);
+      // } else {
+      // Mobile uchun: click orqali ochiladi
+      tooltipButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        modal.classList.toggle("active");
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!tooltipButton.contains(event.target) && !modal.contains(event.target)) {
+          closeModal();
+        }
+      });
+      // }
+
     });
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   let tooltipButton = document.getElementById("bn-tooltips-ele");
+    //   let modal = document.getElementById("export-modal");
+
+    //   function openModal() {
+    //     modal.classList.add("active");
+    //   }
+
+    //   function closeModal() {
+    //     modal.classList.remove("active");
+    //   }
+
+    //   function isMobile() {
+    //     return window.matchMedia("(max-width: 768px)").matches;
+    //   }
+
+    //   if (!isMobile()) {
+    //     // Desktop uchun: hover orqali ochiladi
+    //     tooltipButton.addEventListener("mouseover", openModal);
+    //     tooltipButton.addEventListener("mouseleave", function (event) {
+    //       if (!modal.contains(event.relatedTarget)) {
+    //         closeModal();
+    //       }
+    //     });
+
+    //     modal.addEventListener("mouseleave", closeModal);
+    //   } else {
+    //     // Mobile uchun: click orqali ochiladi
+    //     tooltipButton.addEventListener("click", function (event) {
+    //       event.stopPropagation();
+    //       modal.classList.toggle("active");
+    //     });
+
+    //     document.addEventListener("click", function (event) {
+    //       if (!tooltipButton.contains(event.target) && !modal.contains(event.target)) {
+    //         closeModal();
+    //       }
+    //     });
+    //   }
+    // });
 
 
 

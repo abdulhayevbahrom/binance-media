@@ -18,107 +18,16 @@
   <link rel="stylesheet" href="../../../../../../assets/style/media/media.css" />
   <link rel="stylesheet" href="../../../../../../assets/style/media/footer_media.css" />
   <link rel="stylesheet" href="../../../../../../assets/style/media/sidebar_media.css" />
-  <link rel="stylesheet" href="../../../../ru/my/wallet/account/statement/calendar.css" />
-  <link rel="stylesheet" href="../history.css" />
-  <link rel="stylesheet" href="../calendar.css" />
+  <link rel="stylesheet" href="../../../../../assets/style/styles_ru/calendar.css" />
+
+  <!-- <link rel="stylesheet" href="../history.css" />
+  -->
+  <link rel="stylesheet" href="../../../../../assets/style/history_ru/calendar.css" /> 
+  <link rel="stylesheet" href="../../../../../assets/style/history_ru/history.css" /> 
+  <link rel="stylesheet" href="../../../../../assets/style/styles_ru/history_deposit.css" /> 
+
   <title>История транзакций - Кошелек - Безопасность валюты</title>
 </head>
-<style>
-  .order-select {
-    position: relative;
-    width: 100%;
-  }
-
-  .order-select :hover {
-    border-color: var(--color-textBrand);
-  }
-
-  .order-select__list-wrapper.open {
-    display: block;
-  }
-
-
-
-  .order-select__search {
-    padding: 5px;
-  }
-
-
-  .order-select__list {
-    overflow: hidden;
-    padding: 4px 0;
-  }
-
-  .order-select_valueBox {
-    flex: 1;
-    height: 30px;
-  }
-
-
-  .order-select__label div {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    width: auto;
-    justify-content: flex-end;
-  }
-
-  .order-select_icon {
-    transition: transform 0.3s ease;
-  }
-
-  .order-select_icon.rotate {
-    transform: rotateX(180deg);
-  }
-
-  .order-select_icon:hover {
-    border-color: var(--color-textBrand) !important;
-  }
-
-  .order-select_value {
-    display: inline-block;
-    max-width: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .modalInner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 999 !important;
-  }
-
-  #tableBody {
-    overflow: visible !important;
-
-  }
-
-
-  .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-  }
-
-  /* Icon size and styling */
-  .bn-svg-icon-small-pointer {
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-  }
-</style>
-
-
 <body>
   <div class="wrapper">
 
@@ -3573,7 +3482,7 @@
                 <a class="sidebar__menu-item" href="/ru/my/settings/api-management" onclick="return false;">
                   <span class="sidebar__menu-item-title">Управление API</span>
                 </a>
-                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement/index.html">
+                <a class="sidebar__menu-item" href="/ru/my/wallet/account/statement">
                   <span class="sidebar__menu-item-title">Выписка</span>
                 </a>
                 <a class="sidebar__menu-item" href="/ru/my/financial-reports" onclick="return false;">
@@ -4655,7 +4564,7 @@
   <script src="../../../../../../assets/search-service.js"></script>
   <script src="../../../../../../assets/select-service.js"></script>
   <script src="../../../../../../assets/js/service_ru.js"></script>
-  <script src="../calendar.js"></script>
+  <script src="../../../../../assets/js/history_calendar_ru.js"></script>
 
 
   <script>

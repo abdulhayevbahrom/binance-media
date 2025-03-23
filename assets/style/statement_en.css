@@ -3857,3 +3857,9 @@ body.white .css-1uxpeof {
   color: rgb(132, 142, 156);
   font-size: 12px;
 }
+
+@media (max-width: 725px) {
+  #css-15h3vBox {
+    width: 100% !important;
+  }
+}

@@ -4062,7 +4062,7 @@
                         <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
                       </svg>
                     </button>
-                    <button class="month-btn" onclick="changeMonth(1)">
+                    <button class="month-btn" onclick="changeMonth(-1)">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
                         <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
                       </svg>
@@ -4073,7 +4073,7 @@
                     <span id="currentMonth"></span>
                   </div>
                   <div class="month-year-select">
-                    <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
+                    <button class="month-btn month-btn-rotat" onclick="changeMonth(1)">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
                         <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
                       </svg>
@@ -4792,9 +4792,9 @@
                             </td>
                           </tr>
 
-                          <tr class="bn-table-row bn-table-row-level-0">
+                          <!-- <tr class="bn-table-row bn-table-row-level-0">
                             <td class="bn-table-cell">
-                              <div class="css-10nf7hq">
+                              <div class="css-10nf7hq"> 
                                 <div class="css-xh506p">
                                   <img width="100%" height="100%" src="../../../../../assets/img/assets_ru/bitcoin.png">
                                 </div>
@@ -4815,7 +4815,7 @@
                             <td class="bn-table-cell" style="text-align: center;">
                               0
                             </td>
-                          </tr>
+                          </tr> -->
 
 
                           </tr>
@@ -4845,10 +4845,16 @@
                     </div>
                     <div data-type="list-min-row" class="list-min-row css-9u6cgc">
                       <div data-type="list-row-rt" class="list-row-rt css-1vskpeb">
-                        <div data-bn-type="text" class="css-jca2i7">0.00 <div data-bn-type="text" class="css-1b3efu"> ≈
+                        <!-- <div data-bn-type="text" class="css-jca2i7 balance_margin_all">0.00 <div data-bn-type="text" class="css-1b3efu"> ≈
                             0.00
                             USDT</div>
-                        </div>
+                        </div> -->
+                        <div data-bn-type="text" class="css-jca2i7">
+                                <span class="balance_margin_all">0.00</span>
+                                <div data-bn-type="text" class="css-1b3efu unrealized_pnl_all">
+                                  ≈ 0.00 USDT
+                                </div>
+                              </div>
                       </div>
                     </div>
                     <div data-type="list-min-row" class="list-min-row css-k8r62t">

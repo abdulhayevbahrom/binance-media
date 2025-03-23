@@ -796,21 +796,25 @@ exportDataBtn.addEventListener("click", async () => {
 
 let user_info = JSON.parse(localStorage.getItem("user")) || {};
 let user_id = user_info?.user_id || 0;
+let on_the_dateForApi = null;
 
 let margin_b = 0;
 let equivalentValues = 0;
 let one_btc_value = 0;
 
-let api = SERVER_URL + "/accounts/margin-balance";
+let api = SERVER_URL + "/accounts/account-balance-on-the-date";
 
-(async () => {
+async function getBalance(date) {
   try {
     let res = await fetch(api, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id }),
+      body: JSON.stringify({
+        user_id,
+        on_the_date: date,
+      }),
     });
 
     // Status tekshiramizuser_id
@@ -881,7 +885,7 @@ let api = SERVER_URL + "/accounts/margin-balance";
       item.innerHTML = `≈ $${formattedBalance} USDT`;
     });
   }
-})();
+}
 
 // ========================= GET TOTAL EXPENSES Общая стоимость ===================
 // ##################### BLOK 4 #######################
@@ -922,6 +926,13 @@ obzor_date.innerHTML = `${selectedYear}-${String(selectedMonth + 1).padStart(
   2,
   "0"
 )}-${String(selectedDate.getDate()).padStart(2, "0")}`;
+
+// "2024-01-01 00:00:00"; format
+on_the_dateForApi = `${selectedYear}-${String(selectedMonth + 1).padStart(
+  2,
+  "0"
+)}-${String(selectedDate.getDate()).padStart(2, "0")} 00:00:00`;
+getBalance(on_the_dateForApi);
 
 dateInput.addEventListener("click", () => {
   calendarModal.classList.toggle("show");
@@ -1044,6 +1055,15 @@ function selectDate(year, month, day) {
     day
   ).padStart(2, "0")}`;
   dateInput.value = formattedDate;
+  obzor_date.innerHTML = `${year}-${String(month).padStart(2, "0")}-${String(
+    day
+  ).padStart(2, "0")}`;
+
+  // "2024-01-01 00:00:00"; format
+  on_the_dateForApi = `${year}-${String(month).padStart(2, "0")}-${String(
+    day
+  ).padStart(2, "0")} 00:00:00`;
+  getBalance(on_the_dateForApi);
 
   // Calendardagi barcha kunlarni tekshirib, tanlangan sanani alohida ajratib ko'rsatish
   const allDays = document.querySelectorAll(".days");

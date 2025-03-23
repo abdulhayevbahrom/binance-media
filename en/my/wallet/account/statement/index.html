@@ -4042,7 +4042,7 @@
                         <path d="M15 3.05L10.125 8 15 12.95 13.95 14l-6-6 6-6L15 3.05z" fill="currentColor"></path>
                       </svg>
                     </button>
-                    <button class="month-btn" onclick="changeMonth(1)">
+                    <button class="month-btn" onclick="changeMonth(-1)">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
                         <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
                       </svg>
@@ -4053,7 +4053,7 @@
                     <span id="currentMonth"></span>
                   </div>
                   <div class="month-year-select">
-                    <button class="month-btn month-btn-rotat" onclick="changeMonth(-1)">
+                    <button class="month-btn month-btn-rotat" onclick="changeMonth(1)">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx8">
                         <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor"></path>
                       </svg>
@@ -4724,7 +4724,7 @@
             </div>
             <div class="css-vurnku">
               <div data-bn-type="text" class="css-1vxba9d">Assets</div>
-              <div class="css-g5h8k8">
+              <div class="css-g5h8k8 css-g5h8kbox">
                 <div class="bn-table hidden-table-header">
                   <div class="bn-table-container">
                     <div class="bn-table-content">
@@ -4738,104 +4738,88 @@
                           </tr>
                         </thead>
                         <tbody class="bn-table-tbody">
-                          <!-- <tr class="bn-table-placeholder">
-                            <td colspan="3" class="bn-table-cell">
-                              <div class="css-1deoa32">
-                                <div class="css-jnam9p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"
-                                    fill="none" class="css-1kyyhz">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M64 8H26v80h58V28L64 8zM36 37h38v4H36v-4zm0 9h38v4H36v-4zm38 9H36v4h38v-4z"
-                                      fill="url(#not-found-data-dark_svg__paint0_linear)"></path>
-                                    <path d="M62 71l4-4 4 4-4 4-4-4z" fill="#1E2026"></path>
-                                    <path d="M86 50l3-3 3 3-3 3-3-3zM47 21l3-3 3 3-3 3-3-3zM84 28H64V8l20 20z"
-                                      fill="#474D57">
-                                    </path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M4.172 73.171l14.5-14.5 5.656 5.658-14.5 14.5-5.656-5.657z"
-                                      fill="url(#not-found-data-dark_svg__paint1_linear)"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                      d="M51 48c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zm4 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z"
-                                      fill="url(#not-found-data-dark_svg__paint2_linear)"></path>
-                                    <defs>
-                                      <linearGradient id="not-found-data-dark_svg__paint0_linear" x1="84" y1="10.162"
-                                        x2="84" y2="88" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#2B2F36"></stop>
-                                        <stop offset="1" stop-color="#474D57"></stop>
-                                      </linearGradient>
-                                      <linearGradient id="not-found-data-dark_svg__paint1_linear" x1="4.172" y1="68.75"
-                                        x2="24.328" y2="68.75" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#929AA5"></stop>
-                                        <stop offset="1" stop-color="#76808F"></stop>
-                                      </linearGradient>
-                                      <linearGradient id="not-found-data-dark_svg__paint2_linear" x1="15" y1="48"
-                                        x2="55" y2="48" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#929AA5"></stop>
-                                        <stop offset="1" stop-color="#76808F"></stop>
-                                      </linearGradient>
-                                    </defs>
-                                  </svg></div>
-                                <div data-bn-type="text" class="css-1qp5tsr">No records found.</div>
-                              </div>
+                          <tr class="bn-table-placeholder">
+                             <tr aria-hidden="true" class="bn-table-measure-row" style="height: 0px; font-size: 0px;">
+                            <td style="padding: 0px; border: 0px; height: 0px;">
+                              <div style="height: 0px; overflow: hidden;">&nbsp;</div>
                             </td>
-                          </tr> -->
-                          <tr class="bn-table-row bn-table-row-level-0">
-                              <td class="bn-table-cell">
-                                <div class="css-10nf7hq">
-                                  <div class="css-xh506p">
-                                    <!-- src="https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240508/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png"> -->
-                                    <img width="100%" height="100%"
-                                      src="../../../../../assets/img/currencies/tether.png">
+                            <td style="padding: 0px; border: 0px; height: 0px;">
+                              <div style="height: 0px; overflow: hidden;">&nbsp;</div>
+                            </td>
+                          </tr>
+                            <tr class="bn-table-row bn-table-row-level-0">
+                                <td class="bn-table-cell">
+                                  <div class="css-10nf7hq">
+                                    <div class="css-xh506p">
+                                      <!-- src="https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240508/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png"> -->
+                                      <img width="100%" height="100%"
+                                        src="../../../../../assets/img/currencies/tether.png">
+                                    </div>
+                                    <div data-bn-type="text" class="css-4r1xor">USDT<div data-bn-type="text"
+                                        class="css-1b3efu">
+                                        TetherUS</div>
+                                    </div>
                                   </div>
-                                  <div data-bn-type="text" class="css-4r1xor">USDT<div data-bn-type="text"
-                                      class="css-1b3efu">
-                                      TetherUS</div>
+                                </td>
+                                <td class="bn-table-cell">
+                                  <div data-bn-type="text" class="css-jca2i7">
+                                  <span class="balance_margin_all">0.00</span>
+                                    <div data-bn-type="text" class="css-1b3efu unrealized_pnl_all">
+                                      ≈ 0.00 USDT
+                                    </div>
                                   </div>
-                                </div>
-                              </td>
-                              <td class="bn-table-cell">
-                                <div data-bn-type="text" class="css-jca2i7">
-                                 <span class="balance_margin_all">0.00</span>
-                                  <div data-bn-type="text" class="css-1b3efu unrealized_pnl_all">
-                                    ≈ 0.00 USDT
-                                  </div>
-                                </div>
-                              </td>
-                              <td class="bn-table-cell" style="text-align: center;">
-                                0
-                              </td>
-                            </tr> 
+                                </td>
+                                <td class="bn-table-cell" style="text-align: center;">
+                                  0
+                                </td>
+                              </tr> 
 
-<tr class="bn-table-row bn-table-row-level-0">
-                              <td class="bn-table-cell">
-                                <div class="css-10nf7hq">
-                                  <div class="css-xh506p">
-                                    <!-- src="https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240508/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png"> -->
-                                    <img width="100%" height="100%"
-                                      src="../../../../../assets/img/assets_ru/bitcoin.png">
-                                  </div>
-                                  <div data-bn-type="text" class="css-4r1xor">USDT<div data-bn-type="text"
-                                      class="css-1b3efu">
-                                      TetherUS</div>
-                                  </div>
-                                </div>
-                              </td>
-                              <td class="bn-table-cell">
-                                <div data-bn-type="text" class="css-jca2i7">
-                                 <span class="balance_margin_all">0.00</span>
-                                  <div data-bn-type="text" class="css-1b3efu unrealized_pnl_all">
-                                    ≈ 0.00 USDT
-                                  </div>
-                                </div>
-                              </td>
-                              <td class="bn-table-cell" style="text-align: center;">
-                                0
-                              </td>
-                            </tr>                           </tbody>
+                                  
+                            </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- ============================= -->
+              <div class="css-1bel8un">
+                <div data-type="list-row" class="list-view-m-row  css-j2uawy">
+                  <div class="css-1t12ek8">
+                    <div data-type="list-min-row" class="list-min-row css-9u6cgc">
+                      <div data-type="list-row-rt" class="list-row-rt css-nehfiq">
+                        <div class="css-10nf7hq">
+                          <div class="css-xh506p">
+                            <img width="100%" height="100%" src="../../../../../assets/img/currencies/tether.png">
+                          </div>
+                          <div data-bn-type="text" class="css-4r1xor">USDT<div data-bn-type="text" class="css-1b3efu">
+                              TetherUS</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div data-type="list-min-row" class="list-min-row css-9u6cgc">
+                      <div data-type="list-row-rt" class="list-row-rt css-1vskpeb">
+                       <div data-bn-type="text" class="css-jca2i7">
+                          <span class="balance_margin_all">0.00</span> 
+                          <div data-bn-type="text" class="css-1b3efu unrealized_pnl_all"> ≈
+                            0.00 USDT
+                          </div>
+                        </div>
+                      </div>
+                    </div>     
+                    <div data-type="list-min-row" class="list-min-row css-k8r62t">
+                      <div data-bn-type="text" data-type="list-row-lf" class="list-row-lf css-15t94cb">Unrealized PNL
+                        PNL</div>
+                      <div data-type="list-row-rt" class="list-row-rt css-1vskpeb">
+                        <div data-bn-type="text" class="css-jca2i7">0</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ============================= -->
             </div>
           </div>
         </div>

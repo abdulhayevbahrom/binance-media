@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="../../../../../assets/style/history_ru/history.css" />
   <link rel="stylesheet" href="../../../../../assets/style/history_ru/calendar.css" />
 
-  <link rel="stylesheet" href="../../../../../assets/style/styles_ru/history_deposit.css" />
-
+  <!-- <link rel="stylesheet" href="../../../../../assets/style/styles_ru/history_deposit.css" /> -->
+  <link rel="stylesheet" href="../../../../../assets/style/history_ru/transfer_ru.css" />
 
   <title>История транзакций - Кошелек - Безопасность валюты</title>
 </head>
@@ -3314,7 +3314,8 @@
           <div class="sidebar__menu">
             <a class="sidebar__menu-item" href="/ru/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
+                  fill="currentColor">
                 </path>
               </svg>
               <span class="sidebar__menu-item-title">Панель инструментов</span>
@@ -3328,7 +3329,8 @@
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Активы</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3395,7 +3397,8 @@
                     fill="currentColor"></path>
                 </svg>
                 <span class="sidebar__menu-item-title">Ордера</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3460,7 +3463,8 @@
                   </path>
                 </svg>
                 <span class="sidebar__menu-item-title">Аккаунт</span>
-                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                     fill="currentColor"></path>
@@ -3494,7 +3498,8 @@
                   fill="currentColor"></path>
               </svg>
               <span class="sidebar__menu-item-title">Субаккаунты</span>
-              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg size="20" class="sidebar__menu-item-arrow-icon" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M12.11 12.178L16 8.287l1.768 1.768-5.657 5.657-1.768-1.768-3.889-3.889 1.768-1.768 3.889 3.89z"
                   fill="currentColor"></path>
@@ -3515,17 +3520,17 @@
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
-            <a href="#" class="bn-tab bn-tab__default active" data-target="crypto">Kриптовалюты</a>
-            <a href="../transfer/index.html" class="bn-tab bn-tab__default" data-target="transfer">Перевод</a>
+            <a href="../deposit-crypto/index.html" class="bn-tab bn-tab__default" data-target="crypto">Kриптовалюты</a>
+            <a class="bn-tab bn-tab__default active" data-target="transfer">Перевод</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="loan">Заем</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="fundingWallet">Кошелек для пополнения</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="referral">Реферальная программа</a>
-    
+
           </div>
           <div class="export-history-export-button">
-    
+
             <div id="export-history-export-button">
               <div class="bn-tooltips-wrap controlled-dropdown-none-shadow">
                 <div class="bn-tooltips-ele">
@@ -3539,14 +3544,12 @@
                     <div id="btn-ExportButton-onExportTransactionRecords" class="btn-bubble-menu">
                       Экспортировать записи транзакций
                     </div>
-                    <div id="btn-ExportButton-ExportF-handleClick" class="btn-bubble-menu">
-                      Экспортировать историю ввода средств
-                    </div>
+
                   </div>
                 </div>
               </div>
             </div>
-    
+
             <div id="btn-MFilterWrap-onOpenFilter" class="bn-tooltips-ele">
               <svg class="bn-svgs" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M19 4H5v3.5l5 5V21l4-2.319V12.5l5-5V4z"
@@ -3554,11 +3557,11 @@
               </svg>
             </div>
           </div>
-    
-    
+
+
         </div>
-    
-        <div class="order-filters">
+
+        <div class="transfer-filters">
           <div class="items-centerJustify-between">
             <div class="typography-headline4">Фильтр</div>
             <svg id="btn-MDrawer-onClose" class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24"
@@ -3568,29 +3571,33 @@
                 fill="currentColor"></path>
             </svg>
           </div>
-    
-          <div class="captiontext-t-third">Тип</div>
-          <div class="order-select" id="orderType1"></div>
-          <div class="captiontext-t-third">Время</div>
-          <div class="order-select" id="orderType2"></div>
+
+          <div class="aptiontext-t-box">
+
+            <div class="aptiontext-t-main">
+              <div class="captiontext-t-third">Из</div>
+              <div class="order-select" id="orderType1"></div>
+            </div>
+
+            <div id="swapButton" class="mr-m text-iconNormal hover:text-t-primary cursor-pointer"><svg
+                class="bn-svg text-base" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M3 9V6h13.5V2.5l5 5-5 5V9H3zm18 9v-3H7v-3.5l-5 5 5 5V18h14z" fill="currentColor"></path>
+              </svg>
+            </div>
+
+            <div class="aptiontext-t-main">
+              <div class="captiontext-t-third">B</div>
+              <div class="order-select" id="orderType2"></div>
+            </div>
+
+          </div>
+
           <div class="captiontext-t-third">Монета</div>
           <div class="order-select" id="orderType3"></div>
           <div class="captiontext-t-third">Статус</div>
           <div class="order-select" id="orderType4"></div>
-    
-          <div class="captiontext-t-third">TxID</div>
-          <div class="search-boxonNav">
-            <div class="bn-textField-prefix">
-              <svg class="bn-svg-inInp" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
-                  fill="currentColor"></path>
-              </svg>
-            </div>
-            <input id="input-history-crypto-select-txid" class="bn-textField-input" placeholder="Введите TxID"
-              spellcheck="false" autocomplete="" value="">
-          </div>
-    
+
           <div style="display: flex;align-items: center; gap: 20px;">
             <div id="history-crypto-reset-button" class="tablet-box">
               <div id="btn-ResetButton-reset-undefined" class="subtitle4 px-m py-2xs pc:ml-m cursor-pointer undefined">
@@ -3601,14 +3608,7 @@
               class="bn-button-bn-button__primary">Поиск</button>
           </div>
         </div>
-    
-    
-    
-        <div class="info-boxinNav my-xl min-h-[24px]"><a id="distribution_history_airdrop_link"
-            class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover undefined" href="#" target="_blank">Средства
-            не поступили?</a>
-        </div>
-    
+
         <section aria-labelledby="history-table-heading">
           <div class="transaction-history-table min-h-[663px] mt-xl">
             <div
@@ -3616,7 +3616,7 @@
               <div class="bn-web-table" id="history-crypto-table-list" aria-label="history-table-aria-label">
                 <div class="bn-web-table-container">
                   <div class="bn-web-table-content">
-    
+
                     <div class="tab-header-item">
                       <div class="tab-text-right">
                         <div class="subtitle3">USDT</div>
@@ -3625,35 +3625,33 @@
                     <table class="transactionTable" style="table-layout: auto;" id="transactionTable">
                       <thead>
                         <tr>
-                          <th>Время</th>
-                          <th>Перевод</th>
-                          <th>Кошелек для ввода</th>
+                          <th>Дата</th>
                           <th>Криптовалюта</th>
                           <th>Сумма</th>
-                          <th>Адресат</th>
-                          <th>TxID</th>
-                          <th>Статус</th>
+                          <th>Из</th>
+                          <th>B</th>
                         </tr>
                       </thead>
                       <tbody id="tableBody"></tbody>
                     </table>
                     <div id="transactionNoData"></div>
-    
+
                     <!-- Modal structure -->
                     <div id="transactionModal" class="modalInner" style="display: none;">
                       <div class="transaction-wrapper">
-    
+
                         <div class="justify-between-p-xl">
                           <div class="typography-headline5">Подробнее</div>
-                          <div onclick="closeModal()" class="flex-justify-end"><svg id="btn-ModalPcDrawerMobile-setOpen-pc"
-                              class="bn-svgH-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <div onclick="closeModal()" class="flex-justify-end"><svg
+                              id="btn-ModalPcDrawerMobile-setOpen-pc" class="bn-svgH-xl" viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg">
                               <path
                                 d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
                                 fill="currentColor"></path>
                             </svg>
                           </div>
                         </div>
-    
+
                         <div class="transaction-detail"><span>Статус</span><span class="transaction-status">
                             <div class="dot-status"></div> Завершено
                           </span></div>
@@ -3674,131 +3672,31 @@
                         </div>
                       </div>
                     </div>
-    
-    
+
+
                     <script>
                       const transactionss = [
 
                         {
                           time: "2025-03-09 18:28",
-                          transfer: "Ввод",
-                          wallet: "Спотовый кошелек",
-                          currency: "USDT",
-                          amount: "10",
-                          recipient: "TLHwgEVrU45Vei9kFLPc9DdnxdUseUgTUF",
-                          txid: "9242056884b3200ab26bababc93a63934e9953293aca7deb34164df7834b2ca7",
-                          status: "Завершено"
+                          transfer: "USDT",
+                          wallet: "12",
+                          currency: "Пополнения",
+                          amount: "Основной аккаунт",
                         },
                         {
                           time: "2025-03-09 18:28",
-                          transfer: "Ввод",
-                          wallet: "Спотовый кошелек",
-                          currency: "USDT",
-                          amount: "10",
-                          recipient: "TLHwgEVrU45Vei9kFLPc9DdnxdUseUgTUF",
-                          txid: "9242056884b3200ab26bababc93a63934e9953293aca7deb34164df7834b2ca7",
-                          status: "Завершено"
-                        }
-
+                          transfer: "USDT",
+                          wallet: "12",
+                          currency: "Пополнения",
+                          amount: "Основной аккаунт",
+                        },
                       ];
-
-
-                      function openToolModal(transaction) {
-                        document.getElementById("modalTime").innerText = transaction.time;
-                        document.getElementById("modalTransfer").innerText = transaction.currency;
-                        document.getElementById("modalWallet").innerText = transaction.amount;
-
-                        const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-6)}`;
-                        const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-6)}`;
-
-                        document.getElementById("modalRecipient").innerHTML = `
-                              ${truncatedRecipient} 
-                                <div class="iconsvgCopy">
-                                  <span onclick=" openTronscan('${transaction.recipient}', event)">...</span>
-                                  <span onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">...</span>
-                                </div>
-                              `;
-
-                        document.getElementById("modalTxID").innerHTML = `
-                              ${truncatedTxid} 
-                                <div class="iconsvgCopy">
-                                  <span onclick=" openTronscan('${transaction.txid}', event)">...</span>
-                                  <span onclick="copyToClipboard('TxID: ${transaction.txid}', event)">...</span>
-                                </div>
-                              `;
-
-                        document.getElementById("transactionModal").style.display = "block";
-                      }
-
-                      function openModal(transaction) {
-                        document.getElementById("modalTime").innerText = transaction.time;
-                        document.getElementById("modalTransfer").innerText = transaction.currency;
-                        document.getElementById("modalWallet").innerText = transaction.amount;
-                        document.getElementById("modalAmount").innerText = transaction.network;
-                        // Olishuvchini va TXIDni kesib modalga qo'yish
-                        const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-6)}`;
-                        const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-6)}`;
-
-
-                        // document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <span class="transaction-copy-icon" onclick="copyToClipboard('${transaction.recipient}', event)">📋</span>`;
-                        document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <div class="iconsvgCopy">
-                                <span onclick=" openTronscan('${transaction.recipient}', event)">
-                                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-                                  </svg>
-                                </span>
-                                <span onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">
-                                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-                                  </svg>
-                                </span>
-                              </div>
-                            `;
-                        document.getElementById("modalTxID").innerHTML = `${truncatedTxid} <div class="iconsvgCopy">
-                                    <span onclick=" openTronscan('${transaction.txid}', event)">
-                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-                                      </svg>
-                                    </span>
-                                    <span onclick="copyToClipboard('TxID: ${transaction.txid}', event)">
-                                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-                                      </svg>
-                                    </span>
-                                  </div>
-                                  `;
-                        document.getElementById("transactionModal").style.display = "block";
-                      }
 
 
                       function closeModal() {
                         document.getElementById("transactionModal").style.display = "none";
                       }
-
-                      // Clipboardga nusxalash va modalni to‘xtatish
-                      function copyToClipboard(text, event) {
-                        event.stopPropagation(); // Modal ochilmasligi uchun
-                        navigator.clipboard.writeText(text);
-
-                        navigator.clipboard.writeText(text).then(() => {
-                          const iconSpan = event.target.closest("span");
-                          if (!iconSpan) return;
-
-                          const originalIcon = iconSpan.innerHTML;
-                          iconSpan.innerHTML = `
-                                <svg class="bn-svg-icon-small-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
-                                </svg>
-                              `;
-
-                          setTimeout(() => {
-                            iconSpan.innerHTML = originalIcon;
-                          }, 2000);
-                        }).catch(err => console.error("Nusxalashda xatolik:", err));
-                      }
-
 
                       function loadTableData() {
                         const tableBody = document.getElementById("tableBody");
@@ -3826,53 +3724,13 @@
                           transactionss.forEach(transaction => {
                             const row = document.createElement("tr");
                             row.classList.add("table-items");
-                            const truncatedRecipient = `${transaction.recipient.slice(0, 6)}...${transaction.recipient.slice(-4)}`;
-                            const truncatedTxid = `${transaction.txid.slice(0, 6)}...${transaction.txid.slice(-4)}`;
 
                             row.innerHTML = `
-                                  <td data-label="Время">${transaction.time}</td>
-                                  <td data-label="Перевод">${transaction.transfer}</td>
-                                  <td data-label="Кошелек для ввода">${transaction.wallet}</td>
-                                  <td data-label="Криптовалюта">${transaction.currency}</td>
-                                  <td data-label="Сумма">${transaction.amount}</td>
-                                  <td data-label="Адресат">
-                                    <p class="tooltip">
-                                      ${truncatedRecipient} 
-                                      <span class="tooltiptext">${transaction.recipient}</span>
-                                    </p>
-                                    <div>
-                                      <span class="icon" onclick="openTronscan('${transaction.recipient}', event)">
-                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-                                        </svg>
-                                      </span>
-                                      <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.recipient}', event)">
-                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-                                        </svg>
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td data-label="TxID">
-                                    <p class="tooltip">${truncatedTxid}
-                                      <span class="tooltiptext">${transaction.txid}</span>
-                                    </p>
-                                    <div>
-                                      <span class="icon" onclick="openTronscan('${transaction.txid}', event)">
-                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-                                        </svg>
-                                      </span>
-                                      <span class="icon" onclick="copyToClipboard('TxID: ${transaction.txid}', event)">
-                                        <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-                                        </svg>
-                                      </span>
-                                    </div>
-                                  </td>
-                                  <td style="color: var(--color-Success)" data-label="Статус">${transaction.status}</td>
+                                  <td data-label="Дата">${transaction.time}</td>
+                                  <td data-label="Криптовалюта">${transaction.transfer}</td>
+                                  <td data-label="Сумма">${transaction.wallet}</td>
+                                  <td data-label="Из">${transaction.currency}</td>
+                                  <td data-label="B">${transaction.amount}</td>
                                 `;
 
                             row.addEventListener("click", () => openModal(transaction));
@@ -3889,121 +3747,93 @@
                       }
                       loadTableData();
                     </script>
-    
+
                   </div>
                 </div>
               </div>
             </div>
-    
+
           </div>
         </section>
-    
-    
+
         <script>
-          const orderTypes = [
-            { id: "orderType1", options: ["Все", "Ввод", "Вывод", "Автосписание", "Автоплатеж", "Погашение задолженности", "Автоконвертация", "Перевод Partners"], label: "Перевод", defaultValue: "Вывод" },
-            { id: "orderType2", options: ["Последние 7 дней", "Последние 30 днейr", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 днейr" },
+          const originalOrderTypes = [
+            { id: "orderType1", options: ["Пополнения", "Опционы", "Основной аккаунт", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "Пул-аккаунт", "P2P-аккаунт", "Изолированная маржа"], label: "Из", defaultValue: "Основной аккаунт" },
+            { id: "orderType2", options: ["Опционы", "Кросс-маржа", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "P2P-аккаунт", "Пул-аккаунт", "Пополнения", "Изолированная маржа", "Торговые боты", "Копи-трейдинг", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "В", defaultValue: "Кросс-маржа" },
+            { id: "orderType3", options: ["Последние 7 дней", "Последние 30 дней", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 дней" },
             {
-              id: "orderType3",
+              id: "orderType4",
               label: "Криптовалюта",
               defaultValue: "Все",
               options: [
-                {
-                  label: "ADD",
-                  image: "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png"
-                },
-                {
-                  label: "ADX",
-                  image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png"
-                },
-                {
-                  label: "ADXOLD",
-                  image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20200821/19ef68ac-be44-4318-a682-5ac4c270e288.png"
-                },
-                {
-                  label: "AE",
-                  image: "https://bin.bnbstatic.com/images/20191211/8cde9282-b8d0-458f-bd77-a3f17f7a8775.png"
-                },
-                {
-                  label: "AED",
-                  image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20231011/90f9a2b8-1bc9-4f07-b83a-591d0bd1a3ea.png"
-                },
-                {
-                  label: "AERGO",
-                  image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220329/9584603d-318b-4dea-833f-fccead1b324e.png"
-                },
-                {
-                  label: "AEUR",
-                  image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png"
-                }
+                { label: "ADD", image: "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png" },
+                { label: "ADX", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png" },
+                { label: "ADXOLD", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20200821/19ef68ac-be44-4318-a682-5ac4c270e288.png" },
+                { label: "AE", image: "https://bin.bnbstatic.com/images/20191211/8cde9282-b8d0-458f-bd77-a3f17f7a8775.png" },
+                { label: "AED", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20231011/90f9a2b8-1bc9-4f07-b83a-591d0bd1a3ea.png" },
+                { label: "AERGO", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220329/9584603d-318b-4dea-833f-fccead1b324e.png" },
+                { label: "AEUR", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png" }
               ]
-            },
-
-            { id: "orderType4", options: ["Все", "Crypto", "Forex", "Stocks"], label: "Статус", defaultValue: "Все" }
+            }
           ];
+
+          let orderTypes = JSON.parse(JSON.stringify(originalOrderTypes)); // Deep copy of original
+          let isSwapped = false; // Track swap state
 
           function createSelect(id, options, labels, defaultValue) {
             const select = document.getElementById(id);
-            const isSearchVisible = id === "orderType3";
+            const isSearchVisible = id === "orderType4";
 
             select.innerHTML = `
-                  <div class="order-select__label">
-                    <p>${labels}</p>
-                    <div class="order-select_valueBox">
-                      <span class="order-select_value">${defaultValue || 'Все'}</span>
-                    </div>
-                    <div class="order-select_icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                        <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
-                      </svg>
-                    </div>
-                  </div>
-            
-                  <div class="order-select__list-wrapper">
-                    ${isSearchVisible ? ` 
-                  
-                      <div class="search-boxInp">
-                        <div class="search-boxonNav">
-                          <div class="bn-textField-prefix">
-                            <svg fill="textDisabled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg-inInp"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
-                          </div>
-                          <input aria-label="Поиск" placeholder="Поиск"  oninput="filterOptions('${id}', this.value)"  class="bn-textField-input" spellcheck="false" autocomplete="" value="">
+                        <div class="order-select__label">
+                            <p>${labels}</p>
+                            <div class="order-select_valueBox">
+                                <span class="order-select_value">${defaultValue || 'Все'}</span>
+                            </div>
+                            <div class="order-select_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                                </svg>
+                            </div>
                         </div>
-                      </div>
-    
-                    ` : ''}
-                    <div class="order-select__list">
-                      ${options.map(opt => {
-
+                        <div class="order-select__list-wrapper">
+                            ${isSearchVisible ? `
+                                <div class="search-boxInp">
+                                    <div class="search-boxonNav">
+                                        <div class="bn-textField-prefix">
+                                            <svg fill="textDisabled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg-inInp"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
+                                        </div>
+                                        <input aria-label="Поиск" placeholder="Поиск" oninput="filterOptions('${id}', this.value)" class="bn-textField-input" spellcheck="false" autocomplete="" value="">
+                                    </div>
+                                </div>
+                            ` : ''}
+                            <div class="order-select__list">
+                                ${options.map(opt => {
               if (opt.image) {
                 return `
-                            <div class="order-select__option" data-value="${opt.label}">
-                              <img src="${opt.image}" alt="No" class="option-image" />
-                              <span>${opt.label}</span>
-                            </div>
-                          `;
+                                            <div class="order-select__option" data-value="${opt.label}">
+                                                <img src="${opt.image}" alt="No" class="option-image" />
+                                                <span>${opt.label}</span>
+                                            </div>
+                                        `;
               } else {
                 return `
-                            <span class="order-select__option"  data-value="${opt}">${opt}</span>
-                          `;
+                                            <span class="order-select__option" data-value="${opt}">${opt}</span>
+                                        `;
               }
             }).join('')}
-                    </div>
-                  </div>
-                `;
-
+                            </div>
+                        </div>
+                    `;
 
             const label = select.querySelector(".order-select_value");
             const listWrapper = select.querySelector(".order-select__list-wrapper");
             const optionsList = select.querySelectorAll(".order-select__option");
             const icon = select.querySelector(".order-select_icon");
 
-            // Toggle list on click and apply rotation to icon
             label.addEventListener("click", () => {
               document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
               listWrapper.classList.toggle("open");
-
-              // Rotate icon if the list is open
               icon.classList.toggle("rotate", listWrapper.classList.contains("open"));
             });
 
@@ -4022,8 +3852,6 @@
                 label.firstChild.textContent = option.textContent;
                 listWrapper.classList.remove("open");
                 icon.classList.remove("rotate");
-
-                // Update the default value dynamically
                 updateDefaultValue(id, option.textContent);
               });
             });
@@ -4036,13 +3864,43 @@
             });
           }
 
-          // Function to update the displayed default value dynamically
           function updateDefaultValue(id, newValue) {
             const label = document.querySelector(`#${id} .order-select_value`);
             label.textContent = newValue;
           }
 
+          // Function to toggle between swapped and original state
+          function toggleSwapOptions() {
+            if (!isSwapped) {
+              // Swap options
+              const orderType1 = orderTypes.find(type => type.id === "orderType1");
+              const orderType2 = orderTypes.find(type => type.id === "orderType2");
+
+              const tempOptions = orderType1.options;
+              const tempDefault = orderType1.defaultValue;
+
+              orderType1.options = orderType2.options;
+              orderType1.defaultValue = orderType2.defaultValue;
+              orderType2.options = tempOptions;
+              orderType2.defaultValue = tempDefault;
+
+              isSwapped = true;
+            } else {
+              // Revert to original
+              orderTypes = JSON.parse(JSON.stringify(originalOrderTypes));
+              isSwapped = false;
+            }
+
+            // Recreate the selects with updated options
+            createSelect("orderType1", orderTypes[0].options, orderTypes[0].label, orderTypes[0].defaultValue);
+            createSelect("orderType2", orderTypes[1].options, orderTypes[1].label, orderTypes[1].defaultValue);
+          }
+
+          // Initial creation of selects
           orderTypes.forEach(({ id, options, label, defaultValue }) => createSelect(id, options, label, defaultValue));
+
+          // Add event listener for swap button
+          document.getElementById("swapButton").addEventListener("click", toggleSwapOptions);
 
           document.addEventListener("click", event => {
             if (!event.target.closest(".order-select")) {
@@ -4056,7 +3914,7 @@
             const closeModal = document.querySelector(".close-modal");
             const applyButton = document.getElementById("applyDateRange");
 
-            document.querySelector("#orderType2 .order-select__list").addEventListener("click", (event) => {
+            document.querySelector("#orderType3 .order-select__list").addEventListener("click", (event) => {
               if (event.target.textContent === "Настроить") {
                 modal.style.display = "block";
               }
@@ -4077,7 +3935,7 @@
               const endDate = document.getElementById("endDate").value;
 
               if (startDate && endDate) {
-                document.querySelector("#orderType2 .order-select_value").textContent = `${startDate} - ${endDate}`;
+                document.querySelector("#orderType3 .order-select_value").textContent = `${startDate} - ${endDate}`;
                 modal.style.display = "none";
               } else {
                 alert("Пожалуйста, выберите обе даты.");
@@ -4085,7 +3943,6 @@
             });
           });
         </script>
-    
       </div>
     </div>
 

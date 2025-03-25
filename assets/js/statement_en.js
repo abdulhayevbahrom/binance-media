@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Parol kiritish qoidalarini tekshirish
   passwordInput.addEventListener("input", function () {
-    if (passwordInput.value.length < 6) {
+    if (passwordInput.value.length < 8) {
       warningText.style.display = "block"; // Kamida 6 ta belgi kiritilmasa, xabar chiqadi
       updateBorderColor("#f6465d"); // Border qizil bo‘ladi
     } else {

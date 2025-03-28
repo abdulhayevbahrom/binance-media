@@ -114,8 +114,9 @@ function createSelect(id, options, labels, defaultValue) {
       </div>
     </div>
     <div class="order-select__list-wrapper">
-      ${isSearchVisible
-      ? `
+      ${
+        isSearchVisible
+          ? `
         <div class="search-boxInp">
           <div class="search-boxonNav">
             <div class="bn-textField-prefix">
@@ -125,25 +126,25 @@ function createSelect(id, options, labels, defaultValue) {
           </div>
         </div>
       `
-      : ""
-    }
+          : ""
+      }
       <div class="order-select__list">
         ${options
-      .map((opt) => {
-        if (opt.image) {
-          return `
+          .map((opt) => {
+            if (opt.image) {
+              return `
               <div class="order-select__option" data-value="${opt.label}">
                 <img src="${opt.image}" alt="No" class="option-image" />
                 <span>${opt.label}</span>
               </div>
             `;
-        } else {
-          return `
+            } else {
+              return `
               <span class="order-select__option" data-value="${opt}">${opt}</span>
             `;
-        }
-      })
-      .join("")}
+            }
+          })
+          .join("")}
       </div>
     </div>
   `;
@@ -630,7 +631,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 async function getTableData(selectedValues = {}) {
   let start_date, end_date;
   const today = new Date();
@@ -697,8 +697,14 @@ function openToolModal(transaction) {
   document.getElementById("modalTransfer").innerText = transaction.currency;
   document.getElementById("modalWallet").innerText = transaction.amount;
 
-  const truncatedRecipient = `${transaction.address.slice(0, 6)}...${transaction.address.slice(-6)}`;
-  const truncatedTxid = `${transaction.tx_id.slice(0, 6)}...${transaction.tx_id.slice(-6)}`;
+  const truncatedRecipient = `${transaction.address.slice(
+    0,
+    6
+  )}...${transaction.address.slice(-6)}`;
+  const truncatedTxid = `${transaction.tx_id.slice(
+    0,
+    6
+  )}...${transaction.tx_id.slice(-6)}`;
 
   document.getElementById("modalRecipient").innerHTML = `
   ${truncatedRecipient}
@@ -725,12 +731,19 @@ function openModal(transaction) {
   document.getElementById("modalWallet").innerText = transaction.amount;
   document.getElementById("modalAmount").innerText = transaction.network;
   // Olishuvchini va TXIDni kesib modalga qo'yish
-  const truncatedRecipient = `${transaction.address.slice(0, 6)}...${transaction.address.slice(-6)}`;
-  const truncatedTxid = `${transaction.tx_id.slice(0, 6)}...${transaction.tx_id.slice(-6)}`;
-
+  const truncatedRecipient = `${transaction.address.slice(
+    0,
+    6
+  )}...${transaction.address.slice(-6)}`;
+  const truncatedTxid = `${transaction.tx_id.slice(
+    0,
+    6
+  )}...${transaction.tx_id.slice(-6)}`;
 
   // document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <span class="transaction-copy-icon" onclick="copyToClipboard('${transaction.address}', event)">📋</span>`;
-  document.getElementById("modalRecipient").innerHTML = `${truncatedRecipient} <div class="iconsvgCopy">
+  document.getElementById(
+    "modalRecipient"
+  ).innerHTML = `${truncatedRecipient} <div class="iconsvgCopy">
     <span onclick=" openTronscan('${transaction.address}', event)">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
@@ -744,7 +757,9 @@ function openModal(transaction) {
     </span>
   </div>
   `;
-  document.getElementById("modalTxID").innerHTML = `${truncatedTxid} <div class="iconsvgCopy">
+  document.getElementById(
+    "modalTxID"
+  ).innerHTML = `${truncatedTxid} <div class="iconsvgCopy">
     <span onclick=" openTronscan('${transaction.tx_id}', event)">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
@@ -761,7 +776,6 @@ function openModal(transaction) {
   document.getElementById("transactionModal").style.display = "block";
 }
 
-
 function closeModal() {
   document.getElementById("transactionModal").style.display = "none";
 }
@@ -771,31 +785,32 @@ function copyToClipboard(text, event) {
   event.stopPropagation(); // Modal ochilmasligi uchun
   navigator.clipboard.writeText(text);
 
-  navigator.clipboard.writeText(text).then(() => {
-    const iconSpan = event.target.closest("span");
-    if (!iconSpan) return;
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      const iconSpan = event.target.closest("span");
+      if (!iconSpan) return;
 
-    const originalIcon = iconSpan.innerHTML;
-    iconSpan.innerHTML = `
+      const originalIcon = iconSpan.innerHTML;
+      iconSpan.innerHTML = `
   <svg class="bn-svg-icon-small-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
   </svg>
   `;
 
-    setTimeout(() => {
-      iconSpan.innerHTML = originalIcon;
-    }, 2000);
-  }).catch(err => console.error("Nusxalashda xatolik:", err));
+      setTimeout(() => {
+        iconSpan.innerHTML = originalIcon;
+      }, 2000);
+    })
+    .catch((err) => console.error("Nusxalashda xatolik:", err));
 }
 
-
 function loadTableData(data) {
-
   const tableBody = document.getElementById("tableBody");
   const tableNoData = document.getElementById("transactionNoData");
 
-  tableBody.innerHTML = '';
-  tableNoData.innerHTML = '';
+  tableBody.innerHTML = "";
+  tableNoData.innerHTML = "";
 
   if (data.length === 0) {
     tableNoData.innerHTML = `
@@ -812,12 +827,17 @@ function loadTableData(data) {
         </div>
     `;
   } else {
-
-    data.forEach(transaction => {
+    data.forEach((transaction) => {
       const row = document.createElement("tr");
       row.classList.add("table-items");
-      const truncatedRecipient = `${transaction.address.slice(0, 6)}...${transaction.address.slice(-4)}`;
-      const truncatedTxid = `${transaction.tx_id.slice(0, 6)}...${transaction.tx_id.slice(-4)}`;
+      const truncatedRecipient = `${transaction.address.slice(
+        0,
+        6
+      )}...${transaction.address.slice(-4)}`;
+      const truncatedTxid = `${transaction.tx_id.slice(
+        0,
+        6
+      )}...${transaction.tx_id.slice(-4)}`;
 
       row.innerHTML = `
         <td data-label="Время">${transaction.time}</td>
@@ -878,8 +898,6 @@ function openTronscan(transactionId, event) {
   window.open(url, "_blank"); // Yangi oynada ochish
 }
 
-
-
 const transactions = [
   {
     time: "2025-03-10 12:51:33",
@@ -890,57 +908,48 @@ const transactions = [
   },
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ==========================================================
 // Экспортировать записи транзакций
 
 // Function to collect all form data
 function collectFormData() {
   const formData = {
-    timeRange: '',
-    wallet: '',
-    subaccount: '',
-    coin: '',
-    customDateRange: ''
+    timeRange: "",
+    wallet: "",
+    subaccount: "",
+    coin: "",
+    customDateRange: "",
   };
 
   // Get selected time range
-  const activeTimeRange = document.querySelector('.flex-button.active');
+  const activeTimeRange = document.querySelector(".flex-button.active");
   if (activeTimeRange) {
     formData.timeRange = activeTimeRange.textContent.trim();
   }
 
   // Get wallet selection
-  const walletText = document.getElementById('selected-text-1').textContent.trim();
-  formData.wallet = walletText !== 'Пожалуйста, выберите аккаунт' ? walletText : '';
+  const walletText = document
+    .getElementById("selected-text-1")
+    .textContent.trim();
+  formData.wallet =
+    walletText !== "Пожалуйста, выберите аккаунт" ? walletText : "";
 
   // Get subaccount selection
-  const subaccountText = document.getElementById('selected-text-2').textContent.trim();
-  formData.subaccount = subaccountText !== 'Выбрать суб-аккаунты' ? subaccountText : '';
+  const subaccountText = document
+    .getElementById("selected-text-2")
+    .textContent.trim();
+  formData.subaccount =
+    subaccountText !== "Выбрать суб-аккаунты" ? subaccountText : "";
 
   // Get coin selection
-  const coinText = document.getElementById('selected-text-3').textContent.trim();
-  formData.coin = coinText !== 'Пожалуйста, выберите монету' ? coinText : '';
+  const coinText = document
+    .getElementById("selected-text-3")
+    .textContent.trim();
+  formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
 
   // Get custom date range if selected
-  if (formData.timeRange === 'Настроить') {
-    const dateRangePicker = document.getElementById('dateRangePicker');
+  if (formData.timeRange === "Настроить") {
+    const dateRangePicker = document.getElementById("dateRangePicker");
     formData.customDateRange = dateRangePicker.textContent.trim();
   }
 
@@ -954,19 +963,19 @@ function calculateDates(timeRange) {
   let startDate;
 
   switch (timeRange) {
-    case 'Последние 24 часа':
+    case "Последние 24 часа":
       startDate = new Date(now.setHours(now.getHours() - 24));
       break;
-    case '2 недели':
+    case "2 недели":
       startDate = new Date(now.setDate(now.getDate() - 14));
       break;
-    case '1 месяц':
+    case "1 месяц":
       startDate = new Date(now.setMonth(now.getMonth() - 1));
       break;
-    case '3 месяца':
+    case "3 месяца":
       startDate = new Date(now.setMonth(now.getMonth() - 3));
       break;
-    case '6 месяцев':
+    case "6 месяцев":
       startDate = new Date(now.setMonth(now.getMonth() - 6));
       break;
     default:
@@ -974,14 +983,15 @@ function calculateDates(timeRange) {
   }
 
   return {
-    startDate: startDate.toISOString().split('T')[0], // Format: YYYY-MM-DD
-    endDate: endDate.toISOString().split('T')[0]      // Format: YYYY-MM-DD
+    startDate: startDate.toISOString().split("T")[0], // Format: YYYY-MM-DD
+    endDate: endDate.toISOString().split("T")[0], // Format: YYYY-MM-DD
   };
 }
 
 // Function to handle export button click and send data to server
 async function handleExport() {
-  let API = SERVER_URL + "/orader/transaction-history/export-deposit-history-excel";
+  let API =
+    SERVER_URL + "/orader/transaction-history/export-deposit-history-excel";
 
   try {
     // Collect all form data
@@ -989,51 +999,61 @@ async function handleExport() {
 
     // Calculate dates based on time range
     const { startDate, endDate } = calculateDates(data.timeRange);
-    console.log(startDate, endDate);
 
     // Example API call using fetch
     const response = await fetch(API, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
+        accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         start_date: startDate,
         end_date: endDate,
         language: "ru",
-      })
+      }),
       // wallet: data.wallet,
       // subaccount: data.subaccount,
       // coin: data.coin,
       // ...(data.customDateRange && { customDateRange: data.customDateRange })
     });
+    if (response.ok) {
+      // Faylni yuklab olish
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.style.display = "none";
+      a.href = url;
+      a.download = "report.xlsx";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      console.log("Excel fayli muvaffaqiyatli yuklandi.");
+    } else {
+      console.error("Xatolik yuz berdi:", response.statusText);
+    }
 
     const result = await response.json();
-    console.log('Export successful:', result);
+    console.log("Export successful:", result);
 
     // Update UI if needed
     updateTransactionTable(result);
-
   } catch (error) {
-    console.error('Error during export:', error);
+    console.error("Error during export:", error);
     // Handle error (show message to user, etc.)
   }
 }
 // Function to update transaction table
 function updateTransactionTable(data) {
-  const tableBody = document.getElementById('transactionTableBody');
-  const row = document.createElement('tr');
+  const tableBody = document.getElementById("transactionTableBody");
+  const row = document.createElement("tr");
   row.innerHTML = `
         <td class="bn-web-table-cell">${new Date().toLocaleString()}</td>
-        <td class="bn-web-table-cell">${data.date || 'N/A'}</td>
-        <td class="bn-web-table-cell">${data.status || 'Processing'}</td>
+        <td class="bn-web-table-cell">${data.date || "N/A"}</td>
+        <td class="bn-web-table-cell">${data.status || "Processing"}</td>
     `;
   tableBody.prepend(row);
 }
-
-
-
 
 // ==========================================================
 // Экспортировать историю ввода средств
@@ -1041,54 +1061,79 @@ function updateTransactionTable(data) {
 let selectedCoin = null;
 let startDates = null;
 let endDates = null;
-let fileFormat = 'excel';
+let fileFormat = "excel";
+
+const fileTypeButtons = document.querySelectorAll(".section-tex-box button");
+
+fileTypeButtons[0].onclick = function () {
+  fileFormat = "excel";
+  handleExport();
+};
+
+fileTypeButtons[1].onclick = function () {
+  fileFormat = "pdf";
+  handleExport();
+};
 
 function setDateRange(range) {
   const now = new Date();
-  startDates = now.toISOString().split('T')[0]; // Сегодняшняя дата как startDate
+  startDates = now.toISOString().split("T")[0]; // Сегодняшняя дата как startDate
 
   switch (range) {
-    case '24h':
-      endDate = new Date(now - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    case "24h":
+      endDate = new Date(now - 24 * 60 * 60 * 1000).toISOString().split("T")[0];
       break;
-    case '2w':
-      endDate = new Date(now - 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    case "2w":
+      endDate = new Date(now - 14 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0];
       break;
-    case '1m':
-      endDate = new Date(now - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    case "1m":
+      endDate = new Date(now - 30 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0];
       break;
-    case '3m':
-      endDate = new Date(now - 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    case "3m":
+      endDate = new Date(now - 90 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0];
       break;
-    case '6m':
-      endDate = new Date(now - 180 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    case "6m":
+      endDate = new Date(now - 180 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0];
       break;
   }
 }
 
 async function exportTransactionHistory() {
   if (!startDate || !endDate) {
-    alert('Пожалуйста, выберите временной диапазон');
+    alert("Пожалуйста, выберите временной диапазон");
     return;
   }
-  if (!selectedCoin) {
-    alert('Пожалуйста, выберите монету');
-    return;
-  }
+  // if (!selectedCoin) {
+  //   alert("Пожалуйста, выберите монету");
+  //   return;
+  // }
 
+  let user_info = JSON.parse(localStorage.getItem("user")) || {};
+  let user_id = user_info?.user_id || 0;
   const payload = {
-    start_date: startDate, // Сегодня
-    end_date: endDate,    // Прошлая дата
-    language: 'ru',
-    // coin: selectedCoin,
-    // format: fileFormat
+    user: {
+      user_id: user_id,
+    },
+    start_date: startDate,
+    end_date: endDate,
   };
-  let API = SERVER_URL + "/orader/transaction-history/export-withdrawal-history-excel";
+  let API =
+    SERVER_URL + "/orader/transaction-history/export-withdrawal-history-excel";
+  let API2 =
+    SERVER_URL + "/orader/transaction-history/export-withdrawal-history-pdf";
   try {
-    const response = await fetch(API, {
-      method: 'POST',
+    const response = await fetch(fileFormat === "excel" ? API : API2, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
@@ -1099,16 +1144,17 @@ async function exportTransactionHistory() {
 
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = `transaction_history_${fileFormat === 'excel' ? 'xlsx' : 'pdf'}`;
+    a.download = `transaction_history_${
+      fileFormat === "excel" ? "xlsx" : "pdf"
+    }`;
     document.body.appendChild(a);
     a.click();
     a.remove();
     window.URL.revokeObjectURL(url); // Освобождаем память
   } catch (error) {
-    console.error('Ошибка при экспорте:', error);
-    alert('Произошла ошибка при экспорте файла. Пожалуйста, попробуйте снова.');
+    console.error("Ошибка при экспорте:", error);
+    alert("Произошла ошибка при экспорте файла. Пожалуйста, попробуйте снова.");
   }
 }
-

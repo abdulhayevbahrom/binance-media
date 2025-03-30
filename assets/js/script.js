@@ -49,7 +49,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 const mobileSelectedButton = document.querySelector(".sidebar-selected");
 
 mobileSelectedButton?.addEventListener("click", () => {
-  mobileSelectedButton.classList.toggle("sidebar-selected--open");
+  mobileSelectedButton?.classList.toggle("sidebar-selected--open");
   document.querySelector(".sidebar").classList.toggle("screen");
 
   if (document.body.style.overflow === "hidden") {
@@ -205,8 +205,8 @@ const updateBalanceDisplay = (isHidden) => {
     item.textContent = isHidden
       ? "******"
       : `${pnlData?.pnl < 0 ? "-" : "+"} $${Math.abs(pnlData?.pnl)}(${Math.abs(
-          pnlData?.percentage
-        )}%)`;
+        pnlData?.percentage
+      )}%)`;
   });
 };
 

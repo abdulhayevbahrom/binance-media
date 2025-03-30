@@ -3979,6 +3979,10 @@
     </footer>
   </div>
 
+
+
+
+
   <script src="../../../../../assets/js/script.js"></script>
   <script src="../../../../../assets/js/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -3987,38 +3991,30 @@
   <script src="../../../../../assets/sidebar-service.js"></script>
   <script src="../../../../../assets/select-service.js"></script>
   <script src="../../../../../assets/js/picker.js"></script>
-  <!-- <script src="../../../../../assets/js/style.js"></script> -->
 
-  <script src="../../../../../assets/js/service.js"></script>
+  <script src="../../../../../assets/js/service_ru.js"></script>
   <script>
+
+
     function getDefaultDates() {
       const today = new Date();
       const sevenDaysAgo = new Date(today);
       sevenDaysAgo.setDate(today.getDate() - 7);
 
-      const formatDate = (date) => date.toISOString().split("T")[0];
+      const formatDate = (date) => date.toISOString().split('T')[0];
 
       return [formatDate(sevenDaysAgo), formatDate(today)];
     }
 
     function updateDateDisplay(selectedDates, dateStr, instance) {
       if (selectedDates.length === 2) {
-        const formattedDates = selectedDates.map((date) =>
-          instance.formatDate(date, "Y-m-d")
-        );
+        const formattedDates = selectedDates.map(date => instance.formatDate(date, "Y-m-d"));
 
         startDate = formattedDates[0];
         endDate = formattedDates[1];
 
         setTimeout(() => {
-          instance.input.value =
-            formattedDates[0] +
-            " " +
-            '<span class="range-icon"></span>' +
-            " " +
-            formattedDates[1] +
-            " " +
-            '<span class="calendar-icon"></span>';
+          instance.input.value = formattedDates[0] + " " + '<span class="range-icon"></span>' + " " + formattedDates[1] + " " + '<span class="calendar-icon"></span>';
           instance.input.innerHTML = instance.input.value;
         }, 0);
 
@@ -4028,25 +4024,28 @@
 
     async function sendRequestWithDates(startDate, endDate) {
       try {
-        const user = JSON.parse(localStorage.getItem("user")); // user olingan
+        const user = JSON.parse(localStorage.getItem('user')); // user olingan
 
-        const response = await fetch(`${SERVER_URL}/accounts/trade-history`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user: {
-              user_id: user?.user_id, // To'g'ri o'zgaruvchini ishlatish
+        const response = await fetch(
+          `${SERVER_URL}/accounts/trade-history`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
             },
-            start_date: startDate,
-            end_date: endDate,
-            pagination: {
-              page_number: 1,
-              page_size: 30,
-            },
-          }),
-        });
+            body: JSON.stringify({
+              "user": {
+                "user_id": user?.user_id // To'g'ri o'zgaruvchini ishlatish
+              },
+              "start_date": startDate,
+              "end_date": endDate,
+              "pagination": {
+                "page_number": 1,
+                "page_size": 30
+              }
+            }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -4058,8 +4057,6 @@
         console.error(error);
       }
     }
-
-
     let [startDate, endDate] = getDefaultDates();
 
     flatpickr("#dateRangePicker", {
@@ -4094,12 +4091,10 @@
     let [selectedExportStartDate, selectedExportEndDate] = getDefaultDates();
 
     function updateExportDateRange(daysAgo) {
-      const calendarElement = document.querySelector(
-        "#dateRangePickerExport"
-      );
+      const calendarElement = document.querySelector("#dateRangePickerExport");
 
-      if (daysAgo === "customize") {
-        calendarElement.classList.remove("disabled");
+      if (daysAgo === 'customize') {
+        calendarElement.classList.remove('disabled');
 
         flatpickr("#dateRangePickerExport", {
           mode: "range",
@@ -4125,40 +4120,25 @@
           shorthandCurrentMonth: true,
           onChange: function (selectedDates, dateStr, instance) {
             if (selectedDates.length === 2) {
-              selectedExportStartDate = selectedDates[0]
-                .toISOString()
-                .split("T")[0];
-              selectedExportEndDate = selectedDates[1]
-                .toISOString()
-                .split("T")[0];
-              handleSelectedDates(
-                selectedExportStartDate,
-                selectedExportEndDate
-              );
+              selectedExportStartDate = selectedDates[0].toISOString().split('T')[0];
+              selectedExportEndDate = selectedDates[1].toISOString().split('T')[0];
+              handleSelectedDates(selectedExportStartDate, selectedExportEndDate);
             }
           },
           onValueUpdate: updateDateDisplay,
           onReady: function (selectedDates, dateStr, instance) {
             instance.jumpToDate(new Date());
             if (selectedDates.length === 2) {
-              selectedExportStartDate = selectedDates[0]
-                .toISOString()
-                .split("T")[0];
-              selectedExportEndDate = selectedDates[1]
-                .toISOString()
-                .split("T")[0];
+              selectedExportStartDate = selectedDates[0].toISOString().split('T')[0];
+              selectedExportEndDate = selectedDates[1].toISOString().split('T')[0];
             }
             updateDateDisplay(selectedDates, dateStr, instance);
 
-            const nextMonthButton = instance.calendarContainer.querySelector(
-              ".flatpickr-next-month"
-            );
-            const prevMonthButton = instance.calendarContainer.querySelector(
-              ".flatpickr-prev-month"
-            );
+            const nextMonthButton = instance.calendarContainer.querySelector('.flatpickr-next-month');
+            const prevMonthButton = instance.calendarContainer.querySelector('.flatpickr-prev-month');
             if (nextMonthButton && prevMonthButton) {
-              const svgNextIcon = nextMonthButton.querySelector("svg");
-              const svgPrevIcon = prevMonthButton.querySelector("svg");
+              const svgNextIcon = nextMonthButton.querySelector('svg');
+              const svgPrevIcon = prevMonthButton.querySelector('svg');
               if (svgNextIcon && svgPrevIcon) {
                 svgNextIcon.remove();
                 svgPrevIcon.remove();
@@ -4167,14 +4147,14 @@
           },
         });
       } else {
-        calendarElement.classList.add("disabled");
+        calendarElement.classList.add('disabled');
 
         const today = new Date();
         const startDate = new Date(today);
         startDate.setDate(today.getDate() - parseInt(daysAgo, 10));
 
-        const formattedStartDate = startDate.toISOString().split("T")[0];
-        const formattedEndDate = today.toISOString().split("T")[0];
+        const formattedStartDate = startDate.toISOString().split('T')[0];
+        const formattedEndDate = today.toISOString().split('T')[0];
 
         flatpickr("#dateRangePickerExport", {
           mode: "range",
@@ -4200,27 +4180,16 @@
           shorthandCurrentMonth: true,
           onChange: function (selectedDates, dateStr, instance) {
             if (selectedDates.length === 2) {
-              selectedExportStartDate = selectedDates[0]
-                .toISOString()
-                .split("T")[0];
-              selectedExportEndDate = selectedDates[1]
-                .toISOString()
-                .split("T")[0];
-              handleSelectedDates(
-                selectedExportStartDate,
-                selectedExportEndDate
-              );
+              selectedExportStartDate = selectedDates[0].toISOString().split('T')[0];
+              selectedExportEndDate = selectedDates[1].toISOString().split('T')[0];
+              handleSelectedDates(selectedExportStartDate, selectedExportEndDate);
             }
           },
           onReady: function (selectedDates, dateStr, instance) {
             instance.jumpToDate(new Date());
             if (selectedDates.length === 2) {
-              selectedExportStartDate = selectedDates[0]
-                .toISOString()
-                .split("T")[0];
-              selectedExportEndDate = selectedDates[1]
-                .toISOString()
-                .split("T")[0];
+              selectedExportStartDate = selectedDates[0].toISOString().split('T')[0];
+              selectedExportEndDate = selectedDates[1].toISOString().split('T')[0];
             }
             updateDateDisplay(selectedDates, dateStr, instance);
           },
@@ -4228,20 +4197,20 @@
       }
     }
 
-    updateExportDateRange(7);
+    updateExportDateRange(7)
 
-    document.querySelector(".flatpickr-prev-month").innerHTML = "";
-    document.querySelector(".flatpickr-next-month").innerHTML = "";
+    document.querySelector('.flatpickr-prev-month').innerHTML = '';
+    document.querySelector('.flatpickr-next-month').innerHTML = '';
 
     sendRequestWithDates(startDate, endDate);
 
     function populateTable(transactions) {
-      const tbody = document.querySelector("#tradehistory-tbody");
+      const tbody = document.querySelector('#tradehistory-tbody');
 
-      tbody.innerHTML = "";
+      tbody.innerHTML = '';
 
-      transactions.forEach((transaction) => {
-        const row = document.createElement("tr");
+      transactions.forEach(transaction => {
+        const row = document.createElement('tr');
 
         // row.innerHTML = `
         //     <td>${formatTimestamp(transaction.time)}</td>
@@ -4255,65 +4224,49 @@
 
         // <td data-label="Тикер">${transaction.ticker}</td>
         // <td data-label="Сторона" class=${transaction.party === 'Открыть шорт' || transaction.party === 'Закрыть лонг' ? 'red' : 'green'}>${transaction.party}</td>
-
         row.innerHTML = `
-            <td data-label="Time">${formatTimestamp(transaction.time)}</td>
-            
-            <td>${transaction.ticker === "BTCUSDT Бессрочный"
-            ? "BTCUSDT Perpetual"
-            : transaction.ticker
-          }
-          </td>
-            
-        <td
-            class=${transaction.party === "Закрыть лонг" ||
-            transaction.party === "Close Long" ||
-            transaction.party === "Открыть шорт"
+                <td data-label="Time">${formatTimestamp(transaction.time)}</td>
+           <td data-label="Ticker">
+  ${transaction.ticker.replace("Бессрочный", "Perpetual")}
+</td>
+               <td data-label="Side"
+                class=${transaction.party === "Закрыть лонг" || transaction.party === "Close Long" || transaction.party === "Открыть шорт"
             ? "red"
-            : transaction.party === "Открыть лонг" ||
-              transaction.party === "Закрыть шорт"
+            : transaction.party === "Открыть лонг" || transaction.party === "Закрыть шорт"
               ? "green"
               : ""
           }>
-            ${transaction.party === "Закрыть лонг" ||
-            transaction.party === "Открыть шорт"
+                ${transaction.party === "Закрыть лонг" || transaction.party === "Открыть шорт"
             ? "Sell"
-            : transaction.party === "Открыть лонг" ||
-              transaction.party === "Закрыть шорт"
+            : transaction.party === "Открыть лонг" || transaction.party === "Закрыть шорт"
               ? "Buy"
               : transaction.party
           }
-        </td>
-            
-            <td data-label="Price">${formatter.format(transaction.price)}</td>
-            <td data-label="Quantity">${(+transaction.quantity).toFixed(
-            1
-          )} USDT</td>
-            <td data-label="Fee">${transaction.commission} USDT</td>
-            <td data-label="Realized Profit">${transaction.realized_profit
-          } USDT</td>
-          `;
+            </td>
+                <td data-label="Price">${formatter.format(transaction.price)}</td>
+                <td data-label="Quantity">${(+transaction.quantity).toFixed(1)} USDT</td>
+                <td data-label="Fee">${transaction.commission} USDT</td>
+                <td data-label="Realized Profit">${transaction.realized_profit} USDT</td>
+              `;
 
         tbody.appendChild(row);
       });
     }
 
+
+
     // Ticker select
 
     const tickerSelect = document.querySelector("#ticker-select");
-    const tickerSelectLabel = tickerSelect.querySelector(
-      ".order-select__label"
-    );
+    const tickerSelectLabel = tickerSelect.querySelector(".order-select__label");
     const tickerSelectLabelSpan = tickerSelectLabel.querySelector("span");
-    const tickerOptions = tickerSelect.querySelector(
-      ".order-select__list-wrapper"
-    );
+    const tickerOptions = tickerSelect.querySelector(".order-select__list-wrapper");
     const tickerOptionList = tickerOptions.querySelectorAll(
       ".order-select__option"
     );
 
     function updateSelectedTickerOption(value) {
-      tickerOptionList.forEach((opt) => {
+      tickerOptionList.forEach(opt => {
         opt.classList.remove("selected", "highlight");
         if (opt.getAttribute("data-value") === value) {
           opt.classList.add("selected", "highlight");
@@ -4329,18 +4282,18 @@
       tickerSelectLabel.classList.toggle("open");
     });
 
-    tickerOptionList.forEach((option) => {
+    tickerOptionList.forEach(option => {
       option.addEventListener("click", function () {
         const value = option.getAttribute("data-value");
         updateSelectedTickerOption(value);
-        orderTypeOptions.style.zIndex = "-1";
+        orderTypeOptions.style.zIndex = '-1'
       });
     });
 
     // Side select
+
     const sideSelect = document.querySelector("#side-select");
     const sideSelectLabel = sideSelect.querySelector(".order-select__label");
-    const sideSelectLabelSpan = sideSelectLabel.querySelector("span");
     const sideOptions = sideSelect.querySelector(".order-select__list-wrapper");
     const sideOptionList = sideOptions.querySelectorAll(
       ".order-select__option"
@@ -4351,174 +4304,151 @@
         opt.classList.remove("selected", "highlight");
         if (opt.getAttribute("data-value") === value) {
           opt.classList.add("selected", "highlight");
-          sideSelectLabelSpan.textContent = opt.textContent;
         }
       });
     }
 
     updateSelectedSideOption("all");
 
-    sideOptionList.forEach((option) => {
+    sideOptionList.forEach(option => {
       option.addEventListener("click", function () {
         const value = option.getAttribute("data-value");
         updateSelectedSideOption(value);
-        orderTypeOptions.style.zIndex = "-1";
+        orderTypeOptions.style.zIndex = '-1'
       });
     });
 
-    const orderTabContainers = document.querySelectorAll(".order-tab");
+    const orderTabContainers = document.querySelectorAll('.order-tab');
 
     function toggleActive(event) {
-      if (event.target.tagName === "BUTTON") {
-        const container = event.target.closest(".order-tab");
+      if (event.target.tagName === 'BUTTON') {
+        const container = event.target.closest('.order-tab');
 
-        const buttons = container.querySelectorAll("button");
-        buttons.forEach((button) =>
-          button.classList.remove("order-tab-active")
-        );
+        const buttons = container.querySelectorAll('button');
+        buttons.forEach(button => button.classList.remove('order-tab-active'));
 
-        event.target.classList.add("order-tab-active");
+        event.target.classList.add('order-tab-active');
       }
     }
 
-    orderTabContainers.forEach((container) => {
-      container.addEventListener("click", toggleActive);
+    orderTabContainers.forEach(container => {
+      container.addEventListener('click', toggleActive);
     });
 
-    const resetSelectsButton = document.querySelector(".reset-selects");
+    const resetSelectsButton = document.querySelector('.reset-selects')
 
-    resetSelectsButton.addEventListener("click", () => {
-      updateSelectedSideOption("all");
+    resetSelectsButton.addEventListener('click', () => {
+      updateSelectedSideOption("all")
       updateSelectedTickerOption("all");
-    });
+    })
 
-    const backdrop = document.querySelector(".backdrop");
-    const analysisModal = document.querySelector(".analysis-modal");
-    const exportModal = document.querySelector(".export-modal");
+    const backdrop = document.querySelector('.backdrop')
+    const analysisModal = document.querySelector('.analysis-modal')
+    const exportModal = document.querySelector('.export-modal')
 
-    document
-      .querySelector("#analysis-button")
-      .addEventListener("click", () => {
-        analysisModal.classList.add("show");
-        backdrop.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
+    document.querySelector('#analysis-button').addEventListener('click', () => {
+      analysisModal.classList.add('show')
+      backdrop.classList.add('show')
+      document.body.style.overflow = "hidden"
+    })
 
-    document.querySelector("#export-button").addEventListener("click", () => {
-      exportModal.classList.add("show");
-      backdrop.classList.add("show");
-      document.body.style.overflow = "hidden";
-    });
+    document.querySelector('#export-button').addEventListener('click', () => {
+      exportModal.classList.add('show')
+      backdrop.classList.add('show')
+      document.body.style.overflow = "hidden"
+    })
 
-    document
-      .querySelector("#analysis-button")
-      .addEventListener("click", () => {
-        analysisModal.classList.add("show");
-        backdrop.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
+    document.querySelector('#analysis-button').addEventListener('click', () => {
+      analysisModal.classList.add('show')
+      backdrop.classList.add('show')
+      document.body.style.overflow = "hidden"
+    })
 
-    backdrop.addEventListener("click", () => {
-      analysisModal.classList.remove("show");
-      exportModal.classList.remove("show");
-      backdrop.classList.remove("show");
-      document.body.style.overflow = "";
-    });
+    backdrop.addEventListener('click', () => {
+      analysisModal.classList.remove('show')
+      exportModal.classList.remove('show')
+      backdrop.classList.remove('show')
+      document.body.style.overflow = ""
+    })
 
-    document
-      .querySelector(".analysis-modal__close-button")
-      .addEventListener("click", () => {
-        analysisModal.classList.remove("show");
-        backdrop.classList.remove("show");
-        document.body.style.overflow = "";
-      });
+    document.querySelector('.analysis-modal__close-button').addEventListener('click', () => {
+      analysisModal.classList.remove('show')
+      backdrop.classList.remove('show')
+      document.body.style.overflow = ""
+    })
 
-    document
-      .querySelector(".export-modal__close-button")
-      .addEventListener("click", () => {
-        exportModal.classList.remove("show");
-        backdrop.classList.remove("show");
-        document.body.style.overflow = "";
-      });
-    document
-      .querySelector(".export-modal__back-button")
-      .addEventListener("click", () => {
-        exportModal.classList.remove("show");
-        backdrop.classList.remove("show");
-        document.body.style.overflow = "";
-      });
+    document.querySelector('.export-modal__close-button').addEventListener('click', () => {
+      exportModal.classList.remove('show')
+      backdrop.classList.remove('show')
+      document.body.style.overflow = ""
+    })
+    document.querySelector('.export-modal__back-button').addEventListener('click', () => {
+      exportModal.classList.remove('show')
+      backdrop.classList.remove('show')
+      document.body.style.overflow = ""
+    })
 
-    document
-      .querySelector(".export-modal__export-button")
-      .addEventListener("click", async () => {
-        try {
-          let downloadUrl;
-          const isWindows = navigator.platform.indexOf("Win") > -1;
-          const isMac = navigator.platform.indexOf("Mac") > -1;
+    document.querySelector('.export-modal__export-button').addEventListener('click', async () => {
+      try {
+        let downloadUrl;
+        const isWindows = navigator.platform.indexOf('Win') > -1;
+        const isMac = navigator.platform.indexOf('Mac') > -1;
 
-          if (isWindows) {
-            downloadUrl = `${SERVER_URL}/report/trade-history-excel`;
-          } else if (isMac) {
-            downloadUrl = `${SERVER_URL}/report/trade-history-csv`;
-          } else {
-            downloadUrl = `${SERVER_URL}/report/trade-history-excel`;
-          }
-
-          // Выполнение запроса
-          const response = await fetch(downloadUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              user: {
-                user_id: user.user_id,
-              },
-              start_date: selectedExportStartDate,
-              end_date: selectedExportEndDate,
-            }),
-          });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-
-          const blob = await response.blob();
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-
-          const fileName = isMac ? "trade-history.csv" : "trade-history.xlsx";
-          a.download = fileName;
-
-          document.body.appendChild(a);
-          a.click();
-
-          a.remove();
-          window.URL.revokeObjectURL(url);
-        } catch (error) {
-          console.error("Ошибка при загрузке файла:", error);
+        if (isWindows) {
+          downloadUrl = `${SERVER_URL}/report/trade-history-excel`;
+        } else if (isMac) {
+          downloadUrl = `${SERVER_URL}/report/trade-history-csv`;
+        } else {
+          downloadUrl = `${SERVER_URL}/report/trade-history-excel`;
         }
-      });
+
+        // Выполнение запроса
+        const response = await fetch(downloadUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            "user": {
+              "user_id": user.user_id
+            },
+            "start_date": selectedExportStartDate,
+            "end_date": selectedExportEndDate,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+
+        const fileName = isMac ? 'trade-history.csv' : 'trade-history.xlsx';
+        a.download = fileName;
+
+        document.body.appendChild(a);
+        a.click();
+
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      } catch (error) {
+        console.error('Ошибка при загрузке файла:', error);
+      }
+
+    })
 
     function updateAnalysisDateDisplay(selectedDates, dateStr, instance) {
       if (selectedDates.length === 2) {
-        const formattedDates = selectedDates.map((date) =>
-          instance.formatDate(date, "Y-m-d")
-        );
+        const formattedDates = selectedDates.map(date => instance.formatDate(date, "Y-m-d"));
 
         startDate = formattedDates[0];
         endDate = formattedDates[1];
 
         setTimeout(() => {
-          instance.input.value =
-            formattedDates[0] +
-            " " +
-            '<span class="range-icon"></span>' +
-            " " +
-            formattedDates[1] +
-            " " +
-            '<span class="calendar-icon"></span>';
+          instance.input.value = formattedDates[0] + " " + '<span class="range-icon"></span>' + " " + formattedDates[1] + " " + '<span class="calendar-icon"></span>';
           instance.input.innerHTML = instance.input.value;
         }, 0);
 
@@ -4528,7 +4458,7 @@
 
     async function sendAnalysisRequestWithDates(startDate, endDate) {
       try {
-        const user = JSON.parse(localStorage.getItem("user"));
+        const user = JSON.parse(localStorage.getItem('user'));
 
         const response = await fetch(
           `${SERVER_URL}/accounts/trade-analysis`,
@@ -4538,41 +4468,27 @@
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              user: {
-                user_id: user.user_id,
+              "user": {
+                "user_id": user.user_id
               },
-              start_date: startDate,
-              end_date: endDate,
+              "start_date": startDate,
+              "end_date": endDate,
             }),
           }
         );
 
         if (response.ok) {
           const data = await response.json();
-          document.getElementById("analysis-total-pnl").textContent =
-            data.total_pnl + " USDT";
-          document.getElementById("analysis-total-pnl").style.color =
-            +data.total_pnl > 0
-              ? "#80d8ad"
-              : +data.total_pnl < 0
-                ? "#ce2b5c"
-                : "";
-          document.getElementById("analysis-total-profit").textContent =
-            data.profit + " USDT";
-          document.getElementById("analysis-total-profit").style.color =
-            +data.profit > 0 ? "#80d8ad" : +data.profit < 0 ? "#ce2b5c" : "";
-          document.getElementById("analysis-total-loss").textContent =
-            data.loss + " USDT";
-          document.getElementById("analysis-total-loss").style.color =
-            +data.loss > 0 ? "#80d8ad" : +data.loss < 0 ? "#ce2b5c" : "";
-          document.getElementById("analysis-total-purchases").textContent =
-            data.total_purchases + " BTC";
-          document.getElementById("analysis-total-sales").textContent =
-            data.total_sales + " BTC";
-          document.getElementById("analysis-avg-purchase").textContent =
-            data.average_purchase_price;
-          document.getElementById("analysis-avg-selling").textContent =
-            data.average_selling_price;
+          document.getElementById('analysis-total-pnl').textContent = data.total_pnl + ' USDT'
+          document.getElementById('analysis-total-pnl').style.color = +(data.total_pnl) > 0 ? '#80d8ad' : +(data.total_pnl) < 0 ? '#ce2b5c' : ''
+          document.getElementById('analysis-total-profit').textContent = data.profit + ' USDT'
+          document.getElementById('analysis-total-profit').style.color = +(data.profit) > 0 ? '#80d8ad' : +(data.profit) < 0 ? '#ce2b5c' : ''
+          document.getElementById('analysis-total-loss').textContent = data.loss + ' USDT'
+          document.getElementById('analysis-total-loss').style.color = +(data.loss) > 0 ? '#80d8ad' : +(data.loss) < 0 ? '#ce2b5c' : ''
+          document.getElementById('analysis-total-purchases').textContent = data.total_purchases + ' BTC'
+          document.getElementById('analysis-total-sales').textContent = data.total_sales + ' BTC'
+          document.getElementById('analysis-avg-purchase').textContent = data.average_purchase_price
+          document.getElementById('analysis-avg-selling').textContent = data.average_selling_price
         } else {
           console.error("Ошибка:", response.statusText);
         }
@@ -4607,47 +4523,39 @@
       onReady: function (selectedDates, dateStr, instance) {
         instance.jumpToDate(new Date());
         updateAnalysisDateDisplay(selectedDates, dateStr, instance);
-        const nextMonthButton = instance.calendarContainer.querySelector(
-          ".flatpickr-next-month"
-        );
-        const prevMonthButton = instance.calendarContainer.querySelector(
-          ".flatpickr-prev-month"
-        );
+        const nextMonthButton = instance.calendarContainer.querySelector('.flatpickr-next-month');
+        const prevMonthButton = instance.calendarContainer.querySelector('.flatpickr-prev-month');
         if (nextMonthButton && prevMonthButton) {
-          const svgNextIcon = nextMonthButton.querySelector("svg");
-          const svgPrevIcon = prevMonthButton.querySelector("svg");
+          const svgNextIcon = nextMonthButton.querySelector('svg');
+          const svgPrevIcon = prevMonthButton.querySelector('svg');
           if (svgNextIcon && svgPrevIcon) {
             svgNextIcon.remove();
             svgPrevIcon.remove();
           }
         }
       },
-    });
+    })
 
-    document.querySelector(".flatpickr-prev-month").innerHTML = "";
-    document.querySelector(".flatpickr-next-month").innerHTML = "";
+    document.querySelector('.flatpickr-prev-month').innerHTML = ''
+    document.querySelector('.flatpickr-next-month').innerHTML = ''
 
-    const radioButtons = document.querySelectorAll(
-      'input[name="export-option"]'
-    );
-    const calendar = document.querySelector("#dateRangePickerExport");
+    const radioButtons = document.querySelectorAll('input[name="export-option"]');
+    const calendar = document.querySelector('#dateRangePickerExport');
 
-    const firstRadio = document.querySelector(
-      'input[name="export-option"]:first-child'
-    );
+    const firstRadio = document.querySelector('input[name="export-option"]:first-child');
     firstRadio.checked = true;
-    calendar.classList.add("disable");
+    calendar.classList.add('disable');
 
-    radioButtons.forEach((radio) => {
-      radio.addEventListener("change", function () {
+    radioButtons.forEach(radio => {
+      radio.addEventListener('change', function () {
         let selectedValue = this.value;
 
-        updateExportDateRange(selectedValue);
+        updateExportDateRange(selectedValue)
 
-        if (selectedValue === "customize") {
-          calendar.classList.remove("disable");
+        if (selectedValue === 'customize') {
+          calendar.classList.remove('disable');
         } else {
-          calendar.classList.add("disable");
+          calendar.classList.add('disable');
         }
       });
     });
@@ -4658,11 +4566,11 @@
     const infoSection = document.querySelectorAll(".results");
     let radioValid;
 
-    radioButton?.forEach((e) => {
-      e.addEventListener("click", (e) => {
+    radioButton?.forEach(e => {
+      e.addEventListener("click", e => {
         const blockRender = e.currentTarget.dataset.path;
 
-        infoSection?.forEach((e) => {
+        infoSection?.forEach(e => {
           if (
             !document
               .querySelector(`[data-target=${blockRender}]`)
@@ -4679,6 +4587,7 @@
         });
       });
     });
+
   </script>
 </body>
 

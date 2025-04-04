@@ -1365,9 +1365,10 @@ html :is(.text-base) {
 }
 
 .bn-flexitems-center {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  display: flex;
 }
 
 .text-t-primarys {
@@ -1782,7 +1783,7 @@ html :is(.items-center) {
 .transfer-filters {
   display: flex;
   gap: 15px;
-  width: 70% !important;
+  width: 68% !important;
   margin-top: 30px;
 }
 

@@ -3691,13 +3691,14 @@
             <a class="sidebar__menu-item" href="/en/my/dashboard" onclick="return false;">
               <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12v8h5.5v-6h5v6H20v-8l-8-8-8 8z"
-                  fill="currentColor"></path>
+                  fill="currentColor">
+                </path>
               </svg>
               <span class="sidebar__menu-item-title">Dashboard</span>
             </a>
             <div style="display: flex; flex-direction: column">
-              <div class="sidebar__menu-item">
-                <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion">
+                <svg size=" 24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4 8.5A4.5 4.5 0 018.5 4H20v16H8.5A4.5 4.5 0 014 15.5v-7zM8.5 7H17v3H8.5a1.5 1.5 0 110-3zm4.5 6h4v4h-4v-4z"
                     fill="currentColor"></path>
@@ -3720,7 +3721,7 @@
                 <a class="sidebar__menu-item" href="/en/my/wallet/account/margin" onclick="return false;">
                   <span class="sidebar__menu-item-title">Margin</span>
                 </a>
-                <a class="sidebar__menu-item sidebar__menu-item--active" href="/en/my/wallet/account/futures">
+                <a class="sidebar__menu-item" href="/en/my/wallet/account/futures">
                   <span class="sidebar__menu-item-title">Futures</span>
                 </a>
                 <!-- <a class="sidebar__menu-item" href="/en/my/wallet/account/eoptions" onclick="return false;">
@@ -3762,8 +3763,7 @@
               </div>
             </div>
             <div style="display: flex; flex-direction: column">
-              <div
-                class="sidebar__menu-item sidebar__menu-item--accordion  sidebar__menu-item--accordion sidebar__menu-item--active">
+              <div class="sidebar__menu-item sidebar__menu-item--accordion sidebar__menu-item--active">
                 <svg size="24" class="sidebar__menu-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M4.5 3v18h4.91A7.5 7.5 0 0118.5 9.365V7l-4-4h-10zm16 13a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0zm-4.79-2.875h-2v4l3.031 1.75 1-1.732-2.031-1.173v-2.845z"
@@ -3886,6 +3886,7 @@
         </div>
       </div>
 
+
       <!-- SIDEBAR END -->
       <div class="main-history">
         <div class="bn-tab__default-breakline">
@@ -3946,11 +3947,11 @@
 
           <div class="captiontext-t-third">Тип</div>
           <div class="order-select" id="orderType1"></div>
-          <div class="captiontext-t-third">Время</div>
+          <div class="captiontext-t-third">Time</div>
           <div class="order-select" id="orderType2"></div>
-          <div class="captiontext-t-third">Монета</div>
+          <div class="captiontext-t-third">Coin</div>
           <div class="order-select" id="orderType3"></div>
-          <div class="captiontext-t-third">Статус</div>
+          <div class="captiontext-t-third">Status</div>
           <div class="order-select" id="orderType4"></div>
 
           <div class="captiontext-t-third">TxID</div>
@@ -4045,7 +4046,7 @@
                       <div class="transaction-wrapper">
 
                         <div class="justify-between-p-xl">
-                          <div class="typography-headline5">Подробнее</div>
+                          <div class="typography-headline5">Deposit Details</div>
                           <div onclick="closeModal()" class="flex-justify-end"><svg
                               id="btn-ModalPcDrawerMobile-setOpen-pc" class="bn-svgH-xl" viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg">
@@ -4056,23 +4057,24 @@
                           </div>
                         </div>
 
-                        <div class="transaction-detail"><span>Статус</span><span class="transaction-status">
-                            <div class="dot-status"></div> Завершено
+                        <div class="transaction-detail"><span>Status</span><span class="transaction-status">
+                            <div class="dot-status"></div> Completed
                           </span></div>
-                        <div class="transaction-detail"><span>Дата</span><span id="modalTime">2025-03-09 18:28</span>
+                        <div class="transaction-detail"><span>Time</span><span id="modalTime">2025-03-09 18:28</span>
                         </div>
-                        <div class="transaction-detail"><span>Монета</span><span id="modalTransfer">USDT</span></div>
-                        <div class="transaction-detail"><span>Сумма ввода</span><span id="modalWallet">10</span></div>
-                        <div class="transaction-detail"><span>Сеть</span><span id="modalAmount">TRX</span></div>
+                        <div class="transaction-detail"><span>Coin</span><span id="modalTransfer">USDT</span></div>
+                        <div class="transaction-detail"><span>Deposit amount</span><span id="modalWallet">10</span>
+                        </div>
+                        <div class="transaction-detail"><span>Network</span><span id="modalAmount">TRX</span></div>
                         <div class="transaction-detail">
-                          <span>Адрес</span>
+                          <span>Address</span>
                           <span id="modalRecipient">TLHwgE...eUgTUF <span class="transaction-copy-icon">📋</span></span>
                         </div>
                         <div class="transaction-detail">
                           <span>TxID</span>
                           <span id="modalTxID">924205...4b2ca7 <span class="transaction-copy-icon">📋</span></span>
                         </div>
-                        <div class="transaction-detail"><span>Кошелек для ввода</span><span>Спотовый кошелек</span>
+                        <div class="transaction-detail"><span>Deposit wallet</span><span>Spot Wallet</span>
                         </div>
                       </div>
                     </div>
@@ -4096,7 +4098,7 @@
       <div class="modal-content">
         <div class="bn-modal-header-main">
           <div class="bn-flexitems-center">
-            <div class="text-t-primarys">Выберите временной диапазон</div>
+            <div class="text-t-primarys">Select a Time Range</div>
             <svg class="close-modal  bn-svgtext" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
@@ -4106,12 +4108,12 @@
         </div>
 
         <div class="bn-modal-content">
-          <div class="textTsecondary">Выберите диапазон в пределах 12 месяцев.</div>
+          <div class="textTsecondary">Select your time range within 12 months.</div>
 
           <div class="bn-flex-w-full">
 
             <div class="flex-1">
-              <div class="mb-4xs-body3">Время начала</div>
+              <div class="mb-4xs-body3">Start time</div>
               <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
                 <div class="bn-web-datepicker-input">
                   <input id="startDate" readonly placeholder="Start Date" title="Start Date" size="12"
@@ -4193,10 +4195,10 @@
 
             </div>
 
-            <div class="flex-shrink-02">до</div>
+            <div class="flex-shrink-02">to</div>
 
             <div class="flex-1">
-              <div class="mb-4xs-body3">Время окончания</div>
+              <div class="mb-4xs-body3">End time</div>
               <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
                 <div class="bn-web-datepicker-input">
                   <input id="endDate" readonly placeholder="End Date" title="End Date" size="12" autocomplete="off"
@@ -4276,7 +4278,7 @@
           </div>
 
           <button onclick="sendData()" aria-label="Продолжить" role="button"
-            class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
+            class="bn-button bn-button__primary data-size-large my-xl w-full">Continue</button>
         </div>
 
       </div>
@@ -4328,11 +4330,11 @@
           <div class="container-tex">
 
             <div class="section-tex">
-              <div class="title-tex">Кошелек</div>
+              <div class="title-tex">Account</div>
               <div id="container-1" onclick="toggleModal(1)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
-                    <div id="selected-text-1" class="subaccount-box-tex">Пожалуйста, выберите аккаунт</div>
+                    <div id="selected-text-1" class="subaccount-box-tex">Please select an account</div>
                   </div>
                 </div>
                 <div class="icon-texCash">
@@ -4352,12 +4354,12 @@
             </div>
 
             <div class="section-tex">
-              <div class="title-tex">Субаккаунт</div>
+              <div class="title-tex">Sub-account</div>
               <div id="container-2" onclick="toggleModal(2)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
                     <div class="subaccount-box-tex">
-                      <div id="selected-text-2" class="subaccount-box-tex">Выбрать суб-аккаунты</div>
+                      <div id="selected-text-2" class="subaccount-box-tex">Select sub-accounts</div>
                     </div>
                   </div>
                 </div>
@@ -4378,10 +4380,10 @@
             </div>
 
             <div class="section-tex">
-              <div class="title-tex">Монета</div>
+              <div class="title-tex">Coin</div>
               <div id="container-3" onclick="toggleModal(3)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-3" class="subaccount-box-tex">Пожалуйста, выберите монету</div>
+                  <div id="selected-text-3" class="subaccount-box-tex">Please select a coin</div>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4406,24 +4408,22 @@
 
           <div class="bn-button-cont">
             <button onclick="handleExport()" aria-label="Экспорт" role="button" id="btn-GenerateButton-0-15"
-              class="bn-button" style="width: 100%;">Экспорт
+              class="bn-button" style="width: 100%;">Export
             </button>
 
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Оставшееся количество отчетов в этом месяце:<span class="tab-lenght">0/15</span>
+                <div class="">Generate quota this month:<span class="tab-lenght">0/15</span>
                 </div>
               </div>
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div>Когда ваш отчет будет готов, мы уведомим вас с помощью СМС, по электронной почте или другим
-                  способом.
-                  Обязательно скачайте отчет в течение 7 дней, так как после этого срок действия ссылки истечет.
-                  Обратите
-                  внимание, что экспортированные данные включают транзакции до вчерашнего дня в формате UTC+0 (T-1) и
-                  для
-                  обеспечения согласованности используется часовой пояс UTC+0.</div>
+                <div>When your statement is ready, we will inform you through SMS, email, or other methods. It's
+                  important to download it
+                  within 7 days, as the link will then expire. Be aware that exported data includes transactions up till
+                  yesterday UTC+0
+                  (T-1) and uses the UTC+0 time zone for consistency.</div>
               </div>
             </div>
           </div>
@@ -4439,9 +4439,9 @@
                     <table style="table-layout: fixed;">
                       <thead class="bn-web-table-thead">
                         <tr>
-                          <th class="bn-web-table-cell">Время экспорта</th>
-                          <th class="bn-web-table-cell">Дата (UTC+0)</th>
-                          <th class="bn-web-table-cell">Статус</th>
+                          <th class="bn-web-table-cell">Submission time</th>
+                          <th class="bn-web-table-cell">Date (UTC+0)</th>
+                          <th class="bn-web-table-cell">Status</th>
                         </tr>
                       </thead>
                     </table>
@@ -4467,7 +4467,7 @@
     <div id="secondModal" class="data-size-small">
       <div class="bn-modal-wrap">
         <div class="flex-modal">
-          <div class="typography-headline5 text-t-Primary">Экспортировать историю ввода средств</div>
+          <div class="typography-headline5 text-t-Primary">Export Deposit History</div>
           <div id="modalDrawerMobile-setOpen-false" class="fustifyEnd">
             <svg class="svg-iconOut" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -4486,7 +4486,7 @@
           <div class="date-range-select-wrap">
             <div class="radio-range-select-wrap">
               <div class="body-title">
-                Выберите временной диапазон
+                Select a Time Range
               </div>
               <!-- <div class="flex-flex-wrap">
                     <div class="flex-button active">Последние 24 часа</div>
@@ -4497,13 +4497,15 @@
                     <div class="flex-button" id="customButtonCalc">Настроить</div>
                   </div> -->
               <div class="flex-flex-wrap">
-                <div class="flex-button active" onclick="setDateRange('24h')">Последние 24 часа</div>
-                <div class="flex-button" onclick="setDateRange('2w')">2 недели</div>
-                <div class="flex-button" onclick="setDateRange('1m')">1 месяц</div>
-                <div class="flex-button" onclick="setDateRange('3m')">3 месяца</div>
-                <div class="flex-button" onclick="setDateRange('6m')">6 месяцев</div>
-                <div class="flex-button" id="customButtonCalc" onclick="toggleCustomDate()">Настроить</div>
+                <div class="flex-button active" onclick="setDateRange('24h')">Last 24 hours</div>
+                <div class="flex-button" onclick="setDateRange('2w')">2 Weeks</div>
+                <div class="flex-button" onclick="setDateRange('1m')">1 Month</div>
+                <div class="flex-button" onclick="setDateRange('3m')">3 Months</div>
+                <div class="flex-button" onclick="setDateRange('6m')">6 Months</div>
+                <div class="flex-button" id="customButtonCalc" onclick="toggleCustomDate()">Customize</div>
               </div>
+
+
             </div>
           </div>
 
@@ -4514,10 +4516,10 @@
           <div class="container-tex">
 
             <div class="section-tex">
-              <div class="title-tex">Монета</div>
+              <div class="title-tex">Coin</div>
               <div id="container-4" onclick="toggleModal(4)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-4" class="subaccount-box-tex">Пожалуйста, выберите монету</div>
+                  <div id="selected-text-4" class="subaccount-box-tex">Please select a coin</div>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4536,7 +4538,7 @@
 
             </div>
             <div class="section-tex">
-              <div class="title-tex">Выберите формат файла</div>
+              <div class="title-tex">Select file format</div>
               <div class="section-tex-box">
                 <button>Excel</button>
                 <button>PDF</button>
@@ -4549,7 +4551,7 @@
 
 
           <button onclick="exportTransactionHistory()" aria-label="Экспорт" role="button" id="btn-GenerateButton-0-15"
-            class="bn-button" style="width: 100%;">Экспорт
+            class="bn-button" style="width: 100%;">Export
           </button>
         </div>
       </div>
@@ -4564,16 +4566,81 @@
   </div>
   <script src="../../../../../assets/js/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="../../../../../assets/js/script.js"></script>
   <script src="../../../../../assets/js/lang.js"></script>
   <script src="../../../../../assets/style/media/media.js"></script>
-  <script src="../../../../../assets/sidebar-service.js"></script>
+  <script src="../../../../../assets/js/script.js"></script>
   <script src="../../../../../assets/search-service.js"></script>
   <script src="../../../../../assets/select-service.js"></script>
   <script src="../../../../../assets/js/service_ru.js"></script>
   <script src="../../../../../assets/js/history_calendar_ru.js"></script>
   <script src="../../../../../assets/js/deposit_crypto_eng.js"></script>
 
+  <script src="../../../../../assets/sidebar-service.js"></script>
+
+
+  <script>
+    document
+      .querySelectorAll(".sidebar__menu-item--accordion")
+      .forEach((item) => {
+        item.addEventListener("click", () => {
+          const menuList = item.nextElementSibling;
+          menuList.style.display =
+            menuList.style.display === "block" ? "none" : "block";
+        });
+      });
+
+    function toggleAccordion(element) {
+      const arrowIcon = element.querySelector(
+        ".sidebar__menu-item-arrow-icon"
+      );
+      arrowIcon.classList.toggle("rotate"); // Toggle rotation class
+    }
+
+    // =========================
+    document
+      .getElementById("toggle-btn")
+      .addEventListener("click", function () {
+        const valuesIds = ["values-1", "values-2", "values-3", "values-4"]; // Qo'shimcha ID'larni shu yerga kiriting
+        const button = this;
+
+        valuesIds.forEach((id) => {
+          const element = document.getElementById(id);
+          if (element.classList.contains("visible")) {
+            element.classList.remove("visible");
+          } else {
+            element.classList.add("visible");
+          }
+        });
+
+        button.classList.toggle("active");
+      });
+
+    // Elementlarni olish
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modal = document.getElementById("modalOver");
+    const wrapper = document.querySelector("body"); // Make sure this targets the correct wrapper
+
+    // Modalni ochish funksiyasi
+    openModalBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+      wrapper.style.overflow = "hidden"; // Disable scrolling
+    });
+
+    // Modalni yopish funksiyasi
+    closeModalBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      wrapper.style.overflow = "auto"; // Enable scrolling again
+    });
+
+    // Modalni tashqi qismiga bosilganda yopish
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        wrapper.style.overflow = "auto"; // Enable scrolling again
+      }
+    });
+  </script>
 </body>
 
 </html>

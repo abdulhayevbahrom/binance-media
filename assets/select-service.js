@@ -8,7 +8,7 @@ selectLabel.textContent = "ВСЕ";
 options.forEach(option => {
     option.addEventListener("click", () => {
         const selectedValue = option.getAttribute("data-value");
-        selectLabel.textContent = option.textContent.trim();
+        selectLabel?.textContent = option?.textContent.trim();
         options.forEach(opt => opt.classList.remove("selected"));
         option.classList.add("selected");
         console.log(`Tanlangan qiymat: ${selectedValue}`);
@@ -19,4 +19,17 @@ options.forEach(option => {
 const IsSelectOpen = () => {
     listWrapper.classList.toggle("active");
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
 

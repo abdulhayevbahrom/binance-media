@@ -105,7 +105,7 @@ function createSelect(id, options, labels, defaultValue) {
     <div class="order-select__label">
       <p>${labels}</p>
       <div class="order-select_valueBox">
-        <span class="order-select_value">${defaultValue || "Все"}</span>
+        <span class="order-select_value">${defaultValue || "All"}</span>
       </div>
       <div class="order-select_icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
@@ -416,7 +416,7 @@ function renderCoinList(id) {
           <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
         </svg>
       </div>
-      Все
+      All
     </li>
   `;
   availableCoins[id].forEach((coin) => {
@@ -469,7 +469,7 @@ function updateSelectedText(id) {
     return;
   }
   if (coinData[id].length === availableCoins[id].length) {
-    selectedText.innerText = "Все";
+    selectedText.innerText = "All";
     selectedText.classList.remove("text-t-disabled-emp");
     selectedText.classList.add("text-t-activeAll");
     return;
@@ -634,6 +634,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
 // Pagination tugmalari
 const prevButton = document.getElementById("btnArrowPaginationOnPrevPage");
 const nextButton = document.getElementById("btnArrowPaginationOnNextPage");
@@ -694,11 +695,11 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
 
   let start_date, end_date;
   switch (selectedValues.orderType2) {
-    case "Последние 7 дней":
+    case "Past 7 days":
       end_date = formatDate(today);
       start_date = formatDate(new Date(today.setDate(today.getDate() - 7)));
       break;
-    case "Последние 90 дней":
+    case "Past 90 days":
       end_date = formatDate(today);
       start_date = formatDate(new Date(today.setDate(today.getDate() - 90)));
       break;
@@ -758,11 +759,11 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
   }
 }
 
-
-// Sahifa yuklanganda ma'lumotlarni yuklaymiz
+// Sahifa yuklanganda ma'lumotlarni olish
 document.addEventListener("DOMContentLoaded", () => {
   getTableData();
 });
+
 
 
 function openToolModal(transaction) {

@@ -1,11 +1,11 @@
 const originalOrderTypes = [
-    { id: "orderType1", options: ["Пополнения", "Опционы", "Основной аккаунт", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "Пул-аккаунт", "P2P-аккаунт", "Изолированная маржа"], label: "Из", defaultValue: "Основной аккаунт" },
-    { id: "orderType2", options: ["Опционы", "Кросс-маржа", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "P2P-аккаунт", "Пул-аккаунт", "Пополнения", "Изолированная маржа", "Торговые боты", "Копи-трейдинг", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "В", defaultValue: "Кросс-маржа" },
-    { id: "orderType3", options: ["Последние 7 дней", "Последние 30 дней", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 дней" },
+    { id: "orderType1", options: ["Funding", "Options", "Fiat and Spot", "USDⓈ-M Futures", "COIN-M Futures", "Pool", "P2P", "Isolated Margin"], label: "From", defaultValue: "Fiat and Spot" },
+    { id: "orderType2", options: ["Options", "Cross Margin", "USDⓈ-M Futures", "COIN-M Futures", "P2P", "Pool", "Funding", "Isolated Margin", "Trading Bots", "Copy Trading", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "To", defaultValue: "Cross Margin" },
+    { id: "orderType3", options: ["Past 7 days", "Past 30 days", "Past 90 days", "Customized"], label: "Time", defaultValue: "Past 30 days" },
     {
         id: "orderType4",
-        label: "Криптовалюта",
-        defaultValue: "Все",
+        label: "Coin",
+        defaultValue: "All",
         options: [
             { label: "ADD", image: "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png" },
             { label: "ADX", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png" },
@@ -17,6 +17,7 @@ const originalOrderTypes = [
         ]
     }
 ];
+
 
 let orderTypes = JSON.parse(JSON.stringify(originalOrderTypes)); // Deep copy of original
 let isSwapped = false; // Track swap state
@@ -155,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const applyButton = document.getElementById("applyDateRange");
 
     document.querySelector("#orderType3 .order-select__list").addEventListener("click", (event) => {
-        if (event.target.textContent === "Настроить") {
+        if (event.target.textContent === "Customized") {
             modal.style.display = "block";
         }
     });
@@ -198,19 +199,19 @@ function calculateDates(timeRange) {
     endDate = today.toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
 
     switch (timeRange) {
-        case "Последние 7 дней":
+        case "Past 7 days":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 7);
             break;
-        case "Последние 30 дней":
+        case "Past 30 days":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 30);
             break;
-        case "Последние 90 дней":
+        case "Past 90 days":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 90);
             break;
-        case "Настроить":
+        case "Customized":
             // For custom range, use modal values if available, otherwise default to 30 days
             const customStart = document.getElementById("startDate")?.value;
             const customEnd = document.getElementById("endDate")?.value;
@@ -232,6 +233,8 @@ function calculateDates(timeRange) {
         endDate
     };
 }
+
+
 
 
 
@@ -303,7 +306,7 @@ async function fetchDataAndUpdate() {
     const payload = {
         start_date: startDate,
         end_date: endDate,
-        language: "ru",
+        language: "en",
         pagination: {
             page_number: currentPage,
             page_size,
@@ -340,6 +343,7 @@ async function fetchDataAndUpdate() {
         loadingEl.style.display = "none";
     }
 }
+
 
 
 
@@ -387,10 +391,15 @@ function collectFormData() {
     formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
 
     // Get custom date range if selected
-    if (formData.timeRange === "Настроить") {
+    if (formData.timeRange === "Customized") {
         const dateRangePicker = document.getElementById("dateRangePicker");
         formData.customDateRange = dateRangePicker.textContent.trim();
     }
 
     return formData;
 }
+
+
+
+
+

@@ -138,27 +138,27 @@ const convertBalance = (currency) => {
   if (!currency || currency === "usdt") {
     return {
       balance: balance,
-      equivalent: (balance * equivalentValue).toFixed(4),
+      equivalent: (balance * equivalentValue)?.toFixed(4),
     };
   } else if (currency === "btc") {
     return {
-      balance: parseFloat((balance / 65000).toFixed(4)),
+      balance: parseFloat((balance / 65000)?.toFixed(4)),
       equivalent: parseFloat(
         65000 * ((balance / 65000) * equivalentValue)
-      ).toFixed(4),
+      )?.toFixed(4),
     };
   } else if (currency === "eth") {
     return {
-      balance: parseFloat((balance / 3400).toFixed(4)),
+      balance: parseFloat((balance / 3400)?.toFixed(4)),
       equivalent: parseFloat(
-        3400 * ((balance / 3400) * equivalentValue).toFixed(4)
+        3400 * ((balance / 3400) * equivalentValue)?.toFixed(4)
       ),
     };
   } else if (currency === "bnb") {
     return {
-      balance: parseFloat((balance / 600).toFixed(4)),
+      balance: parseFloat((balance / 600)?.toFixed(4)),
       equivalent: parseFloat(
-        600 * ((balance / 600) * equivalentValue).toFixed(4)
+        600 * ((balance / 600) * equivalentValue)?.toFixed(4)
       ),
     };
   }
@@ -173,7 +173,7 @@ const updateBalanceDisplay = (isHidden) => {
   );
   const balanceValues = document.querySelectorAll(".balance-value");
   const balancePnl = document.querySelectorAll(".balance-pnl");
-  const balance = convertBalance(selectedValue).balance.toFixed(4);
+  const balance = convertBalance(selectedValue).balance?.toFixed(4);
 
   balanceValues.forEach((item) => {
     let [integerPart, decimalPart] = balance.toString().split(".");

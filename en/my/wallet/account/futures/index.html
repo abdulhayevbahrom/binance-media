@@ -7027,11 +7027,8 @@
 
         for (const date in data) {
           if (data.hasOwnProperty(date)) {
-            const formattedDate = date.slice(5);
-
-            dates.push(formattedDate);
-
-            values.push(data[date].toFixed(2));
+            dates.push(date); // To‘liq sanani (YYYY-MM-DD) saqlaymiz
+            values.push(data[date]?.toFixed(2));
           }
         }
 
@@ -7052,7 +7049,8 @@
         for (let i = 0; i < labelQuantity; i++) {
           const index = i * step;
           if (dates[index]) {
-            labels.push(dates[index]);
+            const formattedDate = dates[index].slice(5); // Faqat MM-DD qismi
+            labels.push(formattedDate);
           }
         }
 
@@ -7125,11 +7123,8 @@
                   }
 
                   if (context.tooltip.body) {
-                    tooltipEl.innerHTML = `<div>${new Date().getFullYear()}-${
-                      context.tooltip.dataPoints[0].label
-                    }</div> <div>Value: ${
-                      context.tooltip.body[0].lines[0]
-                    } USD</div>`;
+                    const fullDate = context.tooltip.dataPoints[0].label; // To‘liq sana (YYYY-MM-DD)
+                    tooltipEl.innerHTML = `<div>${fullDate}</div> <div>Стоимость: ${context.tooltip.body[0].lines[0]} USD</div>`;
                   }
 
                   const position = context.chart.canvas.getBoundingClientRect();

@@ -4999,162 +4999,320 @@
 
     let newChart;
 
+    // async function updateChartInfo(data) {
+    //   const dates = [];
+    //   const values = [];
+
+    //   for (const date in data) {
+    //     if (data.hasOwnProperty(date)) {
+    //       const formattedDate = date.slice(5);
+
+    //       dates.push(formattedDate);
+
+    //       values.push(data[date]?.toFixed(2));
+    //     }
+    //   }
+
+    //   const labelQuantity =
+    //     chartPeriod === 7
+    //       ? 7
+    //       : chartPeriod === 30
+    //         ? 10
+    //         : chartPeriod === 90
+    //           ? 15
+    //           : chartPeriod === 180
+    //             ? 17
+    //             : 7;
+
+    //   const step = Math.floor(dates.length / labelQuantity);
+    //   const labels = [];
+
+    //   for (let i = 0; i < labelQuantity; i++) {
+    //     const index = i * step;
+    //     if (dates[index]) {
+    //       labels.push(dates[index]);
+    //     }
+    //   }
+
+    //   const labelsContainer = document.querySelector(
+    //     ".futures-balance-line-chart__labels"
+    //   );
+
+    //   labelsContainer.innerHTML = "";
+
+    //   labels?.forEach((label) => {
+    //     const span = document.createElement("span");
+    //     span.textContent = label;
+    //     labelsContainer.appendChild(span);
+    //   });
+
+    //   const lineData = {
+    //     labels: dates,
+    //     datasets: [
+    //       {
+    //         fill: true,
+    //         backgroundColor: gradient,
+    //         borderColor: "#fcd535",
+    //         borderWidth: 2,
+    //         data: values,
+    //         pointBackgroundColor: "#fcd535",
+    //         pointBorderColor: "#fcd53550",
+    //         pointHoverBorderWidth: 8,
+    //         pointRadius: 0,
+    //         pointHoverRadius: 4,
+    //         hitRadius: 10,
+    //         animation: true,
+    //       },
+    //     ],
+    //   };
+
+    //   if (newChart) {
+    //     newChart.destroy();
+    //     console.log("destroy");
+    //   }
+
+    //   newChart = new Chart(lineChart, {
+    //     type: "line",
+    //     data: lineData,
+    //     options: {
+    //       interaction: {
+    //         mode: "index",
+    //         intersect: false,
+    //       },
+    //       plugins: {
+    //         legend: {
+    //           display: false,
+    //         },
+    //         tooltip: {
+    //           enabled: false,
+    //           mode: "nearest",
+    //           intersect: false,
+    //           external: function (context) {
+    //             let tooltipEl = document.getElementById("chartjs-tooltip");
+
+    //             if (!tooltipEl) {
+    //               tooltipEl = document.createElement("div");
+    //               tooltipEl.id = "chartjs-tooltip";
+    //               tooltipEl.className = "chartjs-tooltip";
+    //               document.body.appendChild(tooltipEl);
+    //             }
+
+    //             if (context.tooltip.opacity === 0) {
+    //               tooltipEl.style.opacity = 0;
+    //               return;
+    //             }
+
+    //             if (context.tooltip.body) {
+    //               console.log(context);
+                  
+    //               tooltipEl.innerHTML = `<div>${new Date().getFullYear()}-${context.tooltip.dataPoints[0].label
+    //                 }</div> <div>Стоимость: ${context.tooltip.body[0].lines[0]
+    //                 } USD</div>`;
+    //             }
+
+    //             const position = context.chart.canvas.getBoundingClientRect();
+    //             tooltipEl.style.opacity = 1;
+    //             tooltipEl.style.position = "absolute";
+
+    //             if (window.innerWidth <= 500) {
+    //               tooltipEl.style.top =
+    //                 position.top + 15 + context.tooltip.caretY + 100 + "px";
+    //             } else {
+    //               tooltipEl.style.top =
+    //                 position.top + 15 + context.tooltip.caretY + "px";
+    //             }
+
+    //             tooltipEl.style.left =
+    //               position.left - 60 + context.tooltip.caretX + "px";
+
+    //             tooltipEl.style.pointerEvents = "none";
+    //             tooltipEl.style.backgroundColor = "white";
+    //             tooltipEl.style.color = "black";
+    //             tooltipEl.style.borderRadius = "6px";
+    //             tooltipEl.style.padding = "6px";
+    //             tooltipEl.style.fontSize = "10px";
+    //           },
+    //         },
+    //       },
+    //       layout: {
+    //         padding: {
+    //           top: 0,
+    //           bottom: 24,
+    //           left: 0,
+    //           right: 0,
+    //         },
+    //       },
+    //       scales: {
+    //         y: {
+    //           display: false,
+    //         },
+    //         x: {
+    //           display: false,
+    //           grid: {
+    //             display: false,
+    //           },
+    //         },
+    //       },
+    //       maintainAspectRatio: false,
+    //     },
+    //   });
+    // }
+  
     async function updateChartInfo(data) {
-      const dates = [];
-      const values = [];
+  const dates = [];
+  const values = [];
 
-      for (const date in data) {
-        if (data.hasOwnProperty(date)) {
-          const formattedDate = date.slice(5);
-
-          dates.push(formattedDate);
-
-          values.push(data[date]?.toFixed(2));
-        }
-      }
-
-      const labelQuantity =
-        chartPeriod === 7
-          ? 7
-          : chartPeriod === 30
-            ? 10
-            : chartPeriod === 90
-              ? 15
-              : chartPeriod === 180
-                ? 17
-                : 7;
-
-      const step = Math.floor(dates.length / labelQuantity);
-      const labels = [];
-
-      for (let i = 0; i < labelQuantity; i++) {
-        const index = i * step;
-        if (dates[index]) {
-          labels.push(dates[index]);
-        }
-      }
-
-      const labelsContainer = document.querySelector(
-        ".futures-balance-line-chart__labels"
-      );
-
-      labelsContainer.innerHTML = "";
-
-      labels?.forEach((label) => {
-        const span = document.createElement("span");
-        span.textContent = label;
-        labelsContainer.appendChild(span);
-      });
-
-      const lineData = {
-        labels: dates,
-        datasets: [
-          {
-            fill: true,
-            backgroundColor: gradient,
-            borderColor: "#fcd535",
-            borderWidth: 2,
-            data: values,
-            pointBackgroundColor: "#fcd535",
-            pointBorderColor: "#fcd53550",
-            pointHoverBorderWidth: 8,
-            pointRadius: 0,
-            pointHoverRadius: 4,
-            hitRadius: 10,
-            animation: true,
-          },
-        ],
-      };
-
-      if (newChart) {
-        newChart.destroy();
-        console.log("destroy");
-      }
-
-      newChart = new Chart(lineChart, {
-        type: "line",
-        data: lineData,
-        options: {
-          interaction: {
-            mode: "index",
-            intersect: false,
-          },
-          plugins: {
-            legend: {
-              display: false,
-            },
-            tooltip: {
-              enabled: false,
-              mode: "nearest",
-              intersect: false,
-              external: function (context) {
-                let tooltipEl = document.getElementById("chartjs-tooltip");
-
-                if (!tooltipEl) {
-                  tooltipEl = document.createElement("div");
-                  tooltipEl.id = "chartjs-tooltip";
-                  tooltipEl.className = "chartjs-tooltip";
-                  document.body.appendChild(tooltipEl);
-                }
-
-                if (context.tooltip.opacity === 0) {
-                  tooltipEl.style.opacity = 0;
-                  return;
-                }
-
-                if (context.tooltip.body) {
-                  tooltipEl.innerHTML = `<div>${new Date().getFullYear()}-${context.tooltip.dataPoints[0].label
-                    }</div> <div>Стоимость: ${context.tooltip.body[0].lines[0]
-                    } USD</div>`;
-                }
-
-                const position = context.chart.canvas.getBoundingClientRect();
-                tooltipEl.style.opacity = 1;
-                tooltipEl.style.position = "absolute";
-
-                if (window.innerWidth <= 500) {
-                  tooltipEl.style.top =
-                    position.top + 15 + context.tooltip.caretY + 100 + "px";
-                } else {
-                  tooltipEl.style.top =
-                    position.top + 15 + context.tooltip.caretY + "px";
-                }
-
-                tooltipEl.style.left =
-                  position.left - 60 + context.tooltip.caretX + "px";
-
-                tooltipEl.style.pointerEvents = "none";
-                tooltipEl.style.backgroundColor = "white";
-                tooltipEl.style.color = "black";
-                tooltipEl.style.borderRadius = "6px";
-                tooltipEl.style.padding = "6px";
-                tooltipEl.style.fontSize = "10px";
-              },
-            },
-          },
-          layout: {
-            padding: {
-              top: 0,
-              bottom: 24,
-              left: 0,
-              right: 0,
-            },
-          },
-          scales: {
-            y: {
-              display: false,
-            },
-            x: {
-              display: false,
-              grid: {
-                display: false,
-              },
-            },
-          },
-          maintainAspectRatio: false,
-        },
-      });
+  // To‘liq sanani saqlash uchun dates massivini to‘ldiramiz
+  for (const date in data) {
+    if (data.hasOwnProperty(date)) {
+      dates.push(date); // To‘liq sanani (YYYY-MM-DD) saqlaymiz
+      values.push(data[date]?.toFixed(2));
     }
+  }
+
+  const labelQuantity =
+    chartPeriod === 7
+      ? 7
+      : chartPeriod === 30
+        ? 10
+        : chartPeriod === 90
+          ? 15
+          : chartPeriod === 180
+            ? 17
+            : 7;
+
+  const step = Math.floor(dates.length / labelQuantity);
+  const labels = [];
+
+  // Label uchun qisqartirilgan format (masalan, MM-DD)
+  for (let i = 0; i < labelQuantity; i++) {
+    const index = i * step;
+    if (dates[index]) {
+      const formattedDate = dates[index].slice(5); // Faqat MM-DD qismi
+      labels.push(formattedDate);
+    }
+  }
+
+  const labelsContainer = document.querySelector(
+    ".futures-balance-line-chart__labels"
+  );
+  labelsContainer.innerHTML = "";
+
+  labels?.forEach((label) => {
+    const span = document.createElement("span");
+    span.textContent = label;
+    labelsContainer.appendChild(span);
+  });
+
+  const lineData = {
+    labels: dates, // To‘liq sanani chartga uzatamiz
+    datasets: [
+      {
+        fill: true,
+        backgroundColor: gradient,
+        borderColor: "#fcd535",
+        borderWidth: 2,
+        data: values,
+        pointBackgroundColor: "#fcd535",
+        pointBorderColor: "#fcd53550",
+        pointHoverBorderWidth: 8,
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        hitRadius: 10,
+        animation: true,
+      },
+    ],
+  };
+
+  if (newChart) {
+    newChart.destroy();
+    console.log("destroy");
+  }
+
+  newChart = new Chart(lineChart, {
+    type: "line",
+    data: lineData,
+    options: {
+      interaction: {
+        mode: "index",
+        intersect: false,
+      },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          enabled: false,
+          mode: "nearest",
+          intersect: false,
+          external: function (context) {
+            let tooltipEl = document.getElementById("chartjs-tooltip");
+
+            if (!tooltipEl) {
+              tooltipEl = document.createElement("div");
+              tooltipEl.id = "chartjs-tooltip";
+              tooltipEl.className = "chartjs-tooltip";
+              document.body.appendChild(tooltipEl);
+            }
+
+            if (context.tooltip.opacity === 0) {
+              tooltipEl.style.opacity = 0;
+              return;
+            }
+
+            if (context.tooltip.body) {
+              const fullDate = context.tooltip.dataPoints[0].label; // To‘liq sana (YYYY-MM-DD)
+              tooltipEl.innerHTML = `<div>${fullDate}</div> <div>Стоимость: ${context.tooltip.body[0].lines[0]} USD</div>`;
+            }
+
+            const position = context.chart.canvas.getBoundingClientRect();
+            tooltipEl.style.opacity = 1;
+            tooltipEl.style.position = "absolute";
+
+            if (window.innerWidth <= 500) {
+              tooltipEl.style.top =
+                position.top + 15 + context.tooltip.caretY + 100 + "px";
+            } else {
+              tooltipEl.style.top =
+                position.top + 15 + context.tooltip.caretY + "px";
+            }
+
+            tooltipEl.style.left =
+              position.left - 60 + context.tooltip.caretX + "px";
+
+            tooltipEl.style.pointerEvents = "none";
+            tooltipEl.style.backgroundColor = "white";
+            tooltipEl.style.color = "black";
+            tooltipEl.style.borderRadius = "6px";
+            tooltipEl.style.padding = "6px";
+            tooltipEl.style.fontSize = "10px";
+          },
+        },
+      },
+      layout: {
+        padding: {
+          top: 0,
+          bottom: 24,
+          left: 0,
+          right: 0,
+        },
+      },
+      scales: {
+        y: {
+          display: false,
+        },
+        x: {
+          display: false,
+          grid: {
+            display: false,
+          },
+        },
+      },
+      maintainAspectRatio: false,
+    },
+  });
+}
+
   </script>
 
   <script src="../../../../../assets/js/script.js"></script>

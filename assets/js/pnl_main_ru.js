@@ -74,7 +74,7 @@ const pnl_today = async () => {
 
 // PNL FOR 7 DAY
 const pnl_seven = async () => {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   // let data = await getData(pnl_endpoint, lastSevenDay, today_start);
 
   showLoading();
@@ -84,6 +84,7 @@ const pnl_seven = async () => {
     start_date: moment(lastSevenDay).format("YYYY-MM-DD"),
     end_date: moment(today_start).format("YYYY-MM-DD"),
   };
+  console.log(body);
 
   let res = await axios.post(API + pnl_endpoint, body);
 
@@ -185,7 +186,7 @@ const pnl_all = async () => {
 // ANALIS FROFIT AND LOSS
 let profitAndLoss_endpoint = "/accounts/profit-and-loss-analysis";
 
-let lastSevenDay = moment().subtract(7, "days").startOf("day");
+let lastSevenDay = moment().subtract(6, "days").startOf("day");
 const profitAndLoss = async (
   start_date = lastSevenDay,
   end_date = today_start
@@ -519,7 +520,7 @@ sharePnlCheckbox.addEventListener("click", () => {
 })();
 
 (async function () {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   await showData(lastSevenDay, today_start);
   await showData_total_pnl_by_days(lastSevenDay, today_start);
   await showData_usdt_btc_eth(lastSevenDay, today_start);

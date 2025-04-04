@@ -2,33 +2,33 @@ const orderTypes = [
   {
     id: "orderType1",
     options: [
-      "Все",
-      "Ввод",
-      "Вывод",
-      "Автосписание",
-      "Автоплатеж",
-      "Погашение задолженности",
-      "Автоконвертация",
-      "Перевод Partners",
+      "Deposit",
+      "Auto deduction",
+      "Auto funding",
+      "Arrears repayment",
+      "Auto convert",
+      "Partners Transfer",
     ],
-    label: "Перевод",
-    defaultValue: "Вывод",
+    label: "Type",
+    defaultValue: "Deposit",
   },
+
+
   {
     id: "orderType2",
     options: [
-      "Последние 7 дней",
-      "Последние 30 дней",
-      "Последние 90 дней",
-      "Настроить",
+      "Past 7 days",
+      "Past 30 days",
+      "Past 90 days",
+      "Customized",
     ],
-    label: "Время",
-    defaultValue: "Последние 30 дней",
+    label: "Time",
+    defaultValue: "Past 30 days",
   },
   {
     id: "orderType3",
-    label: "Криптовалюта",
-    defaultValue: "Все",
+    label: "Coin",
+    defaultValue: "All",
     options: [
       {
         label: "ADD",
@@ -69,9 +69,9 @@ const orderTypes = [
   },
   {
     id: "orderType4",
-    options: ["Все", "Crypto", "Forex", "Stocks"],
-    label: "Статус",
-    defaultValue: "Все",
+    options: ["All", "Completed", "Pending", "Stocks"],
+    label: "Status",
+    defaultValue: "All",
   },
 ];
 
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .querySelector("#orderType2 .order-select__list")
     .addEventListener("click", (event) => {
-      if (event.target.textContent === "Настроить") {
+      if (event.target.textContent === "Customized") {
         modal.style.display = "block";
       }
     });
@@ -702,7 +702,7 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
       end_date = formatDate(today);
       start_date = formatDate(new Date(today.setDate(today.getDate() - 90)));
       break;
-    case "Настроить":
+    case "Customized":
       [start_date, end_date] = selectedValues.dateRange.split(" - ");
       break;
     default: // Последние 30 дней
@@ -718,7 +718,7 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     start_date,
     end_date,
     tx_type,
-    language: "ru",
+    language: "en",
     pagination: {
       page_number: current_page,
       page_size,
@@ -1021,7 +1021,7 @@ function collectFormData() {
   formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
 
   // Get custom date range if selected
-  if (formData.timeRange === "Настроить") {
+  if (formData.timeRange === "Customized") {
     const dateRangePicker = document.getElementById("dateRangePicker");
     formData.customDateRange = dateRangePicker.textContent.trim();
   }
@@ -1083,7 +1083,7 @@ async function handleExport() {
       body: JSON.stringify({
         start_date: startDate,
         end_date: endDate,
-        language: "ru",
+        language: "en",
       }),
       // wallet: data.wallet,
       // subaccount: data.subaccount,
@@ -1230,3 +1230,15 @@ async function exportTransactionHistory() {
     alert("Произошла ошибка при экспорте файла. Пожалуйста, попробуйте снова.");
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+

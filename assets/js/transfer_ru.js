@@ -233,8 +233,64 @@ function calculateDates(timeRange) {
     };
 }
 
+
+// Pagination tugmalari
+const prevButton = document.getElementById("btnArrowPaginationOnPrevPage");
+const nextButton = document.getElementById("btnArrowPaginationOnNextPage");
+
+// Tugmalar mavjudligini tekshiramiz
+if (!prevButton || !nextButton) {
+    console.error("Pagination buttons not found!");
+}
+
+// Global o'zgaruvchilar
+let current_page = 1;
+let total_pages = 1;
+// Tugmalar holatini yangilash funksiyasi
+function updateButtons() {
+    if (current_page === 1) {
+        prevButton.style.color = "#333";
+        prevButton.style.cursor = "no-drop";
+    } else {
+        prevButton.style.color = "#aeb4bc";
+        prevButton.style.cursor = "pointer";
+
+    }
+
+    if (current_page < total_pages) {
+        prevButton.style.cursor = "no-drop";
+        nextButton.style.color = "#333";
+    } else {
+        prevButton.style.color = "#aeb4bc";
+        prevButton.style.cursor = "pointer";
+    }
+}
+
+// Oldingi sahifaga o'tish// Oldingi sahifaga o'tish
+function handlePrev() {
+    if (current_page > 1) {
+        current_page--;
+        getTableData();
+        document.getElementById("loading").style.height = "60px";
+    }
+    updateButtons();
+}
+
+// Keyingi sahifaga o'tish
+function handleNext() {
+    current_page++;
+    getTableData();
+    updateButtons();
+    document.getElementById("loading").style.height = "60px";
+}
+
+// Tugmalarga event listener qo'shamiz
+prevButton?.addEventListener("click", handlePrev);
+nextButton?.addEventListener("click", handleNext);
+
+
 // Function to collect selected values and send them to the server
-async function sendSelectedValuesToServer() {
+async function sendSelectedValuesToServer(isPaginationChange = false) {
     // Collect selected values from each dropdown
     const from = document.querySelector("#orderType1 .order-select_value").textContent.trim();
     const to = document.querySelector("#orderType2 .order-select_value").textContent.trim();
@@ -243,21 +299,29 @@ async function sendSelectedValuesToServer() {
 
     // Calculate start and end dates based on the selected time range
     const { startDate, endDate } = calculateDates(time);
-
+    const page_size = 10;
 
     const payload = {
         start_date: startDate,
         end_date: endDate,
-        language: "ru"
+        language: "ru",
+        pagination: {
+            page_number: current_page,
+            page_size,
+        },
     };
-    console.log(payload);
-    let api = SERVER_URL + "/orader/transaction-history/transfer";
+
+    document.getElementById("loading").style.display = "flex";
+
+
+    const API = `${SERVER_URL}/order/transaction-history/transfer`;
     try {
         // Send the data to the server using fetch
-        const response = await fetch(api, { // Replace with your actual server endpoint
-            method: 'POST',
+        const response = await fetch(API, { // Replace with your actual server endpoint
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                accept: "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(payload),
         });
@@ -269,5 +333,65 @@ async function sendSelectedValuesToServer() {
 
     } catch (error) {
         console.error("Error sending data to server:", error);
+    } finally {
+        document.getElementById("loading").style.display = "none";
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================================
+// Экспортировать записи транзакций
+
+// Function to collect all form data
+function collectFormData() {
+    const formData = {
+        timeRange: "",
+        wallet: "",
+        subaccount: "",
+        coin: "",
+        customDateRange: "",
+    };
+
+    // Get selected time range
+    const activeTimeRange = document.querySelector(".flex-button.active");
+    if (activeTimeRange) {
+        formData.timeRange = activeTimeRange.textContent.trim();
+    }
+
+    // Get wallet selection
+    const walletText = document
+        .getElementById("selected-text-1")
+        .textContent.trim();
+    formData.wallet =
+        walletText !== "Пожалуйста, выберите аккаунт" ? walletText : "";
+
+    // Get subaccount selection
+    const subaccountText = document
+        .getElementById("selected-text-2")
+        .textContent.trim();
+    formData.subaccount =
+        subaccountText !== "Выбрать суб-аккаунты" ? subaccountText : "";
+
+    // Get coin selection
+    const coinText = document
+        .getElementById("selected-text-3")
+        .textContent.trim();
+    formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
+
+    // Get custom date range if selected
+    if (formData.timeRange === "Настроить") {
+        const dateRangePicker = document.getElementById("dateRangePicker");
+        formData.customDateRange = dateRangePicker.textContent.trim();
+    }
+
+    return formData;
 }

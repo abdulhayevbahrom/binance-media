@@ -335,9 +335,6 @@ window.onload = loadTransactions;
 // //////////////////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", function () {
-  let tabs = document.querySelectorAll(".bn-tab__default");
-  let contentBoxes = document.querySelectorAll(".content-box");
-  const tooltipButton = document.getElementById("export-history-export-button");
   let modal = document.getElementById("export-modal");
   modal.addEventListener("mouseleave", function () {
     modal.classList.remove("active");
@@ -347,113 +344,10 @@ document.addEventListener("DOMContentLoaded", function () {
     return window.matchMedia("(max-width: 768px)").matches;
   }
   // ===========================================
-  const btnOpenModal = document.querySelector(
-    "#btn-ExportButton-onExportTransactionRecords"
-  );
-  const mainHistory = document.querySelector(".wrapper");
-  const setOpen_false = document.getElementById(
-    "btn-ModalPcDrawerMobile-setOpen-false"
-  );
-  const setOpen_falseSecond = document.getElementById(
-    "modalDrawerMobile-setOpen-false"
-  );
-  const mainModal = document.getElementById("mainModal");
-  // Modalni ochish
 
-  btnOpenModal.addEventListener("click", function (event) {
-    event.stopPropagation();
-    mainModal.classList.toggle("active");
 
-    // Skrollni butunlay o‘chirish
-    document.body.style.overflow = "hidden";
-  });
-
-  // Modal tashqarisiga bosilganda yopish
-  document.addEventListener("click", function (event) {
-    if (
-      !btnOpenModal.contains(event.target) &&
-      !mainModal.contains(event.target)
-    ) {
-      mainModal.classList.remove("active");
-
-      // Skrollni qayta yoqish
-      document.body.style.overflow = "";
-    }
-  });
-
-  // Modal tashqarisiga bosilganda yopish
-  setOpen_false.addEventListener("click", function () {
-    mainModal.style.display = "none";
-  });
-
-  // if (!isMobile()) {
-  //   // Desktop uchun: hover orqali ochiladi
-  //   tooltipButton.addEventListener("mouseover", openModal);
-  //   tooltipButton.addEventListener("mouseleave", function (event) {
-  //     if (!modal.contains(event.relatedTarget)) {
-  //       closeModal();
-  //     }
-  //   });
-
-  //   modal.addEventListener("mouseleave", closeModal);
-  // } else {
-  // Mobile uchun: click orqali ochiladi
-  tooltipButton.addEventListener("click", function (event) {
-    event.stopPropagation();
-    modal.classList.toggle("active");
-  });
-
-  document.addEventListener("click", function (event) {
-    if (
-      !tooltipButton.contains(event.target) &&
-      !modal.contains(event.target)
-    ) {
-      closeModal();
-    }
-  });
-  // }
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   let tooltipButton = document.getElementById("bn-tooltips-ele");
-//   let modal = document.getElementById("export-modal");
-
-//   function openModal() {
-//     modal.classList.add("active");
-//   }
-
-//   function closeModal() {
-//     modal.classList.remove("active");
-//   }
-
-//   function isMobile() {
-//     return window.matchMedia("(max-width: 768px)").matches;
-//   }
-
-//   if (!isMobile()) {
-//     // Desktop uchun: hover orqali ochiladi
-//     tooltipButton.addEventListener("mouseover", openModal);
-//     tooltipButton.addEventListener("mouseleave", function (event) {
-//       if (!modal.contains(event.relatedTarget)) {
-//         closeModal();
-//       }
-//     });
-
-//     modal.addEventListener("mouseleave", closeModal);
-//   } else {
-//     // Mobile uchun: click orqali ochiladi
-//     tooltipButton.addEventListener("click", function (event) {
-//       event.stopPropagation();
-//       modal.classList.toggle("active");
-//     });
-
-//     document.addEventListener("click", function (event) {
-//       if (!tooltipButton.contains(event.target) && !modal.contains(event.target)) {
-//         closeModal();
-//       }
-//     });
-//   }
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".section-tex-box button");

@@ -4779,10 +4779,10 @@
   </script>
 
   <script>
-    const mobileSelectedButton = document.querySelector(".sidebar-selected");
+    const mobileSelectedButtosn = document.querySelector(".sidebar-selected");
 
     function toggleSidebar() {
-      mobileSelectedButton.classList.toggle("sidebar-selected--open");
+      mobileSelectedButtons?.classList.toggle("sidebar-selected--open");
       document.querySelector(".sidebar").classList.toggle("screen");
 
       if (document.body.style.overflow === "hidden") {
@@ -4792,11 +4792,11 @@
       }
     }
 
-    const accordionButtonse = document.querySelectorAll(
+    const accordionButtons = document.querySelectorAll(
       ".sidebar__menu-item--accordion"
     );
 
-    accordionButtonse?.forEach((button) => {
+    accordionButtons?.forEach((button) => {
       button.addEventListener("click", () => {
         button.classList.toggle("sidebar__menu-item--open");
       });

@@ -74,7 +74,7 @@ const pnl_today = async () => {
 
 // PNL FOR 7 DAY
 const pnl_seven = async () => {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   // let data = await getData(pnl_endpoint, lastSevenDay, today_start);
 
   showLoading();
@@ -185,7 +185,7 @@ const pnl_all = async () => {
 // ANALIS FROFIT AND LOSS
 let profitAndLoss_endpoint = "/accounts/profit-and-loss-analysis";
 
-let lastSevenDay = moment().subtract(7, "days").startOf("day");
+let lastSevenDay = moment().subtract(6, "days").startOf("day");
 const profitAndLoss = async (
   start_date = lastSevenDay,
   end_date = today_start
@@ -242,7 +242,7 @@ const profit_loss_weekly_btn = document.getElementById(
 );
 
 profit_loss_weekly_btn.onclick = async () => {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   await profitAndLoss(lastSevenDay, today_start);
 
   await showData(lastSevenDay, today_start);
@@ -509,7 +509,7 @@ sharePnlCheckbox.addEventListener("click", () => {
 
 // CALLING   USDUⓈ-M FUNCTION AND DEFAULT ANALIS PROFIT AND LOSS FUNCTIONS
 (async function () {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   await getModalData(lastSevenDay, today_start);
   await pnl_today();
   await pnl_seven();
@@ -519,7 +519,7 @@ sharePnlCheckbox.addEventListener("click", () => {
 })();
 
 (async function () {
-  let lastSevenDay = moment().subtract(7, "days").startOf("day");
+  let lastSevenDay = moment().subtract(6, "days").startOf("day");
   await showData(lastSevenDay, today_start);
   await showData_total_pnl_by_days(lastSevenDay, today_start);
   await showData_usdt_btc_eth(lastSevenDay, today_start);

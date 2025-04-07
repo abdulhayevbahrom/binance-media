@@ -692,7 +692,7 @@
           </nav>
         </div>
         <div class="header-rightside">
-          <!--Поиск-->
+          <!--Search-->
           <div class="search">
             <button class="btn-icon" id="search">
               <svg class="header-icon header-search" width="20" height="20" viewBox="0 0 24 24">
@@ -747,7 +747,7 @@
                 </ul>
               </div>
 
-              <!--Первый блок при загрузке поиска-->
+              <!--Первый блок при загрузке Searchа-->
               <div class="initdata">
                 <h3>Popular Features</h3>
                 <nav class="initdata-nav">
@@ -827,8 +827,8 @@
                   </ul>
                 </nav>
               </div>
-              <!--END Первый блок при загрузке поиска-->
-              <!--Результаты поиска-->
+              <!--END Первый блок при загрузке Searchа-->
+              <!--Результаты Searchа-->
               <div class="result hidden">
                 <ul class="result-tabs" id="result-tabs">
                   <li class="result-tabs__item">
@@ -2927,10 +2927,10 @@
                 </ul>
               </div>
               <!--END FAQ-->
-              <!--Результаты поиска-->
+              <!--Результаты Searchа-->
             </div>
           </div>
-          <!--END Поиск-->
+          <!--END Search-->
           <!--ЕСЛИ ПОЬЗАК ЗАРЕГАН-->
           <button class="btn-web yellow">
             <svg class="btn-web__icon" width="20" height="24" viewBox="0 0 24 24">
@@ -3885,9 +3885,7 @@
           </div>
         </div>
       </div>
-
-
-      <!-- SIDEBAR END -->
+      <!-- Main END -->
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
@@ -3936,7 +3934,7 @@
 
         <div class="order-filters">
           <div class="items-centerJustify-between">
-            <div class="typography-headline4">Фильтр</div>
+            <div class="typography-headline4">Filter</div>
             <svg id="btn-MDrawer-onClose" class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
               <path
@@ -3945,14 +3943,119 @@
             </svg>
           </div>
 
-          <div class="captiontext-t-third">Тип</div>
-          <div class="order-select" id="orderType1"></div>
+          <!-- ============================================ -->
+
+          <!-- ///////////////////////////////////////////////// -->
+
+          <div class="captiontext-t-third">Type</div>
+          <div class="xCustomDropdownContainer" id="selectV4">
+            <div class="xDropdownHeaderSection">
+              <div class="xDropdown-box">
+                <p>Type</p>
+              </div>
+              <span class="xSelectedValueDisplay">Deposit</span>
+              <span class="xToggleArrowIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                  <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+            <div class="xDropdownOptionsList">
+              <div class="xSingleOptionItem" data-label="All"><span>All</span></div>
+              <div class="xSingleOptionItem" data-label="Deposit"><span>Deposit</span></div>
+              <div class="xSingleOptionItem" data-label="Withdraw"><span>Withdraw</span></div>
+              <div class="xSingleOptionItem" data-label="Auto deduction"><span>Auto deduction</span></div>
+              <div class="xSingleOptionItem" data-label="Auto funding"><span>Auto funding</span></div>
+              <div class="xSingleOptionItem" data-label="Arrears repayment"><span>Arrears repayment</span></div>
+              <div class="xSingleOptionItem" data-label="Arrears convert"><span>Auto convert</span>
+              </div>
+              <div class="xSingleOptionItem" data-label="Partners Transfer"><span>Partners Transfer</span></div>
+            </div>
+          </div>
+
           <div class="captiontext-t-third">Time</div>
-          <div class="order-select" id="orderType2"></div>
+          <div class="xCustomDropdownContainer" id="selectV2">
+            <div class="xDropdownHeaderSection">
+              <div class="xDropdown-box">
+                <p>Time</p>
+              </div>
+              <span id="xSelectedValue-s" class="xSelectedValueDisplay">Past 30 days</span>
+              <span class="xToggleArrowIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                  <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+
+            <div class="xDropdownOptionsList">
+              <div class="xSingleOptionItem" data-label="Past 7 days"><span>Past 7 days</span></div>
+              <div class="xSingleOptionItem" data-label="Past 30 days"><span>Past 30 days</span></div>
+              <div class="xSingleOptionItem" data-label="Past 90 days"><span>Past 90 days</span></div>
+              <div class="xSingleOptionItem" data-label="Customized"><span>Customized</span></div>
+            </div>
+          </div>
+
           <div class="captiontext-t-third">Coin</div>
-          <div class="order-select" id="orderType3"></div>
+          <div class="xCustomDropdownContainer" id="selectV1">
+            <div class="xDropdownHeaderSection">
+              <div class="xDropdown-box">
+                <p>Coin</p>
+              </div>
+              <span class="xSelectedValueDisplay">All</span>
+              <span class="xToggleArrowIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                  <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+            <div class="xDropdownOptionsList">
+
+              <div class="bn-select-overlay-search bn-select-overlay-search-line">
+                <div class="bn-textField bn-textField__line data-size-middle data-gap-size-normal">
+                  <div class="bn-textField-prefix"><svg fill="textDisabled" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                        fill="currentColor"></path>
+                    </svg></div>
+                  <input aria-label="Search" placeholder="Search" class="xSearchFieldInput" spellcheck="false"
+                    autocomplete="" value="">
+                </div>
+              </div>
+              <div class="xSingleOptionItem" data-label="Все"><span>All</span></div>
+              <div class="xSingleOptionItem" data-label="ADD"><img src="../../../../../assets/img/coin1.png"
+                  alt="ADD"><span>ADD</span></div>
+              <div class="xSingleOptionItem" data-label="ADX"><img src="../../../../../assets/img/coin2.png"
+                  alt="ADX"><span>ADX</span></div>
+              <div class="xSingleOptionItem" data-label="AE"><img src="../../../../../assets/img/coin3.png"
+                  alt="AE"><span>AE</span></div>
+              <div class="xSingleOptionItem" data-label="AE"><img src="../../../../../assets/img/coin4.png"
+                  alt="AE"><span>1MBABYDOGE</span></div>
+            </div>
+          </div>
+
           <div class="captiontext-t-third">Status</div>
-          <div class="order-select" id="orderType4"></div>
+          <div class="xCustomDropdownContainer" id="selectV3">
+            <div class="xDropdownHeaderSection">
+              <div class="xDropdown-box">
+                <p>Status</p>
+              </div>
+              <span class="xSelectedValueDisplay">All</span>
+              <span class="xToggleArrowIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                  <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+            <div class="xDropdownOptionsList">
+              <div class="xSingleOptionItem" data-label="Все"><span>All</span></div>
+              <div class="xSingleOptionItem" data-label="Crypto"><span>Crypto</span></div>
+              <div class="xSingleOptionItem" data-label="Forex"><span>Forex</span></div>
+              <div class="xSingleOptionItem" data-label="Stocks"><span>Stocks</span></div>
+            </div>
+          </div>
+
+          <!-- ///////////////////////////////////////////////// -->
 
           <div class="captiontext-t-third">TxID</div>
           <div class="search-boxonNav">
@@ -3969,11 +4072,12 @@
 
           <div style="display: flex;align-items: center; gap: 20px;">
             <div id="history-crypto-reset-button" class="tablet-box">
-              <div id="btn-ResetButton-reset-undefined" class="subtitle4 px-m py-2xs pc:ml-m cursor-pointer undefined">
+              <div onclick="handleCloseDrawer()" id="btn-ResetButton-reset-undefined"
+                class="subtitle4 px-m py-2xs pc:ml-m cursor-pointer undefined">
                 Reset
               </div>
             </div>
-            <button aria-label="Поиск" role="button" id="btn-ActionButtons-onSearch"
+            <button onclick="handleCloseDrawer()" aria-label="Search" role="button" id="btn-ActionButtons-onSearch"
               class="bn-button-bn-button__primary">Search</button>
           </div>
         </div>
@@ -4010,7 +4114,6 @@
                           <th>TxID</th>
                           <th>Status</th>
                         </tr>
-
                       </thead>
                       <tbody id="tableBody"></tbody>
                     </table>
@@ -4047,7 +4150,7 @@
 
                         <div class="justify-between-p-xl">
                           <div class="typography-headline5">Deposit Details</div>
-                          <div onclick="closeModal()" class="flex-justify-end"><svg
+                          <div onclick="closeModalLe()" class="flex-justify-end"><svg
                               id="btn-ModalPcDrawerMobile-setOpen-pc" class="bn-svgH-xl" viewBox="0 0 24 24"
                               xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -4060,7 +4163,7 @@
                         <div class="transaction-detail"><span>Status</span><span class="transaction-status">
                             <div class="dot-status"></div> Completed
                           </span></div>
-                        <div class="transaction-detail"><span>Time</span><span id="modalTime">2025-03-09 18:28</span>
+                        <div class="transaction-detail"><span>Date</span><span id="modalTime">2025-03-09 18:28</span>
                         </div>
                         <div class="transaction-detail"><span>Coin</span><span id="modalTransfer">USDT</span></div>
                         <div class="transaction-detail"><span>Deposit amount</span><span id="modalWallet">10</span>
@@ -4076,6 +4179,7 @@
                         </div>
                         <div class="transaction-detail"><span>Deposit wallet</span><span>Spot Wallet</span>
                         </div>
+                        <button id="okBtn">OK</button>
                       </div>
                     </div>
 
@@ -4091,14 +4195,367 @@
 
 
       </div>
-
-
     </div>
+
+
+
+
+    <!-- ================================================== -->
+
+    <div class="bnModalWrapWiwBg" style="display: none;">
+      <div class="bnModalWrapWiw">
+        <div role="dialog" tabindex="0" aria-modal="true" aria-label="modal" class="bn-modal-wrapWiw data-size-middle">
+          <div class="bar-modal-header-main">
+            <div class="typography-headline5 text-t-Primary">Withdrawal Details</div>
+            <div onclick="closeModalWiw()" class="flex justify-end"><svg
+                class="bn-svg h-xl w-xl cursor-pointer text-t-Primary hover:text-t-Secondary" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+                  fill="currentColor"></path>
+              </svg></div>
+          </div>
+
+          <div class="wallet-modal-content withdraw-detail-modal-container">
+            <div class="relative min-h-[400px] pl-4xs">
+              <div class="mb-xl-border-b">
+                <div class="bn-steps bn-steps__primary data-vertical">
+                  <div class="bn-step bn-step__primary bn-step__primary__number data-type-undefined data-status-finish">
+                    <div class="bn-step-ind">
+                      <div class="data-ind-icon"><svg fill="BasicBg" viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.035 16.812l-.001.002 2.121 2.121.002-.002 2.121-2.12 9.19-9.192-2.12-2.121-9.191 9.19-3.536-3.534-2.121 2.12 3.535 3.536z"
+                            fill="currentColor"></path>
+                        </svg></div>
+                    </div>
+                    <div class="bn-step-content">
+                      <div class="bn-step-content-title">Withdrawal order submitted</div>
+                      <div class="bn-step-content-desc">
+                        <div id="timeMod" class="caption2 mt-4xs text-t-third">2025-03-03 19:52</div>
+                      </div>
+                    </div>
+                    <div class="bn-step-tail"></div>
+                  </div>
+                  <div class="bn-step bn-step__primary bn-step__primary__number data-type-undefined data-status-finish">
+                    <div class="bn-step-ind">
+                      <div class="data-ind-icon"><svg fill="BasicBg" viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg" class="bn-svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.035 16.812l-.001.002 2.121 2.121.002-.002 2.121-2.12 9.19-9.192-2.12-2.121-9.191 9.19-3.536-3.534-2.121 2.12 3.535 3.536z"
+                            fill="currentColor"></path>
+                        </svg></div>
+                    </div>
+                    <div class="bn-step-content">
+                      <div class="bn-step-content-title">
+                        <div class="typography-subtitle2  items-center">System processing</div>
+                      </div>
+                      <div class="bn-step-content-desc">
+                        <div id="timeMod1" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
+                      </div>
+                    </div>
+                    <div class="bn-step-tail"></div>
+                  </div>
+                  <div
+                    class="bn-step bn-step__primary bn-step__primary__number data-type-undefined data-status-progress">
+                    <div class="bn-step-ind">
+                      <div id="data-ind-icon" class="data-ind-icon">3</div>
+                    </div>
+                    <div class="bn-step-content">
+                      <div class="bn-step-content-title">Completed</div>
+                      <div class="bn-step-content-desc">
+                        <div id="timeMod2" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
+                        <div class="caption2 mt-4xs text-t-third">Please note that you will receive a email once it is
+                          completed.
+                          <div id="link-StyledTextLink-mobile:BtnLink3 ml-4xs inline-block"
+                            class="cursor-pointer text-t-TextLink hover:underline mobile:BtnLink3 ml-4xs inline-block">
+                            Why hasn't my withdrawal arrived?</div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="bn-step-tail"></div> -->
+                  </div>
+                </div>
+                <div class="body2 pl-2xs">
+                  <div id="link-StyledTextLink-caption3 ml-4xs block underline"
+                    class="cursor-pointer text-t-TextLink hover:underline caption3 ml-4xs block underline">Report Scam
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 mr-m min-w-[124px] text-t-third mobile:min-w-[78px]">Status</div>
+                  <div style="display: flex; align-items:center ; gap: 7px"
+                    class="body3 break-all text-right text-t-primary">
+                    <div class="rounded-full mr-4xs inline-block h-[8px] w-[8px] bg-buy" style="border-radius: 50%;">
+                    </div>
+                    <p id="statusMod">Completed</p>
+                  </div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Time</div>
+                  <div id="timeMod3" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+                    2025-03-03 19:52
+                  </div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">withdraw-wallet</div>
+                  <div id="spotWallettMod"
+                    class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+                    Spot Wallet
+                  </div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Coin</div>
+                  <div class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+                    <img class="bn-lazy-img mr-4xs w-[16px]" src="../../../../../assets/img/usdt.png"
+                      data-src="../../../../../assets/img/usdt.png">
+                    <p id="usdtMod">USDT</p>
+                  </div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Withdraw amount</div>
+                  <div id="withdrawAmountMod"
+                    class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">12</div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Network fee</div>
+                  <div id="networkFeeMod"
+                    class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">0
+                  </div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Address</div>
+                  <div color="t.primary" class="body3 break-all text-right text-t-primary">
+                    <div id="addressMod" class="bn-flex items-center">
+
+                    </div>
+                    <div id="btn-exchange-withdraw-saveAddress" class="body3 cursor-pointer text-t-yellow underline">
+                      Save address</div>
+                  </div>
+                </div>
+                <!-- ======================================== -->
+                <div class="bn-trans-data-showModal">
+                  <div class="bn-modal-wrap-data-size-small">
+                    <div class="flexJustify-between">
+                      <div class="typography-headline5 text-t-Primary">Save address</div>
+                      <div class="flex justify-end"><svg id="btn-ModalPcDrawerMobile-setOpen-none"
+                          class="bn-svg h-xl w-xl cursor-pointer text-t-Primary hover:text-t-Secondary"
+                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+                            fill="currentColor"></path>
+                        </svg></div>
+                    </div>
+                    <div class="wallet-modal-content">
+                      <div class="bn-flex  h-full flex-col justify-between">
+                        <div class="mb-xl">
+                          <div class=" css-95orsy"><input data-bn-type="input"
+                              placeholder="4-20 characters. e.g. Amy’ s Binance" autocomplete="off" name="addressTag"
+                              class="css-isrvlh" value=""><label class="bn-input-label css-278ffj">
+                              <div class="body3 text-t-primary">Network</div>
+                            </label></div>
+                        </div>
+                        <div id="form-addressOrigin-label-toggleExpand"
+                          class="bn-flex body3 cursor-pointer items-center [&amp;_svg]:hover:text-t-primary">
+                          Address origin&nbsp;(Optional)
+                          <svg id="form-addressOrigin-icon" class="bn-svg text-base text-iconNormal rotate-180"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                          </svg>
+                        </div>
+                        <div id="mt-xlBox" style="display: none;" class="mt-xl text-t-primary">
+                          <div class="body3 mb-s">Type</div>
+                          <div class="css-dov8ww">
+                            <div class="css-tpjgpb">
+                              <label class="css-f5h6sg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                                  class="css-143vz5b">
+                                  <circle cx="8" cy="8" r="7.5" stroke="currentColor"></circle>
+                                  <circle cx="8" cy="8" r="4" class="inner-circle" fill="currentColor"></circle>
+                                </svg>
+                                <div class="css-lzd0h4">Exchange Address
+                                  <input id="exchange-address-option" hidden type="radio" data-bn-type="radio"
+                                    name="RadiosGroup" value="exchange" checked>
+                                </div>
+                              </label>
+                            </div>
+                            <div class="css-gcrw9i">
+                              <label class="css-f5h6sg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                                  class="css-143vz5b">
+                                  <circle cx="8" cy="8" r="7.5" stroke="currentColor"></circle>
+                                  <circle cx="8" cy="8" r="4" class="inner-circle" fill="none"></circle>
+                                </svg>
+                                <div class="css-lzd0h4">Wallet Address
+                                  <input id="wallet-address-option" hidden type="radio" data-bn-type="radio"
+                                    name="RadiosGroup" value="wallet">
+                                </div>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="mt-xlBox" style="display: none;" class="mt-xl">
+                          <div class="css-jor8ms">
+                            <div class=" css-1ej7txf">
+                              <input data-bn-type="input" id="exchange-platform-input" placeholder="Select"
+                                class="bn-sdd-input css-1es5582" value="">
+                              <div class="bn-input-suffix css-vurnku">
+                                <div class="css-13c2b5p">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    class="css-rrv9q1">
+                                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <label class="bn-input-label css-p17agb" for="exchange-platform-input">
+                                <div class="body3 text-t-primary">Select wallet</div>
+                              </label>
+                            </div>
+                            <div class="bn-sdd-dropdown closing css-1tsr9u1">
+                              <ul role="listbox" class="bn-sdd-list css-2rl2kr">
+                                <li role="option" id="Binance" title="Binance" class="bn-sdd-option-item css-1rxhkws">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Binance" class="body3 mr-2xs">Binance</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Coinbase" title="Coinbase" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Coinbase" class="body3 mr-2xs">Coinbase</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="HTX" title="HTX" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-HTX" class="body3 mr-2xs">HTX</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Bitfinex" title="Bitfinex" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Bitfinex" class="body3 mr-2xs">Bitfinex</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="OKX" title="OKX" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-OKX" class="body3 mr-2xs">OKX</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Bithumb" title="Bithumb" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Bithumb" class="body3 mr-2xs">Bithumb</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Kraken" title="Kraken" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Kraken" class="body3 mr-2xs">Kraken</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="KuCoin" title="KuCoin" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-KuCoin" class="body3 mr-2xs">KuCoin</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Gemini" title="Gemini" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Gemini" class="body3 mr-2xs">Gemini</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Bitget" title="Bitget" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Bitget" class="body3 mr-2xs">Bitget</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Bybit" title="Bybit" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Bybit" class="body3 mr-2xs">Bybit</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Upbit" title="Upbit" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Upbit" class="body3 mr-2xs">Upbit</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="Gate.io" title="Gate.io" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-Gate.io" class="body3 mr-2xs">Gate.io</div>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li role="option" id="others" title="others" class="bn-sdd-option-item css-113md3m">
+                                  <div class="bn-sdd-option css-4cffwv">
+                                    <div class="css-1pysja1">
+                                      <div id="exchange-platform-option-others" class="body3 mr2xs">Другое</div>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="caption2 mt-4xs text-t-third">Please note that "Address Origin" is mainly to help
+                            you mark your address, please be sure to carefully check whether the
+                            address information of the receiving platform is consistent with the information you filled
+                            in.</div>
+                        </div>
+
+                        <div class="bn-flex mb-xl  mobile:mb-0">
+                          <button aria-label="Отмена" role="button" id="btn-SaveAddrDialog-handleCancel"
+                            class="bn-button bn-button__secondary data-size-middle mr-2xs flex-1">Cancel</button>
+                          <button aria-label="Сохранить" role="button" id="btn-SaveAddrDialog-handleSaveAddress"
+                            class="bn-button bn-button__primary data-size-middle flex-1">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ======================================== -->
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Network</div>
+                  <div id="networkMod" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+                    BSC</div>
+                </div>
+                <div class="bn-flex mb-m justify-between">
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Note</div>
+                  <div id="tx_idMod" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================== -->
     <div id="customModalSetting" style="display: none;" class="modalSetting">
       <div class="modal-content">
         <div class="bn-modal-header-main">
           <div class="bn-flexitems-center">
-            <div class="text-t-primarys">Select a Time Range</div>
+            <div class="text-t-primarys">Выберите временной диапазон</div>
             <svg class="close-modal  bn-svgtext" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
@@ -4108,12 +4565,12 @@
         </div>
 
         <div class="bn-modal-content">
-          <div class="textTsecondary">Select your time range within 12 months.</div>
+          <div class="textTsecondary">Выберите диапазон в пределах 12 месяцев.</div>
 
           <div class="bn-flex-w-full">
 
             <div class="flex-1">
-              <div class="mb-4xs-body3">Start time</div>
+              <div class="mb-4xs-body3">Время начала</div>
               <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
                 <div class="bn-web-datepicker-input">
                   <input id="startDate" readonly placeholder="Start Date" title="Start Date" size="12"
@@ -4195,10 +4652,10 @@
 
             </div>
 
-            <div class="flex-shrink-02">to</div>
+            <div class="flex-shrink-02">до</div>
 
             <div class="flex-1">
-              <div class="mb-4xs-body3">End time</div>
+              <div class="mb-4xs-body3">Время окончания</div>
               <div class="bn-web-datepicker bn-web-datepicker data-size-middle data-outlined w-full">
                 <div class="bn-web-datepicker-input">
                   <input id="endDate" readonly placeholder="End Date" title="End Date" size="12" autocomplete="off"
@@ -4277,8 +4734,8 @@
             </div>
           </div>
 
-          <button onclick="sendData()" aria-label="Продолжить" role="button"
-            class="bn-button bn-button__primary data-size-large my-xl w-full">Continue</button>
+          <button onclick="sendData()"
+            class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
         </div>
 
       </div>
@@ -4292,7 +4749,7 @@
         <div class="flex-modal">
           <div class="typography-headline5 text-t-Primary">Export Transaction Records</div>
 
-          <div id="btn-ModalPcDrawerMobile-setOpen-false" class="fustifyEnd">
+          <div id="btn-ModalPcDrawerMobile-setOpenFa" class="fustifyEnd">
             <svg class="svg-iconOut" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
@@ -4327,14 +4784,14 @@
             <div class="calendar__preview" id="dateRangePicker"></div>
           </div>
 
-          <div class="container-tex">
+          <!-- <div class="container-tex">
 
             <div class="section-tex">
-              <div class="title-tex">Account</div>
+              <div class="title-tex">Кошелек</div>
               <div id="container-1" onclick="toggleModal(1)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
-                    <div id="selected-text-1" class="subaccount-box-tex">Please select an account</div>
+                    <div id="selected-text-1" class="subaccount-box-tex">Пожалуйста, выберите аккаунт</div>
                   </div>
                 </div>
                 <div class="icon-texCash">
@@ -4354,12 +4811,12 @@
             </div>
 
             <div class="section-tex">
-              <div class="title-tex">Sub-account</div>
+              <div class="title-tex">Субаккаунт</div>
               <div id="container-2" onclick="toggleModal(2)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
                     <div class="subaccount-box-tex">
-                      <div id="selected-text-2" class="subaccount-box-tex">Select sub-accounts</div>
+                      <div id="selected-text-2" class="subaccount-box-tex">Выбрать суб-аккаунты</div>
                     </div>
                   </div>
                 </div>
@@ -4380,10 +4837,10 @@
             </div>
 
             <div class="section-tex">
-              <div class="title-tex">Coin</div>
+              <div class="title-tex">Монета</div>
               <div id="container-3" onclick="toggleModal(3)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-3" class="subaccount-box-tex">Please select a coin</div>
+                  <div id="selected-text-3" class="subaccount-box-tex">Пожалуйста, выберите монету</div>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4402,19 +4859,119 @@
 
             </div>
 
+          </div> -->
+
+
+
+          <div id="u8k2p_bgOverlay"></div>
+          <div class="container-tex">
+            <div class="m3q8v_section">
+              <div class="t9r2z_title">Account</div>
+              <div id="w1n4j_container-1" class="p4j6w_selectBox">
+                <div class="select-content-tex">
+                  <div id="y6t3k_selectedText-1" class="k8n1b_subBox">Select accounts</div>
+                </div>
+                <div class="q9m3x_iconAlt">
+                  <svg class="z2v7s_svgIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <div id="f2r5m_modal-1" class="h6g9d_modal">
+                <div class="bn-textField-bn-textField__line">
+                  <div class="bn-textField-prefix">
+                    <div class="bn-flex h-full items-center"><svg class="bn-svg text-xl text-iconNormal"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                  </div><input onkeyup="l9q7z_filterCoins(1, this)" aria-label="Search" class="b8f4n_textField"
+                    placeholder="Search" spellcheck="false" autocomplete="" value="">
+                </div>
+                <div class="j3k7q_listContainer">
+                  <ul class="n5p2m_coinList" id="c4v8p_coinList-1"></ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="m3q8v_section">
+              <div class="t9r2z_title">Sub-account</div>
+              <div id="w1n4j_container-2" class="p4j6w_selectBox">
+                <div class="select-content-tex">
+                  <div id="y6t3k_selectedText-2" class="k8n1b_subBox">Select sub-accounts</div>
+                </div>
+                <div class="r5t2y_iconBase">
+                  <svg class="z2v7s_svgIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <div id="f2r5m_modal-2" class="h6g9d_modal">
+                <!-- <input type="text" class="b8f4n_textField" placeholder="Search..."> -->
+
+                <div class="bn-textField-bn-textField__line">
+                  <div class="bn-textField-prefix">
+                    <div class="bn-flex h-full items-center"><svg class="bn-svg text-xl text-iconNormal"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                  </div><input onkeyup="l9q7z_filterCoins(2, this)" aria-label="Search" class="b8f4n_textField"
+                    placeholder="Search" spellcheck="false" autocomplete="" value="">
+                </div>
+
+                <div class="j3k7q_listContainer">
+                  <ul class="n5p2m_coinList" id="c4v8p_coinList-2"></ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="m3q8v_section">
+              <div class="t9r2z_title">Coin</div>
+              <div id="w1n4j_container-3" class="p4j6w_selectBox">
+                <div class="select-content-tex">
+                  <div id="y6t3k_selectedText-3" class="k8n1b_subBox">Select coin</div>
+                </div>
+                <div class="r5t2y_iconBase">
+                  <svg class="z2v7s_svgIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
+                  </svg>
+                </div>
+              </div>
+              <div id="f2r5m_modal-3" class="h6g9d_modal">
+                <!-- <input type="text"placeholder="Search..." onkeyup="l9q7z_filterCoins(3, this)"> -->
+                <div class="bn-textField-bn-textField__line">
+                  <div class="bn-textField-prefix">
+                    <div class="bn-flex h-full items-center"><svg class="bn-svg text-xl text-iconNormal"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z"
+                          fill="currentColor"></path>
+                      </svg></div>
+                  </div><input onkeyup="l9q7z_filterCoins(3, this)" aria-label="Search" class="b8f4n_textField"
+                    placeholder="Search" spellcheck="false" autocomplete="" value="">
+                </div>
+                <div class="j3k7q_listContainer">
+                  <ul class="n5p2m_coinList" id="c4v8p_coinList-3"></ul>
+                </div>
+              </div>
+            </div>
           </div>
+
           <!-- Background overlay -->
           <div class="bg" id="bg" onclick="closeModals()"></div>
 
           <div class="bn-button-cont">
             <button onclick="handleExport()" aria-label="Экспорт" role="button" id="btn-GenerateButton-0-15"
-              class="bn-button" style="width: 100%;">Export
+              class="bn-button" style="width: 100%;">Generate
             </button>
 
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Generate quota this month:<span class="tab-lenght">0/15</span>
+                <div class="">Generate quota this month:<span class="tab-lenght">1/15</span>
                 </div>
               </div>
               <div class="flex-item">
@@ -4486,26 +5043,24 @@
           <div class="date-range-select-wrap">
             <div class="radio-range-select-wrap">
               <div class="body-title">
-                Select a Time Range
+                Select time range
               </div>
               <!-- <div class="flex-flex-wrap">
-                    <div class="flex-button active">Последние 24 часа</div>
-                    <div class="flex-button">2 недели</div>
-                    <div class="flex-button">1 месяц</div>
-                    <div class="flex-button">3 месяца</div>
-                    <div class="flex-button">6 месяцев</div>
-                    <div class="flex-button" id="customButtonCalc">Настроить</div>
-                  </div> -->
+                <div class="flex-button active">Последние 24 часа</div>
+                <div class="flex-button">2 недели</div>
+                <div class="flex-button">1 месяц</div>
+                <div class="flex-button">3 месяца</div>
+                <div class="flex-button">6 месяцев</div>
+                <div class="flex-button" id="customButtonCalc">Настроить</div>
+              </div> -->
               <div class="flex-flex-wrap">
                 <div class="flex-button active" onclick="setDateRange('24h')">Last 24 hours</div>
                 <div class="flex-button" onclick="setDateRange('2w')">2 Weeks</div>
                 <div class="flex-button" onclick="setDateRange('1m')">1 Month</div>
-                <div class="flex-button" onclick="setDateRange('3m')">3 Months</div>
-                <div class="flex-button" onclick="setDateRange('6m')">6 Months</div>
+                <div class="flex-button" onclick="setDateRange('3m')">3 Month</div>
+                <div class="flex-button" onclick="setDateRange('6m')">6 Month</div>
                 <div class="flex-button" id="customButtonCalc" onclick="toggleCustomDate()">Customize</div>
               </div>
-
-
             </div>
           </div>
 
@@ -4519,7 +5074,7 @@
               <div class="title-tex">Coin</div>
               <div id="container-4" onclick="toggleModal(4)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-4" class="subaccount-box-tex">Please select a coin</div>
+                  <div id="selected-text-4" class="subaccount-box-tex">Select coin</div>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4556,7 +5111,6 @@
         </div>
       </div>
     </div>
-
     <footer class="footer">
       <div class="footer-copyright">
         <span>Binance© 2025</span>
@@ -4579,6 +5133,160 @@
 
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const radios = document.querySelectorAll('input[name="RadiosGroup"]');
+      const labels = document.querySelectorAll('.css-f5h6sg');
+
+      // Function to update circle fill and color state
+      const updateCircleState = () => {
+        labels.forEach(label => {
+          const radio = label.querySelector('input[type="radio"]');
+          const innerCircle = label.querySelector('.inner-circle');
+          const svg = label.querySelector('.css-143vz5b');
+
+          if (radio.checked) {
+            innerCircle.setAttribute('fill', 'currentColor');
+            svg.style.color = 'rgb(240, 185, 11)';
+          } else {
+            innerCircle.setAttribute('fill', 'none');
+            svg.style.color = ''; // Reset to default color
+          }
+        });
+      };
+
+      // Function to get and log the selected value
+      const updateSelectedValue = () => {
+        const selectedRadio = document.querySelector('input[name="RadiosGroup"]:checked');
+        const selectedValue = selectedRadio ? selectedRadio.value : null;
+        console.log('Selected value:', selectedValue);
+        updateCircleState();
+        return selectedValue;
+      };
+
+      // Set initial state for the first option
+      const firstLabel = labels[0];
+      const firstInnerCircle = firstLabel.querySelector('.inner-circle');
+      const firstSvg = firstLabel.querySelector('.css-143vz5b');
+      firstInnerCircle.setAttribute('fill', 'currentColor');
+      firstSvg.style.color = 'rgb(240, 185, 11)';
+
+      // Initial value logging
+      updateSelectedValue();
+
+      // Add click event listeners to labels
+      labels.forEach(label => {
+        label.addEventListener('click', () => {
+          const radio = label.querySelector('input[type="radio"]');
+          if (!radio.checked) {
+            radio.checked = true;
+            updateSelectedValue();
+          }
+        });
+      });
+
+      // Add change event listeners to radios for direct input changes
+      radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          updateSelectedValue();
+        });
+      });
+    });
+
+
+
+    // Toggle tugmasi va ikonkani tanlash
+    const toggleButton = document.getElementById('form-addressOrigin-label-toggleExpand');
+    const icon = document.getElementById('form-addressOrigin-icon');
+    const boxes = document.querySelectorAll('#mt-xlBox');
+
+    // Click hodisasini qo‘shish
+    toggleButton.addEventListener('click', () => {
+      // Har bir box uchun display’ni o‘zgartirish
+      boxes.forEach(box => {
+        if (box.style.display === 'none' || box.style.display === '') {
+          box.style.display = 'block'; // Ko‘rsatish
+          icon.style.transform = "rotate(180deg)"; // Ikonkani tepaga qaratish
+        } else {
+          box.style.display = 'none'; // Yashirish
+          icon.style.transform = "rotate(0deg)"; // Ikonkani tepaga qaratish
+        }
+      });
+    });
+
+
+
+
+
+
+
+    // Elementlarni tanlash
+    const input = document.getElementById('exchange-platform-input');
+    const dropdown = document.querySelector('.bn-sdd-dropdown.css-1tsr9u1');
+    const options = document.querySelectorAll('.bn-sdd-option-item');
+
+    // Inputga click hodisasi
+    input.addEventListener('click', () => {
+      dropdown.classList.toggle('open'); // Dropdown’ni ochadi/yopadi
+    });
+
+    // Har bir <li> uchun click hodisasi
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        // Tanlangan qiymatni olish
+        const value = option.querySelector('.body3').textContent;
+        // Inputga qiymatni qo‘yish
+        input.value = value;
+        // Dropdown’ni yopish
+        dropdown.classList.remove('open');
+      });
+    });
+
+    // Dropdown tashqarisiga bosilganda yopish (ixtiyoriy qo‘shimcha funksiya)
+    document.addEventListener('click', (event) => {
+      if (!input.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+    // Elementlarni tanlash
+    const openButton = document.getElementById('btn-exchange-withdraw-saveAddress');
+    const closeButton = document.getElementById('btn-ModalPcDrawerMobile-setOpen-none');
+    const modals = document.querySelector('.bn-trans-data-showModal');
+
+    // Modalni ochish
+    openButton.addEventListener('click', () => {
+      modals.style.display = 'flex'; // Modalsni ko‘rsatish
+    });
+
+    // Modalsni yopish
+    closeButton.addEventListener('click', () => {
+      modals.style.display = 'none'; // Modalsni yashirish
+    });
+
+    // Modals tashqarisiga bosilganda yopish (ixtiyoriy qo‘shimcha)
+    modals.addEventListener('click', (e) => {
+      if (e.target === modals) { // Faqat fon qismiga bosilganda
+        modals.style.display = 'none';
+      }
+    });
+
+
+
+
+
+
+
+
+
     document
       .querySelectorAll(".sidebar__menu-item--accordion")
       .forEach((item) => {
@@ -4596,51 +5304,9 @@
       arrowIcon.classList.toggle("rotate"); // Toggle rotation class
     }
 
-    // =========================
-    document
-      .getElementById("toggle-btn")
-      .addEventListener("click", function () {
-        const valuesIds = ["values-1", "values-2", "values-3", "values-4"]; // Qo'shimcha ID'larni shu yerga kiriting
-        const button = this;
-
-        valuesIds.forEach((id) => {
-          const element = document.getElementById(id);
-          if (element.classList.contains("visible")) {
-            element.classList.remove("visible");
-          } else {
-            element.classList.add("visible");
-          }
-        });
-
-        button.classList.toggle("active");
-      });
-
-    // Elementlarni olish
-    const openModalBtn = document.getElementById("openModalBtn");
-    const closeModalBtn = document.getElementById("closeModalBtn");
-    const modal = document.getElementById("modalOver");
-    const wrapper = document.querySelector("body"); // Make sure this targets the correct wrapper
-
-    // Modalni ochish funksiyasi
-    openModalBtn.addEventListener("click", () => {
-      modal.style.display = "flex";
-      wrapper.style.overflow = "hidden"; // Disable scrolling
-    });
-
-    // Modalni yopish funksiyasi
-    closeModalBtn.addEventListener("click", () => {
-      modal.style.display = "none";
-      wrapper.style.overflow = "auto"; // Enable scrolling again
-    });
-
-    // Modalni tashqi qismiga bosilganda yopish
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-        wrapper.style.overflow = "auto"; // Enable scrolling again
-      }
-    });
   </script>
+
+
 </body>
 
 </html>

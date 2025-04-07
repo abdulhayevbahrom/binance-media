@@ -2,21 +2,148 @@ const originalOrderTypes = [
     { id: "orderType1", options: ["Funding", "Options", "Fiat and Spot", "USDⓈ-M Futures", "COIN-M Futures", "Pool", "P2P", "Isolated Margin"], label: "From", defaultValue: "Fiat and Spot" },
     { id: "orderType2", options: ["Options", "Cross Margin", "USDⓈ-M Futures", "COIN-M Futures", "P2P", "Pool", "Funding", "Isolated Margin", "Trading Bots", "Copy Trading", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "To", defaultValue: "Cross Margin" },
     { id: "orderType3", options: ["Past 7 days", "Past 30 days", "Past 90 days", "Customized"], label: "Time", defaultValue: "Past 30 days" },
-    {
-        id: "orderType4",
-        label: "Coin",
-        defaultValue: "All",
-        options: [
-            { label: "ADD", image: "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png" },
-            { label: "ADX", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png" },
-            { label: "ADXOLD", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20200821/19ef68ac-be44-4318-a682-5ac4c270e288.png" },
-            { label: "AE", image: "https://bin.bnbstatic.com/images/20191211/8cde9282-b8d0-458f-bd77-a3f17f7a8775.png" },
-            { label: "AED", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20231011/90f9a2b8-1bc9-4f07-b83a-591d0bd1a3ea.png" },
-            { label: "AERGO", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220329/9584603d-318b-4dea-833f-fccead1b324e.png" },
-            { label: "AEUR", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png" }
-        ]
-    }
 ];
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.xCustomDropdownContainer').forEach(xComplexDropdownElement => {
+        const xHeaderSection = xComplexDropdownElement.querySelector('.xDropdownHeaderSection');
+        const xOptionsContainer = xComplexDropdownElement.querySelector('.xDropdownOptionsList');
+        const xArrowToggleElement = xComplexDropdownElement.querySelector('.xToggleArrowIcon');
+        const xCurrentValueDisplay = xComplexDropdownElement.querySelector('.xSelectedValueDisplay');
+        const xSearchInputField = xComplexDropdownElement.querySelector('.xSearchFieldInput');
+        const xOptionItemsCollection = xComplexDropdownElement.querySelectorAll('.xSingleOptionItem');
+        const xIsAnimatedVariant = xComplexDropdownElement.classList.contains('xVariantTwo');
+
+        // Set initial value from HTML
+        const setInitialValue = () => {
+            const initialText = xCurrentValueDisplay.textContent;
+            xCurrentValueDisplay.dataset.selected = initialText;
+        };
+
+        setInitialValue();
+
+        // Mobile click functionality (max-width: 768px)
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            xHeaderSection.addEventListener('click', (xEventObject) => {
+                xEventObject.stopPropagation();
+                if (xIsAnimatedVariant) {
+                    xOptionsContainer.classList.toggle('xActiveState');
+                } else {
+                    xOptionsContainer.classList.toggle('xActiveState');
+                    xOptionsContainer.style.display = xOptionsContainer.classList.contains('xActiveState') ? 'block' : 'none';
+                }
+                xArrowToggleElement.classList.toggle('xActiveState');
+            });
+        }
+
+        xOptionItemsCollection.forEach(xSingleOptionElement => {
+            xSingleOptionElement.addEventListener('click', () => {
+                const selectedText = xSingleOptionElement.dataset.label;
+                // Update display with truncated text if needed
+                if (window.matchMedia("(min-width: 768px)").matches) {
+                    xCurrentValueDisplay.textContent = selectedText.length > 5
+                        ? selectedText.substring(0, 5) + '...'
+                        : selectedText;
+                }
+                xCurrentValueDisplay.dataset.selected = selectedText; // Store full value
+
+                // Immediately update and send all values
+                const defaults = getAllSelectedValues();
+                sendToServer(defaults);
+
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    xOptionsContainer.classList.remove('xActiveState');
+                    if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+                    xArrowToggleElement.classList.remove('xActiveState');
+                }
+            });
+        });
+
+        if (xSearchInputField) {
+            xSearchInputField.addEventListener('input', (xInputEvent) => {
+                const xSearchTerm = xInputEvent.target.value.toLowerCase();
+                xOptionItemsCollection.forEach(xOptionElement => {
+                    xOptionElement.style.display = xOptionElement.dataset.label.toLowerCase().includes(xSearchTerm) ? '' : 'none';
+                });
+            });
+        }
+
+        // Close on outside click in mobile
+        document.addEventListener('click', (xGlobalClickEvent) => {
+            if (!xComplexDropdownElement.contains(xGlobalClickEvent.target) && window.matchMedia("(max-width: 768px)").matches) {
+                xOptionsContainer.classList.remove('xActiveState');
+                if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+                xArrowToggleElement.classList.remove('xActiveState');
+            }
+        });
+
+        // Add getSelectedValue method
+        xComplexDropdownElement.getSelectedValue = () => {
+            return xCurrentValueDisplay.dataset.selected || xCurrentValueDisplay.textContent;
+        };
+    });
+
+    // Function to get all selected values
+    const getAllSelectedValues = () => {
+        const selectedValues = {};
+        document.querySelectorAll('.xCustomDropdownContainer').forEach((dropdown) => {
+            const id = dropdown.id; // Use the actual ID from HTML
+            selectedValues[id] = dropdown.getSelectedValue();
+        });
+        return selectedValues;
+    };
+
+
+    const modal = document.getElementById("customModalSetting");
+    const closeModal = document.querySelector(".close-modal");
+    const sendToServer = async (data) => {
+
+
+        // Open modal when "Настроить" button is clicked
+        if (data.selectV2 === "Настроить") {
+            modal.style.display = "block";
+
+
+            // Close modal when "X" is clicked
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    };
+
+
+    // Send initial values
+    const defaults = getAllSelectedValues();
+    sendToServer(defaults);
+});
+
+
+const btnOpenModal = document.querySelector(
+    "#btn-ExportButton-onExportTransactionRecords"
+);
+const btnOpenModalSecond = document.querySelector(
+    "#btn-ModalPcDrawerMobile-setOpen-false"
+);
+const mainModal = document.getElementById("mainModal");
+const secondModal = document.getElementById("secondModal");
+
+btnOpenModal.addEventListener("click", function (event) {
+    event.stopPropagation();
+    mainModal.classList.toggle("active");
+    document.body.style.overflow = "hidden";
+});
+
+btnOpenModalSecond.addEventListener("click", function (event) {
+    mainModal.classList.remove("active");
+
+});
 
 
 let orderTypes = JSON.parse(JSON.stringify(originalOrderTypes)); // Deep copy of original
@@ -156,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const applyButton = document.getElementById("applyDateRange");
 
     document.querySelector("#orderType3 .order-select__list").addEventListener("click", (event) => {
-        if (event.target.textContent === "Customized") {
+        if (event.target.textContent === "Настроить") {
             modal.style.display = "block";
         }
     });
@@ -199,19 +326,19 @@ function calculateDates(timeRange) {
     endDate = today.toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
 
     switch (timeRange) {
-        case "Past 7 days":
+        case "Последние 7 дней":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 7);
             break;
-        case "Past 30 days":
+        case "Последние 30 дней":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 30);
             break;
-        case "Past 90 days":
+        case "Последние 90 дней":
             startDate = new Date(today);
             startDate.setDate(today.getDate() - 90);
             break;
-        case "Customized":
+        case "Настроить":
             // For custom range, use modal values if available, otherwise default to 30 days
             const customStart = document.getElementById("startDate")?.value;
             const customEnd = document.getElementById("endDate")?.value;
@@ -233,8 +360,6 @@ function calculateDates(timeRange) {
         endDate
     };
 }
-
-
 
 
 
@@ -350,7 +475,6 @@ async function fetchDataAndUpdate() {
 
 
 
-
 // ==========================================================
 // Экспортировать записи транзакций
 
@@ -391,15 +515,13 @@ function collectFormData() {
     formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
 
     // Get custom date range if selected
-    if (formData.timeRange === "Customized") {
+    if (formData.timeRange === "Настроить") {
         const dateRangePicker = document.getElementById("dateRangePicker");
         formData.customDateRange = dateRangePicker.textContent.trim();
     }
 
     return formData;
 }
-
-
 
 
 

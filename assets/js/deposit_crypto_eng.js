@@ -1,189 +1,124 @@
-const orderTypes = [
-  {
-    id: "orderType1",
-    options: [
-      "Deposit",
-      "Auto deduction",
-      "Auto funding",
-      "Arrears repayment",
-      "Auto convert",
-      "Partners Transfer",
-    ],
-    label: "Type",
-    defaultValue: "Deposit",
-  },
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.xCustomDropdownContainer').forEach(xComplexDropdownElement => {
+    const xHeaderSection = xComplexDropdownElement.querySelector('.xDropdownHeaderSection');
+    const xOptionsContainer = xComplexDropdownElement.querySelector('.xDropdownOptionsList');
+    const xArrowToggleElement = xComplexDropdownElement.querySelector('.xToggleArrowIcon');
+    const xCurrentValueDisplay = xComplexDropdownElement.querySelector('.xSelectedValueDisplay');
+    const xSearchInputField = xComplexDropdownElement.querySelector('.xSearchFieldInput');
+    const xOptionItemsCollection = xComplexDropdownElement.querySelectorAll('.xSingleOptionItem');
+    const xIsAnimatedVariant = xComplexDropdownElement.classList.contains('xVariantTwo');
 
+    // Set initial value from HTML
+    const setInitialValue = () => {
+      const initialText = xCurrentValueDisplay.textContent;
+      xCurrentValueDisplay.dataset.selected = initialText;
+    };
 
-  {
-    id: "orderType2",
-    options: [
-      "Past 7 days",
-      "Past 30 days",
-      "Past 90 days",
-      "Customized",
-    ],
-    label: "Time",
-    defaultValue: "Past 30 days",
-  },
-  {
-    id: "orderType3",
-    label: "Coin",
-    defaultValue: "All",
-    options: [
-      {
-        label: "ADD",
-        image:
-          "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png",
-      },
-      {
-        label: "ADX",
-        image:
-          "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png",
-      },
-      {
-        label: "ADXOLD",
-        image:
-          "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20200821/19ef68ac-be44-4318-a682-5ac4c270e288.png",
-      },
-      {
-        label: "AE",
-        image:
-          "https://bin.bnbstatic.com/images/20191211/8cde9282-b8d0-458f-bd77-a3f17f7a8775.png",
-      },
-      {
-        label: "AED",
-        image:
-          "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20231011/90f9a2b8-1bc9-4f07-b83a-591d0bd1a3ea.png",
-      },
-      {
-        label: "AERGO",
-        image:
-          "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220329/9584603d-318b-4dea-833f-fccead1b324e.png",
-      },
-      {
-        label: "AEUR",
-        image:
-          "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png",
-      },
-    ],
-  },
-  {
-    id: "orderType4",
-    options: ["All", "Completed", "Pending", "Stocks"],
-    label: "Status",
-    defaultValue: "All",
-  },
-];
+    setInitialValue();
 
-// Helper function to get all current selected valueslet
-coinData = {
-  1: [],
-  2: [],
-  3: [],
-  4: [],
-};
-function getAllSelectedValues() {
-  const selectedValues = {};
-  orderTypes.forEach(({ id }) => {
-    const valueElement = document.querySelector(`#${id} .order-select_value`);
-    selectedValues[id] = valueElement ? valueElement.textContent : "";
-  });
-  // Add coin selections
-  Object.keys(coinData).forEach((id) => {
-    selectedValues[`coinSelection${id}`] = coinData[id];
-  });
-  // Add date range from calendar
-  selectedValues["dateRange"] = `${startDate} - ${endDate}`;
-  return selectedValues;
-}
-
-function createSelect(id, options, labels, defaultValue) {
-  const select = document.getElementById(id);
-  const isSearchVisible = id === "orderType3";
-
-  select.innerHTML = `
-    <div class="order-select__label">
-      <p>${labels}</p>
-      <div class="order-select_valueBox">
-        <span class="order-select_value">${defaultValue || "All"}</span>
-      </div>
-      <div class="order-select_icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-          <path d="M16.5 8.49v2.25L12 15.51l-4.5-4.77V8.49h9z" fill="currentColor"></path>
-        </svg>
-      </div>
-    </div>
-    <div class="order-select__list-wrapper">
-      ${isSearchVisible
-      ? `
-        <div class="search-boxInp">
-          <div class="search-boxonNav">
-            <div class="bn-textField-prefix">
-              <svg fill="textDisabled" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="bn-svg-inInp"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
-            </div>
-            <input aria-label="Поиск" placeholder="Поиск" oninput="filterOptions('${id}', this.value)" class="bn-textField-input" spellcheck="false" autocomplete="" value="">
-          </div>
-        </div>
-      `
-      : ""
-    }
-      <div class="order-select__list">
-        ${options
-      .map((opt) => {
-        if (opt.image) {
-          return `
-              <div class="order-select__option" data-value="${opt.label}">
-                <img src="${opt.image}" alt="No" class="option-image" />
-                <span>${opt.label}</span>
-              </div>
-            `;
+    // Mobile click functionality (max-width: 768px)
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      xHeaderSection.addEventListener('click', (xEventObject) => {
+        xEventObject.stopPropagation();
+        if (xIsAnimatedVariant) {
+          xOptionsContainer.classList.toggle('xActiveState');
         } else {
-          return `
-              <span class="order-select__option" data-value="${opt}">${opt}</span>
-            `;
+          xOptionsContainer.classList.toggle('xActiveState');
+          xOptionsContainer.style.display = xOptionsContainer.classList.contains('xActiveState') ? 'block' : 'none';
         }
-      })
-      .join("")}
-      </div>
-    </div>
-  `;
+        xArrowToggleElement.classList.toggle('xActiveState');
+      });
+    }
 
-  const label = select.querySelector(".order-select_value");
-  const listWrapper = select.querySelector(".order-select__list-wrapper");
-  const optionsList = select.querySelectorAll(".order-select__option");
-  const icon = select.querySelector(".order-select_icon");
+    xOptionItemsCollection.forEach(xSingleOptionElement => {
+      xSingleOptionElement.addEventListener('click', () => {
+        const selectedText = xSingleOptionElement.dataset.label;
+        // Update display with truncated text if needed
+        if (window.matchMedia("(min-width: 768px)").matches) {
+          xCurrentValueDisplay.textContent = selectedText.length > 5
+            ? selectedText.substring(0, 5) + '...'
+            : selectedText;
+        }
+        xCurrentValueDisplay.dataset.selected = selectedText; // Store full value
 
-  label.addEventListener("click", () => {
-    document
-      .querySelectorAll(".order-select__list-wrapper")
-      .forEach((el) => el.classList.remove("open"));
-    listWrapper.classList.toggle("open");
-    icon.classList.toggle("rotate", listWrapper.classList.contains("open"));
-  });
+        // Immediately update and send all values
+        const defaults = getAllSelectedValues();
+        sendToServer(defaults);
 
-  label.addEventListener("mouseenter", () => {
-    listWrapper.classList.add("open");
-    icon.classList.add("rotate");
-  });
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          xOptionsContainer.classList.remove('xActiveState');
+          if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+          xArrowToggleElement.classList.remove('xActiveState');
+        }
+      });
+    });
 
-  listWrapper.addEventListener("mouseleave", () => {
-    listWrapper.classList.remove("open");
-    icon.classList.remove("rotate");
-  });
+    if (xSearchInputField) {
+      xSearchInputField.addEventListener('input', (xInputEvent) => {
+        const xSearchTerm = xInputEvent.target.value.toLowerCase();
+        xOptionItemsCollection.forEach(xOptionElement => {
+          xOptionElement.style.display = xOptionElement.dataset.label.toLowerCase().includes(xSearchTerm) ? '' : 'none';
+        });
+      });
+    }
 
-  optionsList.forEach((option) => {
-    option.addEventListener("click", () => {
-      label.firstChild.textContent = option.textContent;
-      listWrapper.classList.remove("open");
-      icon.classList.remove("rotate");
-      updateDefaultValue(id, option.textContent);
-      // Trigger getTableData immediately for orderType1 or orderType2
-      if (id === "orderType1" || id === "orderType2") {
-        getTableData(getAllSelectedValues());
+    // Close on outside click in mobile
+    document.addEventListener('click', (xGlobalClickEvent) => {
+      if (!xComplexDropdownElement.contains(xGlobalClickEvent.target) && window.matchMedia("(max-width: 768px)").matches) {
+        xOptionsContainer.classList.remove('xActiveState');
+        if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+        xArrowToggleElement.classList.remove('xActiveState');
       }
     });
+
+    // Add getSelectedValue method
+    xComplexDropdownElement.getSelectedValue = () => {
+      return xCurrentValueDisplay.dataset.selected || xCurrentValueDisplay.textContent;
+    };
   });
-}
+
+  // Function to get all selected values
+  const getAllSelectedValues = () => {
+    const selectedValues = {};
+    document.querySelectorAll('.xCustomDropdownContainer').forEach((dropdown) => {
+      const id = dropdown.id; // Use the actual ID from HTML
+      selectedValues[id] = dropdown.getSelectedValue();
+    });
+    return selectedValues;
+  };
+
+
+  const modal = document.getElementById("customModalSetting");
+  const closeModal = document.querySelector(".close-modal");
+  const sendToServer = async (data) => {
+    getTableData(data)
+
+    // Open modal when "Customized" button is clicked
+    if (data.selectV2 === "Customized") {
+      modal.style.display = "block";
+
+
+      // Close modal when "X" is clicked
+      closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Close modal when clicking outside of it
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  };
+
+
+  // Send initial values
+  const defaults = getAllSelectedValues();
+  sendToServer(defaults);
+});
+
+
 
 function filterOptions(id, value) {
   const list = document.querySelector(`#${id} .order-select__list`);
@@ -196,25 +131,64 @@ function filterOptions(id, value) {
   });
 }
 
-function updateDefaultValue(id, newValue) {
-  const label = document.querySelector(`#${id} .order-select_value`);
-  label.textContent = newValue;
-  getTableData(getAllSelectedValues());
-}
+// function updateDefaultValue(id, newValue) {
+//   const label = document.querySelector(`#${id} .order-select_value`);
+//   label.textContent = newValue;
+//   getTableData(getAllSelectedValues());
+// }
 
-orderTypes.forEach(({ id, options, label, defaultValue }) =>
-  createSelect(id, options, label, defaultValue)
-);
+// orderTypes.forEach(({ id, options, label, defaultValue }) =>
+//   createSelect(id, options, label, defaultValue)
+// );
 
-document.addEventListener("click", (event) => {
-  if (!event.target.closest(".order-select")) {
-    document
-      .querySelectorAll(".order-select__list-wrapper")
-      .forEach((el) => el.classList.remove("open"));
-    document
-      .querySelectorAll(".order-select_icon")
-      .forEach((icon) => icon.classList.remove("rotate"));
-  }
+// document.addEventListener("click", (event) => {
+//   if (!event.target.closest(".order-select")) {
+//     document
+//       .querySelectorAll(".order-select__list-wrapper")
+//       .forEach((el) => el.classList.remove("open"));
+//     document
+//       .querySelectorAll(".order-select_icon")
+//       .forEach((icon) => icon.classList.remove("rotate"));
+//   }
+// });
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("customModalSetting");
+  const applyButton = document.getElementById("applyDateRange");
+  // const closeModal = document.querySelector(".close-modal");
+  // const customButton = document.getElementById("customButton");
+
+  // // Open modal when "Customized" button is clicked
+  // customButton.addEventListener("click", () => {
+  //   console.log("ok");
+  //   modal.style.display = "block";
+  // });
+
+  // // Close modal when "X" is clicked
+  // closeModal.addEventListener("click", () => {
+  //   modal.style.display = "none";
+  // });
+
+  // // Close modal when clicking outside of it
+  // window.addEventListener("click", (event) => {
+  //   if (event.target === modal) {
+  //     modal.style.display = "none";
+  //   }
+  // });
+
+  // Apply date range and close modal
+  applyButton?.addEventListener("click", () => {
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+
+    if (startDate && endDate) {
+      document.querySelector("#orderType2 .order-select_value").textContent = `${startDate} - ${endDate}`;
+      modal.style.display = "none";
+      // Assuming getTableData and getAllSelectedValues are defined elsewhere
+      getTableData(getAllSelectedValues());
+    } else {
+      alert("Пожалуйста, выберите обе даты.");
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -223,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const applyButton = document.getElementById("applyDateRange");
 
   document
-    .querySelector("#orderType2 .order-select__list")
+    .querySelector("#customButton")
     .addEventListener("click", (event) => {
       if (event.target.textContent === "Customized") {
         modal.style.display = "block";
@@ -277,6 +251,16 @@ document
       filterBox.classList.add("show");
     }, 10);
   });
+function handleCloseDrawer() {
+  let filterBox = document.querySelector(".order-filters");
+  filterBox.style.display = "none";
+
+  setTimeout(() => {
+    document.body.style.overflow = "";
+    filterBox.classList.add("show");
+  }, 10);
+}
+
 
 function toggleCalendar() {
   const calendars = document.querySelectorAll(".calendar");
@@ -372,124 +356,270 @@ document.querySelectorAll(".flex-button").forEach((button) => {
   });
 });
 
-let availableCoins = {
+// let availableCoins = {
+//   1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
+//   2: [
+//     "4000DOGE",
+//     "5000SHIBA",
+//     "6000DOGE",
+//     "7000SHIBA",
+//     "8000DOGE",
+//     "9000SHIBA",
+//   ],
+//   3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
+//   4: ["20000BTC", "21000ETH", "22000BTC", "23000ETH"],
+// };
+
+// function toggleModal(id) {
+//   let modal = document.getElementById(`modal-${id}`);
+//   let bg = document.getElementById("bg");
+
+//   if (modal.classList.contains("active")) {
+//     modal.classList.remove("active");
+//     bg.classList.remove("active");
+//   } else {
+//     modal.classList.add("active");
+//     bg.classList.add("active");
+//     renderCoinList(id);
+//   }
+// }
+
+// function closeModals() {
+//   let modals = document.querySelectorAll(".modal.active");
+//   let bg = document.getElementById("bg");
+//   modals.forEach((modal) => modal.classList.remove("active"));
+//   bg.classList.remove("active");
+// }
+
+// function renderCoinList(id) {
+//   let isAllSelected = coinData[id].length === availableCoins[id].length;
+//   let listHtml = `
+//     <li onclick="toggleSelectAll(${id})">
+//       <div class="bn-checkbox-icon ${isAllSelected ? "active" : ""}">
+//         <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
+//           <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+//         </svg>
+//       </div>
+//       Все
+//     </li>
+//   `;
+//   availableCoins[id].forEach((coin) => {
+//     let isChecked = coinData[id].includes(coin);
+//     let activeClass = isChecked ? "active" : "";
+//     listHtml += `
+//       <li onclick="updateSelection(${id}, '${coin}')">
+//         <div class="bn-checkbox-icon ${activeClass}">
+//           <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
+//             <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+//           </svg>
+//         </div>
+//         ${coin}
+//       </li>
+//     `;
+//   });
+//   document.getElementById(`coin-list-${id}`).innerHTML = listHtml;
+// }
+
+// function toggleSelectAll(id) {
+//   if (coinData[id].length === availableCoins[id].length) {
+//     coinData[id] = [];
+//   } else {
+//     coinData[id] = [...availableCoins[id]];
+//   }
+//   updateSelectedText(id);
+//   renderCoinList(id);
+//   getTableData(getAllSelectedValues());
+// }
+
+// function updateSelection(id, coin) {
+//   let coinIndex = coinData[id].indexOf(coin);
+//   if (coinIndex === -1) {
+//     coinData[id].push(coin);
+//   } else {
+//     coinData[id].splice(coinIndex, 1);
+//   }
+//   updateSelectedText(id);
+//   renderCoinList(id);
+//   getTableData(getAllSelectedValues());
+// }
+
+// function updateSelectedText(id) {
+//   let selectedText = document.getElementById(`selected-text-${id}`);
+//   selectedText.innerHTML = "";
+//   if (coinData[id].length === 0) {
+//     selectedText.innerText = "Выберите...";
+//     selectedText.classList.add("text-t-disabled-emp");
+//     selectedText.classList.remove("text-t-activeAll");
+//     return;
+//   }
+//   if (coinData[id].length === availableCoins[id].length) {
+//     selectedText.innerText = "Все";
+//     selectedText.classList.remove("text-t-disabled-emp");
+//     selectedText.classList.add("text-t-activeAll");
+//     return;
+//   }
+//   let displayCoins = coinData[id].slice(0, 3);
+//   displayCoins.forEach((coin) => {
+//     let coinSpan = document.createElement("span");
+//     coinSpan.classList.add("subaccount-text-tex-res");
+//     coinSpan.innerText = coin;
+//     selectedText.appendChild(coinSpan);
+//   });
+//   if (coinData[id].length > 3) {
+//     let moreSpan = document.createElement("span");
+//     moreSpan.classList.add("more-text");
+//     moreSpan.innerText = ` +${coinData[id].length - 3}`;
+//     selectedText.appendChild(moreSpan);
+//   }
+//   selectedText.classList.remove("text-t-disabled-emp");
+//   selectedText.classList.add("text-t-active");
+// }
+
+// ==============================================
+
+// Define available coins with a complex name
+let x9p4m_availableCoins = {
   1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
-  2: [
-    "4000DOGE",
-    "5000SHIBA",
-    "6000DOGE",
-    "7000SHIBA",
-    "8000DOGE",
-    "9000SHIBA",
-  ],
+  2: ["4000DOGE", "5000SHIBA", "6000DOGE", "7000SHIBA", "8000DOGE", "9000SHIBA"],
   3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
-  4: ["20000BTC", "21000ETH", "22000BTC", "23000ETH"],
 };
 
-function toggleModal(id) {
-  let modal = document.getElementById(`modal-${id}`);
-  let bg = document.getElementById("bg");
+// Initialize coin data with a complex name
+let k7v2n_coinData = { 1: [], 2: [], 3: [] };
 
-  if (modal.classList.contains("active")) {
-    modal.classList.remove("active");
-    bg.classList.remove("active");
-  } else {
-    modal.classList.add("active");
-    bg.classList.add("active");
-    renderCoinList(id);
-  }
-}
+function q5t8r_renderCoinList(id) {
+  const coins = x9p4m_availableCoins[id] || [];
+  const isAllSelected = k7v2n_coinData[id].length === coins.length;
 
-function closeModals() {
-  let modals = document.querySelectorAll(".modal.active");
-  let bg = document.getElementById("bg");
-  modals.forEach((modal) => modal.classList.remove("active"));
-  bg.classList.remove("active");
-}
-
-function renderCoinList(id) {
-  let isAllSelected = coinData[id].length === availableCoins[id].length;
   let listHtml = `
-    <li onclick="toggleSelectAll(${id})">
-      <div class="bn-checkbox-icon ${isAllSelected ? "active" : ""}">
-        <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
-          <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-        </svg>
-      </div>
-      All
-    </li>
-  `;
-  availableCoins[id].forEach((coin) => {
-    let isChecked = coinData[id].includes(coin);
-    let activeClass = isChecked ? "active" : "";
-    listHtml += `
-      <li onclick="updateSelection(${id}, '${coin}')">
-        <div class="bn-checkbox-icon ${activeClass}">
-          <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
-            <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-          </svg>
-        </div>
-        ${coin}
-      </li>
-    `;
-  });
-  document.getElementById(`coin-list-${id}`).innerHTML = listHtml;
+                <li onclick="j3m9k_toggleSelectAll(${id})">
+                    <div class="v1r9t_checkIcon ${isAllSelected ? "active" : ""}">
+                        <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
+                            <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    Все
+                </li>
+            `;
+
+  listHtml += coins
+    .map((coin) => {
+      const isChecked = k7v2n_coinData[id].includes(coin);
+      return `
+                        <li onclick="p8n2z_updateSelection(${id}, '${coin}')">
+                            <div class="v1r9t_checkIcon ${isChecked ? "active" : ""}">
+                                <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
+                                    <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                            ${coin}
+                        </li>
+                    `;
+    })
+    .join("");
+
+  document.getElementById(`c4v8p_coinList-${id}`).innerHTML = listHtml;
 }
 
-function toggleSelectAll(id) {
-  if (coinData[id].length === availableCoins[id].length) {
-    coinData[id] = [];
+function h4k6w_toggleModal(id) {
+  const modalD = document.getElementById(`f2r5m_modal-${id}`);
+  const bg = document.getElementById("u8k2p_bgOverlay");
+  const container = document.getElementById(`w1n4j_container-${id}`);
+
+  if (modalD.classList.contains("active")) {
+    modalD.classList.remove("active");
+    bg.classList.remove("active");
+    container.classList.remove("active");
   } else {
-    coinData[id] = [...availableCoins[id]];
+    modalD.classList.add("active");
+    bg.classList.add("active");
+    container.classList.add("active");
+    q5t8r_renderCoinList(id);
   }
-  updateSelectedText(id);
-  renderCoinList(id);
-  getTableData(getAllSelectedValues());
 }
 
-function updateSelection(id, coin) {
-  let coinIndex = coinData[id].indexOf(coin);
+function j3m9k_toggleSelectAll(id) {
+  if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
+    k7v2n_coinData[id] = [];
+  } else {
+    k7v2n_coinData[id] = [...x9p4m_availableCoins[id]];
+  }
+  q5t8r_renderCoinList(id);
+  r6t9v_updateSelectedText(id);
+}
+
+function p8n2z_updateSelection(id, coin) {
+  const coinIndex = k7v2n_coinData[id].indexOf(coin);
   if (coinIndex === -1) {
-    coinData[id].push(coin);
+    k7v2n_coinData[id].push(coin);
   } else {
-    coinData[id].splice(coinIndex, 1);
+    k7v2n_coinData[id].splice(coinIndex, 1);
   }
-  updateSelectedText(id);
-  renderCoinList(id);
-  getTableData(getAllSelectedValues());
+  q5t8r_renderCoinList(id);
+  r6t9v_updateSelectedText(id);
 }
 
-function updateSelectedText(id) {
-  let selectedText = document.getElementById(`selected-text-${id}`);
-  selectedText.innerHTML = "";
-  if (coinData[id].length === 0) {
+// function r6t9v_updateSelectedText(id) {
+//   const selectedText = document.getElementById(`y6t3k_selectedText-${id}`);
+//   selectedText.innerHTML = "";
+//   if (k7v2n_coinData[id].length === 0) {
+//     selectedText.innerText = "Выберите...";
+//   } else if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
+//     selectedText.innerText = "Все";
+//   } else {
+//     selectedText.innerText = k7v2n_coinData[id].join(", ");
+//   }
+// }
+function r6t9v_updateSelectedText(id) {
+  const selectedText = document.getElementById(`y6t3k_selectedText-${id}`);
+  selectedText.innerHTML = ""; // Clear previous content
+
+  if (k7v2n_coinData[id].length === 0) {
     selectedText.innerText = "Выберите...";
-    selectedText.classList.add("text-t-disabled-emp");
-    selectedText.classList.remove("text-t-activeAll");
-    return;
+  } else if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
+    selectedText.innerText = "Все";
+  } else {
+    // Wrap each selected coin in a span with a specific class
+    const styledCoins = k7v2n_coinData[id].map(coin => {
+      const span = document.createElement("span");
+      span.classList.add("g4m9x_selectedCoin"); // Complex class name for styling
+      span.innerText = coin;
+      return span.outerHTML;
+    }).join("  "); // Join with comma and space
+    selectedText.innerHTML = styledCoins;
   }
-  if (coinData[id].length === availableCoins[id].length) {
-    selectedText.innerText = "All";
-    selectedText.classList.remove("text-t-disabled-emp");
-    selectedText.classList.add("text-t-activeAll");
-    return;
-  }
-  let displayCoins = coinData[id].slice(0, 3);
-  displayCoins.forEach((coin) => {
-    let coinSpan = document.createElement("span");
-    coinSpan.classList.add("subaccount-text-tex-res");
-    coinSpan.innerText = coin;
-    selectedText.appendChild(coinSpan);
-  });
-  if (coinData[id].length > 3) {
-    let moreSpan = document.createElement("span");
-    moreSpan.classList.add("more-text");
-    moreSpan.innerText = ` +${coinData[id].length - 3}`;
-    selectedText.appendChild(moreSpan);
-  }
-  selectedText.classList.remove("text-t-disabled-emp");
-  selectedText.classList.add("text-t-active");
 }
+
+function l9q7z_filterCoins(id, input) {
+  const filter = input.value.toLowerCase();
+  const coinList = document.getElementById(`c4v8p_coinList-${id}`);
+  const listItems = coinList.querySelectorAll("li:not(:first-child)");
+  listItems.forEach((li) => {
+    const coinText = li.textContent.toLowerCase();
+    li.style.display = coinText.includes(filter) ? "" : "none";
+  });
+}
+
+// Add click event listeners
+document.querySelectorAll(".p4j6w_selectBox").forEach((box) => {
+  box?.addEventListener("click", () => {
+    const id = box.id.split("-")[1];
+    h4k6w_toggleModal(id);
+  });
+});
+
+// Close modals when clicking outside
+document.getElementById("u8k2p_bgOverlay")?.addEventListener("click", () => {
+  document.querySelectorAll(".h6g9d_modal.active")?.forEach((modal) => {
+    modal.classList.remove("active");
+  });
+  document.querySelectorAll(".p4j6w_selectBox.active").forEach((box) => {
+    box.classList.remove("active");
+  });
+  document.getElementById("u8k2p_bgOverlay").classList.remove("active");
+});
+
+// ==============================================
 
 function filterCoins(id, input) {
   let filter = input.value.toLowerCase();
@@ -525,12 +655,12 @@ function loadTransactions() {
       const row = document.createElement("tr");
       row.classList.add("modal-tab-row");
       row.innerHTML = `
-        <td data-label="Время экспорта">${tran.time}</td>
-        <td data-label="Дата (UTC+0)">${tran.duration}</td>
-        <td data-label="Статус" class="bn-web-table-cell">
+        <td data-label="Submission time">${tran.time}</td>
+        <td data-label="Date (UTC+0)">${tran.duration}</td>
+        <td data-label="Status" class="bn-web-table-cell">
           <div class="bn-flexs-el">
             <div class="text-font-medium">${tran.status}</div>
-            <a href="${tran.downloadLink}" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline" target="_blank" download="Binance-Transaction Records Report.zip">Загрузить</a>
+            <a href="${tran.downloadLink}" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline" target="_blank" download="Binance-Transaction Records Report.zip">Download</a>
           </div>
         </td>
       `;
@@ -541,7 +671,7 @@ function loadTransactions() {
 
 window.onload = function () {
   loadTransactions();
-  getTableData(getAllSelectedValues()); // Initial load
+  // getTableData(getAllSelectedValues()); // Initial load
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -574,7 +704,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainModal = document.getElementById("mainModal");
   const secondModal = document.getElementById("secondModal");
   const setOpen_false = document.getElementById(
-    "btn-ModalPcDrawerMobile-setOpen-false"
+    "btn-ModalPcDrawerMobile-setOpenFa"
   );
   const setOpen_falseSecond = document.getElementById(
     "modalDrawerMobile-setOpen-false"
@@ -586,15 +716,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.overflow = "hidden";
   });
 
-  document.addEventListener("click", function (event) {
-    if (
-      !btnOpenModal.contains(event.target) &&
-      !mainModal.contains(event.target)
-    ) {
-      mainModal.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-  });
+  // document.addEventListener("click", function (event) {
+  //   if (
+  //     !btnOpenModal.contains(event.target) &&
+  //     !mainModal.contains(event.target)
+  //   ) {
+  //     mainModal.classList.remove("active");
+  //     document.body.style.overflow = "";
+  //   }
+  // });
 
   setOpen_false.addEventListener("click", function () {
     mainModal.style.display = "none";
@@ -633,7 +763,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 
 // Pagination tugmalari
 const prevButton = document.getElementById("btnArrowPaginationOnPrevPage");
@@ -693,8 +822,11 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
   const today = new Date();
   const formatDate = (date) => date.toISOString().split("T")[0];
 
+  // let { startDate, endDate } = sendData();
+  // console.log(startDate, endDate);
+
   let start_date, end_date;
-  switch (selectedValues.orderType2) {
+  switch (selectedValues.selectV2) {
     case "Past 7 days":
       end_date = formatDate(today);
       start_date = formatDate(new Date(today.setDate(today.getDate() - 7)));
@@ -710,8 +842,7 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
       end_date = formatDate(today);
       start_date = formatDate(new Date(today.setDate(today.getDate() - 30)));
   }
-
-  const tx_type = selectedValues.orderType1 === "Вывод" ? "out" : "in";
+  const tx_type = selectedValues.selectV4 === "Withdraw" ? "out" : "in";
   const page_size = 10;
 
   const API = `${SERVER_URL}/order/transaction-history/crypto`;
@@ -744,7 +875,7 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     const data = await response.json();
     total_pages = Math.ceil(data.total_count / page_size) || 1;
 
-    loadTableData(data);
+    loadTableData(data, selectedValues.selectV4);
     loadTransactions();
 
     return data;
@@ -759,11 +890,11 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
   }
 }
 
-// Sahifa yuklanganda ma'lumotlarni olish
-document.addEventListener("DOMContentLoaded", () => {
-  getTableData();
-});
 
+// Sahifa yuklanganda ma'lumotlarni yuklaymiz
+// document.addEventListener("DOMContentLoaded", () => {
+//   getTableData();
+// });
 
 
 function openToolModal(transaction) {
@@ -799,9 +930,61 @@ function openToolModal(transaction) {
   document.getElementById("transactionModal").style.display = "block";
 }
 
-function openModal(transaction) {
+function openModalWiw(transaction) {
+  console.log(transaction);
+  document.getElementById("spotWallettMod").innerText = transaction.wallet;
+  document.getElementById("usdtMod").innerText = transaction.cryptocurrency;
+  document.getElementById("modalWallet").innerText = transaction.wallet;
+  document.getElementById("timeMod1").innerText = transaction.time;
+  document.getElementById("timeMod2").innerText = transaction.time;
+  document.getElementById("timeMod3").innerText = transaction.time;
+  document.getElementById("withdrawAmountMod").innerText = transaction.amount;
+  document.getElementById("statusMod").innerText = transaction.status;
+  document.getElementById("networkFeeMod").innerText = transaction.networkFee || "0";
+  document.getElementById("networkMod").innerText = transaction.network;
+
+
+  const truncatedRecipient = `${transaction.address.slice(
+    0,
+    6
+  )}...${transaction.address.slice(-6)}`;
+  const truncatedTxid = `${transaction.tx_id.slice(
+    0,
+    6
+  )}...${transaction.tx_id.slice(-6)}`;
+  document.getElementById("addressMod").innerHTML = `
+  ${truncatedRecipient}
+    <svg onclick="copyToClipboard('Recipient: ${transaction.address}', event)" class="bn-svg icon-small-pointer" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z"
+        fill="currentColor"></path>
+    </svg>
+  `;
+  document.getElementById("tx_idMod").innerHTML = `
+  ${truncatedTxid}
+    <div class="bn-tag-wrap">
+      <div class="bn-bubble bn-bubble__info data-font-14 bn-tag data-size-middle">
+        <div class="bn-bubble-cont" style="margin-left: 0px;">badge-internal</div>
+      </div>
+    </div>
+   <svg onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)" class="bn-svg icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z"
+      fill="currentColor"></path>
+    </svg>
+  `;;
+
+  document.querySelector(".bnModalWrapWiwBg").style.display = "block"
+}
+
+function closeModalWiw() {
+  document.querySelector(".bnModalWrapWiwBg").style.display = "none";
+}
+
+
+function myModalOpen(transaction) {
+  console.log("ok");
   document.getElementById("modalTime").innerText = transaction.time;
-  document.getElementById("modalTransfer").innerText = transaction.currency;
+  document.getElementById("modalTransfer").innerText = transaction.cryptocurrency;
   document.getElementById("modalWallet").innerText = transaction.amount;
   document.getElementById("modalAmount").innerText = transaction.network;
   // Olishuvchini va TXIDni kesib modalga qo'yish
@@ -850,7 +1033,7 @@ function openModal(transaction) {
   document.getElementById("transactionModal").style.display = "block";
 }
 
-function closeModal() {
+function closeModalLe() {
   document.getElementById("transactionModal").style.display = "none";
 }
 
@@ -879,7 +1062,7 @@ function copyToClipboard(text, event) {
     .catch((err) => console.error("Nusxalashda xatolik:", err));
 }
 
-function loadTableData(data) {
+function loadTableData(data, wiw) {
   const tableBody = document.getElementById("tableBody");
   const tableNoData = document.getElementById("transactionNoData");
 
@@ -914,12 +1097,12 @@ function loadTableData(data) {
       )}...${transaction.tx_id.slice(-4)}`;
 
       row.innerHTML = `
-        <td data-label="Время">${transaction.time}</td>
-        <td data-label="Перевод">${transaction.tx_type}</td>
-        <td data-label="Кошелек для ввода">${transaction.wallet}</td>
-        <td data-label="Криптовалюта">${transaction.cryptocurrency}</td>
-        <td data-label="Сумма">${transaction.amount}</td>
-        <td data-label="Адресат">
+        <td data-label="Time">${transaction.time}</td>
+        <td data-label="Type">${transaction.tx_type}</td>
+        <td data-label="Deposit wallet">${transaction.wallet}</td>
+        <td data-label="Coin">${transaction.cryptocurrency}</td>
+        <td data-label="Amount">${transaction.amount}</td>
+        <td data-label="Destination">
           <p class="tooltip">
             ${truncatedRecipient} 
             <span class="tooltiptext">${transaction.address}</span>
@@ -956,10 +1139,14 @@ function loadTableData(data) {
             </span>
           </div>
         </td>
-        <td class="colorSuccess" data-label="Статус">${transaction.status}</td>
+        <td class="colorSuccess" data-label="Status">${transaction.status}</td>
       `;
 
-      row.addEventListener("click", () => openModal(transaction));
+      if (wiw === "Withdraw") {
+        row.addEventListener("click", () => openModalWiw(transaction));
+      } else {
+        row.addEventListener("click", () => myModalOpen(transaction));
+      }
 
       tableBody.appendChild(row);
     });
@@ -976,7 +1163,7 @@ const transactions = [
   {
     time: "2025-03-10 12:51:33",
     duration: "2024-12-10 - 2025-03-09",
-    status: "Готово",
+    status: "Generated",
     downloadLink:
       "https://d11ggcthlh2gdm.cloudfront.net/share/72796e84-a88b-46e1-a058-936c818044e6%40primary/wallet-ledger-download/92f00680-fd84-11ef-a9a4-0695fa030f45/98bb9fc6-fd84-11ef-bd14-7934718a13d0.zip?Expires=1742197942&Key-Pair-Id=K2V3MHPA1KP9UY",
   },
@@ -1037,19 +1224,19 @@ function calculateDates(timeRange) {
   let startDate;
 
   switch (timeRange) {
-    case "Последние 24 часа":
+    case "Last 24 hours":
       startDate = new Date(now.setHours(now.getHours() - 24));
       break;
-    case "2 недели":
+    case "2 Weeks":
       startDate = new Date(now.setDate(now.getDate() - 14));
       break;
-    case "1 месяц":
+    case "1 Month":
       startDate = new Date(now.setMonth(now.getMonth() - 1));
       break;
-    case "3 месяца":
+    case "3 Months":
       startDate = new Date(now.setMonth(now.getMonth() - 3));
       break;
-    case "6 месяцев":
+    case "6 Months":
       startDate = new Date(now.setMonth(now.getMonth() - 6));
       break;
     default:
@@ -1086,10 +1273,7 @@ async function handleExport() {
         end_date: endDate,
         language: "en",
       }),
-      // wallet: data.wallet,
-      // subaccount: data.subaccount,
-      // coin: data.coin,
-      // ...(data.customDateRange && { customDateRange: data.customDateRange })
+
     });
     if (response.ok) {
       // Faylni yuklab olish
@@ -1185,10 +1369,6 @@ async function exportTransactionHistory() {
     alert("Пожалуйста, выберите временной диапазон");
     return;
   }
-  // if (!selectedCoin) {
-  //   alert("Пожалуйста, выберите монету");
-  //   return;
-  // }
 
   let user_info = JSON.parse(localStorage.getItem("user")) || {};
   let user_id = user_info?.user_id || 0;
@@ -1231,15 +1411,4 @@ async function exportTransactionHistory() {
     alert("Произошла ошибка при экспорте файла. Пожалуйста, попробуйте снова.");
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 

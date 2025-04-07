@@ -1,21 +1,149 @@
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.xCustomDropdownContainer').forEach(xComplexDropdownElement => {
+        const xHeaderSection = xComplexDropdownElement.querySelector('.xDropdownHeaderSection');
+        const xOptionsContainer = xComplexDropdownElement.querySelector('.xDropdownOptionsList');
+        const xArrowToggleElement = xComplexDropdownElement.querySelector('.xToggleArrowIcon');
+        const xCurrentValueDisplay = xComplexDropdownElement.querySelector('.xSelectedValueDisplay');
+        const xSearchInputField = xComplexDropdownElement.querySelector('.xSearchFieldInput');
+        const xOptionItemsCollection = xComplexDropdownElement.querySelectorAll('.xSingleOptionItem');
+        const xIsAnimatedVariant = xComplexDropdownElement.classList.contains('xVariantTwo');
+
+        // Set initial value from HTML
+        const setInitialValue = () => {
+            const initialText = xCurrentValueDisplay.textContent;
+            xCurrentValueDisplay.dataset.selected = initialText;
+        };
+
+        setInitialValue();
+
+        // Mobile click functionality (max-width: 768px)
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            xHeaderSection.addEventListener('click', (xEventObject) => {
+                xEventObject.stopPropagation();
+                if (xIsAnimatedVariant) {
+                    xOptionsContainer.classList.toggle('xActiveState');
+                } else {
+                    xOptionsContainer.classList.toggle('xActiveState');
+                    xOptionsContainer.style.display = xOptionsContainer.classList.contains('xActiveState') ? 'block' : 'none';
+                }
+                xArrowToggleElement.classList.toggle('xActiveState');
+            });
+        }
+
+        xOptionItemsCollection.forEach(xSingleOptionElement => {
+            xSingleOptionElement.addEventListener('click', () => {
+                const selectedText = xSingleOptionElement.dataset.label;
+                // Update display with truncated text if needed
+                if (window.matchMedia("(min-width: 768px)").matches) {
+                    xCurrentValueDisplay.textContent = selectedText.length > 5
+                        ? selectedText.substring(0, 5) + '...'
+                        : selectedText;
+                }
+                xCurrentValueDisplay.dataset.selected = selectedText; // Store full value
+
+                // Immediately update and send all values
+                const defaults = getAllSelectedValues();
+                sendToServer(defaults);
+
+                if (window.matchMedia("(max-width: 768px)").matches) {
+                    xOptionsContainer.classList.remove('xActiveState');
+                    if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+                    xArrowToggleElement.classList.remove('xActiveState');
+                }
+            });
+        });
+
+        if (xSearchInputField) {
+            xSearchInputField.addEventListener('input', (xInputEvent) => {
+                const xSearchTerm = xInputEvent.target.value.toLowerCase();
+                xOptionItemsCollection.forEach(xOptionElement => {
+                    xOptionElement.style.display = xOptionElement.dataset.label.toLowerCase().includes(xSearchTerm) ? '' : 'none';
+                });
+            });
+        }
+
+        // Close on outside click in mobile
+        document.addEventListener('click', (xGlobalClickEvent) => {
+            if (!xComplexDropdownElement.contains(xGlobalClickEvent.target) && window.matchMedia("(max-width: 768px)").matches) {
+                xOptionsContainer.classList.remove('xActiveState');
+                if (!xIsAnimatedVariant) xOptionsContainer.style.display = 'none';
+                xArrowToggleElement.classList.remove('xActiveState');
+            }
+        });
+
+        // Add getSelectedValue method
+        xComplexDropdownElement.getSelectedValue = () => {
+            return xCurrentValueDisplay.dataset.selected || xCurrentValueDisplay.textContent;
+        };
+    });
+
+    // Function to get all selected values
+    const getAllSelectedValues = () => {
+        const selectedValues = {};
+        document.querySelectorAll('.xCustomDropdownContainer').forEach((dropdown) => {
+            const id = dropdown.id; // Use the actual ID from HTML
+            selectedValues[id] = dropdown.getSelectedValue();
+        });
+        return selectedValues;
+    };
+
+
+    const modal = document.getElementById("customModalSetting");
+    const closeModal = document.querySelector(".close-modal");
+    const sendToServer = async (data) => {
+        // getTableData(data)
+
+        // Open modal when "Настроить" button is clicked
+        if (data.selectV2 === "Настроить") {
+            modal.style.display = "block";
+
+
+            // Close modal when "X" is clicked
+            closeModal.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    };
+
+
+    // Send initial values
+    const defaults = getAllSelectedValues();
+    sendToServer(defaults);
+});
+
+
+const btnOpenModal = document.querySelector(
+    "#btn-ExportButton-onExportTransactionRecords"
+);
+const btnOpenModalSecond = document.querySelector(
+    "#btn-ModalPcDrawerMobile-setOpen-false"
+);
+const mainModal = document.getElementById("mainModal");
+const secondModal = document.getElementById("secondModal");
+
+btnOpenModal.addEventListener("click", function (event) {
+    event.stopPropagation();
+    mainModal.classList.toggle("active");
+    document.body.style.overflow = "hidden";
+});
+
+btnOpenModalSecond.addEventListener("click", function (event) {
+    mainModal.classList.remove("active");
+
+});
+
+
 const originalOrderTypes = [
     { id: "orderType1", options: ["Пополнения", "Опционы", "Основной аккаунт", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "Пул-аккаунт", "P2P-аккаунт", "Изолированная маржа"], label: "Из", defaultValue: "Основной аккаунт" },
     { id: "orderType2", options: ["Опционы", "Кросс-маржа", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "P2P-аккаунт", "Пул-аккаунт", "Пополнения", "Изолированная маржа", "Торговые боты", "Копи-трейдинг", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "В", defaultValue: "Кросс-маржа" },
     { id: "orderType3", options: ["Последние 7 дней", "Последние 30 дней", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 дней" },
-    {
-        id: "orderType4",
-        label: "Криптовалюта",
-        defaultValue: "Все",
-        options: [
-            { label: "ADD", image: "https://bin.bnbstatic.com/images/20191211/bcd0cdc0-79a0-4972-8b75-5d56bf5d41f2.png" },
-            { label: "ADX", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20240724/6a2360f1-8ef9-49a4-b428-3db586e50143.png" },
-            { label: "ADXOLD", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20200821/19ef68ac-be44-4318-a682-5ac4c270e288.png" },
-            { label: "AE", image: "https://bin.bnbstatic.com/images/20191211/8cde9282-b8d0-458f-bd77-a3f17f7a8775.png" },
-            { label: "AED", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20231011/90f9a2b8-1bc9-4f07-b83a-591d0bd1a3ea.png" },
-            { label: "AERGO", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20220329/9584603d-318b-4dea-833f-fccead1b324e.png" },
-            { label: "AEUR", image: "https://bin.bnbstatic.com/image/admin_mgs_image_upload/20230906/3d050043-18d0-4a21-8007-e12e67a75320.png" }
-        ]
-    }
 ];
 
 let orderTypes = JSON.parse(JSON.stringify(originalOrderTypes)); // Deep copy of original
@@ -394,3 +522,6 @@ function collectFormData() {
 
     return formData;
 }
+
+
+

@@ -279,7 +279,7 @@ const transactions = [
   {
     time: "2025-03-10 12:51:33",
     duration: "2024-12-10 - 2025-03-09",
-    status: "Готово",
+    status: "Generated",
     downloadLink:
       "https://d11ggcthlh2gdm.cloudfront.net/share/72796e84-a88b-46e1-a058-936c818044e6%40primary/wallet-ledger-download/92f00680-fd84-11ef-a9a4-0695fa030f45/98bb9fc6-fd84-11ef-bd14-7934718a13d0.zip?Expires=1742197942&Key-Pair-Id=K2V3MHPA1KP9UY",
   },
@@ -314,14 +314,14 @@ function loadTransactions() {
       const row = document.createElement("tr");
       row.classList.add("modal-tab-row");
       row.innerHTML = `
-            <td data-label="Время экспорта">${tran.time}</td>
-            <td data-label="Дата (UTC+0)">${tran.duration}</td>
-            <td data-label="Статус" class="bn-web-table-cell">
+            <td data-label="Submission time">${tran.time}</td>
+            <td data-label="Date (UTC+0)">${tran.duration}</td>
+            <td data-label="Status" class="bn-web-table-cell">
               <div class="bn-flexs-el">
                 <div class="text-font-medium">${tran.status}</div>
                 <a href="${tran.downloadLink}" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline"
                   target="_blank"
-                  download="Binance-Transaction Records Report.zip">Загрузить</a>
+                  download="Binance-Transaction Records Report.zip">Download</a>
               </div>
             </td>
           `;

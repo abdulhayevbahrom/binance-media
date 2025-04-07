@@ -18,14 +18,12 @@ let selectedStartYear = selectedStartDate.getFullYear();
 let selectedEndYear = selectedEndDate.getFullYear();
 let selectedStartMonth = selectedStartDate.getMonth();
 let selectedEndMonth = selectedEndDate.getMonth();
-
+const modal = document.getElementById("customModalSetting");
 function sendData() {
-  const startDate = document.getElementById("startDate").value;
-  const endDate = document.getElementById("endDate").value;
-
-  // Konsolga start va end sanalarini chiqarish
-  console.log(`Start Date: ${startDate}`);
-  console.log(`End Date: ${endDate}`);
+  // const startDate = document.getElementById("startDate").value;
+  // const endDate = document.getElementById("endDate").value;
+  modal.style.display = "none";
+  // return { startDate, endDate }
 }
 
 function openModal(type) {

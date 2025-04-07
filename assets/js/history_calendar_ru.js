@@ -19,13 +19,20 @@ let selectedEndYear = selectedEndDate.getFullYear();
 let selectedStartMonth = selectedStartDate.getMonth();
 let selectedEndMonth = selectedEndDate.getMonth();
 const modal = document.getElementById("customModalSetting");
-function sendData() {
-  // const startDate = document.getElementById("startDate").value;
-  // const endDate = document.getElementById("endDate").value;
-  modal.style.display = "none";
-  // return { startDate, endDate }
-}
 
+// Modified sendData function to properly return values
+function sendData() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+
+  modal.style.display = "none";
+
+  console.log(startDate, endDate);
+  if (startDate && endDate) {
+    return { startDate, endDate };
+  }
+  return {}; // Return empty object if dates are not available
+}
 function openModal(type) {
   if (type === "start") {
     document.getElementById("startModal").style.display = "block";

@@ -3890,7 +3890,7 @@
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
-            <a href="../deposit-crypto/index.html" class="bn-tab bn-tab__default" data-target="crypto">Crypto</a>
+            <a href="../deposit-crypto" class="bn-tab bn-tab__default" data-target="crypto">Crypto</a>
             <a class="bn-tab bn-tab__default active" data-target="transfer">Transfer</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Distribution</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">BNB Convert</a>
@@ -4170,10 +4170,14 @@
 
                               return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
                             }
+                            // transaction.time ni Date objektiga aylantiramiz
+                            const date = new Date(transaction.time);
+                            // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+                            const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
 
                             // Example usage in your row.innerHTML
                             row.innerHTML = `
-                              <td data-label="Time">${formatDateTime(transaction.time)}</td>
+                              <td data-label="Time">${formatDateTime(formattedTime)}</td>
                               <td data-label="Coin">${transaction.coin}</td>
                               <td data-label="Amount">${transaction.amount}</td>
                               <td data-label="From">${transaction.from}</td>

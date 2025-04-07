@@ -3418,8 +3418,7 @@
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Ордер торгового бота</span>
                 </a>
-                <a class="sidebar__menu-item  sidebar__menu-item--active"
-                  href="/ru/my/wallet/history/deposit-crypto/index.html">
+                <a class="sidebar__menu-item  sidebar__menu-item--active" href="/ru/my/wallet/history/deposit-crypto">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
@@ -3519,7 +3518,7 @@
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
             <a href="#" class="bn-tab bn-tab__default active" data-target="crypto">Kриптовалюты</a>
-            <a href="../transfer/index.html" class="bn-tab bn-tab__default" data-target="transfer">Перевод</a>
+            <a href="../transfer" class="bn-tab bn-tab__default" data-target="transfer">Перевод</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="loan">Заем</a>
@@ -3858,7 +3857,7 @@
                     <div class="bn-step-content">
                       <div class="bn-step-content-title">Запрос на вывод средств отправлен</div>
                       <div class="bn-step-content-desc">
-                        <div id="timeMod" class="caption2 mt-4xs text-t-third">2025-03-03 19:52</div>
+                        <div id="timeMod1" class="caption2 mt-4xs text-t-third">2025-03-03 19:52</div>
                       </div>
                     </div>
                     <div class="bn-step-tail"></div>
@@ -3877,7 +3876,7 @@
                         <div class="typography-subtitle2  items-center">Обработка</div>
                       </div>
                       <div class="bn-step-content-desc">
-                        <div id="timeMod1" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
+                        <div id="timeMod2" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
                       </div>
                     </div>
                     <div class="bn-step-tail"></div>
@@ -3890,7 +3889,7 @@
                     <div class="bn-step-content">
                       <div class="bn-step-content-title">Завершено</div>
                       <div class="bn-step-content-desc">
-                        <div id="timeMod2" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
+                        <div id="timeMod3" class="caption2 mt-4xs text-t-third">2025-03-03 19:53</div>
                         <div class="caption2 mt-4xs text-t-third">Обратите внимание, что после завершения вы получите
                           письмо.
                           <div id="link-StyledTextLink-mobile:BtnLink3 ml-4xs inline-block"
@@ -3921,7 +3920,7 @@
                 </div>
                 <div class="bn-flex mb-m justify-between">
                   <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Дата</div>
-                  <div id="timeMod3" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
+                  <div id="timeMod4" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
                     2025-03-03 19:52
                   </div>
                 </div>
@@ -4359,7 +4358,7 @@
             </div>
           </div>
 
-          <button onclick="sendData()"
+          <button onclick="getTableData()"
             class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
         </div>
 
@@ -4651,7 +4650,7 @@
     <div id="secondModal" class="data-size-small">
       <div class="bn-modal-wrap">
         <div class="flex-modal">
-          <div class="typography-headline5 text-t-Primary">Экспортировать историю ввода средств</div>
+          <div class="typography-headline5 text-t-Primary">Экспорт истории вывода</div>
           <div id="modalDrawerMobile-setOpen-false" class="fustifyEnd">
             <svg class="svg-iconOut" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path

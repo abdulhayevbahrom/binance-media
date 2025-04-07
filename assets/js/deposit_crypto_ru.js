@@ -131,49 +131,10 @@ function filterOptions(id, value) {
   });
 }
 
-// function updateDefaultValue(id, newValue) {
-//   const label = document.querySelector(`#${id} .order-select_value`);
-//   label.textContent = newValue;
-//   getTableData(getAllSelectedValues());
-// }
 
-// orderTypes.forEach(({ id, options, label, defaultValue }) =>
-//   createSelect(id, options, label, defaultValue)
-// );
-
-// document.addEventListener("click", (event) => {
-//   if (!event.target.closest(".order-select")) {
-//     document
-//       .querySelectorAll(".order-select__list-wrapper")
-//       .forEach((el) => el.classList.remove("open"));
-//     document
-//       .querySelectorAll(".order-select_icon")
-//       .forEach((icon) => icon.classList.remove("rotate"));
-//   }
-// });
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("customModalSetting");
   const applyButton = document.getElementById("applyDateRange");
-  // const closeModal = document.querySelector(".close-modal");
-  // const customButton = document.getElementById("customButton");
-
-  // // Open modal when "Настроить" button is clicked
-  // customButton.addEventListener("click", () => {
-  //   console.log("ok");
-  //   modal.style.display = "block";
-  // });
-
-  // // Close modal when "X" is clicked
-  // closeModal.addEventListener("click", () => {
-  //   modal.style.display = "none";
-  // });
-
-  // // Close modal when clicking outside of it
-  // window.addEventListener("click", (event) => {
-  //   if (event.target === modal) {
-  //     modal.style.display = "none";
-  //   }
-  // });
 
   // Apply date range and close modal
   applyButton?.addEventListener("click", () => {
@@ -356,128 +317,7 @@ document.querySelectorAll(".flex-button").forEach((button) => {
   });
 });
 
-// let availableCoins = {
-//   1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
-//   2: [
-//     "4000DOGE",
-//     "5000SHIBA",
-//     "6000DOGE",
-//     "7000SHIBA",
-//     "8000DOGE",
-//     "9000SHIBA",
-//   ],
-//   3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
-//   4: ["20000BTC", "21000ETH", "22000BTC", "23000ETH"],
-// };
 
-// function toggleModal(id) {
-//   let modal = document.getElementById(`modal-${id}`);
-//   let bg = document.getElementById("bg");
-
-//   if (modal.classList.contains("active")) {
-//     modal.classList.remove("active");
-//     bg.classList.remove("active");
-//   } else {
-//     modal.classList.add("active");
-//     bg.classList.add("active");
-//     renderCoinList(id);
-//   }
-// }
-
-// function closeModals() {
-//   let modals = document.querySelectorAll(".modal.active");
-//   let bg = document.getElementById("bg");
-//   modals.forEach((modal) => modal.classList.remove("active"));
-//   bg.classList.remove("active");
-// }
-
-// function renderCoinList(id) {
-//   let isAllSelected = coinData[id].length === availableCoins[id].length;
-//   let listHtml = `
-//     <li onclick="toggleSelectAll(${id})">
-//       <div class="bn-checkbox-icon ${isAllSelected ? "active" : ""}">
-//         <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
-//           <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-//         </svg>
-//       </div>
-//       Все
-//     </li>
-//   `;
-//   availableCoins[id].forEach((coin) => {
-//     let isChecked = coinData[id].includes(coin);
-//     let activeClass = isChecked ? "active" : "";
-//     listHtml += `
-//       <li onclick="updateSelection(${id}, '${coin}')">
-//         <div class="bn-checkbox-icon ${activeClass}">
-//           <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
-//             <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-//           </svg>
-//         </div>
-//         ${coin}
-//       </li>
-//     `;
-//   });
-//   document.getElementById(`coin-list-${id}`).innerHTML = listHtml;
-// }
-
-// function toggleSelectAll(id) {
-//   if (coinData[id].length === availableCoins[id].length) {
-//     coinData[id] = [];
-//   } else {
-//     coinData[id] = [...availableCoins[id]];
-//   }
-//   updateSelectedText(id);
-//   renderCoinList(id);
-//   getTableData(getAllSelectedValues());
-// }
-
-// function updateSelection(id, coin) {
-//   let coinIndex = coinData[id].indexOf(coin);
-//   if (coinIndex === -1) {
-//     coinData[id].push(coin);
-//   } else {
-//     coinData[id].splice(coinIndex, 1);
-//   }
-//   updateSelectedText(id);
-//   renderCoinList(id);
-//   getTableData(getAllSelectedValues());
-// }
-
-// function updateSelectedText(id) {
-//   let selectedText = document.getElementById(`selected-text-${id}`);
-//   selectedText.innerHTML = "";
-//   if (coinData[id].length === 0) {
-//     selectedText.innerText = "Выберите...";
-//     selectedText.classList.add("text-t-disabled-emp");
-//     selectedText.classList.remove("text-t-activeAll");
-//     return;
-//   }
-//   if (coinData[id].length === availableCoins[id].length) {
-//     selectedText.innerText = "Все";
-//     selectedText.classList.remove("text-t-disabled-emp");
-//     selectedText.classList.add("text-t-activeAll");
-//     return;
-//   }
-//   let displayCoins = coinData[id].slice(0, 3);
-//   displayCoins.forEach((coin) => {
-//     let coinSpan = document.createElement("span");
-//     coinSpan.classList.add("subaccount-text-tex-res");
-//     coinSpan.innerText = coin;
-//     selectedText.appendChild(coinSpan);
-//   });
-//   if (coinData[id].length > 3) {
-//     let moreSpan = document.createElement("span");
-//     moreSpan.classList.add("more-text");
-//     moreSpan.innerText = ` +${coinData[id].length - 3}`;
-//     selectedText.appendChild(moreSpan);
-//   }
-//   selectedText.classList.remove("text-t-disabled-emp");
-//   selectedText.classList.add("text-t-active");
-// }
-
-// ==============================================
-
-// Define available coins with a complex name
 let x9p4m_availableCoins = {
   1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
   2: ["4000DOGE", "5000SHIBA", "6000DOGE", "7000SHIBA", "8000DOGE", "9000SHIBA"],
@@ -559,17 +399,7 @@ function p8n2z_updateSelection(id, coin) {
   r6t9v_updateSelectedText(id);
 }
 
-// function r6t9v_updateSelectedText(id) {
-//   const selectedText = document.getElementById(`y6t3k_selectedText-${id}`);
-//   selectedText.innerHTML = "";
-//   if (k7v2n_coinData[id].length === 0) {
-//     selectedText.innerText = "Выберите...";
-//   } else if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
-//     selectedText.innerText = "Все";
-//   } else {
-//     selectedText.innerText = k7v2n_coinData[id].join(", ");
-//   }
-// }
+
 function r6t9v_updateSelectedText(id) {
   const selectedText = document.getElementById(`y6t3k_selectedText-${id}`);
   selectedText.innerHTML = ""; // Clear previous content
@@ -822,26 +652,37 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
   const today = new Date();
   const formatDate = (date) => date.toISOString().split("T")[0];
 
-  // let { startDate, endDate } = sendData();
-  // console.log(startDate, endDate);
-
+  // Get startDate and endDate from sendData
+  const { startDate, endDate } = sendData();
+  console.log(startDate, endDate);
   let start_date, end_date;
-  switch (selectedValues.selectV2) {
-    case "Последние 7 дней":
-      end_date = formatDate(today);
-      start_date = formatDate(new Date(today.setDate(today.getDate() - 7)));
-      break;
-    case "Последние 90 дней":
-      end_date = formatDate(today);
-      start_date = formatDate(new Date(today.setDate(today.getDate() - 90)));
-      break;
-    case "Настроить":
-      [start_date, end_date] = selectedValues.dateRange.split(" - ");
-      break;
-    default: // Последние 30 дней
-      end_date = formatDate(today);
-      start_date = formatDate(new Date(today.setDate(today.getDate() - 30)));
+
+  // If startDate and endDate exist from calendar, use them directly
+  if (startDate && endDate) {
+    start_date = startDate;
+    end_date = endDate;
+  } else {
+    // Otherwise use the switch case logic
+    switch (selectedValues.selectV2) {
+      case "Последние 7 дней":
+        end_date = formatDate(today);
+        start_date = formatDate(new Date(today.setDate(today.getDate() - 7)));
+        break;
+      case "Последние 90 дней":
+        end_date = formatDate(today);
+        start_date = formatDate(new Date(today.setDate(today.getDate() - 90)));
+        break;
+      case "Настроить":
+        if (selectedValues.dateRange) {
+          [start_date, end_date] = selectedValues.dateRange.split(" - ");
+        }
+        break;
+      default: // Последние 30 дней
+        end_date = formatDate(today);
+        start_date = formatDate(new Date(today.setDate(today.getDate() - 30)));
+    }
   }
+
   const tx_type = selectedValues.selectV4 === "Вывод" ? "out" : "in";
   const page_size = 10;
 
@@ -857,7 +698,6 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     },
   };
 
-  // Faqat pagination o'zgarmagan holatda loading ko'rsatamiz
   if (!isPaginationChange) {
     document.getElementById("loading").style.display = "flex";
   }
@@ -883,19 +723,24 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     console.error("Error fetching data:", err);
     return null;
   } finally {
-    // Faqat pagination o'zgarmagan holatda loadingni yashiramiz
     if (!isPaginationChange) {
       document.getElementById("loading").style.display = "none";
     }
   }
 }
 
+// Modified sendData function to properly return values
+function sendData() {
+  const startDate = document.getElementById("startDate").value;
+  const endDate = document.getElementById("endDate").value;
+  modal.style.display = "none";
 
-// Sahifa yuklanganda ma'lumotlarni yuklaymiz
-// document.addEventListener("DOMContentLoaded", () => {
-//   getTableData();
-// });
-
+  // Return object only if both dates exist
+  if (startDate && endDate) {
+    return { startDate, endDate };
+  }
+  return {}; // Return empty object if dates are not available
+}
 
 function openToolModal(transaction) {
   document.getElementById("modalTime").innerText = transaction.time;
@@ -931,16 +776,20 @@ function openToolModal(transaction) {
 }
 
 function openModalWiw(transaction) {
-  console.log(transaction);
+  // transaction.time ni Date objektiga aylantiramiz
+  const date = new Date(transaction.time);
+  // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+  const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
   document.getElementById("spotWallettMod").innerText = transaction.wallet;
   document.getElementById("usdtMod").innerText = transaction.cryptocurrency;
   document.getElementById("modalWallet").innerText = transaction.wallet;
-  document.getElementById("timeMod1").innerText = transaction.time;
-  document.getElementById("timeMod2").innerText = transaction.time;
-  document.getElementById("timeMod3").innerText = transaction.time;
+  document.getElementById("timeMod1").innerText = formattedTime;
+  document.getElementById("timeMod2").innerText = formattedTime;
+  document.getElementById("timeMod3").innerText = formattedTime;
+  document.getElementById("timeMod4").innerText = formattedTime;
   document.getElementById("withdrawAmountMod").innerText = transaction.amount;
   document.getElementById("statusMod").innerText = transaction.status;
-  document.getElementById("networkFeeMod").innerText = transaction.networkFee || "0";
+  document.getElementById("networkFeeMod").innerText = transaction.networkFee || "1";
   document.getElementById("networkMod").innerText = transaction.network;
 
 
@@ -954,23 +803,37 @@ function openModalWiw(transaction) {
   )}...${transaction.tx_id.slice(-6)}`;
   document.getElementById("addressMod").innerHTML = `
   ${truncatedRecipient}
-    <svg onclick="copyToClipboard('Recipient: ${transaction.address}', event)" class="bn-svg icon-small-pointer" viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z"
-        fill="currentColor"></path>
-    </svg>
+    <div style="margin-left:8px" class="iconsvgCopy">
+      <span class="icon" onclick="openTronscan('${transaction.tx_url}', event)">
+              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+              </svg>
+      </span>
+      <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.address}', event)">
+              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+              </svg>
+      </span>
+  </div>
+
+  
   `;
   document.getElementById("tx_idMod").innerHTML = `
   ${truncatedTxid}
-    <div class="bn-tag-wrap">
-      <div class="bn-bubble bn-bubble__info data-font-14 bn-tag data-size-middle">
-        <div class="bn-bubble-cont" style="margin-left: 0px;">badge-internal</div>
-      </div>
-    </div>
-   <svg onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)" class="bn-svg icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z"
-      fill="currentColor"></path>
-    </svg>
+    <div  style="margin-left:8px" class="iconsvgCopy">
+    <span class="icon" onclick="openTronscan('${transaction.wallet_url}', event)">
+              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+              </svg>
+            </span>
+            <span class="icon" onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)">
+              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+              </svg>
+            </span>
+  </div>
   `;;
 
   document.querySelector(".bnModalWrapWiwBg").style.display = "block"
@@ -1096,8 +959,13 @@ function loadTableData(data, wiw) {
         6
       )}...${transaction.tx_id.slice(-4)}`;
 
+      // transaction.time ni Date objektiga aylantiramiz
+      const date = new Date(transaction.time);
+      // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+      const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+
       row.innerHTML = `
-        <td data-label="Время">${transaction.time}</td>
+        <td data-label="Время">${formattedTime}</td>
         <td data-label="Перевод">${transaction.tx_type}</td>
         <td data-label="Кошелек для ввода">${transaction.wallet}</td>
         <td data-label="Криптовалюта">${transaction.cryptocurrency}</td>

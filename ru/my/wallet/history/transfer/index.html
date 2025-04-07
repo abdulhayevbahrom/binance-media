@@ -3420,8 +3420,7 @@
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
                   <span class="sidebar__menu-item-title">Ордер торгового бота</span>
                 </a>
-                <a class="sidebar__menu-item  sidebar__menu-item--active"
-                  href="/ru/my/wallet/history/deposit-crypto/index.html">
+                <a class="sidebar__menu-item  sidebar__menu-item--active" href="/ru/my/wallet/history/deposit-crypto">
                   <span class="sidebar__menu-item-title">История транзакций</span>
                 </a>
                 <a class="sidebar__menu-item" href="/" onclick="return false;">
@@ -3520,7 +3519,7 @@
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
-            <a href="../deposit-crypto/index.html" class="bn-tab bn-tab__default" data-target="crypto">Kриптовалюты</a>
+            <a href="../deposit-crypto" class="bn-tab bn-tab__default" data-target="crypto">Kриптовалюты</a>
             <a class="bn-tab bn-tab__default active" data-target="transfer">Перевод</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
@@ -3799,10 +3798,14 @@
 
                               return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
                             }
+                            // transaction.time ni Date objektiga aylantiramiz
+                            const date = new Date(transaction.time);
+                            // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+                            const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
 
                             // Example usage in your row.innerHTML
                             row.innerHTML = `
-                              <td data-label="Дата">${formatDateTime(transaction.time)}</td>
+                              <td data-label="Дата">${formattedTime}</td>
                               <td data-label="Криптовалюта">${transaction.coin}</td>
                               <td data-label="Сумма">${transaction.amount}</td>
                               <td data-label="Из">${transaction.from}</td>

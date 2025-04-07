@@ -1683,7 +1683,7 @@ html :is(.items-center) {
 }
 
 .main-history section {
-  margin-top: 25px !important;
+  margin-top: 45px !important;
 }
 
 .tooltip .tooltiptext {
@@ -1741,6 +1741,7 @@ html :is(.items-center) {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  z-index: 999 !important;
 }
 
 #btn-MFilterWrap-onOpenFilter {
@@ -1891,6 +1892,10 @@ html :is(.items-center) {
 
 @media (max-width: 970px) {
 
+  #swapButton {
+    margin-top: 20px;
+  }
+
   .transfer-filters,
   .order-filters {
     display: none;
@@ -1898,12 +1903,13 @@ html :is(.items-center) {
     bottom: -100%;
     padding: 15px;
     padding-top: 0;
+    border-radius: 15px 15px 0 0;
     left: 0;
     right: 0;
     margin: 0 !important;
     z-index: 999;
     width: 100%;
-    height: 70vh;
+    height: auto;
     background: #202630;
     transition: bottom 0.5s ease-in-out;
     /* Animatsiya */
@@ -1960,7 +1966,7 @@ html :is(.items-center) {
 
   .export-history-export-button {
     position: absolute !important;
-    right: 0px !important;
+    right: -5px !important;
     top: 53px;
     width: 60px;
     background-color: #181a20;
@@ -1969,6 +1975,7 @@ html :is(.items-center) {
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    z-index: 999 !important;
   }
 
   .bn-tooltips-ele {
@@ -2010,6 +2017,14 @@ html :is(.items-center) {
 
 @media (max-width: 725px) {
   .svg-iconOut {
+    display: none;
+  }
+
+  .order-select__label {
+    padding: 0 5px;
+  }
+
+  .order-select__label>p {
     display: none;
   }
 
@@ -2614,9 +2629,11 @@ html :is(.items-center) {
 }
 
 .k8n1b_subBox {
-  color: var(--color-textPrimary);
-  font-size: 16px;
   margin-left: var(--space-2xs);
+  color: var(--color-textDisabled);
+  font-weight: 500;
+  font-size: .975rem;
+  line-height: 1.25rem;
 }
 
 .r5t2y_iconBase,
@@ -3019,6 +3036,8 @@ html :is(.items-center) {
     display: block;
   }
 
+
+
   .xCustomDropdownContainer:hover .xToggleArrowIcon {
     transform: rotateX(-180deg);
     margin-top: -5px;
@@ -3033,6 +3052,49 @@ html :is(.items-center) {
 @media (max-width: 768px) {
   .xCustomDropdownContainer.xVariantThree {
     width: 100%;
+  }
+
+  .t9r2z_title {
+    font-size: 15px;
+    color: var(--color-SecondaryText);
+    font-weight: 500;
+    margin-top: var(--space-xl);
+    margin-bottom: .25rem;
+
+  }
+
+  .body-title {
+    margin-top: 10px;
+    margin-bottom: 0.25rem;
+    line-height: 20px;
+    font-weight: 400;
+    font-size: 12px !important;
+    color: var(--color-SecondaryText);
+
+  }
+
+  .wallet-modal-content {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .fustifyEnd {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .order-select__label>div {
+    width: 100% !important;
+    display: flex;
+    justify-content: start;
+  }
+
+  .xDropdown-box {
+    display: none;
   }
 
   .bn-modal-wrap-data-size-small {

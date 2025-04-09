@@ -1437,7 +1437,7 @@ button {
 
 .xDropdownHeaderSection {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   width: 170px;
   border-radius: var(--radii-m);
@@ -1448,7 +1448,7 @@ button {
   gap: var(--space-2xs);
   height: 38px;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 8px 0 12px;
   position: relative;
 }
 
@@ -1515,6 +1515,12 @@ button {
   transition: transform 0.3s ease;
   position: absolute;
   right: 5px;
+  background: var(--color-bg);
+  width: 30px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .xToggleArrowIcon svg {
@@ -1535,7 +1541,7 @@ button {
 
 #xSelectedValue-s {
   display: inline-block;
-  width: 120px;
+  width: 50px !important;
   /* kerakli kenglikni tanlang */
   white-space: nowrap;
   overflow: hidden;
@@ -1706,9 +1712,9 @@ button {
   }
 }
 
-.xDropdown-box {
+/* .xDropdown-box {
   width: 100%;
-}
+} */
 
 .xDropdown-box>p {
   color: var(--color-textThird);

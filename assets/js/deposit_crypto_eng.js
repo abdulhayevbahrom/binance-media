@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update display with truncated text if needed
         if (window.matchMedia("(min-width: 768px)").matches) {
           xCurrentValueDisplay.textContent = selectedText.length > 5
-            ? selectedText.substring(0, 5) + '...'
+            ? selectedText.substring(0, 4) + '...'
             : selectedText;
         }
         xCurrentValueDisplay.dataset.selected = selectedText; // Store full value
@@ -480,7 +480,7 @@ document.querySelectorAll(".flex-button").forEach((button) => {
 // Define available coins with a complex name
 let x9p4m_availableCoins = {
   1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
-  2: ["4000DOGE", "5000SHIBA", "6000DOGE", "7000SHIBA", "8000DOGE", "9000SHIBA"],
+  2: [],
   3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
 };
 
@@ -577,7 +577,9 @@ function r6t9v_updateSelectedText(id) {
   if (k7v2n_coinData[id].length === 0) {
     selectedText.innerText = "Выберите...";
   } else if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
-    selectedText.innerText = "Все";
+    if (x9p4m_availableCoins[id].length) {
+      selectedText.innerText = "Все";
+    }
   } else {
     // Wrap each selected coin in a span with a specific class
     const styledCoins = k7v2n_coinData[id].map(coin => {
@@ -898,7 +900,10 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
 
 
 function openToolModal(transaction) {
-  document.getElementById("modalTime").innerText = transaction.time;
+  const date = new Date(transaction.time);
+  // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+  const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+  document.getElementById("modalTime").innerText = formattedTime;
   document.getElementById("modalTransfer").innerText = transaction.currency;
   document.getElementById("modalWallet").innerText = transaction.amount;
 
@@ -982,8 +987,10 @@ function closeModalWiw() {
 
 
 function myModalOpen(transaction) {
-  console.log("ok");
-  document.getElementById("modalTime").innerText = transaction.time;
+  const date = new Date(transaction.time);
+  // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+  const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+  document.getElementById("modalTime").innerText = formattedTime;
   document.getElementById("modalTransfer").innerText = transaction.cryptocurrency;
   document.getElementById("modalWallet").innerText = transaction.amount;
   document.getElementById("modalAmount").innerText = transaction.network;

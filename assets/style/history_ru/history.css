@@ -2819,7 +2819,9 @@ html :is(.items-center) {
 }
 
 .g4m9x_selectedCoin {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   border-radius: 3px;
   font-size: 13px;
   font-weight: 500;
@@ -2830,13 +2832,20 @@ html :is(.items-center) {
   color: var(--color-textPrimary);
   padding-left: var(--space-2xs);
   padding-right: var(--space-2xs);
+  color: var(--color-textPrimary);
+}
 
-  background-color: var(--color-Input);
-
+.g4m9x_selectedCoin>img {
+  height: 25px;
+  margin: 3px 0;
+  width: 25px;
+  border-radius: 50%;
 }
 
 
-
+.g4m9x_selectedCoin>p {
+  color: var(--color-textThird) !important;
+}
 
 
 
@@ -2850,18 +2859,18 @@ html :is(.items-center) {
 
 .xDropdownHeaderSection {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 170px;
+  justify-content: space-between;
+  width: 145px;
   border-radius: var(--radii-m);
   border: 1px solid var(--color-InputLine) !important;
   color: var(--color-PrimaryText);
   display: inline-flex;
   flex-wrap: nowrap;
-  gap: var(--space-2xs);
+  gap: 14px !important;
   height: 38px;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 22px 0 8px !important;
   position: relative;
 }
 
@@ -2948,8 +2957,7 @@ html :is(.items-center) {
 
 #xSelectedValue-s {
   display: inline-block;
-  width: 120px;
-  /* kerakli kenglikni tanlang */
+  width: 50px !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -3164,9 +3172,7 @@ html :is(.items-center) {
   }
 }
 
-.xDropdown-box {
-  width: 100%;
-}
+
 
 .xDropdown-box>p {
   color: var(--color-textThird);

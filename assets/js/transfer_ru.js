@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Update display with truncated text if needed
                 if (window.matchMedia("(min-width: 768px)").matches) {
                     xCurrentValueDisplay.textContent = selectedText.length > 5
-                        ? selectedText.substring(0, 5) + '...'
+                        ? selectedText.substring(0, 4) + '...'
                         : selectedText;
                 }
                 xCurrentValueDisplay.dataset.selected = selectedText; // Store full value

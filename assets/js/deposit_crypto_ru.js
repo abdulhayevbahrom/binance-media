@@ -319,10 +319,15 @@ document.querySelectorAll(".flex-button").forEach((button) => {
 
 
 let x9p4m_availableCoins = {
-  1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
-  2: ["4000DOGE", "5000SHIBA", "6000DOGE", "7000SHIBA", "8000DOGE", "9000SHIBA"],
-  3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
-};
+  1: ["Спот", "Кросс-маржа", "Пополнения", "Фьючерсы USDⓈ-M ", "Фьючерсы COIN-M", "Изолированная маржа", "Earn", "P2P-аккаунт", "Пул", "Опционы"],
+  2: [],
+  // 3: [
+  //   { name: "10000BTC", image: "../../../../../assets/img/coin5.png", description: "10000*Bitcoin" },
+  //   { name: "11000ETH", image: "../../../../../assets/img/coin6.png", description: "11000*Ethereum" },
+  //   { name: "12000BTC", image: "../../../../../assets/img/coin7.png", description: "12000*Bitcoin" },
+  //   { name: "13000ETH", image: "../../../../../assets/img/coin8.png", description: "13000*Ethereum" }
+  // ]
+}
 
 // Initialize coin data with a complex name
 let k7v2n_coinData = { 1: [], 2: [], 3: [] };
@@ -332,31 +337,37 @@ function q5t8r_renderCoinList(id) {
   const isAllSelected = k7v2n_coinData[id].length === coins.length;
 
   let listHtml = `
-                <li onclick="j3m9k_toggleSelectAll(${id})">
-                    <div class="v1r9t_checkIcon ${isAllSelected ? "active" : ""}">
-                        <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
-                            <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-                        </svg>
-                    </div>
-                    Все
-                </li>
-            `;
+        ${x9p4m_availableCoins[id].length ? `
+            <li onclick="j3m9k_toggleSelectAll(${id})">
+                <div class="v1r9t_checkIcon ${isAllSelected ? "active" : ""}">
+                    <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
+                        <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                Все
+            </li>` : ""}
+    `;
 
-  listHtml += coins
-    .map((coin) => {
-      const isChecked = k7v2n_coinData[id].includes(coin);
-      return `
-                        <li onclick="p8n2z_updateSelection(${id}, '${coin}')">
-                            <div class="v1r9t_checkIcon ${isChecked ? "active" : ""}">
-                                <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
-                                    <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
-                                </svg>
-                            </div>
-                            ${coin}
-                        </li>
-                    `;
-    })
-    .join("");
+  listHtml += coins.map((coin) => {
+    const coinName = typeof coin === "string" ? coin : coin.name;
+    const isChecked = k7v2n_coinData[id].includes(coin);
+
+    return `
+            <li onclick="p8n2z_updateSelection(${id}, '${coin}')">
+                <div class="v1r9t_checkIcon ${isChecked ? "active" : ""}">
+                    <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
+                        <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                ${coinName}
+                ${typeof coin === "object" ? `
+                    <img src="${coin.image}" alt="${coin.name}" />
+                    <span>${coin.description}</span>
+                    <p>${coin.description}</p>
+                ` : ""}
+            </li>
+        `;
+  }).join("");
 
   document.getElementById(`c4v8p_coinList-${id}`).innerHTML = listHtml;
 }
@@ -407,7 +418,9 @@ function r6t9v_updateSelectedText(id) {
   if (k7v2n_coinData[id].length === 0) {
     selectedText.innerText = "Выберите...";
   } else if (k7v2n_coinData[id].length === x9p4m_availableCoins[id].length) {
+
     selectedText.innerText = "Все";
+
   } else {
     // Wrap each selected coin in a span with a specific class
     const styledCoins = k7v2n_coinData[id].map(coin => {
@@ -448,6 +461,10 @@ document.getElementById("u8k2p_bgOverlay")?.addEventListener("click", () => {
   });
   document.getElementById("u8k2p_bgOverlay").classList.remove("active");
 });
+
+
+
+
 
 // ==============================================
 
@@ -654,7 +671,6 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
 
   // Get startDate and endDate from sendData
   const { startDate, endDate } = sendData();
-  console.log(startDate, endDate);
   let start_date, end_date;
 
   // If startDate and endDate exist from calendar, use them directly
@@ -683,7 +699,15 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     }
   }
 
-  const tx_type = selectedValues.selectV4 === "Вывод" ? "out" : "in";
+  let tx_type;
+
+  if (selectedValues.selectV4 === "Вывод") {
+    tx_type = "out";
+  } else if (selectedValues.selectV4 === "Все") {
+    tx_type = "all";
+  } else {
+    tx_type = "in";
+  }
   const page_size = 10;
 
   const API = `${SERVER_URL}/order/transaction-history/crypto`;
@@ -743,7 +767,10 @@ function sendData() {
 }
 
 function openToolModal(transaction) {
-  document.getElementById("modalTime").innerText = transaction.time;
+  const date = new Date(transaction.time);
+  // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+  const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+  document.getElementById("modalTime").innerText = formattedTime;
   document.getElementById("modalTransfer").innerText = transaction.currency;
   document.getElementById("modalWallet").innerText = transaction.amount;
 
@@ -845,8 +872,10 @@ function closeModalWiw() {
 
 
 function myModalOpen(transaction) {
-  console.log("ok");
-  document.getElementById("modalTime").innerText = transaction.time;
+  const date = new Date(transaction.time);
+  // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
+  const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+  document.getElementById("modalTime").innerText = formattedTime;
   document.getElementById("modalTransfer").innerText = transaction.cryptocurrency;
   document.getElementById("modalWallet").innerText = transaction.amount;
   document.getElementById("modalAmount").innerText = transaction.network;

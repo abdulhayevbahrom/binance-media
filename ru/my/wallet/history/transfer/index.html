@@ -3519,7 +3519,8 @@
       <div class="main-history">
         <div class="bn-tab__default-breakline">
           <div class="bn-tab-list bn-tab-list__default">
-            <a href="../deposit-crypto" class="bn-tab bn-tab__default" data-target="crypto">Kриптовалюты</a>
+            <a href="../../../../my/wallet/history/deposit-crypto" class="bn-tab bn-tab__default"
+              data-target="crypto">Kриптовалюты</a>
             <a class="bn-tab bn-tab__default active" data-target="transfer">Перевод</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="distribution">Дистрибуция</a>
             <a href="#" class="bn-tab bn-tab__default" data-target="bnbconvert">Конвертировать BNB</a>
@@ -3839,6 +3840,7 @@
     </div>
 
 
+    <!-- ================================================== -->
     <div id="customModalSetting" style="display: none;" class="modalSetting">
       <div class="modal-content">
         <div class="bn-modal-header-main">
@@ -3894,7 +3896,7 @@
                           </path>
                         </svg>
                       </button>
-                      <button class="month-btn" onclick="changeMonth(1, 'start')">
+                      <button class="month-btn" onclick="changeMonth(-1, 'start')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
                           <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
                           </path>
@@ -3906,7 +3908,7 @@
                       <span id="startMonth">Mar</span>
                     </div>
                     <div class="month-year-select">
-                      <button class="month-btn month-btn-rotat" onclick="changeMonth(-1, 'start')">
+                      <button class="month-btn month-btn-rotat" onclick="changeMonth(1, 'start')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="css-16vuvx12">
                           <path d="M6.175 8l4.875-4.95L10 2 4 8l6 6 1.05-1.05L6.175 8z" fill="currentColor">
                           </path>
@@ -4022,7 +4024,7 @@
             </div>
           </div>
 
-          <button onclick="sendData()" aria-label="Продолжить" role="button"
+          <button onclick="getTableData()"
             class="bn-button bn-button__primary data-size-large my-xl w-full">Продолжить</button>
         </div>
 
@@ -4218,6 +4220,7 @@
     </footer>
   </div>
 
+  <script src="../../../../../assets/js/config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="../../../../../assets/js/script.js"></script>
   <script src="../../../../../assets/js/lang.js"></script>
@@ -4227,10 +4230,9 @@
   <script src="../../../../../assets/select-service.js"></script>
   <script src="../../../../../assets/js/service_ru.js"></script>
 
-  <script src="../../../../../assets/js/history_calendar_ru.js"></script>
-  <script src="../../../../../assets/js/history_transfer.js"></script>
-  <script src="../../../../../assets/js/config.js"></script>
+  <!-- <script src="../../../../../assets/js/history_calendar_ru.js"></script> -->
   <script src="../../../../../assets/js/transfer_ru.js"></script>
+  <script src="../../../../../assets/js/history_transfer.js"></script>
 
 
   <script>
@@ -4318,7 +4320,7 @@
 
   </script>
 
-
+  <script src="../../../../../assets/js/history_calendar_ru.js"></script>
 </body>
 
 </html>

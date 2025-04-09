@@ -322,38 +322,45 @@ document.addEventListener("DOMContentLoaded", () => {
 function calculateDates(timeRange) {
     const today = new Date();
     let startDate, endDate;
+    // Get startDate and endDate from sendData
+    const { startDate: start, endDate: end } = sendData();
 
     endDate = today.toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
-
-    switch (timeRange) {
-        case "Последние 7 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 7);
-            break;
-        case "Последние 30 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 30);
-            break;
-        case "Последние 90 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 90);
-            break;
-        case "Настроить":
-            // For custom range, use modal values if available, otherwise default to 30 days
-            const customStart = document.getElementById("startDate")?.value;
-            const customEnd = document.getElementById("endDate")?.value;
-            if (customStart && customEnd) {
-                startDate = customStart;
-                endDate = customEnd;
-            } else {
+    if (start && end) {
+        startDate = start;
+        endDate = end;
+    } else {
+        switch (timeRange) {
+            case "Последние 7 дней":
                 startDate = new Date(today);
-                startDate.setDate(today.getDate() - 30); // Default to 30 days
-            }
-            break;
-        default:
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 30); // Fallback to 30 days
+                startDate.setDate(today.getDate() - 7);
+                break;
+            case "Последние 30 дней":
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 30);
+                break;
+            case "Последние 90 дней":
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 90);
+                break;
+            case "Настроить":
+                // For custom range, use modal values if available, otherwise default to 30 days
+                const customStart = document.getElementById("startDate")?.value;
+                const customEnd = document.getElementById("endDate")?.value;
+                if (customStart && customEnd) {
+                    startDate = customStart;
+                    endDate = customEnd;
+                } else {
+                    startDate = new Date(today);
+                    startDate.setDate(today.getDate() - 30); // Default to 30 days
+                }
+                break;
+            default:
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 30); // Fallback to 30 days
+        }
     }
+
 
     return {
         startDate: typeof startDate === 'string' ? startDate : startDate.toISOString().split('T')[0],
@@ -377,24 +384,24 @@ if (!prevButton || !nextButton) {
 }
 
 // Tugmalar holatini yangilash funksiyasi
-function updateButtons() {
-    if (current_page === 1) {
-        prevButton.style.color = "#333";
-        prevButton.style.cursor = "no-drop";
-    } else {
-        prevButton.style.color = "#aeb4bc";
-        prevButton.style.cursor = "pointer";
+// function updateButtons() {
+//     if (current_page === 1) {
+//         prevButton.style.color = "#333";
+//         prevButton.style.cursor = "no-drop";
+//     } else {
+//         prevButton.style.color = "#aeb4bc";
+//         prevButton.style.cursor = "pointer";
 
-    }
+//     }
 
-    if (current_page < total_pages) {
-        prevButton.style.cursor = "no-drop";
-        nextButton.style.color = "#333";
-    } else {
-        prevButton.style.color = "#aeb4bc";
-        prevButton.style.cursor = "pointer";
-    }
-}
+//     if (current_page < total_pages) {
+//         prevButton.style.cursor = "no-drop";
+//         nextButton.style.color = "#333";
+//     } else {
+//         prevButton.style.color = "#aeb4bc";
+//         prevButton.style.cursor = "pointer";
+//     }
+// }
 
 // Oldingi sahifaga o'tish
 function handlePrev() {
@@ -420,10 +427,10 @@ nextButton?.addEventListener("click", handleNext);
 async function fetchDataAndUpdate() {
     // Dropdowndan tanlangan qiymatlarni olish
     const getValue = (selector) => document.querySelector(`${selector} .order-select_value`)?.textContent.trim() || "";
-    const from = getValue("#orderType1");
-    const to = getValue("#orderType2");
+    // const from = getValue("#orderType1");
+    // const to = getValue("#orderType2");
     const time = getValue("#orderType3");
-    const cryptocurrency = getValue("#orderType4");
+    // const cryptocurrency = getValue("#orderType4");
 
     const { startDate, endDate } = calculateDates(time);
     const page_size = 10;
@@ -461,7 +468,7 @@ async function fetchDataAndUpdate() {
         // Sahifalar sonini yangilash (agar serverdan kelsa)
         if (result.total_pages) total_pages = result.total_pages;
 
-        updateButtons();
+        // updateButtons();
     } catch (error) {
         console.error("Xatolik yuz berdi:", error);
     } finally {

@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendToServer = async (data) => {
 
 
-        // Open modal when "Настроить" button is clicked
-        if (data.selectV2 === "Настроить") {
+        // Open modal when "Customized" button is clicked
+        if (data.selectV2 === "Customized") {
             modal.style.display = "block";
 
 
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const applyButton = document.getElementById("applyDateRange");
 
     document.querySelector("#orderType3 .order-select__list").addEventListener("click", (event) => {
-        if (event.target.textContent === "Настроить") {
+        if (event.target.textContent === "Customized") {
             modal.style.display = "block";
         }
     });
@@ -324,35 +324,42 @@ function calculateDates(timeRange) {
     let startDate, endDate;
 
     endDate = today.toISOString().split('T')[0]; // Current date in YYYY-MM-DD format
+    const { startDate: start, endDate: end } = sendData();
 
-    switch (timeRange) {
-        case "Последние 7 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 7);
-            break;
-        case "Последние 30 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 30);
-            break;
-        case "Последние 90 дней":
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 90);
-            break;
-        case "Настроить":
-            // For custom range, use modal values if available, otherwise default to 30 days
-            const customStart = document.getElementById("startDate")?.value;
-            const customEnd = document.getElementById("endDate")?.value;
-            if (customStart && customEnd) {
-                startDate = customStart;
-                endDate = customEnd;
-            } else {
+    if (start && end) {
+        startDate = start;
+        endDate = end;
+    } else {
+
+        switch (timeRange) {
+            case "Past 7 days":
                 startDate = new Date(today);
-                startDate.setDate(today.getDate() - 30); // Default to 30 days
-            }
-            break;
-        default:
-            startDate = new Date(today);
-            startDate.setDate(today.getDate() - 30); // Fallback to 30 days
+                startDate.setDate(today.getDate() - 7);
+                break;
+            case "Past 30 days":
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 30);
+                break;
+            case "Past 90 days":
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 90);
+                break;
+            case "Customized":
+                // For custom range, use modal values if available, otherwise default to 30 days
+                const customStart = document.getElementById("startDate")?.value;
+                const customEnd = document.getElementById("endDate")?.value;
+                if (customStart && customEnd) {
+                    startDate = customStart;
+                    endDate = customEnd;
+                } else {
+                    startDate = new Date(today);
+                    startDate.setDate(today.getDate() - 30); // Default to 30 days
+                }
+                break;
+            default:
+                startDate = new Date(today);
+                startDate.setDate(today.getDate() - 30); // Fallback to 30 days
+        }
     }
 
     return {
@@ -515,7 +522,7 @@ function collectFormData() {
     formData.coin = coinText !== "Пожалуйста, выберите монету" ? coinText : "";
 
     // Get custom date range if selected
-    if (formData.timeRange === "Настроить") {
+    if (formData.timeRange === "Customized") {
         const dateRangePicker = document.getElementById("dateRangePicker");
         formData.customDateRange = dateRangePicker.textContent.trim();
     }

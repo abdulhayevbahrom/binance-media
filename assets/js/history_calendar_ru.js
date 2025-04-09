@@ -12,27 +12,45 @@ const months = [
   "Noy",
   "Dek",
 ];
-let selectedStartDate = new Date();
-let selectedEndDate = new Date();
+
+// Bugungi sanadan boshlab startDate 1 oy oldin, endDate bugungi sana
+let selectedEndDate = new Date(); // EndDate bugungi sana
+let selectedStartDate = new Date(selectedEndDate); // StartDate endDate asosida
+selectedStartDate.setMonth(selectedStartDate.getMonth() - 1); // 1 oy orqaga
 let selectedStartYear = selectedStartDate.getFullYear();
 let selectedEndYear = selectedEndDate.getFullYear();
 let selectedStartMonth = selectedStartDate.getMonth();
 let selectedEndMonth = selectedEndDate.getMonth();
 const modal = document.getElementById("customModalSetting");
 
-// Modified sendData function to properly return values
+// Dastlabki sanalarni inputlarga qo‘yish va tanlangan sanalarni belgilash
+document.getElementById("startDate").value = formatDate(selectedStartDate);
+document.getElementById("endDate").value = formatDate(selectedEndDate);
+let selectedDates = {
+  start: {
+    year: selectedStartYear,
+    month: selectedStartMonth,
+    day: selectedStartDate.getDate(),
+  },
+  end: {
+    year: selectedEndYear,
+    month: selectedEndMonth,
+    day: selectedEndDate.getDate(),
+  },
+};
+
 function sendData() {
   const startDate = document.getElementById("startDate").value;
   const endDate = document.getElementById("endDate").value;
 
   modal.style.display = "none";
-
   console.log(startDate, endDate);
   if (startDate && endDate) {
     return { startDate, endDate };
   }
-  return {}; // Return empty object if dates are not available
+  return {};
 }
+
 function openModal(type) {
   if (type === "start") {
     document.getElementById("startModal").style.display = "block";
@@ -51,8 +69,7 @@ function closeModal(type) {
   }
 }
 
-let selectedDates = {}; // Tanlangan sanalarni saqlash uchun obyekt
-let firstAfterTodayAdded = false; // Bugundan keyingi birinchi sanani topish uchun flag
+let firstAfterTodayAdded = false;
 
 function renderCalendar(type) {
   let year = type === "start" ? selectedStartYear : selectedEndYear;
@@ -64,7 +81,7 @@ function renderCalendar(type) {
   yearElement.textContent = year;
   monthElement.textContent = months[month];
   dayGrid.innerHTML = "";
-  firstAfterTodayAdded = false; // Har safar qayta render bo‘lganda reset qilish
+  firstAfterTodayAdded = false;
 
   let today = new Date();
   let todayYear = today.getFullYear();
@@ -102,12 +119,10 @@ function renderCalendar(type) {
     dayBtn.classList.add("daysInto");
     dayBtn.textContent = day;
 
-    // Bugungi sanaga class berish
     if (year === todayYear && month === todayMonth && day === todayDate) {
       dayBtn.classList.add("todayIs");
     }
 
-    // Bugundan oldingi sanalarga class berish
     if (
       year < todayYear ||
       (year === todayYear && month < todayMonth) ||
@@ -116,7 +131,6 @@ function renderCalendar(type) {
       dayBtn.classList.add("past-day");
     }
 
-    // Bugundan keyingi BIRINCHI sanaga class berish
     if (
       !firstAfterTodayAdded &&
       (year > todayYear ||
@@ -127,7 +141,6 @@ function renderCalendar(type) {
       firstAfterTodayAdded = true;
     }
 
-    // Tanlangan sanaga class berish
     if (
       selectedDates[type] &&
       selectedDates[type].year === year &&
@@ -152,9 +165,37 @@ function renderCalendar(type) {
   }
 }
 
-// **Sanani tanlash funksiyasi**
 function selectDate(type, year, month, day) {
-  selectedDates[type] = { year, month, day };
+  const selectedDate = new Date(year, month, day);
+  const formattedDate = formatDate(selectedDate);
+
+  if (type === "start") {
+    selectedStartDate = selectedDate;
+    selectedStartYear = year;
+    selectedStartMonth = month;
+    selectedDates.start = { year, month, day };
+    document.getElementById("startDate").value = formattedDate;
+    closeModal("start");
+  } else if (type === "end") {
+    selectedEndDate = selectedDate;
+    selectedEndYear = year;
+    selectedEndMonth = month;
+    selectedDates.end = { year, month, day };
+    // EndDate o‘zgarganda StartDate ni 1 oy orqaga yangilash
+    selectedStartDate = new Date(selectedEndDate);
+    selectedStartDate.setMonth(selectedStartDate.getMonth() - 1);
+    selectedStartYear = selectedStartDate.getFullYear();
+    selectedStartMonth = selectedStartDate.getMonth();
+    selectedDates.start = {
+      year: selectedStartYear,
+      month: selectedStartMonth,
+      day: selectedStartDate.getDate(),
+    };
+    document.getElementById("startDate").value = formatDate(selectedStartDate);
+    document.getElementById("endDate").value = formattedDate;
+    closeModal("end");
+  }
+
   renderCalendar(type);
 }
 
@@ -190,24 +231,10 @@ function changeMonth(direction, type) {
   renderCalendar(type);
 }
 
-function selectDate(type, year, month, day) {
-  const selectedDate = new Date(year, month - 1, day);
-  if (type === "start") {
-    document.getElementById("startDate").value = selectedDate
-      .toISOString()
-      .split("T")[0];
-    closeModal("start");
-  } else if (type === "end") {
-    document.getElementById("endDate").value = selectedDate
-      .toISOString()
-      .split("T")[0];
-    closeModal("end");
-  }
-}
 function formatDate(date) {
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Oy 1 dan boshlanadi, shuning uchun +1 qilamiz
-  const day = String(date.getDate()).padStart(2, "0"); // Kunni 2 raqamli qilish uchun padStart qo'llaymiz
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Oy 1 dan boshlanadi
+  const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
 }
 
@@ -221,9 +248,11 @@ window.onclick = function (event) {
     closeModal("end");
   }
 };
+
 document
   .getElementById("startDate")
   .addEventListener("click", () => openModal("start"));
 document
   .getElementById("endDate")
   .addEventListener("click", () => openModal("end"));
+

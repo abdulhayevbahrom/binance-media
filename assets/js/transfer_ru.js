@@ -141,8 +141,36 @@ btnOpenModalSecond.addEventListener("click", function (event) {
 
 
 const originalOrderTypes = [
-    { id: "orderType1", options: ["Пополнения", "Опционы", "Основной аккаунт", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "Пул-аккаунт", "P2P-аккаунт", "Изолированная маржа"], label: "Из", defaultValue: "Основной аккаунт" },
-    { id: "orderType2", options: ["Опционы", "Кросс-маржа", "Фьючерсы USDⓈ-M", "Фьючерсы COIN-M", "P2P-аккаунт", "Пул-аккаунт", "Пополнения", "Изолированная маржа", "Торговые боты", "Копи-трейдинг", "Tokocrypto", "Binance TR", "Binance TH", "TraderWagon"], label: "В", defaultValue: "Кросс-маржа" },
+    {
+        id: "orderType1", options: [
+            "Пополнения",
+            "Опционы",
+            "Основной аккаунт",
+            "Фьючерсы USDⓈ-M",
+            "Фьючерсы COIN-M",
+            "Пул-аккаунт",
+            "P2P-аккаунт",
+            "Изолированная маржа"
+        ], label: "Из", defaultValue: "Основной аккаунт"
+    },
+    {
+        id: "orderType2", options: [
+            "Опционы",
+            "Кросс-маржа",
+            "Фьючерсы USDⓈ-M",
+            "Фьючерсы COIN-M",
+            "P2P-аккаунт",
+            "Пул-аккаунт",
+            "Пополнения",
+            "Изолированная маржа",
+            "Торговые боты",
+            "Копи-трейдинг",
+            "Tokocrypto",
+            "Binance TR",
+            "Binance TH",
+            "TraderWagon"
+        ], label: "В", defaultValue: "Кросс-маржа"
+    },
     { id: "orderType3", options: ["Последние 7 дней", "Последние 30 дней", "Последние 90 дней", "Настроить"], label: "Время", defaultValue: "Последние 30 дней" },
 ];
 
@@ -166,6 +194,8 @@ function createSelect(id, options, labels, defaultValue) {
                             </div>
                         </div>
                         <div class="order-select__list-wrapper">
+                        <div id="clossModalIn" class="html_py-s"><div class="typography-headline4">Время</div><svg onclick="clossModalIn()" class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z" fill="currentColor"></path></svg></div>
+
                             ${isSearchVisible ? `
                                 <div class="search-boxInp">
                                     <div class="search-boxonNav">
@@ -200,31 +230,81 @@ function createSelect(id, options, labels, defaultValue) {
     const optionsList = select.querySelectorAll(".order-select__option");
     const icon = select.querySelector(".order-select_icon");
 
-    label.addEventListener("click", () => {
-        document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
-        listWrapper.classList.toggle("open");
-        icon.classList.toggle("rotate", listWrapper.classList.contains("open"));
-    });
-
-    label.addEventListener("mouseenter", () => {
-        listWrapper.classList.add("open");
-        icon.classList.add("rotate");
-    });
-
-    listWrapper.addEventListener("mouseleave", () => {
+    // Function to handle option selection
+    function handleOptionClick(option) {
+        label.firstChild.textContent = option.textContent;
         listWrapper.classList.remove("open");
         icon.classList.remove("rotate");
-    });
+        updateDefaultValue(id, option.textContent);
+        fetchDataAndUpdate();
+    }
 
-    optionsList.forEach(option => {
-        option.addEventListener("click", () => {
-            label.firstChild.textContent = option.textContent;
+    // Detect if it's mobile or desktop
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    if (isMobile) {
+        // Mobile: click to open/close
+        label.addEventListener("click", () => {
+            document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
+            listWrapper.classList.toggle("open");
+            icon.classList.toggle("rotate", listWrapper.classList.contains("open"));
+        });
+
+        // function clossModalInnto() {
+        //     document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
+        //     icon.classList.remove("rotate");
+        // }
+
+
+    } else {
+        // Desktop: hover to open
+        label.addEventListener("mouseenter", () => {
+            listWrapper.classList.add("open");
+            icon.classList.add("rotate");
+        });
+
+        listWrapper.addEventListener("mouseleave", () => {
             listWrapper.classList.remove("open");
             icon.classList.remove("rotate");
-            updateDefaultValue(id, option.textContent);
-            fetchDataAndUpdate(); // Trigger server request on selection
         });
+    }
+
+    // Option click (common for both)
+    optionsList.forEach(option => {
+        option.addEventListener("click", () => handleOptionClick(option));
     });
+
+
+    // const label = select.querySelector(".order-select_value");
+    // const listWrapper = select.querySelector(".order-select__list-wrapper");
+    // const optionsList = select.querySelectorAll(".order-select__option");
+    // const icon = select.querySelector(".order-select_icon");
+
+    // label.addEventListener("click", () => {
+    //     document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
+    //     listWrapper.classList.toggle("open");
+    //     icon.classList.toggle("rotate", listWrapper.classList.contains("open"));
+    // });
+
+    // label.addEventListener("mouseenter", () => {
+    //     listWrapper.classList.add("open");
+    //     icon.classList.add("rotate");
+    // });
+
+    // listWrapper.addEventListener("mouseleave", () => {
+    //     listWrapper.classList.remove("open");
+    //     icon.classList.remove("rotate");
+    // });
+
+    // optionsList.forEach(option => {
+    //     option.addEventListener("click", () => {
+    //         label.firstChild.textContent = option.textContent;
+    //         listWrapper.classList.remove("open");
+    //         icon.classList.remove("rotate");
+    //         updateDefaultValue(id, option.textContent);
+    //         fetchDataAndUpdate(); // Trigger server request on selection
+    //     });
+    // });
 }
 
 function filterOptions(id, value) {
@@ -276,6 +356,10 @@ document.addEventListener("click", event => {
         document.querySelectorAll(".order-select_icon").forEach(icon => icon.classList.remove("rotate"));
     }
 });
+function clossModalIn() {
+    document.querySelectorAll(".order-select__list-wrapper").forEach(el => el.classList.remove("open"));
+    document.querySelectorAll(".order-select_icon").forEach(icon => icon.classList.remove("rotate"));
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("customModalSetting");

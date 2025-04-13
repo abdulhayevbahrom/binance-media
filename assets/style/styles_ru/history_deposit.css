@@ -104,6 +104,7 @@
 
 .order-select_icon {
   transition: transform 0.3s ease;
+  background: var(--color-bg) !important;
 }
 
 .order-select_icon.rotate {
@@ -1429,7 +1430,7 @@ button {
 
 .xCustomDropdownContainer {
   position: relative;
-  width: 250px;
+  width: 270px !important;
   /* margin-bottom: 20px; */
   font-family: Arial, sans-serif;
 
@@ -1639,10 +1640,47 @@ button {
   }
 }
 
+.html_py-s {
+  display: none;
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
   .xCustomDropdownContainer.xVariantThree {
     width: 100%;
+  }
+
+  .html_py-s {
+    display: block;
+    display: flex !important;
+    padding-bottom: var(--space-s);
+    padding-top: var(--space-s);
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .xDropdownOptionsList {
+    position: fixed;
+    width: 100%;
+    border-radius: 4px;
+    z-index: 10;
+    display: none;
+    background-color: #1E2329 !important;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, .2), inset 0px 0px 2px hsla(0, 0%, 100%, .2);
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .xSingleOptionItem {
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
   }
 
   .bn-modal-wrap-data-size-small {
@@ -1702,7 +1740,7 @@ button {
 
   .xCustomDropdownContainer {
     position: relative;
-    width: 100%;
+    width: 100% !important;
     margin-bottom: 20px;
     font-family: Arial, sans-serif;
   }

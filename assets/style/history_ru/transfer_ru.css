@@ -7,6 +7,55 @@
   border-color: var(--color-textBrand);
 }
 
+.html_py-s {
+  display: none;
+}
+
+@media (max-width: 725px) {
+
+
+
+  .order-select__list-wrapper {
+    box-sizing: border-box;
+    display: none;
+    position: fixed;
+    background: #202630;
+    width: 100% !important;
+    transition: height 0.2s ease 0s;
+    /* background-color: rgb(30, 35, 41); */
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 7px 14px, rgba(0, 0, 0, 0.08) 0px 3px 6px,
+      rgba(94, 102, 115, 0.9) 0px 0px 1px inset;
+    border-radius: 15px 15px 0 0;
+    z-index: 60;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    bottom: 0;
+    border: none !important;
+  }
+
+  .order-select__option {
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    text-wrap: nowrap !important;
+  }
+
+  .html_py-s {
+    display: block;
+    padding-bottom: var(--space-s);
+    padding-top: var(--space-s);
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+}
+
 .order-select__list-wrapper.open {
   display: block;
 }
@@ -35,6 +84,7 @@
 
 .order-select_icon {
   transition: transform 0.3s ease;
+  background: var(--color-bg) !important;
 }
 
 .order-select_icon.rotate {
@@ -43,6 +93,13 @@
 
 .order-select_icon:hover {
   border-color: var(--color-textBrand) !important;
+}
+
+@media (max-width: 700px) {
+  .order-select_icon {
+    transition: transform 0.3s ease;
+    background: transparent !important;
+  }
 }
 
 .order-select_value {
@@ -87,4 +144,10 @@
 
 .table-items td:last-child {
   color: var(--color-PrimaryText) !important;
+}
+
+@media (max-width:725px) {
+  .table-items td:last-child {
+    color: var(--color-PrimaryText) !important;
+  }
 }

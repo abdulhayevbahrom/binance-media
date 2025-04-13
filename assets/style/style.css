@@ -5523,6 +5523,7 @@ button {
   line-height: 20px;
   position: relative;
   cursor: pointer;
+  text-wrap: nowrap !important;
 }
 
 .order-select__option:hover {

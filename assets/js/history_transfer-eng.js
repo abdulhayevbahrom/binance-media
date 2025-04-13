@@ -130,22 +130,28 @@ let coinData = {
   4: [],
 };
 let availableCoins = {
-  1: ["1000CAT", "2000CHEEMS", "3000CHEEMS"],
-  2: [
-    "4000DOGE",
-    "5000SHIBA",
-    "6000DOGE",
-    "7000SHIBA",
-    "8000DOGE",
-    "9000SHIBA",
-  ],
-  3: ["10000BTC", "11000ETH", "12000BTC", "13000ETH"],
-  4: ["20000BTC", "21000ETH", "22000BTC", "23000ETH"],
+  1: ["Spot",
+    "Cross Margin",
+    "Funding",
+    "USDⓈ-M Futures",
+    "Coin - M Futures",
+    "Isolated Margin",
+    "Earn",
+    "P2P",
+    "Pool",
+    "Options"],
+  2: [],
+  // 3: [
+  //   { name: "10000BTC", image: "../../../../../assets/img/coin5.png", description: "10000*Bitcoin" },
+  //   { name: "11000ETH", image: "../../../../../assets/img/coin6.png", description: "11000*Ethereum" },
+  //   { name: "12000BTC", image: "../../../../../assets/img/coin7.png", description: "12000*Bitcoin" },
+  //   { name: "13000ETH", image: "../../../../../assets/img/coin8.png", description: "13000*Ethereum" }
+  // ]
 };
 
 function toggleModal(id) {
   let modal = document.getElementById(`modal-${id}`);
-  let container = document.getElementById(`container-${id}`);
+  let container = document.querySelectorAll(`container-${id}`);
   let bg = document.getElementById("bg");
 
   // Check if the modal is already open
@@ -172,6 +178,7 @@ function renderCoinList(id) {
   let isAllSelected = coinData[id].length === availableCoins[id].length;
 
   let listHtml = `
+  ${availableCoins[id].length ? `
           <li onclick="toggleSelectAll(${id})">
             <div class="bn-checkbox-icon ${isAllSelected ? "active" : ""}">
               <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="bn-svgch">
@@ -179,8 +186,9 @@ function renderCoinList(id) {
                   fill="currentColor"></path>
               </svg>
             </div>
-            Все
+            All
           </li>
+          `: ""}
           `;
 
   availableCoins[id].forEach((coin) => {
@@ -229,14 +237,14 @@ function updateSelectedText(id) {
   selectedText.innerHTML = "";
 
   if (coinData[id].length === 0) {
-    selectedText.innerText = "Выберите...";
+    selectedText.innerText = "Select...";
     selectedText.classList.add("text-t-disabled_emp");
     selectedText.classList.remove("text-t-activeAll");
     return;
   }
 
   if (coinData[id].length === availableCoins[id].length) {
-    selectedText.innerText = "Все";
+    selectedText.innerText = "All";
     selectedText.classList.remove("text-t-disabled_emp");
     selectedText.classList.add("text-t-activeAll");
     return;

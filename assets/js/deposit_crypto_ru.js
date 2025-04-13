@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+
     xOptionItemsCollection.forEach(xSingleOptionElement => {
       xSingleOptionElement.addEventListener('click', () => {
         const selectedText = xSingleOptionElement.dataset.label;
@@ -373,6 +374,8 @@ function q5t8r_renderCoinList(id) {
 }
 
 function h4k6w_toggleModal(id) {
+  const ClossModalInT = document.getElementById('toggleOut');
+
   const modalD = document.getElementById(`f2r5m_modal-${id}`);
   const bg = document.getElementById("u8k2p_bgOverlay");
   const container = document.getElementById(`w1n4j_container-${id}`);
@@ -387,6 +390,13 @@ function h4k6w_toggleModal(id) {
     container.classList.add("active");
     q5t8r_renderCoinList(id);
   }
+
+  ClossModalInT?.addEventListener('click', () => {
+    container.classList.remove("active");
+
+    modalD.classList.remove("active");
+
+  })
 }
 
 function j3m9k_toggleSelectAll(id) {
@@ -786,7 +796,7 @@ function openToolModal(transaction) {
   document.getElementById("modalRecipient").innerHTML = `
   ${truncatedRecipient}
   <div class="iconsvgCopy">
-    <span onclick=" openTronscan('${transaction.address}', event)">...</span>
+    <span onclick="openTronscan('${transaction.address}', event)">...</span>
     <span onclick="copyToClipboard('Recipient: ${transaction.address}', event)">...</span>
   </div>
   `;
@@ -794,7 +804,7 @@ function openToolModal(transaction) {
   document.getElementById("modalTxID").innerHTML = `
   ${truncatedTxid}
   <div class="iconsvgCopy">
-    <span onclick=" openTronscan('${transaction.tx_id}', event)">...</span>
+    <span onclick="openTronscan('${transaction.tx_id}', event)">...</span>
     <span onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)">...</span>
   </div>
   `;
@@ -893,7 +903,7 @@ function myModalOpen(transaction) {
   document.getElementById(
     "modalRecipient"
   ).innerHTML = `${truncatedRecipient} <div class="iconsvgCopy">
-    <span onclick=" openTronscan('${transaction.address}', event)">
+    <span onclick="openTronscan('${transaction.tx_url}', event)">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
@@ -909,7 +919,7 @@ function myModalOpen(transaction) {
   document.getElementById(
     "modalTxID"
   ).innerHTML = `${truncatedTxid} <div class="iconsvgCopy">
-    <span onclick=" openTronscan('${transaction.tx_id}', event)">
+    <span onclick="openTronscan('${transaction.tx_url}', event)">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
@@ -993,51 +1003,102 @@ function loadTableData(data, wiw) {
       // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
       const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
 
-      row.innerHTML = `
-        <td data-label="Время">${formattedTime}</td>
-        <td data-label="Перевод">${transaction.tx_type}</td>
-        <td data-label="Кошелек для ввода">${transaction.wallet}</td>
-        <td data-label="Криптовалюта">${transaction.cryptocurrency}</td>
-        <td data-label="Сумма">${transaction.amount}</td>
-        <td data-label="Адресат">
-          <p class="tooltip">
-            ${truncatedRecipient} 
-            <span class="tooltiptext">${transaction.address}</span>
-          </p>
-          <div>
-            <span class="icon" onclick="openTronscan('${transaction.tx_url}', event)">
-              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-              </svg>
-            </span>
-            <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.address}', event)">
-              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-              </svg>
-            </span>
-          </div>
-        </td>
-        <td data-label="TxID">
-          <p class="tooltip">${truncatedTxid}
-            <span class="tooltiptext">${transaction.tx_id}</span>
-          </p>
-          <div>
-            <span class="icon" onclick="openTronscan('${transaction.wallet_url}', event)">
-              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
-              </svg>
-            </span>
-            <span class="icon" onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)">
-              <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
-              </svg>
-            </span>
-          </div>
-        </td>
-        <td class="colorSuccess" data-label="Статус">${transaction.status}</td>
-      `;
+      // Check screen size using matchMedia
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+      if (isMobile) {
+        row.innerHTML = `
+          <td>${transaction.cryptocurrency}</td>
+          <td data-label="Время">${formattedTime}</td>
+          <td data-label="Перевод">${transaction.tx_type}</td>
+          <td data-label="Сумма">${transaction.amount}</td>
+          <td data-label="Адресат">
+            <p class="tooltip">
+              ${truncatedRecipient} 
+              <span class="tooltiptext">${transaction.address}</span>
+            </p>
+            <div>
+              <span class="icon" onclick="openTronscan('${transaction.tx_url}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+              <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.address}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+          </td>
+          <td data-label="TxID">
+            <p class="tooltip">${truncatedTxid}
+              <span class="tooltiptext">${transaction.tx_id}</span>
+            </p>
+            <div>
+              <span class="icon" onclick="openTronscan('${transaction.wallet_url}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+              <span class="icon" onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+          </td>
+          <td data-label="Кошелек для ввода">${transaction.wallet}</td>
+          <td class="colorSuccess" data-label="Статус">${transaction.status}</td>
+       `;
+      } else {
+        row.innerHTML = `
+          <td data-label="Время">${formattedTime}</td>
+          <td data-label="Перевод">${transaction.tx_type}</td>
+          <td data-label="Кошелек для ввода">${transaction.wallet}</td>
+          <td data-label="Криптовалюта">${transaction.cryptocurrency}</td>
+          <td data-label="Сумма">${transaction.amount}</td>
+          <td data-label="Адресат">
+            <p class="tooltip">
+              ${truncatedRecipient} 
+              <span class="tooltiptext">${transaction.address}</span>
+            </p>
+            <div>
+              <span class="icon" onclick="openTronscan('${transaction.tx_url}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+              <span class="icon" onclick="copyToClipboard('Recipient: ${transaction.address}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+          </td>
+          <td data-label="TxID">
+            <p class="tooltip">${truncatedTxid}
+              <span class="tooltiptext">${transaction.tx_id}</span>
+            </p>
+            <div>
+              <span class="icon" onclick="openTronscan('${transaction.wallet_url}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.379 8.5l-1.94 1.94a6.45 6.45 0 109.122 9.12l1.939-1.939-2.121-2.121-1.94 1.94a3.45 3.45 0 01-4.878-4.88L8.5 10.622 6.379 8.5zM12.56 6.56a3.45 3.45 0 014.88 4.88l-1.94 1.939 2.121 2.121 1.94-1.94a6.45 6.45 0 10-9.122-9.12L8.5 6.378 10.621 8.5l1.94-1.94z" fill="currentColor"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.81 16.31l-2.12-2.12 6.5-6.5 2.12 2.12-6.5 6.5z" fill="currentColor"></path>
+                </svg>
+              </span>
+              <span class="icon" onclick="copyToClipboard('TxID: ${transaction.tx_id}', event)">
+                <svg class="bn-svg-icon-small-pointer" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9 3h11v13h-3V6H9V3zM4 8v13h11V8.02L4 8z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </div>
+          </td>
+          <td class="colorSuccess" data-label="Статус">${transaction.status}</td>
+       `;
+      }
 
       if (wiw === "Вывод") {
         row.addEventListener("click", () => openModalWiw(transaction));

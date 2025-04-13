@@ -4091,10 +4091,27 @@
               </div>
 
               <div id="modal-1" class="modal">
+                <div class="px-m-between">
+                  <div class="typography-headline4">Кошелек</div><svg onclick="toggleModal(1)"
+                    class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
                 <input type="text" class="bn-textField" class="search-box" placeholder="Search..."
                   onkeyup="filterCoins(1, this)">
                 <div class="coin-list-container">
                   <ul class="coin-list" id="coin-list-1"></ul>
+                </div>
+
+                <div class="px-m-betweenBtn">
+                  <button onclick="toggleModal(1)" aria-label="Сбросить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onCancel"
+                    class="bn-button bn-button__secondary data-size-middle mr-s flex-1">Сбросить</button>
+                  <button onclick="toggleModal(1)" aria-label="Подтвердить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onConfirm"
+                    class="bn-button bn-button__primary data-size-middle flex-1">Подтвердить</button>
                 </div>
               </div>
             </div>
@@ -4117,10 +4134,29 @@
               </div>
 
               <div class="modal" id="modal-2">
+
+                <div class="px-m-between">
+                  <div class="typography-headline4">Субаккаунт</div><svg onclick="toggleModal(2)"
+                    class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
+
                 <input type="text" class="bn-textField" class="search-box" placeholder="Search..."
                   onkeyup="filterCoins(2, this)">
                 <div class="coin-list-container">
                   <ul class="coin-list" id="coin-list-2"></ul>
+                </div>
+
+                <div class="px-m-betweenBtn">
+                  <button onclick="toggleModal(2)" aria-label="Сбросить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onCancel"
+                    class="bn-button bn-button__secondary data-size-middle mr-s flex-1">Сбросить</button>
+                  <button onclick="toggleModal(2)" aria-label="Подтвердить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onConfirm"
+                    class="bn-button bn-button__primary data-size-middle flex-1">Подтвердить</button>
                 </div>
               </div>
             </div>
@@ -4139,14 +4175,45 @@
               </div>
 
               <div class="modal" id="modal-3">
+                <div class="px-m-between">
+                  <div class="typography-headline4">Монета</div><svg onclick="toggleModal(3)"
+                    class="bn-svg text-t-primary text-xl" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6.697 4.575L4.575 6.697 9.88 12l-5.304 5.303 2.122 2.122L12 14.12l5.303 5.304 2.122-2.122L14.12 12l5.304-5.303-2.122-2.122L12 9.88 6.697 4.575z"
+                      fill="currentColor"></path>
+                  </svg>
+                </div>
+
                 <input type="text" class="bn-textField" class="search-box" placeholder="Search..."
                   onkeyup="filterCoins(3, this)">
-                <div class="coin-list-container">
-                  <ul class="coin-list" id="coin-list-3"></ul>
+                <div class="j3k7q_listContainer">
+                  <ul class="n5p2m_coinList" id="c4v8p_coinList-3">
+                    <span class="g4m9x_selectedCoin">Все</span>
+                    <span class="g4m9x_selectedCoin"> <img src="../../../../../assets/img/coin1.png" alt=""> 1000CAT<p>
+                        1000*Simons Cat</p></span>
+                    <span class="g4m9x_selectedCoin"> <img src="../../../../../assets/img/coin2.png" alt=""> 1000CHEEMS
+                      <p>1000*cheems.pet</p>
+                    </span>
+                    <span class="g4m9x_selectedCoin"> <img src="../../../../../assets/img/coin3.png" alt=""> 1000PEPPER
+                      <p>PEPPER</p>
+                    </span>
+                    <span class="g4m9x_selectedCoin"> <img src="../../../../../assets/img/coin4.png" alt=""> 1000SATS<p>
+                        1000*SATS (Ordinals)</p></span>
+                  </ul>
+                </div>
+
+                <div class="px-m-betweenBtn">
+                  <button onclick="toggleModal(3)" aria-label="Сбросить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onCancel"
+                    class="bn-button bn-button__secondary data-size-middle mr-s flex-1">Сбросить</button>
+                  <button onclick="toggleModal(3)" aria-label="Подтвердить" role="button"
+                    id="btn-MultipleSelect-DrawerFooter-onConfirm"
+                    class="bn-button bn-button__primary data-size-middle flex-1">Подтвердить</button>
                 </div>
               </div>
-
             </div>
+
+            <!-- </div> -->
 
           </div>
           <!-- Background overlay -->

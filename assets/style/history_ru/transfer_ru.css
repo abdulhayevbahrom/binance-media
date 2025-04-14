@@ -1,6 +1,7 @@
 .order-select {
   position: relative;
-  width: 100%;
+  width: 170px;
+  min-width: 170px;
 }
 
 .order-select :hover {

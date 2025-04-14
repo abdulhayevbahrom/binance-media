@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const modal = document.getElementById("customModalSetting");
+
   const closeModal = document.querySelector(".close-modal");
   const sendToServer = async (data) => {
     getTableData(data)
@@ -341,10 +342,20 @@ let x9p4m_availableCoins = {
   // ]
 }
 
-// Initialize coin data with a complex name
+// Initialize coin data with all coins as default
 let k7v2n_coinData = { 1: [], 2: [], 3: [] };
 
+// Function to initialize default selections
+function initializeCoinData(id) {
+  if (x9p4m_availableCoins[id] && k7v2n_coinData[id].length === 0) {
+    k7v2n_coinData[id] = [...x9p4m_availableCoins[id]]; // Copy all coins as default
+  }
+}
+
 function q5t8r_renderCoinList(id) {
+  // Initialize default selections
+  initializeCoinData(id);
+
   const coins = x9p4m_availableCoins[id] || [];
   const isAllSelected = k7v2n_coinData[id].length === coins.length;
 
@@ -365,7 +376,7 @@ function q5t8r_renderCoinList(id) {
     const isChecked = k7v2n_coinData[id].includes(coin);
 
     return `
-            <li onclick="p8n2z_updateSelection(${id}, '${coin}')">
+            <li onclick="p8n2z_updateSelection(${id}, '${coinName}')">
                 <div class="v1r9t_checkIcon ${isChecked ? "active" : ""}">
                     <svg fill="BasicBg" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg" class="x3m6w_svgCheck">
                         <path d="M19.357 4.687L9.301 14.743l-4.656-4.657-3.03 3.031L9.3 20.804 22.388 7.717l-3.03-3.03z" fill="currentColor"></path>
@@ -383,7 +394,6 @@ function q5t8r_renderCoinList(id) {
 
   document.getElementById(`c4v8p_coinList-${id}`).innerHTML = listHtml;
 }
-
 function h4k6w_toggleModal(id) {
   const ClossModalInT = document.getElementById('toggleOut');
 
@@ -499,11 +509,14 @@ function filterCoins(id, input) {
   });
 }
 
-function loadTransactions() {
+
+function loadTransactions(transactions = []) {
   const tableBody = document.getElementById("transactionTableBody");
-  tableBody.innerHTML = "";
+  const tabLenght = document.getElementById("tabLenght");
+  tableBody.innerHTML = ""; // Oldingi ma'lumotlarni tozalash
+  tabLenght.innerText = transactions.length + "/15"; // Oldingi ma'lumotlarni tozalash
+
   if (transactions.length === 0) {
-    transactions;
     tableBody.innerHTML = `
       <tr class="bn-web-table-placeholder">
         <td colspan="3" class="bn-web-table-cell table-cells">
@@ -518,30 +531,72 @@ function loadTransactions() {
         </td>
       </tr>
     `;
-  } else {
-    transactions.forEach((tran) => {
-      const row = document.createElement("tr");
-      row.classList.add("modal-tab-row");
-      row.innerHTML = `
-        <td data-label="transactionTableBody">${tran.time}</td>
-        <td data-label="Date (UTC+0)">${tran.duration}</td>
-        <td data-label="Status" class="bn-web-table-cell">
-          <div class="bn-flexs-el">
-            <div class="text-font-medium">${tran.status}</div>
-            <a href="${tran.downloadLink}" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline" target="_blank" download="Binance-Transaction Records Report.zip">Download</a>
-          </div>
-        </td>
+    return;
+  }
+
+  transactions.forEach((tran) => {
+    const row = document.createElement("tr");
+    row.classList.add("modal-tab-row");
+
+    // dispatch_time ni Date ob'ektiga aylantirish
+    const dispatchTime = new Date(tran.dispatch_time);
+    const currentTime = new Date();
+    const timeDiff = (currentTime - dispatchTime) / (1000 * 60 * 60); // Soatlar soni
+    const isExpired = timeDiff > 24; // 24 soatdan oshsa
+
+    // Status holatini aniqlash
+    const statusContent = isExpired
+      ? `<div class="text-font-expired">Expired</div>`
+      : `
+        <div class="bn-flexs-el">
+          <div class="text-font-medium">Generated</div>
+          <a href="#" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline" onclick="downloadTransaction(${tran.etr_id})">Download</a>
+        </div>
       `;
-      tableBody.appendChild(row);
+
+    row.innerHTML = `
+      <td data-label="Submission time">${tran.dispatch_time}</td>
+      <td data-label="Date (UTC+0)">${tran.discharge_period}</td>
+      <td data-label="Status" class="bn-web-table-cell">${statusContent}</td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+
+// Yuklab olish funksiyasi
+async function downloadTransaction(etr_id) {
+  try {
+    const API = `${SERVER_URL}/order/transaction-history/document-export-transaction-records?etr_id=${etr_id}`;
+    const response = await fetch(API, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
     });
+
+    if (!response.ok) {
+      throw new Error("Failed to download file");
+    }
+
+    // Faylni blob sifatida olish
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Binance-Transaction Records Report.zip";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url); // Resurslarni tozalash
+  } catch (err) {
+    console.error("Error downloading transaction:", err);
   }
 }
 
-window.onload = function () {
-  loadTransactions();
-  // getTableData(getAllSelectedValues()); // Initial load
-};
+// downloadTransaction funksiyasini global qilish uchun
+window.downloadTransaction = downloadTransaction;
 
+window.onload = fetchTransactions;
 document.addEventListener("DOMContentLoaded", function () {
   let tabs = document.querySelectorAll(".bn-tab__default");
   let contentBoxes = document.querySelectorAll(".content-box");
@@ -721,9 +776,10 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
   }
 
   let tx_type;
-
+  const distribution = document.getElementById("distribution_history_airdrop_link");
   if (selectedValues.selectV4 === "Withdraw") {
     tx_type = "out";
+    distribution.innerText = "Withdrawal hasn't arrived?"
   } else if (selectedValues.selectV4 === "all") {
     tx_type = "all";
   } else {
@@ -768,9 +824,7 @@ async function getTableData(selectedValues = {}, isPaginationChange = false) {
     console.error("Error fetching data:", err);
     return null;
   } finally {
-    if (!isPaginationChange) {
-      document.getElementById("loading").style.display = "none";
-    }
+    document.getElementById("loading").style.display = "none";
   }
 }
 
@@ -1128,15 +1182,21 @@ function openTronscan(transactionId, event) {
   window.open(url, "_blank"); // Yangi oynada ochish
 }
 
-const transactions = [
-  {
-    time: "2025-03-10 12:51:33",
-    duration: "2024-12-10 - 2025-03-09",
-    status: "Generated",
-    downloadLink:
-      "https://d11ggcthlh2gdm.cloudfront.net/share/72796e84-a88b-46e1-a058-936c818044e6%40primary/wallet-ledger-download/92f00680-fd84-11ef-a9a4-0695fa030f45/98bb9fc6-fd84-11ef-bd14-7934718a13d0.zip?Expires=1742197942&Key-Pair-Id=K2V3MHPA1KP9UY",
-  },
-];
+
+async function fetchTransactions() {
+  try {
+    const api = `${SERVER_URL}/order/transaction-history/export-transaction-records?user_id=1`;
+    const response = await fetch(api);
+    const data = await response.json();
+
+
+    loadTransactions(data);
+  } catch (error) {
+    console.error('Xatolik yuz berdi:', error);
+  } finally {
+    document.getElementById('loader').style.display = 'none';
+  }
+}
 
 // ==========================================================
 // Экспортировать записи транзакций

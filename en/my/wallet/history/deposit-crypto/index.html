@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="../../../../../assets/style/styles_ru/history_deposit.css" />
   <link rel="stylesheet" href="../../../../../assets/style/history_ru/calendar.css" />
 
-  <title>Futures Account - Wallet - Currency Security</title>
+  <title>Transaction history - Wallet</title>
 </head>
 
 <body>
@@ -4122,7 +4122,7 @@
 
                     <div id="transactionNoData"></div>
 
-                    <div class="pagination-btn">
+                    <div style="width: 94%;" class="pagination-btn">
                       <button id="btnArrowPaginationOnPrevPage" class="pagonation-onPrevPage">
                         <svg viewBox="0 0 24 24" class="bn-svg">
                           <path fill-rule="evenodd" clip-ruleA="evenodd"
@@ -4535,7 +4535,7 @@
                     BSC</div>
                 </div>
                 <div class="bn-flex mb-m justify-between">
-                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">Note</div>
+                  <div class="body3 text-t-third mobile:min-w-[78px] mr-m min-w-[124px]">TxID</div>
                   <div id="tx_idMod" class="bn-flex body3 text-t-primary flex-wrap items-center break-all text-right">
 
                   </div>
@@ -4789,7 +4789,7 @@
               <div class="t9r2z_title">Account</div>
               <div id="w1n4j_container-1" class="p4j6w_selectBox">
                 <div class="select-content-tex">
-                  <div id="y6t3k_selectedText-1" class="k8n1b_subBox">Select accounts</div>
+                  <div id="y6t3k_selectedText-1" class="k8n1b_subBox">All</div>
                 </div>
                 <div class="q9m3x_iconAlt">
                   <svg class="z2v7s_svgIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4954,7 +4954,7 @@
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Generate quota this month:<span class="tab-lenght">1/15</span>
+                <div class="">Generate quota this month:<span id="tabLenght" class="tab-lenght">0/15</span>
                 </div>
               </div>
               <div class="flex-item">
@@ -4979,7 +4979,7 @@
                     <table style="table-layout: fixed;">
                       <thead class="bn-web-table-thead">
                         <tr>
-                          <th class="bn-web-table-cell">c</th>
+                          <th class="bn-web-table-cell">Submission time</th>
                           <th class="bn-web-table-cell">Date (UTC+0)</th>
                           <th class="bn-web-table-cell">Status</th>
                         </tr>
@@ -5059,9 +5059,14 @@
                 <div class="select-content-tex">
                   <div id="y6t3k_selectedText-4" class="k8n1b_subBox">All</div>
                   <style>
+                    #y6t3k_selectedText-1,
                     #y6t3k_selectedText-3,
                     #y6t3k_selectedText-4 {
                       color: aliceblue;
+                    }
+
+                    .p4j6w_selectBox {
+                      overflow: hidden !important;
                     }
                   </style>
                 </div>

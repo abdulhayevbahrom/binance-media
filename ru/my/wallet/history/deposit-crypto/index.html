@@ -3747,7 +3747,7 @@
 
                     <div id="transactionNoData"></div>
 
-                    <div style="margin-right: 25px;" class="pagination-btn">
+                    <div style="margin-right: 25px; width: 94%;" class="pagination-btn">
                       <button id="btnArrowPaginationOnPrevPage" class="pagonation-onPrevPage">
                         <svg viewBox="0 0 24 24" class="bn-svg">
                           <path fill-rule="evenodd" clip-ruleA="evenodd"
@@ -4409,7 +4409,7 @@
               <div class="t9r2z_title">Кошелек</div>
               <div id="w1n4j_container-1" class="p4j6w_selectBox">
                 <div class="select-content-tex">
-                  <div id="y6t3k_selectedText-1" class="k8n1b_subBox">Пожалуйста, выберите аккаунт</div>
+                  <div id="y6t3k_selectedText-1" class="k8n1b_subBox">Все</div>
                 </div>
                 <div class="q9m3x_iconAlt">
                   <svg class="z2v7s_svgIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4574,7 +4574,8 @@
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Оставшееся количество отчетов в этом месяце:<span class="tab-lenght">1/15</span>
+                <div class="">Оставшееся количество отчетов в этом месяце:<span id="tabLenght"
+                    class="tab-lenght">1/15</span>
                 </div>
               </div>
               <div class="flex-item">
@@ -4681,9 +4682,14 @@
                 <div class="select-content-tex">
                   <div id="y6t3k_selectedText-4" class="k8n1b_subBox">Все</div>
                   <style>
+                    #y6t3k_selectedText-1,
                     #y6t3k_selectedText-3,
                     #y6t3k_selectedText-4 {
                       color: aliceblue;
+                    }
+
+                    .p4j6w_selectBox {
+                      overflow: hidden !important;
                     }
                   </style>
                 </div>

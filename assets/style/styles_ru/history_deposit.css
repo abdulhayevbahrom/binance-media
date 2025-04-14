@@ -1542,7 +1542,7 @@ button {
 
 #xSelectedValue-s {
   display: inline-block;
-  width: 50px !important;
+  width: 70px !important;
   /* kerakli kenglikni tanlang */
   white-space: nowrap;
   overflow: hidden;

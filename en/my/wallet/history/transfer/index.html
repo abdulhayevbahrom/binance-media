@@ -25,7 +25,7 @@
   <!-- <link rel="stylesheet" href="../../../../../assets/style/styles_ru/history_deposit.css" /> -->
   <link rel="stylesheet" href="../../../../../assets/style/history_ru/transfer_ru.css" />
 
-  <title>История транзакций - Account - Безопасность валюты</title>
+  <title>Transaction history - Wallet</title>
 </head>
 
 
@@ -3966,8 +3966,13 @@
 
           </div>
 
-          <div class="captiontext-t-third">Coin</div>
+          <div class="captiontext-t-third">Time</div>
           <div class="order-select" id="orderType3"></div>
+          <style>
+            #orderType3 .order-select__label span {
+              width: 60px !important;
+            }
+          </style>
           <div class="captiontext-t-third">Coin</div>
           <div class="xCustomDropdownContainer" id="selectV1">
             <div class="xDropdownHeaderSection">
@@ -4026,11 +4031,6 @@
                 <div class="bn-web-table-container">
                   <div class="bn-web-table-content">
 
-                    <div class="tab-header-item">
-                      <div class="tab-text-right">
-                        <div class="subtitle3">USDT</div>
-                      </div>
-                    </div>
                     <table class="transactionTable" style="table-layout: auto;" id="transactionTable">
                       <thead>
                         <tr>
@@ -4176,16 +4176,26 @@
                             const date = new Date(transaction.time);
                             // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
                             const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+                            const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-                            // Example usage in your row.innerHTML
-                            row.innerHTML = `
+                            if (isMobile) {
+                              // Example usage in your row.innerHTML
+                              row.innerHTML = `
+                              <td >${transaction.coin}</td>
+                                <td data-label="Date">${formattedTime}</td>
+                                <td data-label="Amount">${transaction.amount}</td>
+                                <td data-label="From">${transaction.from}</td>
+                                <td data-label="To">${transaction.to}</td>
+                              `;
+                            } else {
+                              row.innerHTML = `
                                 <td data-label="Date">${formattedTime}</td>
                                 <td data-label="Coin">${transaction.coin}</td>
                                 <td data-label="Amount">${transaction.amount}</td>
                                 <td data-label="From">${transaction.from}</td>
                                 <td data-label="To">${transaction.to}</td>
                               `;
-
+                            }
                             row.addEventListener("click", () => openModal(transaction));
 
                             tableBody.appendChild(row);
@@ -4453,7 +4463,7 @@
               <div id="container-1" onclick="toggleModal(1)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
-                    <div id="selected-text-1" class="subaccount-box-tex">Select account</div>
+                    <div id="selected-text-1" class="subaccount-box-tex">All</div>
                   </div>
                 </div>
                 <div class="icon-texCash">
@@ -4538,7 +4548,14 @@
               <div class="title-tex">Coin</div>
               <div id="container-3" onclick="toggleModal(3)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-3" class="subaccount-box-tex">Select coin</div>
+                  <div id="selected-text-3" class="subaccount-box-tex">All</div>
+                  <style>
+                    #selected-text-1,
+                    #selected-text-3,
+                    #selected-text-4 {
+                      color: aliceblue;
+                    }
+                  </style>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4600,7 +4617,7 @@
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Generate quota this month:<span class="tab-lenght">1/15</span>
+                <div class="">Generate quota this month:<span id="tabLenght" class="tab-lenght">0/15</span>
                 </div>
               </div>
               <div class="flex-item">

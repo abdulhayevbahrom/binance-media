@@ -3654,11 +3654,7 @@
                 <div class="bn-web-table-container">
                   <div class="bn-web-table-content">
 
-                    <div class="tab-header-item">
-                      <div class="tab-text-right">
-                        <div class="subtitle3">USDT</div>
-                      </div>
-                    </div>
+
                     <table class="transactionTable" style="table-layout: auto;" id="transactionTable">
                       <thead>
                         <tr>
@@ -3803,16 +3799,26 @@
                             const date = new Date(transaction.time);
                             // Formatni moslashtiramiz: YYYY-MM-DD HH:MM
                             const formattedTime = date.toISOString().slice(0, 16).replace('T', ' ');
+                            const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-                            // Example usage in your row.innerHTML
-                            row.innerHTML = `
+                            if (isMobile) {
+                              // Example usage in your row.innerHTML
+                              row.innerHTML = `
+                              <td>${transaction.coin}</td>
+                              <td data-label="Дата">${formattedTime}</td>
+                              <td data-label="Сумма">${transaction.amount}</td>
+                              <td data-label="Из">${transaction.from}</td>
+                              <td data-label="B">${transaction.to}</td>
+                            `;
+                            } else {
+                              row.innerHTML = `
                               <td data-label="Дата">${formattedTime}</td>
                               <td data-label="Криптовалюта">${transaction.coin}</td>
                               <td data-label="Сумма">${transaction.amount}</td>
                               <td data-label="Из">${transaction.from}</td>
                               <td data-label="B">${transaction.to}</td>
                             `;
-
+                            }
                             row.addEventListener("click", () => openModal(transaction));
 
                             tableBody.appendChild(row);
@@ -4080,7 +4086,7 @@
               <div id="container-1" onclick="toggleModal(1)" class="select-box-tex">
                 <div class="select-content-tex">
                   <div class="subaccount-info-tex">
-                    <div id="selected-text-1" class="subaccount-box-tex">Пожалуйста, выберите аккаунт</div>
+                    <div id="selected-text-1" class="subaccount-box-tex">Все</div>
                   </div>
                 </div>
                 <div class="icon-texCash">
@@ -4165,7 +4171,14 @@
               <div class="title-tex">Монета</div>
               <div id="container-3" onclick="toggleModal(3)" class="select-box-tex">
                 <div class="select-content-tex">
-                  <div id="selected-text-3" class="subaccount-box-tex">Пожалуйста, выберите монету</div>
+                  <div id="selected-text-3" class="subaccount-box-tex">Все</div>
+                  <style>
+                    #selected-text-1,
+                    #selected-text-3,
+                    #selected-text-4 {
+                      color: aliceblue;
+                    }
+                  </style>
                 </div>
                 <div class="icon-tex">
                   <svg class="svg-icon-tex" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -4227,7 +4240,8 @@
             <div class="flex-item-box">
               <div class="flex-item">
                 <div style="margin:2px 4px 0 0;">*</div>
-                <div class="">Оставшееся количество отчетов в этом месяце:<span class="tab-lenght">1/15</span>
+                <div class="">Оставшееся количество отчетов в этом месяце:<span id="tabLenght"
+                    class="tab-lenght">0/15</span>
                 </div>
               </div>
               <div class="flex-item">

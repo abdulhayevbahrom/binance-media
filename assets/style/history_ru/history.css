@@ -803,6 +803,7 @@ html :is(.text-t-Primary) {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden !important;
 }
 
 /* Tanlov matni */
@@ -1108,6 +1109,10 @@ html :is(.text-t-Primary) {
   font-size: 13px;
 }
 
+.text-font-expired {
+  color: var(--color-textDisabled);
+}
+
 html :is(.underline) {
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -1228,7 +1233,8 @@ a {
   transition-duration: var(--animation-duration-base);
   transition-property: all;
   transition-timing-function: ease-in-out;
-  width: 100%;
+  width: 170px;
+  min-width: 170px;
 }
 
 .search-boxInp {
@@ -1745,7 +1751,7 @@ html :is(.items-center) {
 
 .export-history-export-button {
   position: absolute !important;
-  right: -35px !important;
+  right: -5px !important;
   top: 3px;
   width: 60px;
   background-color: #181a20;
@@ -1790,8 +1796,8 @@ html :is(.items-center) {
 
 .order-filters {
   display: flex;
-  gap: 15px;
-  width: 80% !important;
+  gap: 0px;
+  width: 75% !important;
 }
 
 .transfer-filters {
@@ -3005,7 +3011,7 @@ html :is(.items-center) {
 
 #xSelectedValue-s {
   display: inline-block;
-  width: 50px !important;
+  width: 70px !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

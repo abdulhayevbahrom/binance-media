@@ -174,7 +174,16 @@ function closeModals() {
   bg.classList.remove("active"); // Close the background overlay
 }
 
+
+function initializeCoinData(id) {
+  if (availableCoins[id] && coinData[id].length === 0) {
+    coinData[id] = [...availableCoins[id]]; // Copy all coins as default
+  }
+}
+
+
 function renderCoinList(id) {
+  initializeCoinData(id);
   let isAllSelected = coinData[id].length === availableCoins[id].length;
 
   let listHtml = `
@@ -283,19 +292,26 @@ function filterCoins(id, input) {
 //--------------------------------------------
 
 // Tranzaktsiyalarni array ko'rinishida saqlaymiz
-const transactions = [
-  {
-    time: "2025-03-10 12:51:33",
-    duration: "2024-12-10 - 2025-03-09",
-    status: "Generated",
-    downloadLink:
-      "https://d11ggcthlh2gdm.cloudfront.net/share/72796e84-a88b-46e1-a058-936c818044e6%40primary/wallet-ledger-download/92f00680-fd84-11ef-a9a4-0695fa030f45/98bb9fc6-fd84-11ef-bd14-7934718a13d0.zip?Expires=1742197942&Key-Pair-Id=K2V3MHPA1KP9UY",
-  },
-];
+async function fetchTransactions() {
+  try {
+    const api = `${SERVER_URL}/order/transaction-history/export-transaction-records?user_id=1`;
+    const response = await fetch(api);
+    const data = await response.json();
 
-function loadTransactions() {
+
+    loadTransactions(data);
+  } catch (error) {
+    console.error('Xatolik yuz berdi:', error);
+  } finally {
+    document.getElementById('loader').style.display = 'none';
+  }
+}
+
+function loadTransactions(transactions = []) {
   const tableBody = document.getElementById("transactionTableBody");
-  tableBody.innerHTML = ""; // Jadvalni tozalaymiz
+  const tabLenght = document.getElementById("tabLenght");
+  tableBody.innerHTML = ""; // Oldingi ma'lumotlarni tozalash
+  tabLenght.innerText = transactions.length + "/15"; // Oldingi ma'lumotlarni tozalash
 
   if (transactions.length === 0) {
     tableBody.innerHTML = `
@@ -304,42 +320,77 @@ function loadTransactions() {
           <div class="nodata-inTabel">
             <svg class="bn-svg" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
               <path opacity="0.5" d="M84 28H64V8l20 20z" fill="#AEB4BC"></path>
-              <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd"
-                d="M24 8h40v20h20v60H24V8zm10 30h40v4H34v-4zm40 8H34v4h40v-4zm-40 8h40v4H34v-4z"
-                fill="#AEB4BC">
-              </path>
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M22.137 64.105c7.828 5.781 18.916 5.127 26.005-1.963 7.81-7.81 7.81-20.474 0-28.284-7.81-7.81-20.474-7.81-28.284 0-7.09 7.09-7.744 18.177-1.964 26.005l-14.3 14.3 4.243 4.243 14.3-14.3zM43.9 57.9c-5.467 5.468-14.331 5.468-19.799 0-5.467-5.467-5.467-14.331 0-19.799 5.468-5.467 14.332-5.467 19.8 0 5.467 5.468 5.467 14.332 0 19.8z"
-                fill="#AEB4BC"></path>
+              <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" d="M24 8h40v20h20v60H24V8zm10 30h40v4H34v-4zm40 8H34v4h40v-4zm-40 8h40v4H34v-4z" fill="#AEB4BC"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M22.137 64.105c7.828 5.781 18.916 5.127 26.005-1.963 7.81-7.81 7.81-20.474 0-28.284-7.81-7.81-20.474-7.81-28.284 0-7.09 7.09-7.744 18.177-1.964 26.005l-14.3 14.3 4.243 4.243 14.3-14.3zM43.9 57.9c-5.467 5.468-14.331 5.468-19.799 0-5.467-5.467-5.467-14.331 0-19.799 5.468-5.467 14.332-5.467 19.8 0 5.467 5.468 5.467 14.332 0 19.8z" fill="#AEB4BC"></path>
             </svg>
             <div class="bodymt-4xs">No records</div>
           </div>
         </td>
       </tr>
     `;
-  } else {
-    transactions.forEach((tran) => {
-      const row = document.createElement("tr");
-      row.classList.add("modal-tab-row");
-      row.innerHTML = `
-            <td data-label="Submission time">${tran.time}</td>
-            <td data-label="Date (UTC+0)">${tran.duration}</td>
-            <td data-label="Status" class="bn-web-table-cell">
-              <div class="bn-flexs-el">
-                <div class="text-font-medium">${tran.status}</div>
-                <a href="${tran.downloadLink}" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline"
-                  target="_blank"
-                  download="Binance-Transaction Records Report.zip">Download</a>
-              </div>
-            </td>
-          `;
-      tableBody.appendChild(row);
+    return;
+  }
+
+  transactions.forEach((tran) => {
+    const row = document.createElement("tr");
+    row.classList.add("modal-tab-row");
+
+    // dispatch_time ni Date ob'ektiga aylantirish
+    const dispatchTime = new Date(tran.dispatch_time);
+    const currentTime = new Date();
+    const timeDiff = (currentTime - dispatchTime) / (1000 * 60 * 60); // Soatlar soni
+    const isExpired = timeDiff > 24; // 24 soatdan oshsa
+
+    // Status holatini aniqlash
+    const statusContent = isExpired
+      ? `<div class="text-font-expired">Expired</div>`
+      : `
+        <div class="bn-flexs-el">
+          <div class="text-font-medium">Generated</div>
+          <a href="#" class="typography-Btn_link3 text-t-TextLink hover:text-primaryHover text-[12px] font-medium leading-[18px] underline" onclick="downloadTransaction(${tran.etr_id})">Download</a>
+        </div>
+      `;
+
+    row.innerHTML = `
+      <td data-label="Submission time">${tran.dispatch_time}</td>
+      <td data-label="Date (UTC+0)">${tran.discharge_period}</td>
+      <td data-label="Status" class="bn-web-table-cell">${statusContent}</td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+
+// Yuklab olish funksiyasi
+async function downloadTransaction(etr_id) {
+  try {
+    const API = `${SERVER_URL}/order/transaction-history/document-export-transaction-records?etr_id=${etr_id}`;
+    const response = await fetch(API, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
     });
+
+    if (!response.ok) {
+      throw new Error("Failed to download file");
+    }
+
+    // Faylni blob sifatida olish
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "Binance-Transaction Records Report.zip";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url); // Resurslarni tozalash
+  } catch (err) {
+    console.error("Error downloading transaction:", err);
   }
 }
 
-// Sahifa yuklanganda tranzaktsiyalarni yuklaymiz
-window.onload = loadTransactions;
+window.onload = fetchTransactions;
 // //////////////////////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", function () {
